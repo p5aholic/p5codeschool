@@ -8,7 +8,7 @@ Markdownからhtmlの生成、sassのコンパイルなどをgulpで自動化し
 ## docs
 チュートリアルで使う原稿のMarkdownファイルの保存場所
 
-## ejs
+## templates
 htmlファイルのテンプレとなるejsファイルの保存場所
 
 ## samples
