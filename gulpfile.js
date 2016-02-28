@@ -13,7 +13,7 @@ var marked = require("marked");
 var hljs = require("highlight.js");
 
 var DEST = "upload";
-var jsonData = JSON.parse(fs.readFileSync("ejs/tutorial/data.json"));
+var jsonData = JSON.parse(fs.readFileSync("templates/tutorial/data.json"));
 
 var renderer = new marked.Renderer();
 renderer.heading = function(text, level) {
@@ -67,7 +67,7 @@ function mdToHTML(fileName) {
         pageTitle = "P5 Code School " + baseName + "「" + h1[1] + "」";
     }
         
-    gulp.src("ejs/index.ejs")
+    gulp.src("templates/index.ejs")
         .pipe(ejs(
             {
                 pageTitle: pageTitle,
@@ -91,7 +91,7 @@ function getChapterIndex(chapterNum) {
 }
 
 gulp.task("generateTutIndex", function() {
-    gulp.src("ejs/tutorial/index.ejs")
+    gulp.src("templates/tutorial/index.ejs")
     .pipe(ejs(
         {
             pageTitle: "P5 Code School : チュートリアル",
