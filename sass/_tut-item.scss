@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+@import "_util.scss";
+
+code.code-fragment {
+  display: block;
+  color: $orange;
+  font-family: "Source Code Pro";
+  font-weight: bold;
+  white-space: pre-wrap;
+}
+pre {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid $gray4;
+  overflow-x: auto;
+  code.lang-processing {
+    font-family: "Source Code Pro";
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+    @include media($bp640) {
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+    }
+  }
+}
+.sample-sketch {
+  width: 100%;
+  height: 375px;
+  border: 0;
+}
+.func-list {
+  margin: 15px 0;
+  dt {
+    float: left;
+    color: $winered;
+    font-family: "Source Code Pro";
+    font-size: 1.6rem;
+    width: 50%;
+    height: 45px;
+    @include media($bp640) {
+      font-size: 1.4rem;
+    }
+    a {
+      color: $winered;
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+  dd {
+    float: left;
+    color: $gray2;
+    font-size: 1.6rem;
+    margin: 0;
+    text-align: left;
+    width: 50%;
+    height: 45px;
+    @include media($bp640) {
+      font-size: 1.4rem;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+#footerNavi {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  %footerNaviLink {
+    position: absolute;
+    top: 35%;
+    font-size: 2.0rem;
+    color: $winered;
+    &:hover {
+      border-bottom: 2px dotted $winered;
+    }
+    @include media($bp640) {
+      font-size: 1.8rem;
+    }
+  }
+  #previous {
+    @extend %footerNaviLink;
+    left: 0;
+  }
+  #next {
+    @extend %footerNaviLink;
+    right: 0;
+  }
+}

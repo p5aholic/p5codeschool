@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>P5 Code School Chapter6「条件分岐」</title>
+    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/header-sketch.js"></script>
+</head>
+
+<body>
+    <div id="p5Header"></div>
+    <header id="header">
+        <span id="title-p5">P5</span>
+        <span id="title-code">Code</span>
+        <span id="title-school">School</span>
+    </header>
+
+<div id="mainNavigation">
+    <nav class="page-navi">
+        <h3 class="side-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <div class="link-text">トップ</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <div class="link-text">チュートリアル</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/tutorial/chapter5">
+                    <div class="link-text">前のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="/tutorial/chapter7">
+                    <div class="link-text">次のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="author">
+        <h3 class="side-title">Author</h3>
+        <ul>
+            <li>
+                <a href="https://twitter.com/P5Aholic" target="_blank">
+                    <div class="link-text">Twitter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://p5aholic.hatenablog.com/" target="_blank">
+                    <div class="link-text">Blog</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="naviControll">
+        <div id="layer1"></div>
+        <div id="layer2"></div>
+        <div id="layer3"></div>
+    </div>
+</div>
+
+<article id="mainContents">
+    <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立ててボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
+<h2>真偽値と比較演算子</h2><p>Chapter4でint、float、colorの３つのデータ型を紹介しました。ここではもう一つboolean(ブーリアン)型というデータ型を紹介します。boolean型は真偽値と呼ばれる値を扱うデータ型で、boolean型が扱える値はtrue(真)かfalse(偽)の２つのみです。</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = <span class="hljs-keyword">true</span>;
+<span class="hljs-built_in">boolean</span> b2 = <span class="hljs-keyword">false</span>;
+<span class="hljs-built_in">println</span>(b1); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(b2); <span class="hljs-comment">// false</span>
+</code></pre>
+<p>boolean型変数が真ならコッチ、偽ならアッチという風にプログラムの流れを変える場合に使ったりします。</p>
+<p>２つの値を比較してtrueかfalseを返す比較演算子と呼ばれるものを紹介します。</p>
+<dl class="func-list">
+    <dt>&lt;</dt>
+    <dd>より小さい</dd>
+    <dt>&lt;=</dt>
+    <dd>より小さい、もしくは等しい(以下)</dd>
+    <dt>&gt;</dt>
+    <dd>より大きい</dd>
+    <dt>&gt;=</dt>
+    <dd>より大きい、もしくは等しい(以上)</dd>
+    <dt>==</dt>
+    <dd>等しい</dd>
+    <dt>!=</dt>
+    <dd>等しくない</dd>
+</dl>
+
+<pre><code class="lang-processing"><span class="hljs-built_in">println</span>(<span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>);   <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-number">10</span> &lt;= <span class="hljs-number">10</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-number">5</span> &gt; <span class="hljs-number">10</span>);   <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-number">9</span> &gt;= <span class="hljs-number">10</span>);  <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-number">3</span> == <span class="hljs-number">3</span>);   <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-number">7</span> != <span class="hljs-number">7</span>);   <span class="hljs-comment">// false</span>
+</code></pre>
+<p>int型やfloat型の算術演算と同じような感覚で演算結果をboolean型変数に代入することもできます。</p>
+<pre><code class="lang-processing"><span class="hljs-comment">// 5 &lt; 10の結果をb1に代入</span>
+<span class="hljs-built_in">boolean</span> b1 = <span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>;
+<span class="hljs-built_in">println</span>(b1); <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// 9 == 10の結果をb2に代入</span>
+<span class="hljs-built_in">boolean</span> b2 = <span class="hljs-number">9</span> == <span class="hljs-number">10</span>;
+<span class="hljs-built_in">println</span>(b2); <span class="hljs-comment">// false</span>
+</code></pre>
+<h2>条件分岐</h2><p>これらの比較演算を使ってプログラム内に条件分岐を作っていきます。条件分岐はif()文を使って作ることができます。</p>
+<p><code class='code-fragment'>if (真偽値) {
+  // 処理
+}</code></p>
+<p>ifと書いた後に真偽値を()で囲みます。{}で囲まれた中の処理は真偽値がtrueのときのみ実行されます。もちろん()の中に比較演算子を用いた条件式を書くこともできます。</p>
+<p><code class='code-fragment'>if (条件式) {
+  // 処理
+}</code></p>
+<p>処理内容が１行だけで書ける場合は{}で囲まなくても大丈夫です。</p>
+<p><code class='code-fragment'>if(条件式) // 処理</code></p>
+<p>ただ、見やすさのために１行だけでも{}で囲むことはよくあります。</p>
+<p>ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。</p>
+<p><iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y;     <span class="hljs-comment">// ボールの位置</span>
+<span class="hljs-built_in">int</span> vx, vy;   <span class="hljs-comment">// ボールの速度</span>
+<span class="hljs-built_in">int</span> ballSize; <span class="hljs-comment">// ボールの大きさ</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
+  <span class="hljs-comment">// ボールの初期値を設定</span>
+  x = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
+  y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>;
+  vx = <span class="hljs-number">3</span>;
+  vy = <span class="hljs-number">2</span>;
+  ballSize = <span class="hljs-number">40</span>;
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">180</span>);
+
+  <span class="hljs-comment">// ボールを描画</span>
+  <span class="hljs-built_in">ellipse</span>(x, y, ballSize, ballSize);
+
+  <span class="hljs-comment">// ボールを動かす</span>
+  x += vx;
+  y += vy;
+
+  <span class="hljs-comment">// 左の壁にぶつかったら</span>
+  <span class="hljs-keyword">if</span> (x-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span>) {
+    vx *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// x軸方向の速度反転</span>
+  }
+  <span class="hljs-comment">// 右の壁にぶつかったら</span>
+  <span class="hljs-keyword">if</span> (x+ballSize/<span class="hljs-number">2</span> &gt;= <span class="hljs-built_in">width</span>) {
+    vx *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// x軸方向の速度反転</span>
+  }
+  <span class="hljs-comment">// 上の壁にぶつかったら</span>
+  <span class="hljs-keyword">if</span> (y-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span>) {
+    vy *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// y軸方向の速度反転</span>
+  }
+  <span class="hljs-comment">// 下の壁にぶつかったら</span>
+  <span class="hljs-keyword">if</span> (y+ballSize/<span class="hljs-number">2</span> &gt;= <span class="hljs-built_in">height</span>) {
+    vy *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// y軸方向の速度反転</span>
+  }
+}
+</code></pre>
+<p>まず、ellipse()で描画するボールの位置、速度、大きさを表す変数を用意します。vxはx軸方向の速度、vyはy軸方向の速度を表しています。vは速度を意味する英語のvelocityから取っています。</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y;     <span class="hljs-comment">// ボールの位置</span>
+<span class="hljs-built_in">int</span> vx, vy;   <span class="hljs-comment">// ボールの速度</span>
+<span class="hljs-built_in">int</span> ballSize; <span class="hljs-comment">// ボールの大きさ</span>
+</code></pre>
+<p>変数に初期値を設定します。</p>
+<pre><code class="lang-processing">x = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
+y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>;
+vx = <span class="hljs-number">3</span>;
+vy = <span class="hljs-number">2</span>;
+ballSize = <span class="hljs-number">40</span>;
+</code></pre>
+<p>ボールをellipse()で描画した後に、位置xにはx軸方向の速度vxを、位置yにはy軸方向の速度vyを足します。こうすることでボールが動いていくように見えます。</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">ellipse</span>(x, y, ballSize, ballSize);
+
+<span class="hljs-comment">// ボールを動かす</span>
+x += vx;
+y += vy;
+</code></pre>
+<p>ウィンドウの端にボールが来た時に速度に-1をかけることでボールを跳ね返えらせます。ボールの位置x、yはボールの中心座標を表しています。ウィンドウの左端にぶつかるのはボールの左端(x-ballSize/2)なので左端にぶつかった時を表すif文の条件式を</p>
+<p><code class='code-fragment'>x-ballSize/2 &lt;= 0</code></p>
+<p>としています。ウィンドウの右端にぶつかるのはボールの右端(x+ballSize/2)なので右端にぶつかった時を表すif文の条件式を</p>
+<p><code class='code-fragment'>x+ballSize/2 &gt;= width</code></p>
+<p>としています。ウィンドウの上端と下端も同様です。</p>
+<pre><code class="lang-processing"><span class="hljs-comment">// 左の壁にぶつかったら</span>
+<span class="hljs-keyword">if</span> (x-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span>) {
+  vx *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// x軸方向の速度反転</span>
+}
+<span class="hljs-comment">// 右の壁にぶつかったら</span>
+<span class="hljs-keyword">if</span> (x+ballSize/<span class="hljs-number">2</span> &gt;= <span class="hljs-built_in">width</span>) {
+  vx *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// x軸方向の速度反転</span>
+}
+<span class="hljs-comment">// 上の壁にぶつかったら</span>
+<span class="hljs-keyword">if</span> (y-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span>) {
+  vy *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// y軸方向の速度反転</span>
+}
+<span class="hljs-comment">// 下の壁にぶつかったら</span>
+<span class="hljs-keyword">if</span> (y+ballSize/<span class="hljs-number">2</span> &gt;= <span class="hljs-built_in">height</span>) {
+  vy *= <span class="hljs-number">-1</span>; <span class="hljs-comment">// y軸方向の速度反転</span>
+}
+</code></pre>
+<p>これら４つのif文の{}で囲まれた中の処理はそれぞれのif文の条件式がtrueを返したときのみ実行されます。それぞれの条件式で使う比較演算子に &lt;= と &gt;= を使って、ボールの端がウィンドウの端と等しい場合だけでなく、超えた場合についても対応しています。vxとvyの値によってはボールの端とウィンドウの端が完全に一致せずに超えてしまうこともあるからです。</p>
+<h2>論理演算子</h2><p>上の４つのif文は論理演算子というものを使うと２つのif文にまとめることができます。論理演算子には以下の３つがあります。</p>
+<dl class="func-list">
+    <dt>||</dt>
+    <dd>または(論理和)、OR</dd>
+    <dt>&amp;&amp;</dt>
+    <dd>かつ(論理積)、AND</dd>
+    <dt>!</dt>
+    <dd>でなければ(論理否定)、NOT</dd>
+</dl>
+
+<p>論理和は２つの真偽値を比べて２つとも偽(false)だった場合のみfalseを返します。それ以外はtrueを返します。論理積は２つの真偽値を比べて２つとも真(true)だった場合のみtrueを返します。それ以外はfalseを返します。論理否定はtrueをfalseに、falseをtrueにして返します</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = (<span class="hljs-number">5</span> == <span class="hljs-number">5</span>) || (<span class="hljs-number">4</span> == <span class="hljs-number">4</span>); <span class="hljs-comment">// true OR true</span>
+<span class="hljs-built_in">boolean</span> b2 = (<span class="hljs-number">5</span> == <span class="hljs-number">5</span>) || (<span class="hljs-number">4</span> == <span class="hljs-number">3</span>); <span class="hljs-comment">// true OR false</span>
+<span class="hljs-built_in">boolean</span> b3 = (<span class="hljs-number">5</span> == <span class="hljs-number">3</span>) || (<span class="hljs-number">4</span> == <span class="hljs-number">3</span>); <span class="hljs-comment">// false OR false</span>
+<span class="hljs-built_in">println</span>(b1); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(b2); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(b3); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-string">"-----"</span>);
+
+<span class="hljs-built_in">boolean</span> b4 = (<span class="hljs-number">5</span> == <span class="hljs-number">5</span>) &amp;&amp; (<span class="hljs-number">4</span> == <span class="hljs-number">4</span>); <span class="hljs-comment">// true AND true</span>
+<span class="hljs-built_in">boolean</span> b5 = (<span class="hljs-number">5</span> == <span class="hljs-number">5</span>) &amp;&amp; (<span class="hljs-number">4</span> == <span class="hljs-number">3</span>); <span class="hljs-comment">// true AND false</span>
+<span class="hljs-built_in">boolean</span> b6 = (<span class="hljs-number">5</span> == <span class="hljs-number">3</span>) &amp;&amp; (<span class="hljs-number">4</span> == <span class="hljs-number">3</span>); <span class="hljs-comment">// false AND false</span>
+<span class="hljs-built_in">println</span>(b4); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">println</span>(b5); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">println</span>(b6); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">println</span>(<span class="hljs-string">"-----"</span>);
+
+<span class="hljs-built_in">println</span>(!<span class="hljs-keyword">true</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">println</span>(!<span class="hljs-keyword">false</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<p>(5 == 5)のように()で囲っているのは見やすくするためだけです。</p>
+<p>論理和を使ってボールがウィンドウの端で跳ね返る処理を２つのif文にまとめると次のようになります。</p>
+<pre><code class="lang-processing"><span class="hljs-comment">// 左右の壁との当たり判定</span>
+<span class="hljs-keyword">if</span> (x-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span> || x+ballSize/<span class="hljs-number">2</span> &gt;= <span class="hljs-built_in">width</span>) {
+  vx *= <span class="hljs-number">-1</span>;
+}
+<span class="hljs-comment">// 上下の壁との当たり判定</span>
+<span class="hljs-keyword">if</span> (y-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span> || y+ballSize/<span class="hljs-number">2</span> &gt;= <span class="hljs-built_in">height</span>) {
+  vy *= <span class="hljs-number">-1</span>;
+}
+</code></pre>
+<h2>if else文</h2><p>if文ではある条件に当てはまった場合のみの制御しかできませんでした。if else文を使うと、条件に当てはまらなかった場合の制御ができるようになります。</p>
+<p><code class='code-fragment'>if (条件式) {
+  // 真の場合の処理
+} else {
+  // 偽の場合の処理
+}</code></p>
+<p>通常のif文の後にelse文を書くと、if文の条件式が偽(false)だった場合にelse文の処理が実行されます。次のプログラムは、マウスがウィンドウの左半分にあるときは円を表示、そうでない(ウィンドウの右半分にある)ときは正方形を表示するプログラムです。</p>
+<p><iframe src="/samples/tutorial/Chapter6/sketch06.html" class="sample-sketch"></iframe></p>
+<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noFill</span>();
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-built_in">rectMode</span>(CENTER);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">128</span>);
+
+  <span class="hljs-comment">// 左半分</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
+    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  }
+  <span class="hljs-comment">// 右半分</span>
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+    <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  }
+}
+</code></pre>
+<p>このif else文は次のようにif文だけで書いても見た目上の動きは同じです。</p>
+<pre><code class="lang-processing"><span class="hljs-comment">// 左半分</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>) {
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
+  <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+}
+<span class="hljs-comment">// 右半分</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt; <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>) {
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+}
+</code></pre>
+<p>でも、マウスがウィンドウの左半分にあり、かつ右半分にもあるということはありえません。このif文ではマウスがウィンドウの右半分にないとわかっていても、右半分にあるかを確かめることになります。左半分にあるならば右半分にないことはわかりきっています。こういう場合はif else文を使うのが適切です。</p>
+<h2>else if文</h2><p>if else文で２つの分岐を作ることができました。分岐をさらに増やすにはelse if文を使います。else if文は通常のif文の後に書いて分岐を増やすために使います。else if文はいくらでも書けます。else if文をずらーーと書いた最後にelse文を書くと、全ての条件式に当てはまらなかった場合の処理が書けます。 最後のelse文は無くてもいいです。必要に応じて書くものです。</p>
+<p><code class='code-fragment'>if (条件式1) {
+  // 条件式1が真の場合の処理
+} else if (条件式2) {
+  // 式1が偽かつ式2が真の場合の処理
+} else if (条件式3) {
+  // 式1、2が偽かつ式3が真の場合の処理
+} else {
+  // どの条件式にも当てはまらなかった場合の処理
+}</code></p>
+<p>else if文は、それ以前にあるif文とelse if文が偽かつ自身が真の場合のみ実行されます。先頭のif文が真ならばそれ以降のelse if文と最後のelseは無視されます。</p>
+<p>ウィンドウを４分割してそれぞれの領域で別々の図形を描くプログラムを作りました。</p>
+<p><iframe src="/samples/tutorial/Chapter6/sketch07.html" class="sample-sketch"></iframe></p>
+<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noFill</span>();
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-built_in">rectMode</span>(CENTER);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
+
+  <span class="hljs-comment">// ４分割した左端</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">mouseX</span> &lt; <span class="hljs-built_in">width</span>/<span class="hljs-number">4</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>, <span class="hljs-number">90</span>, <span class="hljs-number">20</span>);
+    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  }
+  <span class="hljs-comment">// 4分割した左端から２番目</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">4</span> &amp;&amp; <span class="hljs-built_in">mouseX</span> &lt; <span class="hljs-number">2</span>*<span class="hljs-built_in">width</span>/<span class="hljs-number">4</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">50</span>, <span class="hljs-number">110</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+    <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+  }
+  <span class="hljs-comment">// ４分割した右端から２番目</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt;= <span class="hljs-number">2</span>*<span class="hljs-built_in">width</span>/<span class="hljs-number">4</span> &amp;&amp; <span class="hljs-built_in">mouseX</span> &lt; <span class="hljs-number">3</span>*<span class="hljs-built_in">width</span>/<span class="hljs-number">4</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">230</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  }
+  <span class="hljs-comment">// ４分割した右端</span>
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">65</span>, <span class="hljs-number">180</span>, <span class="hljs-number">110</span>);
+    <span class="hljs-built_in">triangle</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+  }
+}
+</code></pre>
+<p>else if文の中では論理演算子&amp;&amp;を使ってウィンドウの領域を区切っています。</p>
+<h2>if文の中のif文</h2><p>if文の中にif文を書いて、その中にif文を書いて・・・という風に入れ子状に書いていくことができます。次のプログラムはウィンドウを縦横に４分割して、それぞれの領域で別々の図形を描くプログラムです。</p>
+<p><iframe src="/samples/tutorial/Chapter6/sketch08.html" class="sample-sketch"></iframe></p>
+<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noFill</span>();
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-built_in">rectMode</span>(CENTER);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
+
+  <span class="hljs-comment">// 左半分</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>) {
+    <span class="hljs-comment">// 上半分</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseY</span> &lt;= <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
+      <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>, <span class="hljs-number">90</span>, <span class="hljs-number">20</span>);
+      <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+    }
+    <span class="hljs-comment">// 下半分</span>
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">stroke</span>(<span class="hljs-number">50</span>, <span class="hljs-number">110</span>, <span class="hljs-number">150</span>);
+      <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+      <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+    }
+  }
+  <span class="hljs-comment">// 右半分</span>
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// 上半分</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseY</span> &lt;= <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
+      <span class="hljs-built_in">stroke</span>(<span class="hljs-number">230</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>);
+      <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+    }
+    <span class="hljs-comment">// 下半分</span>
+    <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">stroke</span>(<span class="hljs-number">65</span>, <span class="hljs-number">180</span>, <span class="hljs-number">110</span>);
+      <span class="hljs-built_in">triangle</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+    }
+  }
+}
+</code></pre>
+<p>まずウィンドウの左半分か右半分かで分岐させて、その中でさらに上半分か下半分で分岐させています。この入れ子状のif文も以下のように４つのif文で書くこともできますが、あまり適切ではないことはさきほど言った通りです。</p>
+<pre><code class="lang-processing"><span class="hljs-comment">// 左半分かつ上半分</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &lt;= <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>, <span class="hljs-number">90</span>, <span class="hljs-number">20</span>);
+    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+}
+<span class="hljs-comment">// 左半分かつ下半分</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &gt; <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">50</span>, <span class="hljs-number">110</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+    <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+}
+<span class="hljs-comment">// 右半分かつ上半分</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt; <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &lt;= <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">230</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+}
+<span class="hljs-comment">// 右半分かつ下半分</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt; <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &gt; <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
+    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">65</span>, <span class="hljs-number">180</span>, <span class="hljs-number">110</span>);
+    <span class="hljs-built_in">triangle</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+}
+</code></pre>
+<h2>switch文</h2><p>if文ともうひとつ、switch文でも条件分岐を行えます。switch文は次のように使います。</p>
+<p><code class='code-fragment'>switch (条件式) {
+  case 数値:
+    実行分;
+    break;
+  case 数値:
+    実行分;
+    break;
+    .
+    .
+}</code></p>
+<p>switch文は条件式に指定された値と同じ数値を持つcaseへジャンプします。そして、そのcase内の実行分を実行し、break文を見つけるとswitch文のブロックを抜けます。次のプログラムでは変数rによって描く図形を分岐させています。</p>
+<p><iframe src="/samples/tutorial/Chapter6/sketch09.html" class="sample-sketch"></iframe></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+<span class="hljs-built_in">noStroke</span>();
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">30</span>);
+
+<span class="hljs-built_in">int</span> r = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">3</span>);
+
+<span class="hljs-comment">// rの値で分岐する</span>
+<span class="hljs-keyword">switch</span>(r) {
+  <span class="hljs-comment">// 0の場合</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-keyword">break</span>; <span class="hljs-comment">// switchのブロックを抜ける</span>
+  <span class="hljs-comment">// 1の場合</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-75</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span><span class="hljs-number">-75</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-keyword">break</span>; <span class="hljs-comment">// switchのブロックを抜ける</span>
+  <span class="hljs-comment">// 2の場合</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+    <span class="hljs-built_in">background</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+    <span class="hljs-keyword">break</span>; <span class="hljs-comment">// switchのブロックを抜ける</span>
+}
+</code></pre>
+<p>caseの最後にbreakを書くのを忘れないようにしてください。breakが無いとswitchのブロックを抜けずに次のcaseの実行文に移ってしまいます。</p>
+<p>switch文の条件式に使うことができるのは整数値のみです。if文のように値を比較したりすることができません。なので、条件分岐の能力はif文に比べると劣るのですが、整数値による分岐をしたい場合はif文で書くよりもコンパクトに書くことができます。今はあまり使い時がわからないかもしれませんが、頭の片隅に置いておいてください。</p>
+<p>switch文ではdefaultを使うとどの値にも当てはまらなかった場合の分岐ができます。if文でいうとelseに当たります。</p>
+<p><code class='code-fragment'>switch (条件式) {
+  case 数値:
+    実行分;
+    break;
+  case 数値:
+    実行分;
+    break;
+  default:
+    実行分;
+    break;
+}</code></p>
+<p><iframe src="/samples/tutorial/Chapter6/sketch10.html" class="sample-sketch"></iframe></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+<span class="hljs-built_in">noStroke</span>();
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">30</span>);
+
+<span class="hljs-built_in">int</span> r = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">5</span>);
+
+<span class="hljs-comment">// rの値で分岐する</span>
+<span class="hljs-keyword">switch</span>(r) {
+  <span class="hljs-comment">// 0の場合</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-comment">// 1の場合</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-75</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span><span class="hljs-number">-75</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-comment">// それ以外の場合</span>
+  <span class="hljs-keyword">default</span>:
+    <span class="hljs-built_in">background</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+    <span class="hljs-keyword">break</span>;
+}
+</code></pre>
+<p>お疲れさまでした。Chapter6はこれで終了です。</p>
+
+</article>
+    <footer>
+        <p>&copy P5 Code School 2015</p>
+    </footer>
+</body>
+</html>
+

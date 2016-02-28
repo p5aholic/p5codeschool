@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            stroke(0);
+            strokeWeight(10);
+        }
+        
+        function draw() {
+            background(255);
+            translate(width/2, height/2);
+
+            // 0度から360度になるまで5度ずつ増やす
+            for (var i = 0; i < 360; i += 5) {
+                // ラジアンに変換
+                var angle = radians(i);
+                // 半径150の円上の座標を計算
+                var x = 150 * cos(angle);
+                var y = 150 * sin(angle);
+                // 点を描画
+                point(x, y);
+            }
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            noStroke();
+            fill(0);
+        }
+        
+        function draw() {
+            background(255);
+            
+            // 左端から右端まで15px間隔で円を描画
+            for (var x = 0; x <= width; x += 15) {
+                // xに応じて高さを変える
+                var y = height/2 + 100 * sin(x*0.01);
+                ellipse(x, y, 15, 15);
+            }
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

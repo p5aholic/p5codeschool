@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    button {
+      outline: none;
+      border: none;
+      padding: 0;
+      background-color: #555;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        var isLoop = false;
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            frameRate(60);
+            noFill();
+            strokeWeight(5);
+            rectMode(CENTER);
+        }
+        
+        function draw() {
+            background(0);
+
+            // 左半分
+            if (mouseX <= width/2) {
+              // 上半分
+              if (mouseY <= height/2) {
+                stroke(220, 90, 20);
+                ellipse(mouseX, mouseY, 50, 50);
+              }
+              // 下半分
+              else {
+                stroke(50, 110, 150);
+                line(mouseX-25, mouseY-25, mouseX+25, mouseY+25);
+                line(mouseX+25, mouseY-25, mouseX-25, mouseY+25);
+              }
+            }
+            // 右半分
+            else {
+              // 上半分
+              if (mouseY <= height/2) {
+                stroke(230, 175, 150);
+                rect(mouseX, mouseY, 50, 50);
+              }
+              // 下半分
+              else {
+                stroke(65, 180, 110);
+                triangle(mouseX-25, mouseY+25, mouseX, mouseY-25, mouseX+25, mouseY+25);
+              }
+            }
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+        
+        function switchLoop() {
+            if (isLoop) {
+                noLoop();
+                isLoop = false;
+            } else {
+                loop();
+                isLoop = true;
+            }
+        }
+        
+        window.addEventListener("mouseover", switchLoop, false);
+        window.addEventListener("mouseout", switchLoop, false);
+    </script>
+</head>
+<body>
+</body>
+</html>

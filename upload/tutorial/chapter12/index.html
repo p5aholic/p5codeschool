@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>P5 Code School Chapter12「乱数」</title>
+    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/header-sketch.js"></script>
+</head>
+
+<body>
+    <div id="p5Header"></div>
+    <header id="header">
+        <span id="title-p5">P5</span>
+        <span id="title-code">Code</span>
+        <span id="title-school">School</span>
+    </header>
+
+<div id="mainNavigation">
+    <nav class="page-navi">
+        <h3 class="side-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <div class="link-text">トップ</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <div class="link-text">チュートリアル</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/tutorial/chapter11">
+                    <div class="link-text">前のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="/tutorial/chapter13">
+                    <div class="link-text">次のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="author">
+        <h3 class="side-title">Author</h3>
+        <ul>
+            <li>
+                <a href="https://twitter.com/P5Aholic" target="_blank">
+                    <div class="link-text">Twitter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://p5aholic.hatenablog.com/" target="_blank">
+                    <div class="link-text">Blog</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="naviControll">
+        <div id="layer1"></div>
+        <div id="layer2"></div>
+        <div id="layer3"></div>
+    </div>
+</div>
+
+<article id="mainContents">
+    <h1>乱数</h1><p>random()によって作ることができる乱数を復習したあと、パーリンノイズと呼ばれる特殊な乱数について解説します。</p>
+<h2>random()で作る乱数</h2><p>random()は今までに何回か出てきましたがもう一度復習しておきます。random()には次の２通りの使い方があります。</p>
+<dl class="func-list">
+    <dt><a href="https://www.processing.org/reference/random_.html" target="_blank">random(high)</a></dt>
+    <dd>0以上high未満の乱数を返す</dd>
+    <dt><a href="https://www.processing.org/reference/random_.html" target="_blank">radnom(low, high)</a></dt>
+    <dd>low以上high未満の乱数を返す</dd>
+</dl>
+
+<p>返す値がhigh未満だということだけ注意してください。random(5)なら返ってくる値は5を含みません。random(10.4)なら返ってくる値は10.4を含みません。前回解説したsin()とcos()を使って次のプログラムを作りました。</p>
+<iframe src="/samples/tutorial/Chapter12/sketch01.html" class="sample-sketch"></iframe>
+
+<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noLoop</span>();
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>);
+
+  <span class="hljs-comment">// 長さがランダムな線を放射状に描画する</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">360</span>; i += <span class="hljs-number">5</span>) {
+    <span class="hljs-built_in">float</span> angle = <span class="hljs-built_in">radians</span>(i);
+    <span class="hljs-comment">// ランダムな半径</span>
+    <span class="hljs-built_in">float</span> radius = <span class="hljs-built_in">random</span>(<span class="hljs-number">200</span>);
+    <span class="hljs-built_in">float</span> x = radius * <span class="hljs-built_in">cos</span>(angle);
+    <span class="hljs-built_in">float</span> y = radius * <span class="hljs-built_in">sin</span>(angle);
+    <span class="hljs-comment">// 中心から(x, y)に向かう線</span>
+    <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, x, y);
+  }
+}
+
+<span class="hljs-comment">// マウスクリックで再描画</span>
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">mousePressed</span>() {
+  <span class="hljs-built_in">redraw</span>();
+}
+</code></pre>
+<h2>シード値</h2><p>通常、random()によって作られる乱数はプログラムが実行されるたびに違った値になります。言葉ではよくわからないと思うので、次のプログラムを実行してみてください。</p>
+<pre><code class="lang-processing"><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+  <span class="hljs-built_in">println</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>));
+}
+</code></pre>
+<p>0以上100未満の値を10個出力します。このプログラムを終了してもう１度実行すると、全く異なる10個の乱数が出力されます。次のプログラムも同じように、1度実行して、プログラムを終了してからもう１度実行してみてください。</p>
+<pre><code class="lang-processing"><span class="hljs-comment">// シード値を設定</span>
+<span class="hljs-built_in">randomSeed</span>(<span class="hljs-number">10</span>);
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+  <span class="hljs-built_in">println</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>));
+}
+</code></pre>
+<p>このプログラムでは何度実行しても全く同じ10個の乱数が出力されます。randomSeed()を使ってシード値(int型)と呼ばれるものを設定すると、プログラムの実行ごとに同じ乱数列を作ることができます。シード値はint型ならなんでも構いません。randomSeed()を使わなかった場合、シード値は毎回別の値になってrandom()はプログラムの実行ごとに異なる乱数列を作ります。Processingでプログラムを書く限りではrandomSeed()の出番はほとんど無いかと思いますが、まぁそういう機能もあるってことだけ知っていればいいかと思います。</p>
+<h2>パーリンノイズ</h2><p>random()の他にProcessingにはnoise()という関数が用意されていて、noise()を使うとパーリンノイズと呼ばれる乱数を作ることができます。Ken Perlinさんが考えた乱数生成法なのでパーリンノイズと呼ばれます。noise()によって作られた乱数は隣り合った乱数の数値の差がわずかで、全体として滑らかに変化する乱数になります。random()によって作られる乱数は隣り合った乱数の差がとびとびの値を取っていました。次のプログラムではrandom()によってy座標が変動する点を左端から右端まで描画しています。</p>
+<iframe src="/samples/tutorial/Chapter12/sketch04.html" class="sample-sketch"></iframe>
+
+<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noLoop</span>();
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-comment">// 左端から右端まで5px間隔で点を描画する</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-built_in">width</span>; x += <span class="hljs-number">5</span>) {
+    <span class="hljs-comment">// 点のy座標をrandom()で変動させる</span>
+    <span class="hljs-built_in">float</span> y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span> + <span class="hljs-built_in">random</span>(<span class="hljs-number">-100</span>, <span class="hljs-number">100</span>);
+    <span class="hljs-comment">// 点を描画</span>
+    <span class="hljs-built_in">point</span>(x, y);
+  }
+}
+</code></pre>
+<p>次のプログラムは点のy座標をrandom()ではなくnoise()によって変動させたものです。解説は後で詳しくするのでざっとプログラムを見てください。マウスクリックで再描画できます。</p>
+<iframe src="/samples/tutorial/Chapter12/sketch05.html" class="sample-sketch"></iframe>
+
+<pre><code class="lang-processing"><span class="hljs-built_in">float</span> <span class="hljs-built_in">noise</span> = <span class="hljs-number">0.0</span>;      <span class="hljs-comment">// noise()に指定する値</span>
+<span class="hljs-built_in">float</span> noiseStep = <span class="hljs-number">0.05</span>; <span class="hljs-comment">// noiseの更新に使う値</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">noLoop</span>();
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-comment">// 左端から右端まで5px間隔で点を描画する</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-built_in">width</span>; x += <span class="hljs-number">5</span>) {
+    <span class="hljs-comment">// 点のy座標をnoise()で変動させる</span>
+    <span class="hljs-built_in">float</span> y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span> + <span class="hljs-built_in">noise</span>(<span class="hljs-built_in">noise</span>) * <span class="hljs-number">200</span> - <span class="hljs-number">100</span>;
+    <span class="hljs-comment">// 点を描画</span>
+    <span class="hljs-built_in">point</span>(x, y);
+    <span class="hljs-comment">// noiseを更新</span>
+    <span class="hljs-built_in">noise</span> += noiseStep;
+  }
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">mousePressed</span>() {
+  <span class="hljs-built_in">redraw</span>();
+}
+</code></pre>
+<p>random()の場合とは違い、隣り合った点のy座標は近い値を取り、全体として滑らかに変化しているのがわかるかと思います。noise()を使うと滑らかに変化する乱数を作ることができるので、コンピュータグラフィックスの世界では物体のテクスチャを作ったりするのに重宝されています。僕はマインクラフトはやったことがないのですが、マインクラフトでは最初にワールドを作る際地形の生成にパーリンノイズを使っています。もしパーリンノイズではなく普通の乱数で地形を生成していたら、一歩先が崖になっていたり絶壁になっていたりして移動不可能なワールドができてしまいます。</p>
+<p>noise()の使い方を解説します。noise()は、パラメータにどんな値を指定しても0～1の間の値を返します。なので、必要に応じてnoise()に値を掛けたりnoise()から値を引いたりして欲しい値を作ります。上のプログラムでは、</p>
+<p><code class='code-fragment'>noise(noise) * 200 - 100</code></p>
+<p>とすることで-100～100の間の値を作っています。</p>
+<p>noise()はパラメータにどんな値を指定しても0～1の間の値を返すので、パラメータの値はどうでもいいんです。重要なのはパラメータが増加(または減少)する間隔です。上のプログラムではnoise()に指定するパラメータが変数noiseで、noiseの増加間隔をnoiseStepという変数で用意しています。 noise()はパラメータに同じ値を指定すると同じ値を返します。raddom()とは全然違うので注意してください。noise(1234)を何度実行しても同じ値が返ってきます。noise()が返す値を変動させるには、noise()に指定するパラメータの値を増加させます。なので、上のプログラムではfor文の最後に</p>
+<p><code class='code-fragment'>noise += noiseStep;</code></p>
+<p>を実行してnoise()に指定するパラメータを増加させています。noise()はパラメータの値の増加間隔が大きければ大きいほど隣り合った数値の差が大きくなり、増加間隔が小さければ小さいほど隣り合った数値の差が小さくなります。試しにnoiseStepの値を0.05から1に変えると次のようにrandom()の場合と見分けがつかなくなります。</p>
+<iframe src="/samples/tutorial/Chapter12/sketch06.html" class="sample-sketch"></iframe>
+
+<p>noiseStepを0.01まで下げると少し曲がった直線のようになります。</p>
+<iframe src="/samples/tutorial/Chapter12/sketch07.html" class="sample-sketch"></iframe>
+
+<p>noiseSeed()を使えばnoise()で生成する乱数にもシード値を設定することができます。
+float noise = 0.0;
+float noiseStep = 0.05;</p>
+<p>// シード値を設定して乱数を固定</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">noiseSeed</span>(<span class="hljs-number">10</span>);
+<span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++){
+  <span class="hljs-built_in">float</span> n = <span class="hljs-built_in">noise</span>(<span class="hljs-built_in">noise</span>) * <span class="hljs-number">100</span>;
+  <span class="hljs-built_in">println</span>(n);
+  <span class="hljs-built_in">noise</span> += noiseStep;
+}
+</code></pre>
+<p>お疲れさまでした。Chapter12はこれで終了です。</p>
+
+</article>
+    <footer>
+        <p>&copy P5 Code School 2015</p>
+    </footer>
+</body>
+</html>
+

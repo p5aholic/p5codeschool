@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>P5 Code School Chapter15_1「クラス基礎 Part1」</title>
+    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/header-sketch.js"></script>
+</head>
+
+<body>
+    <div id="p5Header"></div>
+    <header id="header">
+        <span id="title-p5">P5</span>
+        <span id="title-code">Code</span>
+        <span id="title-school">School</span>
+    </header>
+
+<div id="mainNavigation">
+    <nav class="page-navi">
+        <h3 class="side-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <div class="link-text">トップ</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <div class="link-text">チュートリアル</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/tutorial/chapter14">
+                    <div class="link-text">前のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="/tutorial/chapter15_2">
+                    <div class="link-text">次のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="author">
+        <h3 class="side-title">Author</h3>
+        <ul>
+            <li>
+                <a href="https://twitter.com/P5Aholic" target="_blank">
+                    <div class="link-text">Twitter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://p5aholic.hatenablog.com/" target="_blank">
+                    <div class="link-text">Blog</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="naviControll">
+        <div id="layer1"></div>
+        <div id="layer2"></div>
+        <div id="layer3"></div>
+    </div>
+</div>
+
+<article id="mainContents">
+    <h1>クラス基礎 Part1</h1><p>クラスはプログラムを作りやすくする便利な機能なのですが、このChapterではクラスというものを作る理由を説明します。</p>
+<h2>クラスを作る理由</h2><p>クラスを作る理由を説明しておきたいと思います。今はピンとこないかもしれませんが、そういうものなのかなーくらいに思っていてください。</p>
+<p>プログラムを作っていると、あるものについての情報をまとめて扱いたいといった状況に頻繁に出くわします。例えばブロック崩しゲームの場合、ゲーム内には最低でもブロック、ボール、ラケット(ボールを跳ね返す板)があります。それぞれが持つであろう情報を思いつく限り書いてみると、以下のようになります。<br>
+ブロック<br>
+・位置、大きさ、色、ボールによって潰されたかどうか<br>
+ボール<br>
+・位置、速度、大きさ、色<br>
+ラケット<br>
+・位置、速度、大きさ、色<br>
+ここで前回のChapterで作った画面内をボールが飛び回るプログラムを思い出してみると、ボールが持つ情報を表すだけでも６つの変数(x, y, vx, vy, radius, c)が必要だったことがわかります。</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">100</span>; <span class="hljs-comment">// ボールの数</span>
+<span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
+<span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
+<span class="hljs-built_in">float</span>[] vx = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// x軸方向の速度の配列</span>
+<span class="hljs-built_in">float</span>[] vy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// y軸方向の速度の配列</span>
+<span class="hljs-built_in">int</span>[] radius = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numBalls]; <span class="hljs-comment">// 半径の配列</span>
+<span class="hljs-built_in">color</span>[] c = <span class="hljs-keyword">new</span> <span class="hljs-built_in">color</span>[numBalls];  <span class="hljs-comment">// 色の配列</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-comment">// 初期値を設定</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    radius[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">width</span>-radius[i]);
+    y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
+    vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    <span class="hljs-comment">// ボールの位置を更新</span>
+    x[i] += vx[i];
+    y[i] += vy[i];
+    <span class="hljs-comment">// 左右の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (x[i]-radius[i] &lt;= <span class="hljs-number">0</span> || x[i]+radius[i] &gt;= <span class="hljs-built_in">width</span>) {
+      vx[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// 上下の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (y[i]-radius[i] &lt;= <span class="hljs-number">0</span> || y[i]+radius[i] &gt;= <span class="hljs-built_in">height</span>) {
+      vy[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// ボールを描画</span>
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c[i]);
+    <span class="hljs-built_in">ellipse</span>(x[i], y[i], <span class="hljs-number">2</span>*radius[i], <span class="hljs-number">2</span>*radius[i]);
+  }
+}
+</code></pre>
+<p>このプログラムにラケットを加えてみました。ラケットを描画するための変数を用意しているだけなので、ラケットに当たってもボールは跳ね返りません。</p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">5</span>; <span class="hljs-comment">// ボールの数</span>
+<span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
+<span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
+<span class="hljs-built_in">float</span>[] vx = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// x軸方向の速度の配列</span>
+<span class="hljs-built_in">float</span>[] vy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// y軸方向の速度の配列</span>
+<span class="hljs-built_in">int</span>[] radius = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numBalls]; <span class="hljs-comment">// 半径の配列</span>
+<span class="hljs-built_in">color</span>[] c = <span class="hljs-keyword">new</span> <span class="hljs-built_in">color</span>[numBalls];  <span class="hljs-comment">// 色の配列</span>
+
+<span class="hljs-comment">// ラケットの情報</span>
+<span class="hljs-built_in">int</span> racketX, racketY; <span class="hljs-comment">// 位置</span>
+<span class="hljs-built_in">int</span> racketVx;         <span class="hljs-comment">// 速度</span>
+<span class="hljs-built_in">int</span> racketW, racketH; <span class="hljs-comment">// 横幅と高さ</span>
+<span class="hljs-built_in">color</span> racketC;        <span class="hljs-comment">// 色</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-comment">// ボール初期値を設定</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    radius[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">width</span>-radius[i]);
+    y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
+    vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+  <span class="hljs-comment">// ラケットの初期値を設定</span>
+  racketX = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
+  racketY = <span class="hljs-built_in">height</span><span class="hljs-number">-50</span>;
+  racketVx = <span class="hljs-number">5</span>;
+  racketW = <span class="hljs-number">120</span>;
+  racketH = <span class="hljs-number">25</span>;
+  racketC = <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    <span class="hljs-comment">// ボールの位置を更新</span>
+    x[i] += vx[i];
+    y[i] += vy[i];
+    <span class="hljs-comment">// 左右の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (x[i]-radius[i] &lt;= <span class="hljs-number">0</span> || x[i]+radius[i] &gt;= <span class="hljs-built_in">width</span>) {
+      vx[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// 上下の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (y[i]-radius[i] &lt;= <span class="hljs-number">0</span> || y[i]+radius[i] &gt;= <span class="hljs-built_in">height</span>) {
+      vy[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// ボールを描画</span>
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c[i]);
+    <span class="hljs-built_in">ellipse</span>(x[i], y[i], <span class="hljs-number">2</span>*radius[i], <span class="hljs-number">2</span>*radius[i]);
+  }
+
+  <span class="hljs-comment">// ラケットを描画</span>
+  <span class="hljs-built_in">fill</span>(racketC);
+  <span class="hljs-built_in">rectMode</span>(CENTER);
+  <span class="hljs-built_in">rect</span>(racketX, racketY, racketW, racketH);
+}
+</code></pre>
+<p>このプログラムにブロックを追加して、ボールとラケットの当たり判定、ボールとブロックの当たり判定を加えればブロック崩しができそうですが、面倒臭いのでやりません。面倒臭い理由は以下の３つです。<br>
+１：変数名が長い<br>
+２：変数ごとに配列を作らなければいけない<br>
+３：プログラムが見にくい<br>
+ボールを表す変数にx, y, vxなど短い名前の変数を使ってしまっているのでラケットとブロックの変数名にはracketXやblockXなどを使わなければならず、面倒臭いです。またブロックは大量にあるものなので、ボールのように変数ごとに配列で管理しなければいけません。ただでさえボールに配列をたくさん使っているのに、また配列を使うとなるととても面倒です。また、理由１、２の結果として、プログラムが非常に見にくくなります。見にくいプログラムはエラーとバグを生み出しやすく、見つけずらいので面倒臭いです。</p>
+<p>上に挙げた３つの問題は、クラスを使うときれいさっぱり解決できます。クラスには情報をまとめる機能があるからです(他にも色々な機能があります)。では、次回のChapter15_2からクラスの作り方を解説していきます。</p>
+
+</article>
+    <footer>
+        <p>&copy P5 Code School 2015</p>
+    </footer>
+</body>
+</html>
+

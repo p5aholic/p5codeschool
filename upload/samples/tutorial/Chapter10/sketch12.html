@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        var isLoop = false;
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            frameRate(60);
+            rectMode(CENTER);
+            stroke(0);
+            strokeWeight(5);
+            fill(128);
+        }
+        
+        function draw() {
+            background(255);
+
+            // 時計周りに回転する正方形
+            push();
+            translate(width/2-100, height/2);
+            rotate(frameCount*0.05);
+            rect(0, 0, 100, 100);
+            pop();
+            
+            // 反時計回りに回転する正方形
+            push();
+            translate(width/2+100, height/2);
+            rotate(-frameCount*0.05);
+            rect(0, 0, 100, 100);
+            pop();
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+        
+        function switchLoop() {
+            if (isLoop) {
+                noLoop();
+                isLoop = false;
+            } else {
+                loop();
+                isLoop = true;
+            }
+        }
+        
+        window.addEventListener("mouseover", switchLoop, false);
+        window.addEventListener("mouseout", switchLoop, false);
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<% include ../common/_head %>
+<% include ../common/_menu %>
+<article id="mainContents">
+    <h2 id="title">Processing 基礎</h2>
+    <div id="chapterList">
+        <% for (var i = 0; i < data.tutorials.length; i++) { %>
+        <div class="chapter">
+            <a href="chapter<%= data.tutorials[i].number %>" class="chapter-link">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+                <h3 class="chapter-title">
+                    <span class="chapter-number">Chapter <%= data.tutorials[i].number %></span><br>
+                    <span class="sub-title"><%= data.tutorials[i].subTitle %></span>
+                </h3>
+            </a>
+            <p class="chapter-description"><%= data.tutorials[i].description %></p>
+        </div>
+        <% } %>
+    </div>
+</article>
+<% include ../common/_footer %>

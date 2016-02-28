@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        var isLoop = false;
+        
+        var numData = 50;
+        var data;
+        var rectWidth;
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            frameRate(60);
+            setData();
+            rectWidth = width/numData;
+        }
+        
+        function setData() {
+            data = [];
+            for (var i = 0; i < numData; i++) {
+                data.push(random(height));
+            }
+        }
+        
+        function draw() {
+            background(128);
+            
+            for (var i = 0; i < numData; i++) {
+                fill(255);
+                rect(i*rectWidth, height-data[i], rectWidth, data[i]);
+            }
+        }
+        
+        function mousePressed() {
+            setData();
+            redraw();
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+        
+    </script>
+</head>
+<body>
+</body>
+</html>

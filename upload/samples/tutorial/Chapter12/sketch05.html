@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        var noiseValue = 0.0;      // noise()に指定する値
+        var noiseStep = 0.05; // noiseの更新に使う値
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            stroke(0);
+            strokeWeight(5);
+        }
+        
+        function draw() {
+            background(255);
+
+            // 左端から右端まで5px間隔で点を描画する
+            for (var x = 0; x <= width; x += 5) {
+                // 点のy座標をnoise()で変動させる
+                var y = height/2 + noise(noiseValue) * 200 - 100;
+                // 点を描画
+                point(x, y);
+                // noiseを更新
+                noiseValue += noiseStep;
+            }
+        }
+        
+        function mousePressed() {
+            redraw();
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

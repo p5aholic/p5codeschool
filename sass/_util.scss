@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+$containerWidth: 780px;
+$blue: #266281;
+$navy: #033760;
+$green: #1E6667;
+$orange: #ee6626;
+$winered: #9B1E50;
+$pink: #ff0073;
+$gray1: #111111; $gray2: #444444;
+$gray3: #777777; $gray4: #aaaaaa;
+
+$bp640: 640px;
+$bp960: 960px;
+@mixin media($media-width) {
+  @if $media-width == $bp640 {
+    @media(max-width: $bp640) {
+      @content;
+    }
+  }
+}
+
+%font {
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}

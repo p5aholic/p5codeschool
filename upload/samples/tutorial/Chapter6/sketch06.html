@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    button {
+      outline: none;
+      border: none;
+      padding: 0;
+      background-color: #555;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        var isLoop = false;
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            frameRate(60);
+            noFill();
+            strokeWeight(5);
+            rectMode(CENTER);
+        }
+        
+        function draw() {
+            background(128);
+
+            // 左半分
+            if (mouseX <= width/2) {
+              stroke(255);
+              ellipse(mouseX, mouseY, 50, 50);
+            }
+            // 右半分
+            else {
+              stroke(0);
+              rect(mouseX, mouseY, 50, 50);
+            }
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+        
+        function switchLoop() {
+            if (isLoop) {
+                noLoop();
+                isLoop = false;
+            } else {
+                loop();
+                isLoop = true;
+            }
+        }
+        
+        window.addEventListener("mouseover", switchLoop, false);
+        window.addEventListener("mouseout", switchLoop, false);
+    </script>
+</head>
+<body>
+</body>
+</html>

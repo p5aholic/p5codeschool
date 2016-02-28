@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        var isLoop = false;
+        
+        var x, y, size; // 箱の座標と大きさ
+        var cageSize;   // 檻の大きさ
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            frameRate(60);
+            x = width/2;
+            y = height/2;
+            size = 60;
+            cageSize = 200;
+            rectMode(CENTER);
+        }
+        
+        function draw() {
+            background(128);
+
+            // 檻を描画
+            stroke(0);
+            strokeWeight(5);
+            noFill();
+            rect(width/2, height/2, cageSize, cageSize);
+
+            // マウスの座標を檻の中の範囲に制限した値を箱の座標とする
+            x = constrain(mouseX, width/2-cageSize/2+size/2, width/2+cageSize/2-size/2);
+            y = constrain(mouseY, height/2-cageSize/2+size/2, height/2+cageSize/2-size/2);
+
+            // 箱を描画
+            fill(0);
+            rect(x, y, size, size);
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+        
+        function switchLoop() {
+            if (isLoop) {
+                noLoop();
+                isLoop = false;
+            } else {
+                loop();
+                isLoop = true;
+            }
+        }
+        
+        window.addEventListener("mouseover", switchLoop, false);
+        window.addEventListener("mouseout", switchLoop, false);
+    </script>
+</head>
+<body>
+</body>
+</html>

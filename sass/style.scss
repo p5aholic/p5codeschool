@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+@import "_normalize.scss";
+@import "_util.scss";
+@import "_tut-list.scss";
+@import "_tut-item.scss";
+@import "_highlight.scss";
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html { font-size: 62.5%; }
+body { @extend %font; }
+a { text-decoration: none; };
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/*--------- header ----------*/
+#p5Header {
+  display: block;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#header {
+  max-width: $containerWidth;
+  display: block;
+  height: 150px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 20px;
+  %common-title-letter {
+    display: block;
+    font-size: 40px;
+    font-family: 'Elsie Swash Caps', cursive;
+    transform: skewX(-25deg);
+    color: white;
+  }
+  #title-p5 {
+    @extend %common-title-letter;
+  }
+  #title-code {
+    @extend %common-title-letter;
+  }
+  #title-school {
+    @extend %common-title-letter;
+  }
+}
+
+/*---------- main navigation ----------*/
+#mainNavigation {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 30px 15px 0;
+  background-color: $navy;
+  z-index: 5;
+  .side-title {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 2.0rem;
+    font-weight: 800;
+    color: #fafafa;
+  }
+  %common-ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  %common-a {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  %common-link-text {
+    font-size: 1.4rem;
+    line-height: 3.0rem;
+    text-decoration: none;
+    color: #fafafa;
+    margin-left: 18px;
+  }
+  %common-rect {
+    position: absolute;
+    top: 10px; left: 0;
+    width: 10px; height: 10px;
+    background-color: $pink;
+    transform: rotate(45deg);
+    transition: 0.5s;
+  }
+  %common-line {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0px; height: 1px;
+    background-color: $pink;
+    transition: 0.5s;
+  }
+  /*---------------------------------------*/
+  /*---------- page navigation ----------*/
+  /*---------------------------------------*/
+  .page-navi {
+    margin-bottom: 20px;
+    ul {
+      @extend %common-ul;
+      li {
+        a {
+          @extend %common-a;
+          .link-text { @extend %common-link-text; }
+          .rect { @extend %common-rect; }
+          .line { @extend %common-line; }
+          &:hover .rect {
+            transform: rotate(1125deg);
+          }
+          &:hover .line {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  /*-----------------------------*/
+  /*---------- author ----------*/
+  /*-----------------------------*/
+  .author ul {
+    @extend %common-ul;
+    li {
+      a {
+        @extend %common-a;
+        .link-text {
+          @extend %common-link-text;
+          letter-spacing: 1px;
+        }
+        .rect { @extend %common-rect; }
+        .line { @extend %common-line; }
+        &:hover .rect {
+          transform: rotate(1125deg);
+        }
+        &:hover .line {
+          width: 100%;
+        }
+      }
+    }
+  }
+  #naviControll {
+    position: absolute;
+    top: 50%;
+    right: -60px;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    @include media($bp640) {
+      top: 15%;
+      right: -50px;
+      width: 100px;
+      height: 100px;
+    }
+    %common-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    #layer1 {
+      @extend %common-layer;
+      top: 0;
+      left: -20px;
+      background-color: $winered;
+      transform: scale(0.4, 0.3) rotateZ(45deg);
+      transition: background-color ease 0.3s;
+    }
+    #layer2 {
+      @extend %common-layer;
+      top: 0;
+      left: 0;
+      border: 2px solid $winered;
+      background-color: white;
+      transform: scale(0.4, 0.4) rotateZ(45deg);
+    }
+    #layer3 {
+      @extend %common-layer;
+      top: 0;
+      left: 0;
+      background-color: $winered;
+      transform: scale(0.2, 0.2) rotateZ(45deg);
+    }
+    &:hover {
+      #layer1 {
+        background-color: $pink;
+      }
+    }
+  }
+}
+
+/*---------- container ----------*/
+  
+#mainContents {
+  position: relative;
+  max-width: $containerWidth;
+  margin: 30px auto 50px;
+  padding: 0 15px;
+  h1 {
+    margin: 0 0 15px;
+    padding: 0 0 0 10px;
+    font-size: 3.0rem;
+    font-weight: normal;
+    color: $blue;
+    border-left: 10px solid $blue;
+    border-bottom: 1px solid $blue;
+    @include media($bp640) {
+      font-size: 2.5rem;
+    }
+  }
+  h2 {
+    margin: 20px 0 10px;
+    padding: 0 0 0 10px;
+    font-size: 2.2rem;
+    font-weight: normal;
+    color: $blue;
+    border-left: 6px solid $blue;
+    border-bottom: 1px solid $blue;
+    @include media($bp640) {
+      font-size: 2.0rem;
+    }
+  }
+  p {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    margin: 0 0 20px 0;
+    color: $gray2;
+    @include media($bp640) {
+      font-size: 1.4rem;
+      line-height: 2.6rem;
+    }
+    a {
+      color: $winered;
+      &:hover {
+        color: $winered + #444444;
+        border-bottom: 1px solid $winered + #444444;
+      }
+    }
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+footer {
+  max-width: $containerWidth;
+  margin: 0 auto;
+  padding: 0 15px;
+  border-top: 1px solid $blue;
+  p {
+    font-size: 12px;
+    color: $blue;
+  }
+}

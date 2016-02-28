@@ -1,0 +1,64 @@
+<div id="mainNavigation">
+    <nav class="page-navi">
+        <h3 class="side-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <div class="link-text">トップ</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <div class="link-text">チュートリアル</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <% if (chapterLink.prev !== "") { %>
+            <li>
+                <a href="/tutorial/chapter<%= chapterLink.prev %>">
+                    <div class="link-text">前のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <% } %>
+            <% if (chapterLink.next !== "") { %>
+            <li>
+                <a href="/tutorial/chapter<%= chapterLink.next %>">
+                    <div class="link-text">次のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+    <div class="author">
+        <h3 class="side-title">Author</h3>
+        <ul>
+            <li>
+                <a href="https://twitter.com/P5Aholic" target="_blank">
+                    <div class="link-text">Twitter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://p5aholic.hatenablog.com/" target="_blank">
+                    <div class="link-text">Blog</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="naviControll">
+        <div id="layer1"></div>
+        <div id="layer2"></div>
+        <div id="layer3"></div>
+    </div>
+</div>

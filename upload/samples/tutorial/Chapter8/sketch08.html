@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    </style>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script>
+        "use strict";
+        
+        var isLoop = false;
+        
+        function setup() {
+            createCanvas(window.innerWidth, window.innerHeight);
+            noLoop();
+            init();
+        }
+        
+        function init() {
+            frameRate(60);
+            background(255);
+            // 1秒間に1回実行
+            frameRate(1);
+        }
+        
+        function draw() {
+            // 顔を描く
+            face(random(width), random(height), random(50, 100));
+        }
+        
+        // 顔を描く関数
+        function face(x, y, size) {
+            strokeWeight(2);
+            stroke(0);
+            noFill();
+            // 輪郭
+            ellipse(x, y, size, size);
+            // 左目
+            ellipse(x-size/4, y-size/4, size/5, size/5);
+            // 右目
+            ellipse(x+size/4, y-size/4, size/5, size/5);
+            fill(0);
+            // 口
+            ellipse(x, y+size/4, size/3, size/3);
+        }
+        
+        function windowResized() {
+            resizeCanvas(window.innerWidth, window.innerHeight);
+        }
+        
+        function switchLoop() {
+            if (isLoop) {
+                noLoop();
+                isLoop = false;
+            } else {
+                loop();
+                isLoop = true;
+            }
+        }
+        
+        window.addEventListener("mouseover", switchLoop, false);
+        window.addEventListener("mouseout", switchLoop, false);
+    </script>
+</head>
+<body>
+</body>
+</html>

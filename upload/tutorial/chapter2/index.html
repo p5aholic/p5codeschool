@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>P5 Code School Chapter2「図形の描画」</title>
+    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/header-sketch.js"></script>
+</head>
+
+<body>
+    <div id="p5Header"></div>
+    <header id="header">
+        <span id="title-p5">P5</span>
+        <span id="title-code">Code</span>
+        <span id="title-school">School</span>
+    </header>
+
+<div id="mainNavigation">
+    <nav class="page-navi">
+        <h3 class="side-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <div class="link-text">トップ</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <div class="link-text">チュートリアル</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/tutorial/chapter1">
+                    <div class="link-text">前のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="/tutorial/chapter3">
+                    <div class="link-text">次のChapter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="author">
+        <h3 class="side-title">Author</h3>
+        <ul>
+            <li>
+                <a href="https://twitter.com/P5Aholic" target="_blank">
+                    <div class="link-text">Twitter</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://p5aholic.hatenablog.com/" target="_blank">
+                    <div class="link-text">Blog</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="naviControll">
+        <div id="layer1"></div>
+        <div id="layer2"></div>
+        <div id="layer3"></div>
+    </div>
+</div>
+
+<article id="mainContents">
+    <h1>図形の描画</h1><p>このChapterではProcessingで描くことのできる基本的な図形の描画方法を解説していきます。</p>
+<h2>図形を描く</h2><dl class="func-list">
+    <dt><a href="https://www.processing.org/reference/point_.html" target="_blank">point(x, y)</a></dt>
+    <dd>座標(x, y)に点を描く</dd>
+    <dt><a href="https://www.processing.org/reference/line_.html" target="_blank">line(x1, y1, x2, y2)</a></dt>
+    <dd>座標(x1, y1)から(x2, y2)まで線を引く</dd>
+    <dt><a href="https://www.processing.org/reference/ellipse_.html" target="_blank">ellipse(x, y, w, h)</a></dt>
+    <dd>座標(x, y)に幅ｗ高さｈの楕円を描く</dd>
+    <dt><a href="https://www.processing.org/reference/rect_.html" target="_blank">rect(x, y, w, h)</a></dt>
+    <dd>座標(x, y)に幅ｗ高さｈの長方形を描く</dd>
+    <dt><a href="https://www.processing.org/reference/quad_.html" target="_blank">quad(x1, y1, x2, y2, x3, y3, x4, y4)</a></dt>
+    <dd>座標(x1, y1)、(x2, y2)、(x3, y3)、(x4, y4)を頂点とした四角形を描く</dd>
+    <dt><a href="https://www.processing.org/reference/triangle_.html" target="_blank">triangle(x1, y1, x2, y2, x3, y3)</a></dt>
+    <dd>座標(x1, y1)、(x2, y2)、(x3, y3)を頂点とした三角形を描く</dd>
+    <dt><a href="https://www.processing.org/reference/arc_.html" target="_blank">arc(x, y, w, h, start, stop)</a></dt>
+    <dd>座標(x, y)に幅ｗ高さｈ、角度startからstopまでの弧を描く</dd>
+</dl>
+
+<p>Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。size(700,300)を指定した場合のウィンドウの角の座標は次のようになります。最初は違和感を感じますがすぐに慣れるでしょう。実際に図形を描いてみます。</p>
+<p><img src="/image/Chapter2/sketch01.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+<span class="hljs-comment">// 点を描く</span>
+<span class="hljs-built_in">point</span>(<span class="hljs-number">50</span>, <span class="hljs-number">175</span>);
+<span class="hljs-comment">// 線を描く</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">125</span>, <span class="hljs-number">125</span>, <span class="hljs-number">175</span>, <span class="hljs-number">225</span>);
+<span class="hljs-comment">// 円を描く</span>
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">250</span>, <span class="hljs-number">175</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>);
+<span class="hljs-comment">// 長方形描く</span>
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">325</span>, <span class="hljs-number">150</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+<span class="hljs-comment">// 四角形を描く</span>
+<span class="hljs-built_in">quad</span>(<span class="hljs-number">425</span>, <span class="hljs-number">150</span>, <span class="hljs-number">485</span>, <span class="hljs-number">100</span>, <span class="hljs-number">500</span>, <span class="hljs-number">180</span>, <span class="hljs-number">440</span>, <span class="hljs-number">230</span>);
+<span class="hljs-comment">// 三角形を描く</span>
+<span class="hljs-built_in">triangle</span>(<span class="hljs-number">550</span>, <span class="hljs-number">150</span>, <span class="hljs-number">640</span>, <span class="hljs-number">90</span>, <span class="hljs-number">580</span>, <span class="hljs-number">220</span>);
+</code></pre>
+<p>ellipse()に指定する座標は円の中心座標です。対して、rect()で指定する座標は長方形の左上の角の座標になります。ellipseは楕円を意味する英語でellipse()は楕円を描く関数です。正円にしたければ幅と高さに同じ値を指定します。</p>
+<p>arc()関数を使ってみます。arc()関数の５つ目と６つ目のパラメータは孤を描き始める角度と描き終わる角度です。２つの角度はどちらも０度から数えた角度です。数学では角度は反時計回りで増えていきますが、Processingでは時計回りに増えます。また、単位は度ではなくラジアンで指定します。ラジアンについて詳しく解説すると長くなっちゃうのでここでは止めておきます。簡単に説明しておくと、下の画像にもある通り、0度が0ラジアン、45度が0.79ラジアン、90度が1.57ラジアンという感じになっています。Processingでコードを書くときにこのラジアンの数値をそのまま使うことはまずないでしょう。代わりに他の方法で角度を表現します。下の画像は度(Degrees)とラジアン(Radians)の数値の対応を示しています。</p>
+<p>下のサンプルコードは角度を指定する３つの方法を示しています。１つ目のarc()はラジアンの数値をそのまま使う方法。２つ目のarc()は定数と呼ばれる文字を使う方法です。QUARTER_PIと書くとラジアンの数値で0.79を指定するのと同じことになります。他に、90度を表すHALF_PI、180度を表すPI、360度を表すTWO_PIがあります。このように、Processingではわかりにくい数値を文字として表現できることがあります。なぜこのような文字のことを定数と呼ぶのかはChapter4で解説しています。６つ目のパラメータを指定するときにちょっとした計算をしています。TWO_PIからQUARTER_PIを引き算することで315度を表しています。このような計算についても詳しくはChapter4で解説します。３つ目のarc()には度数をラジアンに変換してくれるradians()関数を使っています。radians()関数に度数を与えると対応するラジアンを返してくれます。このradians()関数を使った角度の指定方法が一番使われています。</p>
+<p><img src="/image/Chapter2/sketch02.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+
+<span class="hljs-comment">// ラジアンをそのままの数値で指定</span>
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">125</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0.79</span>, <span class="hljs-number">5.50</span>);
+<span class="hljs-comment">// ラジアンを定数で指定</span>
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-literal">QUARTER_PI</span>, <span class="hljs-literal">TWO_PI</span>-<span class="hljs-literal">QUARTER_PI</span>);
+<span class="hljs-comment">// ラジアンを関数で指定</span>
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">625</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>));
+</code></pre>
+<p>arc()関数には７つ目のパラメータがあります。このパラメータにはPIE、OPEN、CHORDのいずれかを指定します。文字の説明を読むより見たほうが早いので次のサンプルで確認してください。７つ目のパラメータを指定しなかった場合と指定した場合の３つを比較しています。</p>
+<p><img src="/image/Chapter2/sketch03.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">94</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>));
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">281</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>), PIE);
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">468</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>), OPEN);
+<span class="hljs-built_in">arc</span>(<span class="hljs-number">655</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>), CHORD);
+</code></pre>
+<p>rect()にもパラメータを追加することができ、追加のパラメータで角丸の長方形を作ることができます。追加のパラメータには角丸の半径を与えます。５つ目のパラメータを与えた場合はすべての角が同じ半径の角丸に、５、６、７、８つ目のパラメータを与えると左上の角から時計回りに角丸の半径を指定できます。</p>
+<p><img src="/image/Chapter2/sketch04.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+
+<span class="hljs-comment">// 全ての角が半径30pxの角丸にする</span>
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">175</span>, <span class="hljs-number">125</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">30</span>);
+<span class="hljs-comment">// 時計回りに、半径10px、20px、30px、40pxの角丸にする</span>
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">475</span>, <span class="hljs-number">125</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>);
+</code></pre>
+<h2>図形に色を塗る</h2><p>図形に色を指定する方法を見ていきましょう。色の表現方法はChapter3で詳しく解説します。ここでは黒～白の色に限定して話していきます。図形には枠線の色と内側の塗りつぶしの色を指定することができます。以下の４つの関数で色の指定ができます。fill()とstroke()のパラメータにはbackground()と同じく0～255の数値を与えます。noFill()とnoStroke()はパラメータを持たない関数です。</p>
+<dl class="func-list">
+    <dt><a href="https://www.processing.org/reference/fill_.html" target="_blank">fill()</a></dt>
+    <dd>図形の内側の色を指定する</dd>
+    <dt><a href="https://www.processing.org/reference/noFill_.html" target="_blank">noFill()</a></dt>
+    <dd>図形の内側の色を無くす</dd>
+    <dt><a href="https://www.processing.org/reference/stroke_.html" target="_blank">stroke()</a></dt>
+    <dd>図形の枠線の色を指定する</dd>
+    <dt><a href="https://www.processing.org/reference/noStroke_.html" target="_blank">noStroke()</a></dt>
+    <dd>図形の枠線を無くす</dd>
+</dl>
+
+<p>point()とline()には内側というものがありません。point()とline()に色を指定する場合はstroke()だけでいいです。</p>
+<p><img src="/image/Chapter2/sketch05.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+
+<span class="hljs-comment">// 線：枠線のみ指定</span>
+<span class="hljs-built_in">stroke</span>(<span class="hljs-number">30</span>);
+<span class="hljs-built_in">line</span>(<span class="hljs-number">50</span>, <span class="hljs-number">25</span>, <span class="hljs-number">150</span>, <span class="hljs-number">325</span>);
+
+<span class="hljs-comment">// 正円：枠線と内側を指定</span>
+<span class="hljs-built_in">stroke</span>(<span class="hljs-number">30</span>);
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">250</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+
+<span class="hljs-comment">// 正方形：枠線のみ指定</span>
+<span class="hljs-built_in">stroke</span>(<span class="hljs-number">30</span>);
+<span class="hljs-built_in">noFill</span>();
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">375</span>, <span class="hljs-number">100</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+
+<span class="hljs-comment">// 正方形：内側のみ指定</span>
+<span class="hljs-built_in">noStroke</span>();
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">500</span>, <span class="hljs-number">125</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+</code></pre>
+<p>noFill()が指定された図形の内側の色は背景色と同じになります。また、図形が重なった場合は後から描かれた図形が前に描かれた図形の上に描かれます。</p>
+<p>fill()、stroke()、noFill()、noStroke()や、後述するstrokeWeight()、strokeCap()、strokeJoin()、ellipseMode()、rectMode()などは 一度指定するとそれ以降の図形にも適用されます。図形ごとにスタイルを切り替えたい場合は、今何が適用されているかに注意しましょう。</p>
+<h2>枠線の見た目を変える</h2><p>枠線の見た目を変える３種類の関数を見ていきましょう。</p>
+<dl class="func-list">
+    <dt><a href="https://www.processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a></dt>
+    <dd>枠線の太さを変える</dd>
+    <dt><a href="https://www.processing.org/reference/strokeJoin_.html" target="_blank">strokeJoin()</a></dt>
+    <dd>枠線の角の形を変える</dd>
+    <dt><a href="https://www.processing.org/reference/strokeCap_.html" target="_blank">strokeCap()</a></dt>
+    <dd>枠線の両端の形を変える</dd>
+</dl>
+
+<p>strokeWeight()は枠線の太さを変える関数です。strokeJoin()は枠線の角の形を変える関数で、パラメータにMITER、BEVEL、ROUNDの３種類を指定することができます。MITERは角を尖った形に、BEVELは角を切り取った形に、ROUNDは角を丸い形にできます。MITERがデフォルトの設定です。</p>
+<p><img src="/image/Chapter2/sketch06.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">200</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+<span class="hljs-comment">// 枠線の太さを20pxにする</span>
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">20</span>);
+<span class="hljs-built_in">stroke</span>(<span class="hljs-number">30</span>);
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">180</span>);
+
+<span class="hljs-comment">// ３種類のstrokeJoin()</span>
+
+<span class="hljs-comment">/* MITERを指定
+MITERがデフォルトなので
+指定しなくても変わらない */</span>
+<span class="hljs-built_in">strokeJoin</span>(MITER);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">75</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+
+<span class="hljs-comment">// BEVELを指定</span>
+<span class="hljs-built_in">strokeJoin</span>(BEVEL);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">325</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+
+<span class="hljs-comment">// ROUNDを指定</span>
+<span class="hljs-built_in">strokeJoin</span>(ROUND);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">575</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+</code></pre>
+<p>strokeCap()は枠線の両端の形を変える関数で、パラメータにROUND、PROJECT、SQUAREの３種類を指定することができます。ROUNDは両端を丸い形に、PROJECTは両端を尖った形に、SQUAREは両端を尖った形にした上でstrokeWeight()による両端のはみ出しを消します。ROUNDがデフォルトの設定です。以下のコードでは比較のために太さ20pxの線の左横と下に太さ1pxの線を描いています。</p>
+<p><img src="/image/Chapter2/sketch07.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">200</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+<span class="hljs-built_in">stroke</span>(<span class="hljs-number">30</span>);
+
+<span class="hljs-comment">// ３種類のstrokeCap()</span>
+
+<span class="hljs-comment">/* ROUNDを指定
+ROUNDがデフォルトなので
+指定しなくても変わらない */</span>
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">20</span>);
+<span class="hljs-built_in">strokeCap</span>(ROUND);
+<span class="hljs-comment">// 高さ100px太さ20pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">125</span>, <span class="hljs-number">50</span>, <span class="hljs-number">125</span>, <span class="hljs-number">150</span>);
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// 高さ100px太さ1pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">95</span>, <span class="hljs-number">50</span>, <span class="hljs-number">95</span>, <span class="hljs-number">150</span>);
+<span class="hljs-comment">// 幅20px太さ1pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">115</span>, <span class="hljs-number">180</span>, <span class="hljs-number">135</span>, <span class="hljs-number">180</span>);
+
+<span class="hljs-comment">// PROJECTを指定</span>
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">20</span>);
+<span class="hljs-built_in">strokeCap</span>(PROJECT);
+<span class="hljs-comment">// 高さ100px太さ20pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">375</span>, <span class="hljs-number">50</span>, <span class="hljs-number">375</span>, <span class="hljs-number">150</span>);
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// 高さ100px太さ1pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">345</span>, <span class="hljs-number">50</span>, <span class="hljs-number">345</span>, <span class="hljs-number">150</span>);
+<span class="hljs-comment">// 幅20px太さ1pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">365</span>, <span class="hljs-number">180</span>, <span class="hljs-number">385</span>, <span class="hljs-number">180</span>);
+
+<span class="hljs-comment">// SQUAREを指定</span>
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">20</span>);
+<span class="hljs-built_in">strokeCap</span>(SQUARE);
+<span class="hljs-comment">// 高さ100px太さ20pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">625</span>, <span class="hljs-number">50</span>, <span class="hljs-number">625</span>, <span class="hljs-number">150</span>);
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// 高さ100px太さ1pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">595</span>, <span class="hljs-number">50</span>, <span class="hljs-number">595</span>, <span class="hljs-number">150</span>);
+<span class="hljs-comment">// 幅20px太さ1pxの線</span>
+<span class="hljs-built_in">line</span>(<span class="hljs-number">615</span>, <span class="hljs-number">180</span>, <span class="hljs-number">635</span>, <span class="hljs-number">180</span>);
+</code></pre>
+<p>line()にstrokeWeight()を指定すると線の両端にも太さが割り振られます。高さが100pxの線に20pxの枠線の太さを指定すると、両端に10pxずつ太さが割り振られて、全体で120pxの線になります。strokeCap(SQUARE)は両端に割り振られる太さを無くす設定です。</p>
+<h2>ellipse()とrect()の描画方法を変更する</h2><p>ellipseMode()関数とrectMode()関数を使うとellipse()とrect()に指定するパラメータの挙動を変えることができます。ellipseMode()にはCENTER、RADIUS、CORNER、CORNERSのいずれかを指定することができます。CENTERがデフォルトです。それぞれを指定した場合の挙動は以下の通りです。</p>
+<p><img src="/image/Chapter2/sketch08.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+
+<span class="hljs-built_in">noStroke</span>();
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
+<span class="hljs-built_in">ellipseMode</span>(RADIUS);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 黒色の円</span>
+
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
+<span class="hljs-built_in">ellipseMode</span>(CENTER);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 白色の円</span>
+
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">30</span>);
+<span class="hljs-built_in">ellipseMode</span>(CORNER);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 暗い灰色の円</span>
+
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">150</span>);
+<span class="hljs-built_in">ellipseMode</span>(CORNERS);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>);     <span class="hljs-comment">// 明るい灰色の円</span>
+</code></pre>
+<p>rectMode()にはCORNER、CORNERS、CENTERのいずれかを指定することができます。CORNERがデフォルトです。それぞれを指定した場合の挙動は以下の通りです。</p>
+<p><img src="/image/Chapter2/sketch09.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+
+<span class="hljs-built_in">noStroke</span>();
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
+<span class="hljs-built_in">rectMode</span>(CENTER);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 黒色の円</span>
+
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
+<span class="hljs-built_in">rectMode</span>(CORNER);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 白色の円</span>
+
+<span class="hljs-built_in">fill</span>(<span class="hljs-number">30</span>);
+<span class="hljs-built_in">rectMode</span>(CORNERS);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>);     <span class="hljs-comment">// 灰色の円</span>
+</code></pre>
+<h2>スムージングの切り替え</h2><p>スムージングは図形の輪郭線などを滑らかにする手法のことです。アンチエイリアシングともいいます。 Processingではsmooth()関数とnoSmooth()関数でスムージングのオンオフができます。デフォルトではsmooth()によって既にスムージングが適用されています。輪郭線は滑らかなほうがいいのでわざわざnoSmooth()でスムージングをオフにすることはほとんどないですが、知識として知っておいたほうがいいでしょう。</p>
+<p><img src="/image/Chapter2/sketch10.jpg" alt="img"></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<span class="hljs-built_in">background</span>(<span class="hljs-number">220</span>);
+<span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">2</span>);
+<span class="hljs-built_in">noSmooth</span>();
+<span class="hljs-built_in">line</span>(<span class="hljs-number">120</span>, <span class="hljs-number">50</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>);     <span class="hljs-comment">// ギザギザの線</span>
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">470</span>, <span class="hljs-number">175</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// ギザギザの円</span>
+</code></pre>
+<p>お疲れさまでした。Chapter2はこれで終了です。</p>
+
+</article>
+    <footer>
+        <p>&copy P5 Code School 2015</p>
+    </footer>
+</body>
+</html>
+
