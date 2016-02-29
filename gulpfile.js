@@ -19,7 +19,23 @@ var renderer = new marked.Renderer();
 renderer.heading = function(text, level) {
     return "<h" + level + ">" + text + "</h" + level + ">";
 };
-
+renderer.link = function(href, title, text) {
+    var target;
+    if (href.indexOf("p5codeschool.net") === -1) target = "_blank";
+    else target = "_self";
+    
+    if (href.indexOf("github:") !== -1) {
+        href = href.replace("github:", "");
+        href = "https://github.com/p5aholic/p5codeschool/blob/master/samples/" + href;
+    }
+    
+    if (href.indexOf("p5ref:") !== -1) {
+        href = href.replace("p5ref:", "");
+        href = "https://www.processing.org/reference/" + href;
+    }
+    
+    return "<a href='" + href + "' target='" + target + "'>" + text + "</a>";
+};
 renderer.codespan = function(text) {
     return "<code class='code-fragment'>" + text + "</code>";
 };

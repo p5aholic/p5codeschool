@@ -38,7 +38,7 @@ pre {
     font-family: "Source Code Pro";
     font-size: 1.6rem;
     width: 50%;
-    height: 45px;
+    padding-right: 15px;
     @include media($bp640) {
       font-size: 1.4rem;
     }
@@ -56,7 +56,7 @@ pre {
     margin: 0;
     text-align: left;
     width: 50%;
-    height: 45px;
+    padding-bottom: 15px;
     @include media($bp640) {
       font-size: 1.4rem;
     }

@@ -6,6 +6,8 @@
 
 Chapter4でint、float、colorの３つのデータ型を紹介しました。ここではもう一つboolean(ブーリアン)型というデータ型を紹介します。boolean型は真偽値と呼ばれる値を扱うデータ型で、boolean型が扱える値はtrue(真)かfalse(偽)の２つのみです。
 
+[Chapter6/sketch01.pde](github:Chapter6/sketch01/sketch01.pde)
+
 ```processing
 boolean b1 = true;
 boolean b2 = false;
@@ -32,6 +34,8 @@ boolean型変数が真ならコッチ、偽ならアッチという風にプロ�
     <dd>等しくない</dd>
 </dl>
 
+[Chapter6/sketch02.pde](github:Chapter6/sketch02/sketch02.pde)
+
 ```processing
 println(5 < 10);   // true
 println(10 <= 10); // true
@@ -42,6 +46,8 @@ println(7 != 7);   // false
 ```
 
 int型やfloat型の算術演算と同じような感覚で演算結果をboolean型変数に代入することもできます。
+
+[Chapter6/sketch03.pde](github:Chapter6/sketch03/sketch03.pde)
 
 ```processing
 // 5 < 10の結果をb1に代入
@@ -82,6 +88,9 @@ if(条件式) // 処理
 ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。
 
 <iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe>
+
+[Chapter6/sketch04.pde](github:Chapter6/sketch04/sketch04.pde)
+
 ```processing
 int x, y;     // ボールの位置
 int vx, vy;   // ボールの速度
@@ -202,6 +211,8 @@ if (y+ballSize/2 >= height) {
 
 論理和は２つの真偽値を比べて２つとも偽(false)だった場合のみfalseを返します。それ以外はtrueを返します。論理積は２つの真偽値を比べて２つとも真(true)だった場合のみtrueを返します。それ以外はfalseを返します。論理否定はtrueをfalseに、falseをtrueにして返します
 
+[Chapter6/sketch05.pde](github:Chapter6/sketch05/sketch05.pde)
+
 ```processing
 boolean b1 = (5 == 5) || (4 == 4); // true OR true
 boolean b2 = (5 == 5) || (4 == 3); // true OR false
@@ -253,6 +264,9 @@ if (条件式) {
 通常のif文の後にelse文を書くと、if文の条件式が偽(false)だった場合にelse文の処理が実行されます。次のプログラムは、マウスがウィンドウの左半分にあるときは円を表示、そうでない(ウィンドウの右半分にある)ときは正方形を表示するプログラムです。
 
 <iframe src="/samples/tutorial/Chapter6/sketch06.html" class="sample-sketch"></iframe>
+
+[Chapter6/sketch06.pde](github:Chapter6/sketch06/sketch06.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -315,6 +329,9 @@ else if文は、それ以前にあるif文とelse if文が偽かつ自身が真�
 ウィンドウを４分割してそれぞれの領域で別々の図形を描くプログラムを作りました。
 
 <iframe src="/samples/tutorial/Chapter6/sketch07.html" class="sample-sketch"></iframe>
+
+[Chapter6/sketch07.pde](github:Chapter6/sketch07/sketch07.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -357,6 +374,9 @@ else if文の中では論理演算子&&を使ってウィンドウの領域を�
 if文の中にif文を書いて、その中にif文を書いて・・・という風に入れ子状に書いていくことができます。次のプログラムはウィンドウを縦横に４分割して、それぞれの領域で別々の図形を描くプログラムです。
 
 <iframe src="/samples/tutorial/Chapter6/sketch08.html" class="sample-sketch"></iframe>
+
+[Chapter6/sketch08.pde](github:Chapter6/sketch08/sketch08.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -444,6 +464,9 @@ switch (条件式) {
 switch文は条件式に指定された値と同じ数値を持つcaseへジャンプします。そして、そのcase内の実行分を実行し、break文を見つけるとswitch文のブロックを抜けます。次のプログラムでは変数rによって描く図形を分岐させています。
 
 <iframe src="/samples/tutorial/Chapter6/sketch09.html" class="sample-sketch"></iframe>
+
+[Chapter6/sketch09.pde](github:Chapter6/sketch09/sketch09.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -490,6 +513,9 @@ switch (条件式) {
 `
 
 <iframe src="/samples/tutorial/Chapter6/sketch10.html" class="sample-sketch"></iframe>
+
+[Chapter6/sketch10.pde](github:Chapter6/sketch10/sketch10.pde)
+
 ```processing
 size(750, 350);
 background(255);

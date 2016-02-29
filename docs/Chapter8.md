@@ -7,61 +7,63 @@
 Processingに標準で備わっている様々な計算をしてくれる関数を紹介します。
 
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/abs_.html" target="_blank">abs(n)</a></dt>
+    <dt>[abs(n)](p5ref:abs_.html)</dt>
     <dd>nの絶対値を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/round_.html" target="_blank">round(n)</a></dt>
+    <dt>[round(n)](p5ref:round_.html)</dt>
     <dd>nの小数点以下を四捨五入した整数を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/ceil_.html" target="_blank">ceil(n)</a></dt>
+    <dt>[ceil(n)](p5ref:ceil_.html)</dt>
     <dd>nの小数点以下を切り上げた整数を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/floor_.html" target="_blank">floor(n)</a></dt>
+    <dt>[floor(n)](p5ref:floor_.html)</dt>
     <dd>nの小数点以下を切り下げた整数を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/min_.html" target="_blank">min(a, b)<br>min(a, b, c)</a></dt>
+    <dt>[min(a, b, [c])](p5ref:min_.html)</dt>
     <dd>与えられた引数の最小値を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/max_.html" target="_blank">max(a, b)<br>max(a, b, c)</a></dt>
+    <dt>[max(a, b, [c])](p5ref:max_.html)</dt>
     <dd>与えられた引数の最大値を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/constrain_.html" target="_blank">constrain(value, low, high)</a></dt>
+    <dt>[constrain(value, low, high)](p5ref:constrain_.html)</dt>
     <dd>valueの値をlow～highに制限した値を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/map_.html" target="_blank">map(value, start1, stop1, start2, stop2)</a></dt>
+    <dt>[map(value, start1, stop1, start2, stop2)](p5ref:map_.html)</dt>
     <dd>start1～stop1の範囲にあるvalueをstart2～stop2の範囲にある数値にしたものを返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/norm_.html" target="_blank">norm(value, start, stop)</a></dt>
+    <dt>[norm(value, start, stop)](p5ref:norm_.html)</dt>
     <dd>start～stopの範囲にあるvalueを0～1の範囲にある数値にしたものを返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/lerp_.html" target="_blank">lerp(start, stop, amt)</a></dt>
+    <dt>[lerp(start, stop, amt)](p5ref:lerp_.html)</dt>
     <dd>startからstopまでをamt(0～1)で線形補間した値を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/mag_.html" target="_blank">mag(x, y)<br>mag(x, y, z)</a></dt>
+    <dt>[mag(x, y, [z])](p5ref:mag_.html)</dt>
     <dd>原点から座標(x, y, [z])までの長さを返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/dist_.html" target="_blank">dist(x1, y1, x2, y2)<br>dist(x1, y1, z1, x2, y2, z2)</a></dt>
+    <dt>[dist(x1, y1, [z1], x2, y2, [z2])](p5ref:dist_.html)</dt>
     <dd>２点間の距離を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/pow_.html" target="_blank">pow(n, e)</a></dt>
+    <dt>[pow(n, e)](p5ref:pow_.html)</dt>
     <dd>nのe乗を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/sq_.html" target="_blank">sq(n)</a></dt>
+    <dt>[sq(n)](p5ref:sq_.html)</dt>
     <dd>nの2乗を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/sqrt_.html" target="_blank">sqrt(n)</a></dt>
+    <dt>[sqrt(n)](p5ref:sqrt_.html)</dt>
     <dd>nの平方根(ルート)を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/exp_.html" target="_blank">exp(n)</a></dt>
+    <dt>[exp(n)](p5ref:exp_.html)</dt>
     <dd>自然対数の低eのn乗を返す</dd>
     
-    <dt><a href="https://www.processing.org/reference/log_.html" target="_blank">log(n)</a></dt>
+    <dt>[log(n)](p5ref:log_.html)</dt>
     <dd>nの自然対数を返す</dd>
 </dl>
 
 上記の関数の中からこれからよく使うであろうconstrain関数とdist関数、map関数を使ったプログラムを紹介します。
 
 constrain関数は変数の取りうる値の範囲を制限することができます。１つ目のパラメータに制限の対象となる変数を、２つ目と３つ目のパラメータに変数を制限する範囲の最小値と最大値を与えます。constrain関数は、変数が最小値未満なら最小値を、最大値より大きいなら最大値を、最小値～最大値の間にあれば変数の値をそのまま返します。つまり変数が最小値～最大値の間で収まるように制限しているわけです。次のプログラムでは変数aを0～100の間に制限しています。
+
+[Chapter8/sketch01.pde](github:Chapter8/sketch01/sketch01.pde)
 
 ```processing
 int a;
@@ -93,6 +95,9 @@ println(a);
 次のプログラムはマウスの位置にrect関数で箱を表示していますが、箱の座標をconstrain関数で制限することで檻の外に出られないようにしています。
 
 <iframe src="/samples/tutorial/Chapter8/sketch02.html" class="sample-sketch"></iframe>
+
+[Chapter8/sketch02.pde](github:Chapter8/sketch02/sketch02.pde)
+
 ```processing
 int x, y, size; // 箱の座標と大きさ
 int cageSize;   // 檻の大きさ
@@ -127,6 +132,8 @@ void draw() {
 
 dist関数の使い方を解説していきます。dist関数は２点間の距離を計算して返す関数です。dist関数が返す値の型はfloatなのでfloat型の変数に代入しなければいけません。
 
+[Chapter8/sketch03.pde](github:Chapter8/sketch03/sketch03.pde)
+
 ```processing
 // 座標(0, 0)と座標(3, 4)の距離を計算
 float d1 = dist(0, 0, 3, 4);
@@ -140,6 +147,9 @@ println(d2); // 出力 : 100.0
 dist関数を使うと円とマウスの接触判定ができるようになります。円の中心からマウスまでの距離がd、円の半径がrとするとd <= rのときマウスは円内にあります。
 
 <iframe src="/samples/tutorial/Chapter8/sketch04.html" class="sample-sketch"></iframe>
+
+[Chapter8/sketch04.pde](github:Chapter8/sketch04/sketch04.pde)
+
 ```processing
 int x, y, diameter; // 円の座標と直径
 color c1, c2;       // 円の色と線の色
@@ -180,6 +190,9 @@ void draw() {
 map関数はある範囲にある値から別の範囲の数値を作りたいときに便利です。言葉で説明してもわかりにくいので次のプログラムを見てください。マウスがウィンドウの右端にあるほど縦線の太さが太く、下端にあるほど横線の太さが太くなります。
 
 <iframe src="/samples/tutorial/Chapter8/sketch05.html" class="sample-sketch"></iframe>
+
+[Chapter8/sketch06.pde](github:Chapter8/sketch06/sketch06.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -233,6 +246,8 @@ map関数の１つ目のパラメータには変換の対象となる変数、�
 
 Processingの土台のプログラムで定義されているconstrain関数を自作してみました。名前はmyConstrainにしています。
 
+[Chapter8/sketch06.pde](github:Chapter8/sketch06/sketch06.pde)
+
 ```processing
 void setup() {
   // 関数は定義した行より前でも使える
@@ -277,6 +292,9 @@ setup関数内でmyConstrain関数を使った時のプログラムの実行過�
 さらに具体例を紹介していきます。円を２つ配置して、マウスが円内にある時は円の色をランダムに切り替えています。マウスが円内にあるかどうかを確かめる処理をmouseOver関数にまとめました。mouseOver関数には円の座標と半径をパラメータとして渡します。mouseOver関数はboolean型を返すので、if(mouseOver())と書くことで場合わけができます。
 
 <iframe src="/samples/tutorial/Chapter8/sketch07.html" class="sample-sketch"></iframe>
+
+[Chapter8/sketch07.pde](github:Chapter8/sketch07/sketch07.pde)
+
 ```processing
 int x1, y1, radius1; // 左の円の座標と半径
 int x2, y2, radius2; // 右の円の座標と半径
@@ -361,6 +379,9 @@ void 関数名(仮引数1, 仮引数2, ...) {
 値を返さない関数の例として顔を描くface関数を作ってみました。 face関数には顔を描く座標と顔の大きさをパラメータとして渡します。
 
 <iframe src="/samples/tutorial/Chapter8/sketch08.html" class="sample-sketch"></iframe>
+
+[Chapter8/sketch08.pde](github:Chapter8/sketch08/sketch08.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -393,6 +414,8 @@ void face(int x, int y, int size) {
 
 関数定義で関数名の前にintやfloatなどのデータ型を書いた関数は値を返す関数になりますが、値を返す関数は必ず何かしらの値を返さなければいけません。関数内で条件分岐によって返す値を場合わけするときには注意が必要です。次のプログラムのtest1関数は変数rが1未満の場合のみtrueを返すようになっていますが、このプログラムを実行すると、「この関数はboolean型の値を返さなければいけません」という意味のエラーが出ます。
 
+[Chapter8/sketch09.pde](github:Chapter8/sketch09/sketch09.pde)
+
 ```processing
 void setup() {
   boolean b = test1();
@@ -408,6 +431,8 @@ boolean test1() {
 ```
 
 このエラーはもっとわかりやすく言うと「この関数は値を返さない場合があります」ということになります。値を返す関数は必ず何かしらの値を返す必要があります。test1関数はif文に当てはまった場合のみしかreturn文を実行しないので、当てはまらなかった場合は何も返しません。エラーはこれのせいで出ています。test1関数を次のようにしても、同じエラーが出ます。
+
+[Chapter8/sketch10.pde](github:Chapter8/sketch10/sketch10.pde)
 
 ```processing
 void setup() {
@@ -425,7 +450,9 @@ boolean test2() {
 }
 ```
 
-else if文を追加して、rが1以上のときはfalseを返すようにしましたが、これでもエラーが出ます。「rは1未満か1以上のどちらかなんだから絶対にtrueかfalseを返すじゃん？」と思うかもしれませんが、 エラーを発見してくれるプログラムはそこまで賢くありません。if文の中身までは見てくれません。 test2関数の場合if文にもelse if文にもあてはまらずに何も値を返さない可能性があるとみなされてしまいエラーが出ます。エラーが出ないようにするには次のようにします。
+else if文を追加して、rが1以上のときはfalseを返すようにしましたが、これでもエラーが出ます。「rは1未満か1以上のどちらかなんだから絶対にtrueかfalseを返すじゃん？」と思うかもしれませんが、エラーを発見してくれるプログラムはそこまで賢くなくて、if文の中身までは見てくれません。test2関数の場合if文にもelse if文にもあてはまらずに何も値を返さない可能性があるとみなされてしまいエラーが出ます。エラーが出ないようにするには次のようにします。
+
+[Chapter8/sketch11.pde](github:Chapter8/sketch11/sketch11.pde)
 
 ```processing
 void setup() {

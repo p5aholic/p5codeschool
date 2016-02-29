@@ -7,15 +7,17 @@ random()によって作ることができる乱数を復習したあと、パー
 random()は今までに何回か出てきましたがもう一度復習しておきます。random()には次の２通りの使い方があります。
 
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/random_.html" target="_blank">random(high)</a></dt>
+    <dt>[random(high)](p5ref:random_.html)</dt>
     <dd>0以上high未満の乱数を返す</dd>
-    <dt><a href="https://www.processing.org/reference/random_.html" target="_blank">radnom(low, high)</a></dt>
+    <dt>[radnom(low, high)](p5ref:random_.html)</dt>
     <dd>low以上high未満の乱数を返す</dd>
 </dl>
 
 返す値がhigh未満だということだけ注意してください。random(5)なら返ってくる値は5を含みません。random(10.4)なら返ってくる値は10.4を含みません。前回解説したsin()とcos()を使って次のプログラムを作りました。
 
 <iframe src="/samples/tutorial/Chapter12/sketch01.html" class="sample-sketch"></iframe>
+
+[Chapter12/sketch01.pde](github:Chapter12/sketch01/sketch01.pde)
 
 ```processing
 void setup() {
@@ -50,6 +52,8 @@ void mousePressed() {
 ## シード値
 通常、random()によって作られる乱数はプログラムが実行されるたびに違った値になります。言葉ではよくわからないと思うので、次のプログラムを実行してみてください。
 
+[Chapter12/sketch02.pde](github:Chapter12/sketch02/sketch02.pde)
+
 ```processing
 for (int i = 0; i < 10; i++) {
   println(random(100));
@@ -57,6 +61,8 @@ for (int i = 0; i < 10; i++) {
 ```
 
 0以上100未満の値を10個出力します。このプログラムを終了してもう１度実行すると、全く異なる10個の乱数が出力されます。次のプログラムも同じように、1度実行して、プログラムを終了してからもう１度実行してみてください。
+
+[Chapter12/sketch03.pde](github:Chapter12/sketch03/sketch03.pde)
 
 ```processing
 // シード値を設定
@@ -73,6 +79,8 @@ for (int i = 0; i < 10; i++) {
 random()の他にProcessingにはnoise()という関数が用意されていて、noise()を使うとパーリンノイズと呼ばれる乱数を作ることができます。Ken Perlinさんが考えた乱数生成法なのでパーリンノイズと呼ばれます。noise()によって作られた乱数は隣り合った乱数の数値の差がわずかで、全体として滑らかに変化する乱数になります。random()によって作られる乱数は隣り合った乱数の差がとびとびの値を取っていました。次のプログラムではrandom()によってy座標が変動する点を左端から右端まで描画しています。
 
 <iframe src="/samples/tutorial/Chapter12/sketch04.html" class="sample-sketch"></iframe>
+
+[Chapter12/sketch04.pde](github:Chapter12/sketch04/sketch04.pde)
 
 ```processing
 void setup() {
@@ -98,6 +106,8 @@ void draw() {
 次のプログラムは点のy座標をrandom()ではなくnoise()によって変動させたものです。解説は後で詳しくするのでざっとプログラムを見てください。マウスクリックで再描画できます。
 
 <iframe src="/samples/tutorial/Chapter12/sketch05.html" class="sample-sketch"></iframe>
+
+[Chapter12/sketch05.pde](github:Chapter12/sketch05/sketch05.pde)
 
 ```processing
 float noise = 0.0;      // noise()に指定する値
@@ -150,14 +160,17 @@ noiseStepを0.01まで下げると少し曲がった直線のようになりま�
 <iframe src="/samples/tutorial/Chapter12/sketch07.html" class="sample-sketch"></iframe>
 
 noiseSeed()を使えばnoise()で生成する乱数にもシード値を設定することができます。
-float noise = 0.0;
+
+[Chapter12/sketch06.pde](github:Chapter12/sketch06/sketch06.pde)
+
+```processing
+ffloat noise = 0.0;
 float noiseStep = 0.05;
 
 // シード値を設定して乱数を固定
 
-```processing
 noiseSeed(10);
-for(int i = 0; i < 10; i++){
+for (int i = 0; i < 10; i++) {
   float n = noise(noise) * 100;
   println(n);
   noise += noiseStep;

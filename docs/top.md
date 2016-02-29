@@ -12,7 +12,10 @@ ProcessingはJavaというプログラミング言語のグラフィックス処
 
 “マウスの位置に色と大きさがランダムな円を描く”というプログラムを書いてみましょう。Javaを経験したことがある人なら、「マウスリスナーが必要で、repaint()を・・・」などと考えると思いますが、記述は以下の9行で済みます。下の画面にマウスをオーバーさせるとWeb上でも動作確認ができます。
 
+[AboutP5.pde](github:AboutP5/AboutP5.pde)
+
 <iframe src="/samples/tutorial/AboutP5/sketch01.html" class="sample-sketch"></iframe>
+
 ```processing
 // プログラム開始時に一度だけ実行される処理
 void setup() {

@@ -6,7 +6,10 @@
 
 Processingでは、原点(0, 0)はウィンドウの左上の角にありましたが、translate関数を使うと原点をウィンドウの好きな位置に変えることができます。次のプログラムでは原点を画面中心に移動させたあと、３つの円を描画しています。
 
-![img](/image/Chapter10/sketch01.jpg)
+![](/images/Chapter10/sketch01.jpg)
+
+[Chapter10/sketch01.pde](github:Chapter10/sketch01/sketch01.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -29,13 +32,17 @@ ellipse(200, 100, 80, 80);
 ```
 
 translate(width/2, height/2)を実行すると、ウィンドウの座標は次のように変わります。
-![img](/image/Chapter10/translate.jpg)
+
+![](/images/Chapter10/translate.jpg)
 
 原点の位置がウィンドウの左上角にあるよりも画面中心にあったほうが考えやすい場合も多いので、translate(width/2, height/2)はこの先よく使うことになると思います。
 
 translate()を２回以上使うと、原点の移動量は加算されていきます。次のプログラムを見てください。
 
-![img](/image/Chapter10/sketch02.jpg)
+![](/images/Chapter10/sketch02.jpg)
+
+[Chapter10/sketch02.pde](github:Chapter10/sketch02/sketch02.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -67,7 +74,10 @@ translate(100, 50)を３回使っていますが、その時の原点は座標(1
 
 pushMatrix()とpopMatrix()を使うとtranslate()によって移動された原点の位置を、移動する前の位置に戻すことができます。
 
-![img](/image/Chapter10/sketch03.jpg)
+![](/images/Chapter10/sketch03.jpg)
+
+[Chapter10/sketch03.pde](github:Chapter10/sketch03/sketch03.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -104,6 +114,8 @@ translate()を３回使っていますが、原点の移動量が加算されて
 
 translate()やこのあと解説するrotate()、scale()などによって変換された座標情報はdraw()の度にリセットされます。次のプログラムでは、pushMatrix()、popMatrix()を使わずにdraw()の中でtranslate()を実行していますが、draw()の度に原点の移動量が増えるわけではないことがわかります。
 
+[Chapter10/sketch04.pde](github:Chapter10/sketch04/sketch04.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -123,7 +135,10 @@ void draw() {
 ## 回転
 rotate()を使うと座標を回転させることができます。パラメータにはラジアンで表された角度を指定します。次のプログラムではx軸に平行な(傾いていない)長方形と30度回転した長方形、60度回転した長方形を描画しています。
 
-![img](/image/Chapter10/sketch05.jpg)
+![](/images/Chapter10/sketch05.jpg)
+
+[Chapter10/sketch05.pde](github:Chapter10/sketch05/sketch05.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -148,7 +163,10 @@ translate()による原点の移動量が加算されていったように、rot
 
 rotate()による座標の回転は常に原点を中心にして回転されます。translate()で原点を画面中心に移動させた場合は次のようになります。
 
-![img](/image/Chapter10/sketch06.jpg)
+![](/images/Chapter10/sketch06.jpg)
+
+[Chapter10/sketch06.pde](github:Chapter10/sketch06/sketch06.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -184,7 +202,10 @@ scale()を使うと座標全体を拡大縮小することができます。scal
 
 `scale(4.0, 0.5);`
 
-![img](/image/Chapter10/sketch07.jpg)
+![](/images/Chapter10/sketch07.jpg)
+
+[Chapter10/sketch07.pde](github:Chapter10/sketch07/sketch07.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -205,7 +226,10 @@ stroke(0, 0, 255);
 ellipse(50, 50, 50, 50);
 ```
 
-![img](/image/Chapter10/sketch08.jpg)
+![](/images/Chapter10/sketch08.jpg)
+
+[Chapter10/sketch08.pde](github:Chapter10/sketch08/sketch08.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -222,7 +246,10 @@ ellipse(50, 50, 50, 50);
 
 scale()によって座標を拡大縮小すると、描かれる図形の枠線の太さも拡大縮小されます。図形だけを拡大縮小して枠線の太さをそのままに保ちたい場合は次のようにします。
 
-![img](/image/Chapter10/sketch09.jpg)
+![](/images/Chapter10/sketch09.jpg)
+
+[Chapter10/sketch09.pde](github:Chapter10/sketch09/sketch09.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -251,7 +278,10 @@ ellipse(50, 50, 50, 50);
 
 translate()で原点を画面中心に移動させた場合は次のようになります。
 
-![img](/image/Chapter10/sketch10.jpg)
+![](/images/Chapter10/sketch10.jpg)
+
+[Chapter10/sketch10.pde](github:Chapter10/sketch10/sketch10.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -285,7 +315,10 @@ ellipse(0, 0, 50, 50);
 ４：原点に図形を描画<br>
 ５：popMatrix()で座標情報を戻す
 
-![img](/image/Chapter10/sketch11.jpg)
+![](/images/Chapter10/sketch11.jpg)
+
+[Chapter10/sketch11.pde](github:Chapter10/sketch11/sketch11.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -333,6 +366,9 @@ popMatrix();
 draw()を使ってアニメーションにしてみましょう。
 
 <iframe src="/samples/tutorial/Chapter10/sketch12.html" class="sample-sketch"></iframe>
+
+[Chapter10/sketch12.pde](github:Chapter10/sketch12/sketch12.pde)
+
 ```processing
 void setup() {
   size(750, 350);

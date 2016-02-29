@@ -13,6 +13,8 @@ class クラス名 {
 
 波カッコの中に必要な変数を書き込みます。次のプログラムではボールについての情報をまとめたクラスを作っています。クラス名はそのクラスを端的に表す名前が良いのでBallとしています。クラス内にはボールの情報を表す位置、半径、色の変数を書き込んでいます。クラス内に書く変数のことをプログラミング用語でフィールドと呼ぶので覚えておいてください。
 
+[Chapter15_2/sketch01.pde](github:Chapter15_2/sketch01/sketch01.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -51,6 +53,8 @@ b1.c
 
 のようにb1のあとにドットを繋げてさらに変数名を書くことでアクセスできます。次のプログラムではb1のフィールドに値を設定して描画しています。
 
+[Chapter15_2/sketch02.pde](github:Chapter15_2/sketch02/sketch02.pde)
+
 ```processing
 Ball b1 = new Ball();
 
@@ -83,6 +87,8 @@ class Ball {
 ```
 
 具体的なボールはコンピュータのメモリが許す限りいくつでも作ることができます。次のプログラムではBallクラスからボールb1とb2を作って描画しています。 画面上に位置、半径、色の異なる２つのボールが描画されることを確認してください。
+
+[Chapter15_2/sketch03.pde](github:Chapter15_2/sketch03/sketch03.pde)
 
 ```processing
 Ball b1 = new Ball(); // Ball型のオブジェクトを生成
@@ -172,7 +178,7 @@ b1に何が代入されているかを解説します。結論から言うと、
 
 と書くと、new Ball();によって新しいBallクラスのインスタンスが作られ、b2にそのインスタンスの場所を示す参照が代入されます。下の図のようなイメージで理解しておいてください。
 
-![](/image/Chapter15/class_1.jpg)
+![](/images/Chapter15/class_1.jpg)
 
 「b1.radius」は「b1が参照するインスタンスがもつ変数radius」、「b2.radius」は「b2が参照するインスタンスがもつ変数radius」という意味です。ですので、b1とb2には別の参照が代入されているのでb1.radiusとb2.radiusが異なる変数だというのは当たり前のことです。b1.radiusのことをいちいち「b1が参照するインスタンスが持つ変数radius」と呼ぶのは手間なので、単に「b1のradius」と呼ぶことにします。ですが頭の中では「b1が参照するインスタンスが持つ変数radius」という風に読みかえてください。
 
@@ -186,6 +192,8 @@ float b;
 などのaやbは基本データ型変数と呼ばれます。
 
 次のプログラムを通して参照についての理解を深めます。
+
+[Chapter15_2/sketch04.pde](github:Chapter15_2/sketch04/sketch04.pde)
 
 ```processing
 Ball b1 = new Ball(); // Ball型のオブジェクトを生成
@@ -215,7 +223,7 @@ class Ball {
 
 参照型変数b1、b2のradiusに、それぞれ40と20の値を代入します。println()でそれぞれのradiusを出力すると、当然、40と20が出力されます。次にb2 = b1としたあとにもう一度radiusを出力すると、今度はどちらも40になります。b2 = b1を実行したとき、プログラムでは次の図のようなことが起こっています。
 
-![](/image/Chapter15/class_2.jpg)
+![](/images/Chapter15/class_2.jpg)
 
 つまり、b1が持っていた参照をb2に代入したことにより、b1とb2が参照するインスタンスが同じになったのです。当然、b1.radiusとb2.radiusは同じ変数なのでprintln()で出力すると同じ値が出力されます。
 
@@ -229,6 +237,8 @@ class Ball {
 クラス名() {
 }
 `
+
+[Chapter15_2/sketch05.pde](github:Chapter15_2/sketch05/sketch05.pde)
 
 ```processing
 class Ball {
@@ -250,6 +260,8 @@ class Ball {
 `Ball b1 = new Ball();`
 
 のBall()の部分がコンストラクタです。new演算子に続いて、クラスに定義されている(とみなされている)コンストラクタを呼び出すことによってインスタンスを作っていたわけです。コンストラクタにはインスタンスを作るという最も重要な機能が初めから備わっているのですが、コンストラクタの中身にコードを加えて機能を付け足すことができます。次のプログラムではコンストラクタの中身にフィールドの代入処理を加えています。
+
+[Chapter15_2/sketch06.pde](github:Chapter15_2/sketch06/sketch06.pde)
 
 ```processing
 Ball b1, b2;
@@ -302,6 +314,8 @@ class Ball {
 
 コンストラクタは関数のように仮引数を持つことができます。次のプログラムでは、bx、by、rad、bcを仮引数とするコンストラクタを作り、フィールドx、y、radius、cに代入することで値の代入処理をしています。コンストラクタを呼び出すときは、仮引数を持つコンストラクタに合わせて実引数を書き込んだコンストラクタを使います。
 
+[Chapter15_2/sketch07.pde](github:Chapter15_2/sketch07/sketch07.pde)
+
 ```processing
 Ball b1, b2, b3;
 
@@ -352,6 +366,8 @@ class Ball {
 
 クラス定義に書くフィールドには、デフォルト値を設定しておくことができます。
 
+[Chapter15_2/sketch08.pde](github:Chapter15_2/sketch08/sketch08.pde)
+
 ```processing
 Ball b1, b2, b3;
 
@@ -400,6 +416,8 @@ class Ball {
 ## メソッド
 
 今までに解説してきたクラスを使って、ボールがウィンドウを跳ね回るプログラムを作りました。Ballクラスには速度を表すフィールドvx、vyを追加しています。
+
+[Chapter15_2/sketch09.pde](github:Chapter15_2/sketch09/sketch09.pde)
 
 ```processing
 Ball b1, b2;
@@ -464,6 +482,8 @@ class Ball {
 ```
 
 インスタンスがもつフィールドにアクセスするたびにb1.やb2.と書かなければならず、ちょっと面倒臭いですね。それに、ボールを動かす処理、壁との衝突処理、ボールの描画処理をb1とb2のそれぞれに書かなければならず、これも面倒です。実はクラスには、インスタンスが持つ変数だけでなく、インスタンスが行う処理もまとめることができます。言葉での解説は後回しにして、まずは次のプログラムを見てください。
+
+[Chapter15_2/sketch10.pde](github:Chapter15_2/sketch10/sketch10.pde)
 
 ```processing
 Ball b1, b2, b3;

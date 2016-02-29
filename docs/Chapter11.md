@@ -9,6 +9,9 @@
 sin()とcos()のパラメータには角度をラジアン値で渡します。そして、sin()とcos()は渡されたラジアン値をもとに-1～1の値を返します。とりあえずsin()とcos()がどのような値を返すのか見てみましょう。まずはcos()から。
 
 <iframe src="/samples/tutorial/Chapter11/sketch01.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch01.pde](github:Chapter11/sketch01/sketch01.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -32,6 +35,9 @@ void draw() {
 sin()とcos()が返す値は-1～1なので、わかりやすいように100を掛けています。sin()も同じようにしてどのような値を返すのか見てみましょう。
 
 <iframe src="/samples/tutorial/Chapter11/sketch02.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch02.pde](github:Chapter11/sketch02/sketch02.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -55,6 +61,9 @@ void draw() {
 では、この２つを組み合わせてpoint(x, y)を描画してみましょう。
 
 <iframe src="/samples/tutorial/Chapter11/sketch03.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch03.pde](github:Chapter11/sketch03/sketch03.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -88,6 +97,9 @@ cos(α) = x<br>
 次のプログラムではsin()とcos()を使って円状に点を描画しています。
 
 <iframe src="/samples/tutorial/Chapter11/sketch04.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch04.pde](github:Chapter11/sketch04/sketch04.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -116,6 +128,9 @@ void draw() {
 このプログラムでは360度になるまで描画していますが、マウスのx座標をmap()を使って角度に変換すると次のようになります。
 
 <iframe src="/samples/tutorial/Chapter11/sketch05.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch05.pde](github:Chapter11/sketch05/sketch05.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -143,6 +158,9 @@ void draw() {
 次のプログラムでは、画面の左端から右端まで15px間隔で円を描画しています。 円のy座標をx座標に応じてsin()で変動させています。
 
 <iframe src="/samples/tutorial/Chapter11/sketch06.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch06.pde](github:Chapter11/sketch06/sketch06.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -174,6 +192,9 @@ xの最大値は700なので、x*0.01の最大値は7になります。TWO_PIが
 高さの決め方をちょこっと変えると次のようなものも作れます。
 
 <iframe src="/samples/tutorial/Chapter11/sketch07.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch07.pde](github:Chapter11/sketch07/sketch07.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -196,6 +217,9 @@ void draw() {
 上の２つのプログラムではsin()を使って円のy座標を変動させていましたが、次のプログラムでは画面左端から右端まで1pxの太さで描画された縦線を描画し、その色を変動させています。
 
 <iframe src="/samples/tutorial/Chapter11/sketch08.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch08.pde](github:Chapter11/sketch08/sketch08.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -216,6 +240,9 @@ void draw() {
 sin()は-1～1の値を返しますが、色にマイナス値はないのでabs()を使ってsin()の絶対値を取っています。sin()の中にframeCountを加えると次のようになります。
 
 <iframe src="/samples/tutorial/Chapter11/sketch09.html" class="sample-sketch"></iframe>
+
+[Chapter11/sketch09.pde](github:Chapter11/sketch09/sketch09.pde)
+
 ```processing
 void setup() {
   size(750, 350);

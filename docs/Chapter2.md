@@ -5,25 +5,38 @@
 ## 図形を描く
 
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/point_.html" target="_blank">point(x, y)</a></dt>
+    <dt>[point(x, y)](p5ref:point_.html)</dt>
     <dd>座標(x, y)に点を描く</dd>
-    <dt><a href="https://www.processing.org/reference/line_.html" target="_blank">line(x1, y1, x2, y2)</a></dt>
+    
+    <dt>[line(x1, y1, x2, y2)](p5ref:line_.html)</dt>
     <dd>座標(x1, y1)から(x2, y2)まで線を引く</dd>
-    <dt><a href="https://www.processing.org/reference/ellipse_.html" target="_blank">ellipse(x, y, w, h)</a></dt>
+    
+    <dt>[ellipse(x, y, w, h)](p5ref:ellipse_.html)</dt>
     <dd>座標(x, y)に幅ｗ高さｈの楕円を描く</dd>
-    <dt><a href="https://www.processing.org/reference/rect_.html" target="_blank">rect(x, y, w, h)</a></dt>
+    
+    <dt>[rect(x, y, w, h)](p5ref:rect_.html)</dt>
     <dd>座標(x, y)に幅ｗ高さｈの長方形を描く</dd>
-    <dt><a href="https://www.processing.org/reference/quad_.html" target="_blank">quad(x1, y1, x2, y2, x3, y3, x4, y4)</a></dt>
+    
+    <dt>[quad(x1, y1, x2, y2, x3, y3, x4, y4)](p5ref:quad_.html)</dt>
     <dd>座標(x1, y1)、(x2, y2)、(x3, y3)、(x4, y4)を頂点とした四角形を描く</dd>
-    <dt><a href="https://www.processing.org/reference/triangle_.html" target="_blank">triangle(x1, y1, x2, y2, x3, y3)</a></dt>
+    
+    <dt>[triangle(x1, y1, x2, y2, x3, y3)](p5ref:triangle_.html)</dt>
     <dd>座標(x1, y1)、(x2, y2)、(x3, y3)を頂点とした三角形を描く</dd>
-    <dt><a href="https://www.processing.org/reference/arc_.html" target="_blank">arc(x, y, w, h, start, stop)</a></dt>
+    
+    <dt>[arc(x, y, w, h, start, stop)](p5ref:arc_.html)</dt>
     <dd>座標(x, y)に幅ｗ高さｈ、角度startからstopまでの弧を描く</dd>
 </dl>
 
-Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。size(700,300)を指定した場合のウィンドウの角の座標は次のようになります。最初は違和感を感じますがすぐに慣れるでしょう。実際に図形を描いてみます。
+Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。size(700,300)を指定した場合のウィンドウの角の座標は次のようになります。
 
-![img](/image/Chapter2/sketch01.jpg)
+![](/images/Chapter2/coordinate.jpg)
+
+最初は違和感を感じますがすぐに慣れるでしょう。実際に図形を描いてみます。
+
+![](/images/Chapter2/sketch01.jpg)
+
+[Chapter2/sketch01.pde](github:Chapter2/sketch01/sketch01.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -45,9 +58,14 @@ ellipse()に指定する座標は円の中心座標です。対して、rect()�
 
 arc()関数を使ってみます。arc()関数の５つ目と６つ目のパラメータは孤を描き始める角度と描き終わる角度です。２つの角度はどちらも０度から数えた角度です。数学では角度は反時計回りで増えていきますが、Processingでは時計回りに増えます。また、単位は度ではなくラジアンで指定します。ラジアンについて詳しく解説すると長くなっちゃうのでここでは止めておきます。簡単に説明しておくと、下の画像にもある通り、0度が0ラジアン、45度が0.79ラジアン、90度が1.57ラジアンという感じになっています。Processingでコードを書くときにこのラジアンの数値をそのまま使うことはまずないでしょう。代わりに他の方法で角度を表現します。下の画像は度(Degrees)とラジアン(Radians)の数値の対応を示しています。
 
+![](/images/Chapter2/rad_deg.jpg)
+
 下のサンプルコードは角度を指定する３つの方法を示しています。１つ目のarc()はラジアンの数値をそのまま使う方法。２つ目のarc()は定数と呼ばれる文字を使う方法です。QUARTER_PIと書くとラジアンの数値で0.79を指定するのと同じことになります。他に、90度を表すHALF_PI、180度を表すPI、360度を表すTWO_PIがあります。このように、Processingではわかりにくい数値を文字として表現できることがあります。なぜこのような文字のことを定数と呼ぶのかはChapter4で解説しています。６つ目のパラメータを指定するときにちょっとした計算をしています。TWO_PIからQUARTER_PIを引き算することで315度を表しています。このような計算についても詳しくはChapter4で解説します。３つ目のarc()には度数をラジアンに変換してくれるradians()関数を使っています。radians()関数に度数を与えると対応するラジアンを返してくれます。このradians()関数を使った角度の指定方法が一番使われています。
 
-![img](/image/Chapter2/sketch02.jpg)
+![](/images/Chapter2/sketch02.jpg)
+
+[Chapter2/sketch02.pde](github:Chapter2/sketch02/sketch02.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -62,7 +80,10 @@ arc(625, 175, 100, 100, radians(45), radians(315));
 
 arc()関数には７つ目のパラメータがあります。このパラメータにはPIE、OPEN、CHORDのいずれかを指定します。文字の説明を読むより見たほうが早いので次のサンプルで確認してください。７つ目のパラメータを指定しなかった場合と指定した場合の３つを比較しています。
 
-![img](/image/Chapter2/sketch03.jpg)
+![](/images/Chapter2/sketch03.jpg)
+
+[Chapter2/sketch03.pde](github:Chapter2/sketch03/sketch03.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -75,7 +96,10 @@ arc(655, 175, 100, 100, radians(45), radians(315), CHORD);
 
 rect()にもパラメータを追加することができ、追加のパラメータで角丸の長方形を作ることができます。追加のパラメータには角丸の半径を与えます。５つ目のパラメータを与えた場合はすべての角が同じ半径の角丸に、５、６、７、８つ目のパラメータを与えると左上の角から時計回りに角丸の半径を指定できます。
 
-![img](/image/Chapter2/sketch04.jpg)
+![](/images/Chapter2/sketch04.jpg)
+
+[Chapter2/sketch04.pde](github:Chapter2/sketch04/sketch04.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -91,19 +115,25 @@ rect(475, 125, 100, 100, 10, 20, 30, 40);
 図形に色を指定する方法を見ていきましょう。色の表現方法はChapter3で詳しく解説します。ここでは黒～白の色に限定して話していきます。図形には枠線の色と内側の塗りつぶしの色を指定することができます。以下の４つの関数で色の指定ができます。fill()とstroke()のパラメータにはbackground()と同じく0～255の数値を与えます。noFill()とnoStroke()はパラメータを持たない関数です。
 
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/fill_.html" target="_blank">fill()</a></dt>
+    <dt>[fill()](p5ref:fill_.html)</dt>
     <dd>図形の内側の色を指定する</dd>
-    <dt><a href="https://www.processing.org/reference/noFill_.html" target="_blank">noFill()</a></dt>
+    
+    <dt>[noFill()](p5ref:noFill_.html)</dt>
     <dd>図形の内側の色を無くす</dd>
-    <dt><a href="https://www.processing.org/reference/stroke_.html" target="_blank">stroke()</a></dt>
+    
+    <dt>[stroke()](p5ref:stroke_.html)</dt>
     <dd>図形の枠線の色を指定する</dd>
-    <dt><a href="https://www.processing.org/reference/noStroke_.html" target="_blank">noStroke()</a></dt>
+    
+    <dt>[noStroke()](p5ref:noStroke_.html)</dt>
     <dd>図形の枠線を無くす</dd>
 </dl>
 
 point()とline()には内側というものがありません。point()とline()に色を指定する場合はstroke()だけでいいです。
 
-![img](/image/Chapter2/sketch05.jpg)
+![](/images/Chapter2/sketch05.jpg)
+
+[Chapter2/sketch05.pde](github:Chapter2/sketch05/sketch05.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -137,17 +167,22 @@ fill()、stroke()、noFill()、noStroke()や、後述するstrokeWeight()、stro
 枠線の見た目を変える３種類の関数を見ていきましょう。
 
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/strokeWeight_.html" target="_blank">strokeWeight()</a></dt>
+    <dt>[strokeWeight()](p5ref:strokeWeight_.html)</dt>
     <dd>枠線の太さを変える</dd>
-    <dt><a href="https://www.processing.org/reference/strokeJoin_.html" target="_blank">strokeJoin()</a></dt>
+    
+    <dt>[strokeJoin()](p5ref:strokeJoin_.html)</dt>
     <dd>枠線の角の形を変える</dd>
-    <dt><a href="https://www.processing.org/reference/strokeCap_.html" target="_blank">strokeCap()</a></dt>
+    
+    <dt>[strokeCap()](p5ref:strokeCap_.html)</dt>
     <dd>枠線の両端の形を変える</dd>
 </dl>
 
 strokeWeight()は枠線の太さを変える関数です。strokeJoin()は枠線の角の形を変える関数で、パラメータにMITER、BEVEL、ROUNDの３種類を指定することができます。MITERは角を尖った形に、BEVELは角を切り取った形に、ROUNDは角を丸い形にできます。MITERがデフォルトの設定です。
 
-![img](/image/Chapter2/sketch06.jpg)
+![](/images/Chapter2/sketch06.jpg)
+
+[Chapter2/sketch06.pde](github:Chapter2/sketch06/sketch06.pde)
+
 ```processing
 size(750, 200);
 background(255);
@@ -176,7 +211,10 @@ rect(575, 50, 100, 100);
 
 strokeCap()は枠線の両端の形を変える関数で、パラメータにROUND、PROJECT、SQUAREの３種類を指定することができます。ROUNDは両端を丸い形に、PROJECTは両端を尖った形に、SQUAREは両端を尖った形にした上でstrokeWeight()による両端のはみ出しを消します。ROUNDがデフォルトの設定です。以下のコードでは比較のために太さ20pxの線の左横と下に太さ1pxの線を描いています。
 
-![img](/image/Chapter2/sketch07.jpg)
+![](/images/Chapter2/sketch07.jpg)
+
+[Chapter2/sketch07.pde](github:Chapter2/sketch07/sketch07.pde)
+
 ```processing
 size(750, 200);
 background(255);
@@ -227,7 +265,12 @@ line()にstrokeWeight()を指定すると線の両端にも太さが割り振ら
 
 ellipseMode()関数とrectMode()関数を使うとellipse()とrect()に指定するパラメータの挙動を変えることができます。ellipseMode()にはCENTER、RADIUS、CORNER、CORNERSのいずれかを指定することができます。CENTERがデフォルトです。それぞれを指定した場合の挙動は以下の通りです。
 
-![img](/image/Chapter2/sketch08.jpg)
+![](/images/Chapter2/ellipseMode.jpg)
+
+![](/images/Chapter2/sketch08.jpg)
+
+[Chapter2/sketch08.pde](github:Chapter2/sketch08/sketch08.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -252,7 +295,12 @@ ellipse(0, 0, 200, 100);     // 明るい灰色の円
 
 rectMode()にはCORNER、CORNERS、CENTERのいずれかを指定することができます。CORNERがデフォルトです。それぞれを指定した場合の挙動は以下の通りです。
 
-![img](/image/Chapter2/sketch09.jpg)
+![](/images/Chapter2/rectMode.jpg)
+
+![](/images/Chapter2/sketch09.jpg)
+
+[Chapter2/sketch09.pde](github:Chapter2/sketch09/sketch09.pde)
+
 ```processing
 size(750, 350);
 background(220);
@@ -274,7 +322,10 @@ rect(0, 0, 200, 100);     // 灰色の円
 ## スムージングの切り替え
 スムージングは図形の輪郭線などを滑らかにする手法のことです。アンチエイリアシングともいいます。 Processingではsmooth()関数とnoSmooth()関数でスムージングのオンオフができます。デフォルトではsmooth()によって既にスムージングが適用されています。輪郭線は滑らかなほうがいいのでわざわざnoSmooth()でスムージングをオフにすることはほとんどないですが、知識として知っておいたほうがいいでしょう。
 
-![img](/image/Chapter2/sketch10.jpg)
+![](/images/Chapter2/sketch10.jpg)
+
+[Chapter2/sketch10.pde](github:Chapter2/sketch10/sketch10.pde)
+
 ```processing
 size(750, 350);
 background(220);

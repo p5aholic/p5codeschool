@@ -1,3 +1,4 @@
+int[] data = new int[5]; // 宣言と代入
 // dataのそれぞれの要素に数値を代入
 data[0] = (int)random(100);
 data[1] = (int)random(100);

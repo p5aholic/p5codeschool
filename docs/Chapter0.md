@@ -26,7 +26,8 @@ void draw() {
   ellipse(mouseX, mouseY, random(50), random(50));
 }
 ```
-![img](/image/Chapter0/editor.jpg)
+
+![](/images/Chapter0/editor.png)
 
 Fileメニューの下にある右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置にカラフルな楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。
 

@@ -7,6 +7,9 @@
 変数mousePressedはboolean型の変数で、マウスのいずれかのボタンが押されているときtrueになるので、マウスのボタンが押されているかどうかを判定することができます。次のプログラムではマウスのボタンが押されているとき円をランダムな位置に表示して、押されていないときは中央に表示しています。
 
 <iframe src="/samples/tutorial/Chapter9/sketch01.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch01.pde](github:Chapter9/sketch01/sketch01.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -30,6 +33,9 @@ void draw() {
 変数mouseButtonには押されているマウスのボタンを示す定数LEFT、RIGHT、CENTERのいずれかが入っています。次のプログラムでは左ボタンが押されているとき縦棒を動かし、右ボタンが押されているとき横棒を動かし、真ん中のボタンが押されているとき縦棒と横棒の位置をリセットしています。
 
 <iframe src="/samples/tutorial/Chapter9/sketch02.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch02.pde](github:Chapter9/sketch02/sketch02.pde)
+
 ```processing
 int x = 0; // 縦棒のx座標
 int y = 0; // 横棒のy座標
@@ -69,6 +75,8 @@ void draw() {
 
 キーボードが押されているかどうかは変数keyPressedで判別でき、押されたキーの情報はkeyとkeyCodeに入っています。ここで一つ新しいデータ型のchar型を紹介します。char型は１文字を扱えるデータ型で「文字」という意味の英語characterが名前の由来です。読みは「チャー」「キャラ」などが一般的です。char型の変数に文字を代入するときは、それが文字であることを示すためにシングルクオーテーションで囲みます。
 
+[Chapter9/sketch03.pde](github:Chapter9/sketch03/sketch03.pde)
+
 ```processing
 char a = 'a';
 char z = 'z';
@@ -81,6 +89,9 @@ println(nine); // 出力 : 9
 次のプログラムではｃキーを押しているときは水色、ｍキーを押しているときは紫色、ｙキーを押しているときは黄色の円を画面中心に表示しています。
 
 <iframe src="/samples/tutorial/Chapter9/sketch04.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch04.pde](github:Chapter9/sketch04/sketch04.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -110,8 +121,11 @@ void draw() {
 ```
 
 押されたキーが矢印キーやALT、SHIFTなどの特別なキーの場合はkeyCodeに代入されています。次のプログラムでは押された矢印キーの方向に円を動かしています。 矢印キーはUP、DOWN、LEFT、RIGHTで判別できます。
-    
+
 <iframe src="/samples/tutorial/Chapter9/sketch05.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch05.pde](github:Chapter9/sketch05/sketch05.pde)
+
 ```processing
 int x, y; // 円の座標
 
@@ -164,6 +178,9 @@ void keyPressed() {
 mousePressed関数はマウスが押されるたびに一回だけ実行されます。押している間ずっと実行されるわけではないことに注意してください。次のプログラムでは、マウスの位置に半透明な黒色の円を表示し続け、マウスが押されたときのみ背景を白で初期化しています。
 
 <iframe src="/samples/tutorial/Chapter9/sketch06.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch06.pde](github:Chapter9/sketch06/sketch06.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -185,6 +202,9 @@ void mousePressed() {
 もちろんmousePressed関数の中でも変数mouseButtonは使えます。次のプログラムでは左クリックで円を、右クリックで正方形をマウスの位置に描画しています。
 
 <iframe src="/samples/tutorial/Chapter9/sketch07.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch07.pde](github:Chapter9/sketch07/sketch07.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -212,6 +232,8 @@ draw関数には何も書きませんが、mousePressed関数を機能させる�
 
 keyPressed関数もキーが押されたときに実行される関数です。ひとつ注意が必要なのは、使っているOSによってキーが押し続けられた時の挙動が異なることです。 mousePressed関数はマウスのボタンを押したままでも１度しか実行されませんが、keyPressed関数はキーを押し続けている間何度も実行されることがあります。私が使っているPCはwindows10ですが、キーを押し続けるとkeyPressed関数は何度も実行されます。次のプログラムを動かしてみて自分の環境でどうなるか確かめてみてください。キーを押し続けたとき画面の色が変わり続けたら何度も実行されていることになります。
 
+[Chapter9/sketch08.pde](github:Chapter9/sketch08/sketch08.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -228,6 +250,8 @@ void keyPressed() {
 ## マウスカーソル
 
 cursor関数とnoCursor関数をここで解説しておきます。cursor関数はマウスカーソルの見た目を変更する関数で、ARROW、CROSS、HAND、MOVE、TEXT、WAITのいずれかを指定できます。noCursor関数はカーソルを非表示にする関数です。次のプログラムではkeyPressed関数内でswitch文を使って、押されたキーごとにカーソルの見た目を変えています。
+
+[Chapter9/sketch09.pde](github:Chapter9/sketch09/sketch09.pde)
 
 ```processing
 void setup() {
@@ -258,6 +282,9 @@ Chapter6でswitch文を解説したときに、switch文の条件式に使える
 loop関数とnoLoop関数も解説しておきます。noLoop()を実行するとdraw関数のループが止まります。loop()を実行することでdraw関数のループを再開できます。次のプログラムでは徐々に円を大きくして、ウィンドウの高さいっぱいになったときnoLoop()を実行してdraw関数のループを止めています。マウスをクリックすると円の大きさが0に戻りループが再開します。
 
 <iframe src="/samples/tutorial/Chapter9/sketch10.html" class="sample-sketch"></iframe>
+
+[Chapter9/sketch10.pde](github:Chapter9/sketch10/sketch10.pde)
+
 ```processing
 int diameter = 0; // 円の直径
 

@@ -91,7 +91,8 @@
 <article id="mainContents">
     <h1>色の表現</h1><p>Chapter3ではProcessingにおける色の表現について詳しく解説していきます。</p>
 <h2>RGBカラーモード</h2><p>今まではbackground()やfill()、stroke()に１つのパラメータを与えることで黒～白の色を表現していました。background()、fill()、stroke()にはパラメータを最大で４つまで与えることができます。パラメータを２つ与える場合と４つ与える場合は後回しにして、３つ与える場合を解説していきます。 とりあえず次のサンプルを見てください。</p>
-<p><img src="/image/Chapter3/sketch01.jpg" alt="img"></p>
+<p><img src="/images/Chapter3/sketch01.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch01/sketch01.pde' target='_blank'>Chapter3/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -110,7 +111,8 @@
 <p>３原色とは色を表現するときに最低限必要な色のことで、赤緑青の３色があれば混ぜかたによってどんな色も表現できます。ちなみにRGBの各成分は0～255の256通りあるので、合計で256×256×256 = 16777216種類の色を表現できます。</p>
 <p>３つのパラメータに同じ値を指定することでパラメータを３つ与える方法でも黒～白を表現できます。(0, 0, 0)を指定すると黒色に、(128, 128, 128)を指定すると灰色に、(255, 255, 255)を指定すると白色になります。赤緑青を混ぜると白になるというのは不思議な感じがしますが、現実世界でもこのようになっていて、現実世界の白色の光は全ての色成分を含んでいます。例えば赤色(255, 0, 0)のソファーがあったとして、そのソファーが赤色なのは、白色(255, 255, 255)の光から水色(0, 255, 255)の光を吸収して、赤色(255, 0, 0)だけを反射しているから赤色なんです。同様に、緑色の葉っぱは、自ら緑色に発光しているわけではなく、白色の光から緑色以外の色を吸収して、緑色だけを反射しているから緑色なんです。</p>
 <h2>透明度</h2><p>後回しにしていたbackground()、fill()、stroke()にパラメータを２つ与える場合と４つ与える場合について解説します。色には透明度を指定することができて、パラメータを２つ与える場合は２つ目が透明度、４つ与える場合は４つ目が透明度になります。透明度も0～255で表現して、0が完全に透明、255が完全に不透明を表します。</p>
-<p><img src="/image/Chapter3/sketch02.jpg" alt="img"></p>
+<p><img src="/images/Chapter3/sketch02.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch02/sketch02.pde' target='_blank'>Chapter3/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -148,23 +150,29 @@
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">675</span>, <span class="hljs-number">250</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
 </code></pre>
 <h2>HSBカラーモード</h2><p>カラーモードにはRGBカラーモードのほかにもう一つHSBカラーモードがあります。RGBカラーモードはあまり人間的な色の指定方法ではありません。例えば、「茶色に近い暗めなオレンジ色」を作りたい場合、すぐに0～255の３つの数値の組み合わせを思いつく人は少ないでしょう。HSBカラーモードを使うとより人間らしい考え方で色を表現できるようになります。HSBのHはhue(色調)、Sはsaturation(彩度)、Bはbrightness(明度)です。HSBカラーモードでの色の指定方法を円筒の形で視覚化したのが次の画像です。</p>
+<p><img src="/images/Chapter3/HSB1.jpg" alt=""></p>
+<p><img src="/images/Chapter3/HSB2.jpg" alt=""></p>
 <p>HSBでは、まずどの色を使うか(Hue)を選択して、その色の彩度(Saturation)と明度(Brightness)を決めます。</p>
 <p>カラーモードの変更はcolorMode()で行います。カラーモードには以下の４つの指定方法があります。MODEにはRGBまたはHSBを指定します。</p>
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE)</a></dt>
+    <dt><a href='https://www.processing.org/reference/colorMode_.html' target='_blank'>colorMode(MODE)</a></dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値および透明度は最大で255になる</dd>
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE, max)</a></dt>
+
+    <dt><a href='https://www.processing.org/reference/colorMode_.html' target='_blank'>colorMode(MODE, max)</a></dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値および透明度は最大でmaxになる</dd>
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE, max1, max2, max3)</a></dt>
+
+    <dt><a href='https://www.processing.org/reference/colorMode_.html' target='_blank'>colorMode(MODE, max1, max2, max3)</a></dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値は最大でmax1、max2、max3に、透明度は最大で255になる。</dd>
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE, max1, max2, max3, maxA)</a></dt>
+
+    <dt><a href='https://www.processing.org/reference/colorMode_.html' target='_blank'>colorMode(MODE, max1, max2, max3, maxA)</a></dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値は最大でmax1、max2、max3に、透明度は最大でmaxAになる。</dd>
 </dl>
 
 <p>HSBカラーモードに変更する場合は</p>
 <p><code class='code-fragment'>colorMode(HSB, 360, 100, 100, 100);</code></p>
 <p>とすることをオススメします。上の画像にもあるように、Hueは円状になっているのでHueの最大値を360としておくことでこの円と対応ができます。また、彩度、明度、透明度の最大値を100にしておくことで、それぞれをパーセントで指定することと同じになって考えやすいです。次のサンプルでは透明度を省略しています。その場合は透明度100（完全に不透明）になります。</p>
-<p><img src="/image/Chapter3/sketch03.jpg" alt="img"></p>
+<p><img src="/images/Chapter3/sketch03.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch03/sketch03.pde' target='_blank'>Chapter3/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>); <span class="hljs-comment">// ここではまだRGBモード</span>
 <span class="hljs-comment">// HSBモードに変更</span>
@@ -210,7 +218,8 @@
 <h2>Color Selector</h2><p>PDEに標準で備わっているColor Selectorを紹介します。[ツール]→[色選択]を選ぶと次のような画面が出てきます。</p>
 <p>縦長の長方形から色相を選択したあと、大きな正方形内をドラッグして好きな色を選びます。色を選んだら、右下のコピーをクリックすると選んだ色の16進数表現の値をコピーできます。Webサイト制作の経験がある人なら色の16進数表現に慣れているかもしれません。慣れていなくて16進数表現がわかりにくいなら、Color Selectorに表示されているRGB値もしくはHSB値をそのまま使えばいいかと思います。</p>
 <p>ちなみに、Color Selectorの色相を選べる縦長の長方形領域はHSBのHue(色相)を表していて、一番下が0度、一番上が360度になっています。左の正方形領域はHSBを円筒で表現したときの、その色の断面を表しています。正方形領域では、右に行くほどSaturation(彩度)が高く、上に行くほどBrightness(明度)が高くなります。</p>
-<p><img src="/image/Chapter3/sketch04.jpg" alt="img"></p>
+<p><img src="/images/Chapter3/sketch04.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch04/sketch04.pde' target='_blank'>Chapter3/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(#A0A5A4);
 

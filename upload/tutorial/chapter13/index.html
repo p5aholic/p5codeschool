@@ -95,15 +95,16 @@
 <p>これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。</p>
 <p>Processingで扱える3D図形は次の2つです。</p>
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/box_.html" target="_blank">box(size)<br>box(w, h, d)</a></dt>
+    <dt><a href='https://www.processing.org/reference/box_.html' target='_blank'>box(size) || box(w, h, d)</a></dt>
     <dd>・１辺がsizeの箱を描画する<br>・幅w、高さh、奥行きdの箱を描画する</dd>
-    <dt><a href="https://www.processing.org/reference/sphere_.html" target="_blank">sphere(r)</a></dt>
+    <dt><a href='https://www.processing.org/reference/sphere_.html' target='_blank'>sphere(r)</a></dt>
     <dd>半径rの球体を描画する</dd>
 </dl>
 
 <p>3D図形として用意されているのは箱と球体だけなんです。自由な形の3D図形を自作できる方法があるのですが、それはまた別のChapterで解説します。</p>
 <p>ところで、box()とsphere()には座標が指定できません。「は？」ってなると思いますが、まぁそうなんです。box()とsphere()は原点にしか描画できないんです。なので、ウィンドウ内の任意の場所にbox()とsphere()を描画したい場合はtranslate()でその場所まで原点を移す必要があります。面倒臭いですが仕方ありません。次のプログラムでは２つの箱を描画しています。</p>
-<p><img src="/image/Chapter13/sketch01.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch01.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch01/sketch01.pde' target='_blank'>Chapter13/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-comment">// レンダラをP3Dに</span>
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
@@ -133,7 +134,8 @@
 }
 </code></pre>
 <p>sphere()も描画してみましょう。</p>
-<p><img src="/image/Chapter13/sketch02.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch02.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch02/sketch02.pde' target='_blank'>Chapter13/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noLoop</span>();
@@ -161,7 +163,8 @@
 </code></pre>
 <p>左の球体に立体感が無いのがわかるかと思います。立体感が無いのはライトの設定をしていないからです。ライトの設定は後で詳しく解説します。</p>
 <p>球体は小さな面の集まりでできています。sphereDetail()を使うと、球体をいくつの面で分割するかを変えることができます。sphereDetail(30)とした場合、球体の水平方向と垂直方向に面が３０個できます。水平方向は１周３６０度なので１２(３６０÷３０)度間隔で面が作られ、垂直方向は上から下まで１８０度なので６(１８０÷３０)度間隔で面が作られます。sphereDetail()を指定しなかった場合のデフォルト値は３０です。パラメータを２つ与えると水平方向と垂直方向の面の数を別々に指定できます。次のプログラムを実行してみてください。マウスが左端に近いほど水平方向の面の数が増え、下端に近いほど垂直方向の面の数が増えます。</p>
-<p><img src="/image/Chapter13/sketch03.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch03.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch03/sketch03.pde' target='_blank'>Chapter13/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
@@ -185,19 +188,20 @@
 <p>マウスの座標をmap()で面の数に変換しています。水平方向は最低でも３面で分割しないと平面になってしまうので、hResの最小値は3にしています。</p>
 <h2>3D座標の回転</h2><p>今までの２Ｄ空間でのrotate()による回転はz軸中心の回転でした。３Ｄ空間ではx軸中心の回転とy軸中心の回転が使えるようになります。</p>
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/rotateX_.html" target="_blank">rotateX(angle)</a></dt>
+    <dt><a href='https://www.processing.org/reference/rotateX_.html' target='_blank'>rotateX(angle)</a></dt>
     <dd>x軸を中心にして回転する</dd>
-    <dt><a href="https://www.processing.org/reference/rotateY_.html" target="_blank">rotateY(angle)</a></dt>
+    <dt><a href='https://www.processing.org/reference/rotateY_.html' target='_blank'>rotateY(angle)</a></dt>
     <dd>y軸を中心にして回転する</dd>
-    <dt><a href="https://www.processing.org/reference/rotateZ_.html" target="_blank">rotateZ(angle)</a></dt>
+    <dt><a href='https://www.processing.org/reference/rotateZ_.html' target='_blank'>rotateZ(angle)</a></dt>
     <dd>z軸を中心にして回転する</dd>
-    <dt><a href="https://www.processing.org/reference/rotate_.html" target="_blank">rotate(angle)</a></dt>
+    <dt><a href='https://www.processing.org/reference/rotate_.html' target='_blank'>rotate(angle)</a></dt>
     <dd>z軸を中心にして回転する</dd>
 </dl>
 
 <p>rotate()とrotateZ()の違いは名前だけです。</p>
 <p>次のプログラムでは赤緑青の箱をrotateX()、rotateY()、rotateZ()で回しています。</p>
-<p><img src="/image/Chapter13/sketch04.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch04.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch04/sketch04.pde' target='_blank'>Chapter13/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
@@ -233,7 +237,8 @@
 }
 </code></pre>
 <p>次のプログラムのほうが軸で回転しているのがわかりやすいです。実行してマウスを動かしてみてください。マウスの上下の動きがx軸中心の回転角度、左右の動きがy軸中心の回転角度になっています。このプログラムで６つのパラメータを持つline()を使っています。解説は後ほど。</p>
-<p><img src="/image/Chapter13/sketch05.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch05.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch05/sketch05.pde' target='_blank'>Chapter13/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
 }
@@ -269,13 +274,14 @@
 </code></pre>
 <h2>3D空間内の2D図形</h2><p>point()とline()は3D空間内で使うこともできます。</p>
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/point_.html" target="_blank">point(x, y, z)</a></dt>
+    <dt><a href='https://www.processing.org/reference/point_.html' target='_blank'>point(x, y, z)</a></dt>
     <dd>座標(x, y, z)に点を描画</dd>
-    <dt><a href="https://www.processing.org/reference/line_.html" target="_blank">line(x1, y1, z1, x2, y2, z2)</a></dt>
+    <dt><a href='https://www.processing.org/reference/line_.html' target='_blank'>line(x1, y1, z1, x2, y2, z2)</a></dt>
     <dd>座標(x1, y1, z1)と座標(x2, y2, z2)をつなぐ線を描画</dd>
 </dl>
 
-<p><img src="/image/Chapter13/sketch06.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch06.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch06/sketch06.pde' target='_blank'>Chapter13/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noLoop</span>();
@@ -299,7 +305,8 @@
 }
 </code></pre>
 <p>z座標用のパラメータが用意されている２Ｄ図形はpoint()とline()だけですが、translate()を使えば他の２Ｄ図形も３Ｄ空間内に描画できます。次のプログラムでは３Ｄ空間にellipse()を使って円を描画しています。</p>
-<p><img src="/image/Chapter13/sketch07.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch07.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch07/sketch07.pde' target='_blank'>Chapter13/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
@@ -361,15 +368,18 @@
 </code></pre>
 <h2>カメラ</h2><p>２Ｄ空間の場合はカメラという存在は必要ありません。ピクセルで指定した位置や大きさがそのままディスプレイに映るだけだからです。ですが３Ｄ空間では、最終的にディスプレイに描かれるものはカメラによって切り取られたものです。なので、カメラによってどの位置からどこを見ているのかということを設定しないといけません。カメラの設定をしなかった場合勝手にいい感じに設定してくれますが、camera()を使って自分で設定できます。camera()は９つのパラメータを持ちます。</p>
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/camera_.html" target="_blank">camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)</a></dt>
+    <dt><a href='https://www.processing.org/reference/camera_.html' target='_blank'>camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)</a></dt>
     <dd>カメラの座標、カメラが注視する座標、カメラの上方向を設定</dd>
 </dl>
 
 <p>最初の３つのパラメータ(eyeX, eyeY, eyeZ)はカメラの位置、次の３つのパラメータ(centerX, centerY, centerZ)はカメラが注視する座標、最後の３つのパラメータ(upX, upY, upZ)はカメラの上方向の向きを表します。最後の３つのパラメータについて補足します。３Ｄの場合、ディスプレイに描画されるのはカメラによって切り取られた空間です。このカメラは次の画像のようになっています(画像はProcessingとは違う座標系で表現されています)。</p>
+<p><img src="/images/Chapter13/camera1.jpg" alt=""></p>
+<p><img src="/images/Chapter13/camera2.jpg" alt=""></p>
 <p>OpenGL Programming Guideより引用</p>
 <p>カメラによって切り取られた空間がディスプレイに描画されるので、カメラが傾いているとディスプレイに描画される画像も傾きます。なので、camera()の最後の３つのパラメータにはカメラの上方向の向きを指定します。カメラが傾いていない状態は(0, 1, 0)になるので、特に変わったことをしない場合は最後の３つのパラメータは(0, 1, 0)にします。</p>
 <p>次のプログラムではカメラの座標を(camX, camY, 200)、カメラの注視点を原点(0, 0, 0)にしています。camXとcamYはキーボードの矢印キーで操作できるようにしています。</p>
-<p><img src="/image/Chapter13/sketch08.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch08.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch08/sketch08.pde' target='_blank'>Chapter13/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// カメラのx座標とy座標</span>
 <span class="hljs-built_in">float</span> camX = <span class="hljs-number">0</span>, camY = <span class="hljs-number">0</span>;
 <span class="hljs-comment">// カメラが動くスピード</span>
@@ -407,18 +417,19 @@
 </code></pre>
 <h2>ライト</h2><p>3D空間でのライトの扱いを解説します。Processingで扱えるライトは以下の４種類です。</p>
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/ambientLight_.html" target="_blank">ambientLight(r, g, b)</a></dt>
+    <dt><a href='https://www.processing.org/reference/ambientLight_.html' target='_blank'>ambientLight(r, g, b)</a></dt>
     <dd>環境光を3D空間に追加する</dd>
-    <dt><a href="https://www.processing.org/reference/directionalLight_.html" target="_blank">directionalLight(r, g, b, nx, ny, nz)</a></dt>
+    <dt><a href='https://www.processing.org/reference/directionalLight_.html' target='_blank'>directionalLight(r, g, b, nx, ny, nz)</a></dt>
     <dd>平行光源を3D空間に追加する</dd>
-    <dt><a href="https://www.processing.org/reference/pointLight_.html" target="_blank">pointLight(r, g, b, x, y, z)</a></dt>
+    <dt><a href='https://www.processing.org/reference/pointLight_.html' target='_blank'>pointLight(r, g, b, x, y, z)</a></dt>
     <dd>点光源を3D空間に追加する</dd>
-    <dt><a href="https://www.processing.org/reference/spotLight_.html" target="_blank">spotLight(r, g, b, x, y, z, nx, ny, nz, angle, concentration)</a></dt>
+    <dt><a href='https://www.processing.org/reference/spotLight_.html' target='_blank'>spotLight(r, g, b, x, y, z, nx, ny, nz, angle, concentration)</a></dt>
     <dd>スポットライトを3D空間に追加する</dd>
 </dl>
 
-<p>まずは、平行光源と呼ばれる光を3D空間に追加してみます。平行光源は太陽光をシミュレーションするのに最適で、directionalLight()によって作ることができます。directionalLight()には光の色と光の射す方向を表す長さ１のベクトルを指定します。光が右から左に射す場合は４，５，６つ目のパラメータを(-1, 0, 0)とし、上から下に射す場合は(0, 1, 0)とします。次のプログラムでは、キーボードの矢印キーを押している間その矢印の方向に平行光源を置くことができます。</p>
-<p><img src="/image/Chapter13/sketch09.jpg" alt=""></p>
+<p>まずは、平行光源と呼ばれる光を3D空間に追加してみます。平行光源は太陽光をシミュレーションするのに最適で、directionalLight()によって作ることができます。directionalLight()には光の色と光の射す方向を表す長さ１のベクトルを指定します。光が右から左に射す場合は４、５、６つ目のパラメータを(-1, 0, 0)とし、上から下に射す場合は(0, 1, 0)とします。次のプログラムでは、キーボードの矢印キーを押している間その矢印の方向に平行光源を置くことができます。</p>
+<p><img src="/images/Chapter13/sketch09.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch09/sketch09.pde' target='_blank'>Chapter13/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
@@ -465,7 +476,8 @@
 </code></pre>
 <p>矢印キーを何も押していないと白色の平面のような球体しか描画されません。これは、ライトが有効になっていなくてsphere()がデフォルトの白色で塗られているからです。directionalLight()や、これから解説する他のライトも、ライトを有効にするにはdraw()の中でずっと実行されなければいけません。</p>
 <p>次は環境光を3D空間に追加してみます。環境光は3D空間のベースとなる光で、光の向きや光源の位置というものはありません。上のdirectinalLight()を使ったプログラムでは、球体の光が当たった部分のみ色がついて光の当たらない部分は完全に見えなくなっていました。次のプログラムでは色が(30, 30, 30)の環境光を置くことで、球体の光の当たらない部分が(30, 30, 30)で塗られています。</p>
-<p><img src="/image/Chapter13/sketch10.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch10.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch10/sketch10.pde' target='_blank'>Chapter13/sketch10.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
@@ -514,7 +526,8 @@
 }
 </code></pre>
 <p>点光源は豆電球のようなもので、全方向に光を放つライトです。点光源はpointLight()で作ることができ、パラメータには色と光源の座標を指定します。 次のプログラムではマウスの位置に点光源を置いています。</p>
-<p><img src="/image/Chapter13/sketch11.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch11.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch11/sketch11.pde' target='_blank'>Chapter13/sketch11.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
@@ -544,7 +557,8 @@
 }
 </code></pre>
 <p>スポットライトはspotLight()で作ることができ、１１個のパラメータを持ちます。最初の３つのパラメータが光の色、次の３つのパラメータが光源の座標、その次の３つのパラメータが光の射す方向(directionalLightの４，５，６つ目のパラメータと同じ)です。１０個目のパラメータはスポットライトの開き具合を角度(ラジアン)で指定します。スポットライトが大きく開いているほど照らされる範囲が広くなります。１１個目のパラメータには、スポットライトの周辺の光の強さがどれだけ減衰するかを指定します。0を指定すると、スポットライトから出た光は、どれだけ真中からそれていても減衰しません。0より大きい値を指定すると、スポットライトの真ん中から周辺に向かってそれるほど、指定した値に従って光の強さが減衰していきます。次のプログラムでは、白色のスポットライトを座標(width/2, 0, 0)に置いて下向きに光が射すようにしています。マウスが左端にあるほどスポットライトが開く角度が大きくなり、下端にあるほどスポットライトの真ん中から周辺にそれた光の強さが減衰します。</p>
-<p><img src="/image/Chapter13/sketch12.jpg" alt=""></p>
+<p><img src="/images/Chapter13/sketch12.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch12/sketch12.pde' target='_blank'>Chapter13/sketch12.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();

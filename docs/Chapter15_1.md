@@ -14,6 +14,8 @@
 ・位置、速度、大きさ、色<br>
 ここで前回のChapterで作った画面内をボールが飛び回るプログラムを思い出してみると、ボールが持つ情報を表すだけでも６つの変数(x, y, vx, vy, radius, c)が必要だったことがわかります。
 
+[Chapter15_1/sketch01.pde](github:Chapter15_1/sketch01/sketch01.pde)
+
 ```processing
 int numBalls = 100; // ボールの数
 float[] x = new float[numBalls];  // x座標の配列

@@ -91,6 +91,7 @@
 <article id="mainContents">
     <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立ててボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
 <h2>真偽値と比較演算子</h2><p>Chapter4でint、float、colorの３つのデータ型を紹介しました。ここではもう一つboolean(ブーリアン)型というデータ型を紹介します。boolean型は真偽値と呼ばれる値を扱うデータ型で、boolean型が扱える値はtrue(真)かfalse(偽)の２つのみです。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch01/sketch01.pde' target='_blank'>Chapter6/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = <span class="hljs-keyword">true</span>;
 <span class="hljs-built_in">boolean</span> b2 = <span class="hljs-keyword">false</span>;
 <span class="hljs-built_in">println</span>(b1); <span class="hljs-comment">// true</span>
@@ -113,6 +114,7 @@
     <dd>等しくない</dd>
 </dl>
 
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch02/sketch02.pde' target='_blank'>Chapter6/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">println</span>(<span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>);   <span class="hljs-comment">// true</span>
 <span class="hljs-built_in">println</span>(<span class="hljs-number">10</span> &lt;= <span class="hljs-number">10</span>); <span class="hljs-comment">// true</span>
 <span class="hljs-built_in">println</span>(<span class="hljs-number">5</span> &gt; <span class="hljs-number">10</span>);   <span class="hljs-comment">// false</span>
@@ -121,6 +123,7 @@
 <span class="hljs-built_in">println</span>(<span class="hljs-number">7</span> != <span class="hljs-number">7</span>);   <span class="hljs-comment">// false</span>
 </code></pre>
 <p>int型やfloat型の算術演算と同じような感覚で演算結果をboolean型変数に代入することもできます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch03/sketch03.pde' target='_blank'>Chapter6/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 5 &lt; 10の結果をb1に代入</span>
 <span class="hljs-built_in">boolean</span> b1 = <span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>;
 <span class="hljs-built_in">println</span>(b1); <span class="hljs-comment">// true</span>
@@ -141,7 +144,9 @@
 <p><code class='code-fragment'>if(条件式) // 処理</code></p>
 <p>ただ、見やすさのために１行だけでも{}で囲むことはよくあります。</p>
 <p>ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。</p>
-<p><iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch04/sketch04.pde' target='_blank'>Chapter6/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y;     <span class="hljs-comment">// ボールの位置</span>
 <span class="hljs-built_in">int</span> vx, vy;   <span class="hljs-comment">// ボールの速度</span>
 <span class="hljs-built_in">int</span> ballSize; <span class="hljs-comment">// ボールの大きさ</span>
@@ -239,6 +244,7 @@ y += vy;
 </dl>
 
 <p>論理和は２つの真偽値を比べて２つとも偽(false)だった場合のみfalseを返します。それ以外はtrueを返します。論理積は２つの真偽値を比べて２つとも真(true)だった場合のみtrueを返します。それ以外はfalseを返します。論理否定はtrueをfalseに、falseをtrueにして返します</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch05/sketch05.pde' target='_blank'>Chapter6/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = (<span class="hljs-number">5</span> == <span class="hljs-number">5</span>) || (<span class="hljs-number">4</span> == <span class="hljs-number">4</span>); <span class="hljs-comment">// true OR true</span>
 <span class="hljs-built_in">boolean</span> b2 = (<span class="hljs-number">5</span> == <span class="hljs-number">5</span>) || (<span class="hljs-number">4</span> == <span class="hljs-number">3</span>); <span class="hljs-comment">// true OR false</span>
 <span class="hljs-built_in">boolean</span> b3 = (<span class="hljs-number">5</span> == <span class="hljs-number">3</span>) || (<span class="hljs-number">4</span> == <span class="hljs-number">3</span>); <span class="hljs-comment">// false OR false</span>
@@ -276,7 +282,9 @@ y += vy;
   // 偽の場合の処理
 }</code></p>
 <p>通常のif文の後にelse文を書くと、if文の条件式が偽(false)だった場合にelse文の処理が実行されます。次のプログラムは、マウスがウィンドウの左半分にあるときは円を表示、そうでない(ウィンドウの右半分にある)ときは正方形を表示するプログラムです。</p>
-<p><iframe src="/samples/tutorial/Chapter6/sketch06.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter6/sketch06.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch06/sketch06.pde' target='_blank'>Chapter6/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">noFill</span>();
@@ -324,7 +332,9 @@ y += vy;
 }</code></p>
 <p>else if文は、それ以前にあるif文とelse if文が偽かつ自身が真の場合のみ実行されます。先頭のif文が真ならばそれ以降のelse if文と最後のelseは無視されます。</p>
 <p>ウィンドウを４分割してそれぞれの領域で別々の図形を描くプログラムを作りました。</p>
-<p><iframe src="/samples/tutorial/Chapter6/sketch07.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter6/sketch07.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch07/sketch07.pde' target='_blank'>Chapter6/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">noFill</span>();
@@ -360,7 +370,9 @@ y += vy;
 </code></pre>
 <p>else if文の中では論理演算子&amp;&amp;を使ってウィンドウの領域を区切っています。</p>
 <h2>if文の中のif文</h2><p>if文の中にif文を書いて、その中にif文を書いて・・・という風に入れ子状に書いていくことができます。次のプログラムはウィンドウを縦横に４分割して、それぞれの領域で別々の図形を描くプログラムです。</p>
-<p><iframe src="/samples/tutorial/Chapter6/sketch08.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter6/sketch08.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch08/sketch08.pde' target='_blank'>Chapter6/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">noFill</span>();
@@ -435,7 +447,9 @@ y += vy;
     .
 }</code></p>
 <p>switch文は条件式に指定された値と同じ数値を持つcaseへジャンプします。そして、そのcase内の実行分を実行し、break文を見つけるとswitch文のブロックを抜けます。次のプログラムでは変数rによって描く図形を分岐させています。</p>
-<p><iframe src="/samples/tutorial/Chapter6/sketch09.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter6/sketch09.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch09/sketch09.pde' target='_blank'>Chapter6/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noStroke</span>();
@@ -473,7 +487,9 @@ y += vy;
     実行分;
     break;
 }</code></p>
-<p><iframe src="/samples/tutorial/Chapter6/sketch10.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter6/sketch10.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch10/sketch10.pde' target='_blank'>Chapter6/sketch10.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noStroke</span>();

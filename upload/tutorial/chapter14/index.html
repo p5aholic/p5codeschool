@@ -108,6 +108,7 @@ data[2] = 84;
 data[3] = 17;
 data[4] = 49;</code></p>
 <p>配列では先頭の要素を0番目とします。配列変数のi番目の要素は配列変数名[i]と書くことで表します。今までの説明をまとめたものが次のプログラムです。println関数に配列変数を渡すと配列の中身が出力されます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch01/sketch01.pde' target='_blank'>Chapter14/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data;        <span class="hljs-comment">// int型配列のdataを宣言</span>
 data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// 要素数5のint型配列の実態をdataに代入</span>
 <span class="hljs-comment">// dataのそれぞれの要素に数値を代入</span>
@@ -120,8 +121,9 @@ data[<span class="hljs-number">4</span>] = <span class="hljs-number">49</span>;
 <span class="hljs-built_in">println</span>(data);
 </code></pre>
 <p>普通の変数と同じように、宣言と代入を１行で書くことも可能です。</p>
-<p><code class='code-fragment'>int[] data = new int[5]; // 宣言と代入</code></p>
-<pre><code class="lang-processing"><span class="hljs-comment">// dataのそれぞれの要素に数値を代入</span>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch02/sketch02.pde' target='_blank'>Chapter14/sketch02.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// 宣言と代入</span>
+<span class="hljs-comment">// dataのそれぞれの要素に数値を代入</span>
 data[<span class="hljs-number">0</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
 data[<span class="hljs-number">1</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
 data[<span class="hljs-number">2</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
@@ -130,11 +132,13 @@ data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</spa
 <span class="hljs-built_in">println</span>(data);
 </code></pre>
 <p>また次のようにして、配列の宣言、代入、要素の一つ一つの値の代入を一気に書くこともできます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch03/sketch03.pde' target='_blank'>Chapter14/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = {<span class="hljs-number">20</span>, <span class="hljs-number">12</span>, <span class="hljs-number">45</span>, <span class="hljs-number">65</span>, <span class="hljs-number">78</span>, <span class="hljs-number">32</span>};
 <span class="hljs-built_in">println</span>(data);
 </code></pre>
 <p>この場合の配列の要素数は値を書いた分だけ自動的に割り当てられます。</p>
 <p>for文を使うと配列の要素に値を代入するのがとても楽になります。次のプログラムでは要素数50のint型配列の要素にfor文を使ってランダムな値を代入しています。for文を使わなかったら50行も代入文を書かなくてはいけないので、配列とfor文の相性がとても良いことがわかると思います。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch04/sketch04.pde' target='_blank'>Chapter14/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> numData = <span class="hljs-number">50</span>; <span class="hljs-comment">// 配列の要素数</span>
 <span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numData]; <span class="hljs-comment">// 配列の宣言と代入</span>
 <span class="hljs-comment">// dataの要素に値を入れる</span>
@@ -174,7 +178,9 @@ data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</spa
 ５１回目：i = 50<br>
 になります。すると５１回目のfor文ではdata[50]にアクセスすることになり、data[50]は存在しないのでエラーが出るというわけです。ちなみに、data[-1]などにアクセスした場合は&quot;ArrayIndexOutOfBoundsException:-1&quot;というエラーが出ます。エラー文の最後の数字がエラーを起こす原因になった配列の番号というわけです。</p>
 <p>次のプログラムでは配列dataの中身を棒グラフにして視覚化しています。マウスクリックでdataの中身にランダムな値を入れなおすことができます。</p>
-<p><iframe src="/samples/tutorial/Chapter14/sketch05.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter14/sketch05.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch05/sketch05.pde' target='_blank'>Chapter14/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> numData = <span class="hljs-number">50</span>; <span class="hljs-comment">// 配列の要素数</span>
 <span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numData]; <span class="hljs-comment">// 配列の宣言と代入</span>
 <span class="hljs-built_in">int</span> rectWidth;    <span class="hljs-comment">// 棒の横幅</span>
@@ -211,7 +217,9 @@ data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</spa
 </code></pre>
 <p>配列dataの要素にランダムな値を入れる処理は自作関数のsetData()にまとめています。setup関数でもmousePressed関数でも同じ処理をする場合は、その処理を関数にしてまとめておくことでプログラムがコンパクトになります。全く同じ処理が２回以上出てきたら関数にまとめてみるということを意識しておくといいでしょう。</p>
 <p>最後に配列を使って、大きさ、座標、速度、色が異なる１００個のボールが画面内を飛び回るプログラムを作ってみます。念のため、配列を使わないで１個のボールが画面内を飛び回るプログラムを見てみます。</p>
-<p><iframe src="/samples/tutorial/Chapter14/sketch06.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter14/sketch06.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch06/sketch06.pde' target='_blank'>Chapter14/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">float</span> x, y;   <span class="hljs-comment">// ボールの中心座標</span>
 <span class="hljs-built_in">float</span> vx, vy; <span class="hljs-comment">// ボールの速度</span>
 <span class="hljs-built_in">int</span> radius;   <span class="hljs-comment">// ボールの半径</span>
@@ -255,7 +263,9 @@ xとyはボールの中心座標なので、例えばもしxの初期値が2な�
 <p><code class='code-fragment'>x = random(radius, width-radius);
 y = random(radius, height-radius);</code></p>
 <p>上のプログラムをもとに、配列を使ってボールが１００個飛び回るようにしたプログラムが次のプログラムです。</p>
-<p><iframe src="/samples/tutorial/Chapter14/sketch07.html" class="sample-sketch"></iframe></p>
+<iframe src="/samples/tutorial/Chapter14/sketch07.html" class="sample-sketch"></iframe>
+
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch07/sketch07.pde' target='_blank'>Chapter14/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">100</span>; <span class="hljs-comment">// ボールの数</span>
 <span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
 <span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>

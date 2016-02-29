@@ -6,7 +6,10 @@ Chapter4では、プログラミングの基礎的な概念である変数と演
 
 変数を使うと値をコンピュータのメモリ上に保存しておくことができます。変数はプログラム内で使いまわすことができて、値の変更も簡単にできます。下のプログラムでは変数を使わないで３つの正円を描いています。この３つの円を直径80pxから直径150pxに変えたくなったとすると、３つのellipse()の３つ目と４つ目のパラメータを変えることになるので、合計６つのパラメータを変えることになります。ちょっと面倒くさいですね。６つならまだしも、１０個２０個となると相当面倒くさいです。変数を使うとこの面倒くささから解放されます。
 
-![img](/image/Chapter4/sketch01.jpg)
+![](/images/Chapter4/sketch01.jpg)
+
+[Chapter4/sketch01.pde](github:Chapter4/sketch01/sketch01.pde)
+
 ```processing
 size(750, 175);
 background(255);
@@ -20,7 +23,10 @@ ellipse(625, 88, 80, 80);
 
 上のプログラムを変数を使って書き換えたのが下のプログラムです。初期値80のdiameter（直径という意味の英語）という変数を作ってellipse()の幅と高さに使用しています。
 
-![img](/image/Chapter4/sketch02.jpg)
+![](/images/Chapter4/sketch02.jpg)
+
+[Chapter4/sketch02.pde](github:Chapter4/sketch02/sketch02.pde)
+
 ```processing
 size(750, 175);
 background(255);
@@ -41,7 +47,10 @@ ellipse(625, 88, diameter, diameter);
 
 と変更してみてください。全ての円の直径が150pxに変わっているのがわかるかと思います。
 
-![img](/image/Chapter4/sketch03.jpg)
+![](/images/Chapter4/sketch03.jpg)
+
+[Chapter4/sketch03.pde](github:Chapter4/sketch03/sketch03.pde)
+
 ```processing
 size(750, 175);
 background(255);
@@ -83,6 +92,8 @@ ellipse(625, 88, diameter, diameter);
 
 変数にデータ型を指定する必要があるのは宣言するときの一度だけです。データ型の付いた変数は新しい変数の宣言とみなされます。同じ名前の変数を２回宣言するとエラーが出ます。
 
+[Chapter4/sketch04.pde](github:Chapter4/sketch04/sketch04.pde)
+
 ```processing
 int diameter = 80;
 /* 下の画面に
@@ -92,6 +103,8 @@ int diameter = 150;
 ```
 
 データ型が同じであれば次のようにして複数の変数の宣言と代入を行うこともできます。
+
+[Chapter4/sketch05.pde](github:Chapter4/sketch05/sketch05.pde)
 
 ```processing
 int a, b, c, d;
@@ -127,6 +140,8 @@ ballsizeはballとsizeの複数の単語からなる変数名なので、１つ�
 
 データ型には他にもいくつか種類があります。ここでは、浮動小数点を扱うfloatと色を扱うcolorを紹介します。浮動小数点についてはとりあえず小数点を扱えるデータ型だと思っておけば大丈夫です。浮動小数点は英語でfloating pointなので略してfloat、読みはフロートが一般的です。
 
+[Chapter4/sketch06.pde](github:Chapter4/sketch06/sketch06.pde)
+
 ```processing
 float a = 0.05;
 float b = 12.3;
@@ -134,7 +149,10 @@ float b = 12.3;
 
 色も変数として保存しておくことができます。データ型はcolorで、値をcolor()関数で作って代入します。color()関数のパラメータには、fill()、stroke()と同じように１～４つのパラメータを与えることができます。作ったcolor型変数はbackground()や、fill()、stroke()にパラメータとして渡すことができます。
 
-![img](/image/Chapter4/sketch07.jpg)
+![](/images/Chapter4/sketch07.jpg)
+
+[Chapter4/sketch07.pde](github:Chapter4/sketch07/sketch07.pde)
+
 ```processing
 size(750, 175);
 background(255);
@@ -172,7 +190,10 @@ ellipse(625, 88, 120, 120);
     <dd>余りを求める</dd>
 </dl>
 
-![img](/image/Chapter4/sketch08.jpg)
+![](/images/Chapter4/sketch08.jpg)
+
+[Chapter4/sketch08.pde](github:Chapter4/sketch08/sketch08.pde)
+
 ```processing
 size(750, 175);
 background(255);
@@ -198,6 +219,8 @@ ellipse(width/2+1.5*diameter, height/2, 2*diameter, 2*diameter);
 
 演算子には優先順位が決められています。掛け算と割り算は足し算と引き算より優先して計算されます。（）で囲んだ計算は最も優先順位が高くなります。代入(=)は最も優先順位が低い演算子なので、全ての計算が終わってから代入が行われます。下のコードではprintln()関数を使って計算結果をコンソール画面に出力しています。
 
+[Chapter4/sketch09.pde](github:Chapter4/sketch09/sketch09.pde)
+
 ```processing
 int x = 5 + 10 * 2;
 println(x); // 25を出力
@@ -206,6 +229,8 @@ println(y); // 30を出力
 ```
 
 代入についてもう少し詳しく解説していきます。 とりあえず、下のプログラムを見てください。
+
+[Chapter4/sketch10.pde](github:Chapter4/sketch10/sketch10.pde)
 
 ```processing
 int x = 100;
@@ -233,6 +258,8 @@ x = x + 100という計算をしています。数学ではこんな式ありえ
     <dt>--</dt>
     <dd>１を引いて代入</dd>
 </dl>
+
+[Chapter4/sketch11.pde](github:Chapter4/sketch11/sketch11.pde)
 
 ```processing
 int x = 10;
@@ -262,6 +289,8 @@ float型の計算結果をint型の変数に代入しようとしているから
 
 int型どうしの計算結果はint型になり、float型が１つでも混ざると計算結果はfloat型になります。
 
+[Chapter4/sketch12.pde](github:Chapter4/sketch12/sketch12.pde)
+
 ```processing
 println(3/2);     // 1と出力
 println(3.0/2);   // 1.5と出力
@@ -270,6 +299,8 @@ println(3.0/2.0); // 1.5と出力
 ```
 
 float型変数にint型の値を代入することはできますが、int型変数にfloat型の値を代入することはできません。
+
+[Chapter4/sketch13.pde](github:Chapter4/sketch13/sketch13.pde)
 
 ```processing
 int a = 3/2;
@@ -286,6 +317,8 @@ int d = 3.0/2.0;   // エラー
 ## データの変換
 
 int型変数にfloat型の数値は代入できません。でも、float型の数値が混じった計算の結果をint型の変数に代入したいということはよくあることです。例えば税抜き価格から税込み価格を計算するときなどがそういう場合です。そういうときはデータを変換する必要があります。データはキャストという機能を使って以下のように変換することができます。(変換する型)値 (変換する型)変数 次のサンプルはキャストを用いて消費税を計算するプログラムです。
+
+[Chapter4/sketch14.pde](github:Chapter4/sketch14/sketch14.pde)
 
 ```processing
 float rate = 0.08; // 消費税
@@ -306,6 +339,8 @@ println(price2);
 となりますが、int型変数の税込み価格にfloat型の計算結果は普通では代入できません。上のプログラムではprice1 * rateの計算結果をint型に変換することで代入が正しく行われます。キャストを用いてデータを変換する場所に注意が必要です。ダメな例の１つ目は元々int型のprice1をint型に変換しているだけなので意味がないです。ダメな例の２つ目は0.08をint型に変換しているのでprice1 * 0を計算することになります。
 
 与えられた数値をint型に変換するint()関数や、与えられた数値をfloat型に変換するfloat()関数を使ってもキャストと同じことができます。次のプログラムは上のプログラムをint()関数を使って書き換えたものです。
+
+[Chapter4/sketch15.pde](github:Chapter4/sketch15/sketch15.pde)
 
 ```processing
 float rate = 0.08;
@@ -334,6 +369,8 @@ final データ型 変数名(大文字) = 値;
 
 とします。変数の前には修飾子と呼ばれるものを書くことができて、その変数の性質を変えることができます。finalも修飾子の一つで、finalの付いた変数は値を変更することができなくなります。次のプログラムを実行すると「final変数のSIZEは値を変更できません」という意味のエラーが出ます。
 
+[Chapter4/sketch16.pde](github:Chapter4/sketch16/sketch16.pde)
+
 ```processing
 final int SIZE = 80;
 SIZE = 150; // エラー
@@ -342,6 +379,8 @@ SIZE = 150; // エラー
 守ることが推奨されている命名規則の１つとして、final修飾子を付けた変数の変数名は全て大文字にするというものがあります。普通の変数と区別するためです。
 
 実は、私たちが作るProcessingプログラムには土台となるプログラムがあります。その土台のプログラムのおかげでline()と書くだけで線を描けたり、色々面倒な処理をこちら側で書かなくて済んだりするわけです。PIやRADIUSなどの定数はその土台のプログラムの中で初期化されています。試しにprintln()で定数の中身を確認すると次のようになっています。
+
+[Chapter4/sketch17.pde](github:Chapter4/sketch17/sketch17.pde)
 
 ```processing
 println(PI);      // 3.1415927
@@ -358,7 +397,10 @@ println(HSB);     // 3
 
 などのように初期化されていることが想像できますし、実際そうなってます。次の例ではcolorMode()の１つ目のパラメータをHSBとせずに３としていますが、ちゃんと実行されます。
 
-![img](/image/Chapter4/sketch18.jpg)
+![](/images/Chapter4/sketch18.jpg)
+
+[Chapter4/sketch18.pde](github:Chapter4/sketch18/sketch18.pde)
+
 ```processing
 size(200, 200);
 colorMode(3, 360, 100, 100);

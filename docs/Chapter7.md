@@ -5,6 +5,9 @@
 とりあえず次のプログラムを実行してみてください。
 
 <iframe src="/samples/tutorial/Chapter7/sketch01.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch01.pde](github:Chapter7/sketch01/sketch01.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -34,7 +37,7 @@ while (条件式) {
 
 if文とかなり似ていますが、while文は条件式が真の間ブロック{}で囲んだ中の処理が繰り返し実行されます。条件式が偽になるとループを抜けます。 whileループによるプログラムの実行過程を図示すると次のようになります。
 
-![img](/image/Chapter7/WhileLoop.jpg)
+![](/images/Chapter7/WhileLoop.jpg)
 
 上のプログラムでは、まずループ回数のカウント用変数iを宣言しています。 while文の条件式にi <= 50、while文のブロック内でi++としているので、一回のループごとにiが1ずつ足されていき、iが51になるまでブロック内の処理が繰り返されます。i = 0からi = 50までのループなので、総ループ数は51回になります。iはline()の１つ目のパラメータにも使います。i * 14(700 ÷ 50 = 14)とすることで14px間隔で線を描画できます。
 
@@ -50,11 +53,14 @@ for (初期化; 条件式; 更新) {
 
 for文の()内に書く初期化は、for文の実行時に１度だけ実行されます。ループの度に実行されるわけではありません。次の条件式はwhile文と同じで、この条件式が真の間ループが続きます。最後の更新は１ループが終わるごとに実行されます。forループによるプログラムの実行過程を図示すると次のようになります。
 
-![image](/image/Chapter7/ForLoop.jpg)
+![image](/images/Chapter7/ForLoop.jpg)
 
 上のプログラムをwhile文の代わりにfor文で書き換えたのが次のプログラムです。動作は全く同じです。上のプログラムでのwhile文による繰り返し文と、次のプログラムでのfor文による繰り返し文が対応していることを確認してください。
 
 <iframe src="/samples/tutorial/Chapter7/sketch02.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch02.pde](github:Chapter7/sketch02/sketch02.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -71,6 +77,8 @@ void draw() {
 ```
 
 for文で用いるカウンタ変数は、for文内で宣言する場合は同じ変数名をもう一度使うことができます。
+
+[Chapter7/sketch03.pde](github:Chapter7/sketch03/sketch03.pde)
 
 ```processing
 void setup() {
@@ -91,6 +99,9 @@ void setup() {
 for文の中にfor文を作って2重for文を作ることもできます。
 
 <iframe src="/samples/tutorial/Chapter7/sketch04.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch04.pde](github:Chapter7/sketch04/sketch04.pde)
+
 ```processing
 void setup() {
   size(750, 350);
@@ -109,6 +120,8 @@ void draw() {
 ```
 
 この２重for文の実行過程をfor文を使わずに全て書き出すと次のようになります。
+
+[Chapter7/sketch05.pde](github:Chapter7/sketch05/sketch05.pde)
 
 ```processing
 void setup() {
@@ -174,6 +187,9 @@ void draw() {
 
 
 <iframe src="/samples/tutorial/Chapter7/sketch06.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch06.pde](github:Chapter7/sketch06/sketch06.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -195,6 +211,9 @@ for (int x = 0; x < 10; x++) {
 ```
 
 <iframe src="/samples/tutorial/Chapter7/sketch07.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch07.pde](github:Chapter7/sketch07/sketch07.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -218,15 +237,18 @@ for (int y = 0; y < 10; y++) {
 
 外側のfor文でx座標、内側のfor文でy座標を表す場合
 
-![image](/image/Chapter7/NestedFor1.jpg)
+![image](/images/Chapter7/NestedFor1.jpg)
 
 外側のfor文でy座標、内側のfor文でx座標を表す場合
 
-![image](/image/Chapter7/NestedFor2.jpg)
+![image](/images/Chapter7/NestedFor2.jpg)
 
 for文の中で条件分岐を使い、描画する図形を切り替えることもできます。
 
 <iframe src="/samples/tutorial/Chapter7/sketch08.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch08.pde](github:Chapter7/sketch08/sketch08.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -256,6 +278,9 @@ for (int x = 0; x < 10; x++) {
 次のプログラムでは、マウスと重なっている長方形にだけｘを描画しています。
 
 <iframe src="/samples/tutorial/Chapter7/sketch09.html" class="sample-sketch"></iframe>
+
+[Chapter7/sketch09.pde](github:Chapter7/sketch09/sketch09.pde)
+
 ```processing
 int boxW, boxH;
 

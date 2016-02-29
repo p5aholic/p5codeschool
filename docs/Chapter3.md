@@ -6,7 +6,10 @@ Chapter3ではProcessingにおける色の表現について詳しく解説し�
 
 今まではbackground()やfill()、stroke()に１つのパラメータを与えることで黒～白の色を表現していました。background()、fill()、stroke()にはパラメータを最大で４つまで与えることができます。パラメータを２つ与える場合と４つ与える場合は後回しにして、３つ与える場合を解説していきます。 とりあえず次のサンプルを見てください。
 
-![img](/image/Chapter3/sketch01.jpg)
+![](/images/Chapter3/sketch01.jpg)
+
+[Chapter3/sketch01.pde](github:Chapter3/sketch01/sketch01.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -33,7 +36,10 @@ fill()のパラメータを(255, 0, 0)にすると赤色に、(0, 255, 0)にす�
 
 後回しにしていたbackground()、fill()、stroke()にパラメータを２つ与える場合と４つ与える場合について解説します。色には透明度を指定することができて、パラメータを２つ与える場合は２つ目が透明度、４つ与える場合は４つ目が透明度になります。透明度も0～255で表現して、0が完全に透明、255が完全に不透明を表します。
 
-![img](/image/Chapter3/sketch02.jpg)
+![](/images/Chapter3/sketch02.jpg)
+
+[Chapter3/sketch02.pde](github:Chapter3/sketch02/sketch02.pde)
+
 ```processing
 size(750, 350);
 background(255);
@@ -76,18 +82,25 @@ ellipse(675, 250, 150, 150);
 
 カラーモードにはRGBカラーモードのほかにもう一つHSBカラーモードがあります。RGBカラーモードはあまり人間的な色の指定方法ではありません。例えば、「茶色に近い暗めなオレンジ色」を作りたい場合、すぐに0～255の３つの数値の組み合わせを思いつく人は少ないでしょう。HSBカラーモードを使うとより人間らしい考え方で色を表現できるようになります。HSBのHはhue(色調)、Sはsaturation(彩度)、Bはbrightness(明度)です。HSBカラーモードでの色の指定方法を円筒の形で視覚化したのが次の画像です。
 
+![](/images/Chapter3/HSB1.jpg)
+
+![](/images/Chapter3/HSB2.jpg)
+
 HSBでは、まずどの色を使うか(Hue)を選択して、その色の彩度(Saturation)と明度(Brightness)を決めます。
 
 カラーモードの変更はcolorMode()で行います。カラーモードには以下の４つの指定方法があります。MODEにはRGBまたはHSBを指定します。
 
 <dl class="func-list">
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE)</a></dt>
+    <dt>[colorMode(MODE)](p5ref:colorMode_.html)</dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値および透明度は最大で255になる</dd>
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE, max)</a></dt>
+    
+    <dt>[colorMode(MODE, max)](p5ref:colorMode_.html)</dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値および透明度は最大でmaxになる</dd>
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE, max1, max2, max3)</a></dt>
+    
+    <dt>[colorMode(MODE, max1, max2, max3)](p5ref:colorMode_.html)</dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値は最大でmax1、max2、max3に、透明度は最大で255になる。</dd>
-    <dt><a href="https://www.processing.org/reference/colorMode_.html" target="_blank">colorMode(MODE, max1, max2, max3, maxA)</a></dt>
+    
+    <dt>[colorMode(MODE, max1, max2, max3, maxA)](p5ref:colorMode_.html)</dt>
     <dd>カラーモードを変更する。RGB値、またはHSB値は最大でmax1、max2、max3に、透明度は最大でmaxAになる。</dd>
 </dl>
 
@@ -97,7 +110,10 @@ HSBカラーモードに変更する場合は
 
 とすることをオススメします。上の画像にもあるように、Hueは円状になっているのでHueの最大値を360としておくことでこの円と対応ができます。また、彩度、明度、透明度の最大値を100にしておくことで、それぞれをパーセントで指定することと同じになって考えやすいです。次のサンプルでは透明度を省略しています。その場合は透明度100（完全に不透明）になります。
 
-![img](/image/Chapter3/sketch03.jpg)
+![](/images/Chapter3/sketch03.jpg)
+
+[Chapter3/sketch03.pde](github:Chapter3/sketch03/sketch03.pde)
+
 ```processing
 size(750, 350);
 background(255); // ここではまだRGBモード
@@ -150,7 +166,10 @@ PDEに標準で備わっているColor Selectorを紹介します。[ツール]�
 
 ちなみに、Color Selectorの色相を選べる縦長の長方形領域はHSBのHue(色相)を表していて、一番下が0度、一番上が360度になっています。左の正方形領域はHSBを円筒で表現したときの、その色の断面を表しています。正方形領域では、右に行くほどSaturation(彩度)が高く、上に行くほどBrightness(明度)が高くなります。
 
-![img](/image/Chapter3/sketch04.jpg)
+![](/images/Chapter3/sketch04.jpg)
+
+[Chapter3/sketch04.pde](github:Chapter3/sketch04/sketch04.pde)
+
 ```processing
 size(750, 350);
 background(#A0A5A4);
