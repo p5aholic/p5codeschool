@@ -70,75 +70,37 @@ a { text-decoration: none; };
     font-weight: 800;
     color: #fafafa;
   }
-  %common-ul {
+  ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-  }
-  %common-a {
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-  %common-link-text {
-    font-size: 1.4rem;
-    line-height: 3.0rem;
-    text-decoration: none;
-    color: #fafafa;
-    margin-left: 18px;
-  }
-  %common-rect {
-    position: absolute;
-    top: 10px; left: 0;
-    width: 10px; height: 10px;
-    background-color: $pink;
-    transform: rotate(45deg);
-    transition: 0.5s;
-  }
-  %common-line {
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0px; height: 1px;
-    background-color: $pink;
-    transition: 0.5s;
-  }
-  /*---------------------------------------*/
-  /*---------- page navigation ----------*/
-  /*---------------------------------------*/
-  .page-navi {
-    margin-bottom: 20px;
-    ul {
-      @extend %common-ul;
-      li {
-        a {
-          @extend %common-a;
-          .link-text { @extend %common-link-text; }
-          .rect { @extend %common-rect; }
-          .line { @extend %common-line; }
-          &:hover .rect {
-            transform: rotate(1125deg);
-          }
-          &:hover .line {
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
-  /*-----------------------------*/
-  /*---------- author ----------*/
-  /*-----------------------------*/
-  .author ul {
-    @extend %common-ul;
     li {
       a {
-        @extend %common-a;
+        position: relative;
+        display: block;
+        width: 100%;
         .link-text {
-          @extend %common-link-text;
-          letter-spacing: 1px;
+          font-size: 1.4rem;
+          line-height: 3.0rem;
+          text-decoration: none;
+          color: #fafafa;
+          margin-left: 18px;
         }
-        .rect { @extend %common-rect; }
-        .line { @extend %common-line; }
+        .rect {
+          position: absolute;
+          top: 10px; left: 0;
+          width: 10px; height: 10px;
+          background-color: $pink;
+          transform: rotate(45deg);
+          transition: 0.5s;
+        }
+        .line {
+          position: absolute;
+          bottom: 0; left: 0;
+          width: 0px; height: 1px;
+          background-color: $pink;
+          transition: 0.5s;
+        }
         &:hover .rect {
           transform: rotate(1125deg);
         }
@@ -147,6 +109,18 @@ a { text-decoration: none; };
         }
       }
     }
+  }
+  /*---------------------------------------*/
+  /*---------- page navigation ----------*/
+  /*---------------------------------------*/
+  .page-navi {
+    margin-bottom: 20px;
+  }
+  /*-----------------------------*/
+  /*---------- author ----------*/
+  /*-----------------------------*/
+  .author {
+    margin-bottom: 20px;
   }
   #naviControll {
     position: absolute;

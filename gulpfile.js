@@ -47,7 +47,7 @@ marked.setOptions({
     renderer: renderer
 });
 
-gulp.task("generateHTML", function() {
+gulp.task("genHTML", function() {
     var files = fs.readdirSync("docs");
     for (var i = 0; i < files.length; i++) {
         var fileName = files[i];
@@ -106,12 +106,18 @@ function getChapterIndex(chapterNum) {
     }
 }
 
-gulp.task("generateTutIndex", function() {
+gulp.task("genTut", function() {
+    var chapterLink = {
+        prev: "",
+        next: ""
+    };
+    
     gulp.src("templates/tutorial/index.ejs")
     .pipe(ejs(
         {
             pageTitle: "P5 Code School : チュートリアル",
-            data: jsonData
+            data: jsonData,
+            chapterLink
         },
         { "ext": ".html" }
     ))
@@ -142,5 +148,5 @@ gulp.task("compileSass", function(){
 
 gulp.task("default", ["server"], function() {
     gulp.watch("sass/*.scss", ["compileSass"]);
-    gulp.watch("docs/*.md", ["generateHTML"]);
+    gulp.watch("docs/*.md", ["genHTML"]);
 });

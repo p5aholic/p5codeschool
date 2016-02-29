@@ -72,6 +72,18 @@
             </li>
         </ul>
     </div>
+    <div class="links">
+        <h3 class="side-title">Links</h3>
+        <ul>
+            <li>
+                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">
+                    <div class="link-text">Github</div>
+                    <div class="rect"></div>
+                    <div class="line"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
     
     <div id="naviControll">
         <div id="layer1"></div>
@@ -89,19 +101,24 @@
 <p>・Mac<br/>
 ダウンロードした&quot;Processing.app&quot;をアプリケーションフォルダに移動させます。ProcessingアイコンダブルクリックするとProcessingがスタートします。</p>
 <p>起動させたProcessingに下のソースコード(プログラムの中身)をコピペしてください。</p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+<pre><code class="lang-processing"><span class="hljs-comment">// プログラム開始時に一度だけ実行される処理</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);  <span class="hljs-comment">// 画面サイズを設定</span>
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>); <span class="hljs-comment">// 背景色を設定</span>
 }
 
+<span class="hljs-comment">// setup実行後に繰り返し実行される処理</span>
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-comment">// 図形の輪郭線を消す</span>
   <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-comment">// ランダムな色を指定</span>
   <span class="hljs-built_in">fill</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  <span class="hljs-comment">// マウスの位置にランダムな大きさの楕円を描く</span>
   <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>));
 }
 </code></pre>
 <p><img src="/images/Chapter0/editor.png" alt=""></p>
-<p>Fileメニューの下にある右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置にカラフルな楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。</p>
+<p>右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置にカラフルな楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。</p>
 <p>これがProcessingの開発環境(PDE：Processing DevelopmentEnvironment)になります。真ん中の白い画面にプログラムを打ち込んで、実行ボタンでプログラムを動かします。</p>
 <p>PDEを新規に立ち上げると、sketch_####(####は英数字)という仮の名前が割り振られます。保存する時に任意の名前が付けられます。ProcessingでったプログラムはPC上のどこにでも保存可能です。</p>
 <p>エディターで使用する言語を日本語に変える場合は[File]-[Preferences]の上から２番目の&quot;Language&quot;から日本語を選択してください。</p>
