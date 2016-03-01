@@ -106,7 +106,7 @@ function getChapterIndex(chapterNum) {
     }
 }
 
-gulp.task("genTut", function() {
+gulp.task("genTutorial", function() {
     var chapterLink = {
         prev: "",
         next: ""
