@@ -23,7 +23,7 @@
         <span id="title-school">School</span>
     </header>
 
-<div id="mainNavigation">
+<aside id="mainNavigation">
     <nav class="page-navi">
         <h3 class="side-title">Contents</h3>
         <ul>
@@ -98,10 +98,10 @@
         <div id="layer2"></div>
         <div id="layer3"></div>
     </div>
-</div>
+</aside>
 
-<article id="mainContents">
-    <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立ててボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
+<main id="mainContents">
+    <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立てて、ボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
 <h2>真偽値と比較演算子</h2><p>Chapter4でint、float、colorの３つのデータ型を紹介しました。ここではもう一つboolean(ブーリアン)型というデータ型を紹介します。boolean型は真偽値と呼ばれる値を扱うデータ型で、boolean型が扱える値はtrue(真)かfalse(偽)の２つのみです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch01/sketch01.pde' target='_blank'>Chapter6/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = <span class="hljs-keyword">true</span>;
@@ -153,7 +153,7 @@
   // 処理
 }</code></p>
 <p>処理内容が１行だけで書ける場合は{}で囲まなくても大丈夫です。</p>
-<p><code class='code-fragment'>if(条件式) // 処理</code></p>
+<p><code class='code-fragment'>if (条件式) // 処理</code></p>
 <p>ただ、見やすさのために１行だけでも{}で囲むことはよくあります。</p>
 <p>ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。</p>
 <iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe>
@@ -332,13 +332,13 @@ y += vy;
 }
 </code></pre>
 <p>でも、マウスがウィンドウの左半分にあり、かつ右半分にもあるということはありえません。このif文ではマウスがウィンドウの右半分にないとわかっていても、右半分にあるかを確かめることになります。左半分にあるならば右半分にないことはわかりきっています。こういう場合はif else文を使うのが適切です。</p>
-<h2>else if文</h2><p>if else文で２つの分岐を作ることができました。分岐をさらに増やすにはelse if文を使います。else if文は通常のif文の後に書いて分岐を増やすために使います。else if文はいくらでも書けます。else if文をずらーーと書いた最後にelse文を書くと、全ての条件式に当てはまらなかった場合の処理が書けます。 最後のelse文は無くてもいいです。必要に応じて書くものです。</p>
+<h2>else if文</h2><p>if else文で２つの分岐を作ることができました。分岐をさらに増やすにはelse if文を使います。else if文は通常のif文の後に書いて分岐を増やすために使います。else if文はいくらでも書けます。else if文をずらーーっと書いた最後にelse文を書くと、全ての条件式に当てはまらなかった場合の処理が書けます。 最後のelse文は無くてもいいです。必要に応じて書くものです。</p>
 <p><code class='code-fragment'>if (条件式1) {
   // 条件式1が真の場合の処理
 } else if (条件式2) {
-  // 式1が偽かつ式2が真の場合の処理
+  // 条件式1が偽かつ条件式2が真の場合の処理
 } else if (条件式3) {
-  // 式1、2が偽かつ式3が真の場合の処理
+  // 条件式1、2が偽かつ条件式3が真の場合の処理
 } else {
   // どの条件式にも当てはまらなかった場合の処理
 }</code></p>
@@ -527,7 +527,7 @@ y += vy;
 </code></pre>
 <p>お疲れさまでした。Chapter6はこれで終了です。</p>
 
-</article>
+</main>
     <footer>
         <p>&copy P5 Code School 2015</p>
     </footer>

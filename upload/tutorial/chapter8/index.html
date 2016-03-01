@@ -23,7 +23,7 @@
         <span id="title-school">School</span>
     </header>
 
-<div id="mainNavigation">
+<aside id="mainNavigation">
     <nav class="page-navi">
         <h3 class="side-title">Contents</h3>
         <ul>
@@ -98,9 +98,9 @@
         <div id="layer2"></div>
         <div id="layer3"></div>
     </div>
-</div>
+</aside>
 
-<article id="mainContents">
+<main id="mainContents">
     <h1>関数</h1><p>このChapterではProcessingに標準で備わっている便利な関数を紹介し、関数の自作方法も解説します。</p>
 <h2>計算関数</h2><p>Processingに標準で備わっている様々な計算をしてくれる関数を紹介します。</p>
 <dl class="func-list">
@@ -157,7 +157,7 @@
 </dl>
 
 <p>上記の関数の中からこれからよく使うであろうconstrain関数とdist関数、map関数を使ったプログラムを紹介します。</p>
-<p>constrain関数は変数の取りうる値の範囲を制限することができます。１つ目のパラメータに制限の対象となる変数を、２つ目と３つ目のパラメータに変数を制限する範囲の最小値と最大値を与えます。constrain関数は、変数が最小値未満なら最小値を、最大値より大きいなら最大値を、最小値～最大値の間にあれば変数の値をそのまま返します。つまり変数が最小値～最大値の間で収まるように制限しているわけです。次のプログラムでは変数aを0～100の間に制限しています。</p>
+<p>constrain関数は変数の取りうる値の範囲を制限することができます。1つ目のパラメータに制限の対象となる変数を、2つ目と3つ目のパラメータに変数を制限する範囲の最小値と最大値を与えます。constrain関数は、変数が最小値未満なら最小値を、最大値より大きいなら最大値を、最小値～最大値の間にあれば変数の値をそのまま返します。つまり変数が最小値～最大値の間で収まるように制限しているわけです。次のプログラムでは変数aを0～100の間に制限しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch01/sketch01.pde' target='_blank'>Chapter8/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> a;
 a = <span class="hljs-number">50</span>;
@@ -170,9 +170,9 @@ a = <span class="hljs-number">200</span>;
 a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// aに100を代入</span>
 <span class="hljs-built_in">println</span>(a);
 </code></pre>
-<p>関数には結果の値を返す関数と返さない関数があります。fill()やstrokeWeight()などは値を返さない関数で、constrain関数は結果として値を返す関数です。 Chapter 2で</p>
+<p>関数には結果の値を返す関数と返さない関数があります。fill()やstrokeWeight()などは値を返さない関数で、constrain関数は結果として値を返す関数です。 Chapter2で</p>
 <p><code class='code-fragment'>arc(88, 175, 100, 100, radians(45), radians(315));</code></p>
-<p>のようにarc関数の５つ目と６つ目のパラメータにradians関数を使っていたのを思い出してください。radians関数も結果としてラジアンを返す関数です。arc関数の５つ目と６つ目のパラメータにはradians関数によって返された値を指定していたわけです。上のプログラムでは</p>
+<p>のようにarc関数の5つ目と6つ目のパラメータにradians関数を使っていたのを思い出してください。radians関数も結果としてラジアンを返す関数です。arc関数の5つ目と6つ目のパラメータにはradians関数によって返された値を指定していたわけです。上のプログラムでは</p>
 <p><code class='code-fragment'>a = constrain(a, 0, 100);</code></p>
 <p>と代入文を書くことで変数aにconstrain関数が返した値を代入しています。</p>
 <p><code class='code-fragment'>constrain(a, 0, 100);</code></p>
@@ -211,7 +211,7 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
   <span class="hljs-built_in">rect</span>(x, y, <span class="hljs-built_in">size</span>, <span class="hljs-built_in">size</span>);
 }
 </code></pre>
-<p>dist関数の使い方を解説していきます。dist関数は２点間の距離を計算して返す関数です。dist関数が返す値の型はfloatなのでfloat型の変数に代入しなければいけません。</p>
+<p>dist関数の使い方を解説していきます。dist関数は2点間の距離を計算して返す関数です。dist関数が返す値の型はfloatなのでfloat型の変数に代入しなければいけません。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch03/sketch03.pde' target='_blank'>Chapter8/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 座標(0, 0)と座標(3, 4)の距離を計算</span>
 <span class="hljs-built_in">float</span> d1 = <span class="hljs-built_in">dist</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>);
@@ -287,7 +287,7 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
   }
 }
 </code></pre>
-<p>map関数の１つ目のパラメータには変換の対象となる変数、２つ目と３つ目のパラメータにはその変数の最小値と最大値、４つ目と５つ目のパラメータには変換後の値の最小値と最大値を指定します。上のプログラムでは次のようにしてマウスの座標から線の太さの値を作っています。</p>
+<p>map関数の1つ目のパラメータには変換の対象となる変数、2つ目と3つ目のパラメータにはその変数の最小値と最大値、4つ目と5つ目のパラメータには変換後の値の最小値と最大値を指定します。上のプログラムでは次のようにしてマウスの座標から線の太さの値を作っています。</p>
 <p><code class='code-fragment'>int xWeight = (int)map(mouseX, 0, width, 1, 50);</code></p>
 <p>こうすると、mouseXが0のときはmap()は1を返し、mouseXがwidthのときは50を返してくれます。map()はfloat型を返すのでint型変数に代入するときは(int)もしくはint()で型変換をします。</p>
 <h2>関数を作る理由</h2><p>関数は一部の機能をまとめたパーツのようなものです。パーツ(関数)を色々組み合わせて使うことでプログラムが出来上がります。今まで使ってきたline()やfill()、radians()などはProcessingの土台のプログラムで定義されている関数です。今まで当然のようにline()と書くだけで線を描くことができましたが、 実はプログラムでコンピュータのディスプレイ上に線を描いたり色を指定したりするのは簡単なことではありません。多くの煩雑な処理をしないとディスプレイに図形を描画することはできないんです。Processingの土台のプログラム側がそういった煩雑な処理を担ってくれているので、私たちユーザー側はline()と１行書くだけで線を描画できるわけです。もしProcessing側にline関数が定義されていなければ、私たちユーザー側は線を書くたびにとても煩雑な処理をプログラムする必要がありますし、radians関数が定義されていなければ、度数をラジアンに変換するたびに自分で変換計算式を書かなければいけません。とても面倒です。これはProcessing開発者側が関数を作る理由です。プログラミングに慣れてきて色々なコードを書くようになると、私たちユーザー側も関数を作る必要性が出てきます。</p>
@@ -328,14 +328,14 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
 }
 <span class="hljs-comment">// ここまでが関数定義</span>
 </code></pre>
-<p>myConstrain関数はint型の値を返すので関数名の前にintを、丸カッコ内には３つの仮引数value, low, highを書きます。仮引数に用いる変数は通常の変数の宣言と同じように書き、複数ある場合はコンマで区切ります。関数の中身ではif文を使ってvalueがどの範囲にあるのかを調べてそれぞれの分岐先でreturn文で結果を返しています。このようにreturn文は関数内にいくつでも書けます。</p>
+<p>myConstrain関数はint型の値を返すので関数名の前にintを、丸カッコ内には3つの仮引数value, low, highを書きます。仮引数に用いる変数は通常の変数の宣言と同じように書き、複数ある場合はコンマで区切ります。関数の中身ではif文を使ってvalueがどの範囲にあるのかを調べてそれぞれの分岐先でreturn文で結果を返しています。このようにreturn文は関数内にいくつでも書けます。</p>
 <p>ここまでが関数定義です。関数を定義する位置はどこでも大丈夫です。setup()の下側で定義しても上側で定義してもいいです。書いたプログラムは基本的に上から下に実行されますが、関数定義をした行より前の行でもその関数を使えます。</p>
 <p>setup関数内でmyConstrain関数を使った時のプログラムの実行過程を追ってみます。関数定義に書く丸カッコ内の変数のことを仮引数と呼びます。対して、関数を使う時に丸カッコ内に書くパラメータのことは実引数と言います。</p>
 <p><code class='code-fragment'>int a = myConstrain(-10, 0, 100);</code></p>
 <p>上でいうと-10や0、100が実引数です。関数を呼び出すとプログラムの処理がsetup関数内からmyConstrain関数内に移ります。</p>
 <p><code class='code-fragment'>int a = myConstrain(-10, 0, 100);</code></p>
 <p>と書いた場合は仮引数のvalueに-10が、lowに0が、highに100がセットされmyConstrain関数が実行されます。その結果myConstrain関数はreturn文でlowを結果として返します。関数内でreturn文が実行されるとプログラムの処理が呼び出し側のsetup関数内に戻り変数aにmyConstrain関数が返したlowが代入されます。</p>
-<p>さらに具体例を紹介していきます。円を２つ配置して、マウスが円内にある時は円の色をランダムに切り替えています。マウスが円内にあるかどうかを確かめる処理をmouseOver関数にまとめました。mouseOver関数には円の座標と半径をパラメータとして渡します。mouseOver関数はboolean型を返すので、if(mouseOver())と書くことで場合わけができます。</p>
+<p>さらに具体例を紹介していきます。円を2つ配置して、マウスが円内にある時は円の色をランダムに切り替えています。マウスが円内にあるかどうかを確かめる処理をmouseOver関数にまとめました。mouseOver関数には円の座標と半径をパラメータとして渡します。mouseOver関数はboolean型を返すので、if(mouseOver())と書くことで場合わけができます。</p>
 <iframe src="/samples/tutorial/Chapter8/sketch07.html" class="sample-sketch"></iframe>
 
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch07/sketch07.pde' target='_blank'>Chapter8/sketch07.pde</a></p>
@@ -486,7 +486,7 @@ void 関数名(仮引数1, 仮引数2, ...) {
 <p>この場合if文に当てはまらなければ必ずelse文でfalseが返されるのでエラーは出ません。</p>
 <p>お疲れさまでした。Chapter8はこれで終了です。</p>
 
-</article>
+</main>
     <footer>
         <p>&copy P5 Code School 2015</p>
     </footer>

@@ -23,7 +23,7 @@
         <span id="title-school">School</span>
     </header>
 
-<div id="mainNavigation">
+<aside id="mainNavigation">
     <nav class="page-navi">
         <h3 class="side-title">Contents</h3>
         <ul>
@@ -90,9 +90,9 @@
         <div id="layer2"></div>
         <div id="layer3"></div>
     </div>
-</div>
+</aside>
 
-<article id="mainContents">
+<main id="mainContents">
     <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
 <p><code class='code-fragment'>int[] data = new int[100];</code></p>
 <p>実はdataのような配列変数も参照型変数なんです。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>
@@ -422,7 +422,7 @@ class Ball {
 </code></pre>
 <p>お疲れさまでした。これで今の段階で必要なクラスの知識は一通り解説しました。クラスにはまだまだ色んな機能があるのですが、それは追々解説します。</p>
 
-</article>
+</main>
     <footer>
         <p>&copy P5 Code School 2015</p>
     </footer>

@@ -23,7 +23,7 @@
         <span id="title-school">School</span>
     </header>
 
-<div id="mainNavigation">
+<aside id="mainNavigation">
     <nav class="page-navi">
         <h3 class="side-title">Contents</h3>
         <ul>
@@ -98,9 +98,9 @@
         <div id="layer2"></div>
         <div id="layer3"></div>
     </div>
-</div>
+</aside>
 
-<article id="mainContents">
+<main id="mainContents">
     <h1>変数と演算</h1><p>Chapter4では、プログラミングの基礎的な概念である変数と演算について解説していきます。ちょっと退屈な内容ですが、重要なのでちょっと我慢して習得してください。</p>
 <h2>変数を使うメリット</h2><p>変数を使うと値をコンピュータのメモリ上に保存しておくことができます。変数はプログラム内で使いまわすことができて、値の変更も簡単にできます。下のプログラムでは変数を使わないで３つの正円を描いています。この３つの円を直径80pxから直径150pxに変えたくなったとすると、３つのellipse()の３つ目と４つ目のパラメータを変えることになるので、合計６つのパラメータを変えることになります。ちょっと面倒くさいですね。６つならまだしも、１０個２０個となると相当面倒くさいです。変数を使うとこの面倒くささから解放されます。</p>
 <p><img src="/images/Chapter4/sketch01.jpg" alt=""></p>
@@ -246,7 +246,7 @@ d = <span class="hljs-number">4</span>;
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">1.5</span>*diameter, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">2</span>*diameter, <span class="hljs-number">2</span>*diameter);
 </code></pre>
 <p>プログラム中にwidthとheightという変数を使いました。widthとheightはProcessing側が最初から用意してくれている変数で、widthにはウィンドウの幅、heightにはウィンドウの高さの値が入っています。ウィンドウの中心は(width/2, height/2)で表現できます。</p>
-<p>演算子には優先順位が決められています。掛け算と割り算は足し算と引き算より優先して計算されます。（）で囲んだ計算は最も優先順位が高くなります。代入(=)は最も優先順位が低い演算子なので、全ての計算が終わってから代入が行われます。下のコードではprintln()関数を使って計算結果をコンソール画面に出力しています。</p>
+<p>演算子には優先順位が決められています。掛け算と割り算は足し算と引き算より優先して計算されます。()で囲んだ計算は最も優先順位が高くなります。代入(=)は最も優先順位が低い演算子なので、全ての計算が終わってから代入が行われます。下のコードではprintln()関数を使って計算結果をコンソール画面に出力しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch09/sketch09.pde' target='_blank'>Chapter4/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x = <span class="hljs-number">5</span> + <span class="hljs-number">10</span> * <span class="hljs-number">2</span>;
 <span class="hljs-built_in">println</span>(x); <span class="hljs-comment">// 25を出力</span>
@@ -332,7 +332,7 @@ price2 = price1 + (<span class="hljs-built_in">int</span>)(price1 * rate);
 </code></pre>
 <p>価格に小数点は付かないので価格を表す変数はint型にしています。<br>
 税込み価格 = 税抜き価格 + 税抜き価格 × 消費税<br>
-となりますが、int型変数の税込み価格にfloat型の計算結果は普通では代入できません。上のプログラムではprice1 <em> rateの計算結果をint型に変換することで代入が正しく行われます。キャストを用いてデータを変換する場所に注意が必要です。ダメな例の１つ目は元々int型のprice1をint型に変換しているだけなので意味がないです。ダメな例の２つ目は0.08をint型に変換しているのでprice1 </em> 0を計算することになります。</p>
+となりますが、int型変数の税込み価格にfloat型の計算結果は普通では代入できません。上のプログラムではprice1 * rateの計算結果をint型に変換することで代入が正しく行われます。キャストを用いてデータを変換する場所に注意が必要です。ダメな例の１つ目は元々int型のprice1をint型に変換しているだけなので意味がないです。ダメな例の２つ目は0.08をint型に変換しているのでprice1 * 0を計算することになります。</p>
 <p>与えられた数値をint型に変換するint()関数や、与えられた数値をfloat型に変換するfloat()関数を使ってもキャストと同じことができます。次のプログラムは上のプログラムをint()関数を使って書き換えたものです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch15/sketch15.pde' target='_blank'>Chapter4/sketch15.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">float</span> rate = <span class="hljs-number">0.08</span>;
@@ -378,7 +378,7 @@ SIZE = <span class="hljs-number">150</span>; <span class="hljs-comment">// エ�
 <p>定数が無くても数値をそのままパラメータにすればいいのですが、いちいち私たちユーザー側がモードに対応する数値を覚えることになり厄介です。そのためにProcessingの開発者側が土台のプログラムに定数を用意してくれていて、ユーザーは数値を覚えなくても、HSBカラーモードにしたければcolorMode(HSB)と書けばいいようになっています。Processing開発者側が定数にfinal修飾子を付けて値の変更をできなくするのは、私たちユーザー側が勝手に定数の中身を書き換えてしまわないためです。</p>
 <p>お疲れさまでした。退屈な内容ではありましたがこの先避けて通れない内容なのでしっかり習得しておいてください。</p>
 
-</article>
+</main>
     <footer>
         <p>&copy P5 Code School 2015</p>
     </footer>

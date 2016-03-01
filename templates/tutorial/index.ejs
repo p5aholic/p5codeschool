@@ -1,7 +1,13 @@
 <% include ../common/_head %>
 <% include ../common/_menu %>
-<article id="mainContents">
+<main id="mainContents">
     <h1>Processing チュートリアル</h1>
+    <p>
+        Processingチュートリアルは全くのプログラミング未経験からProcessingを学べるチュートリアルです。
+        このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
+        サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
+        <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
+    </p>
     <h2>Processing 基礎</h2>
     <div id="chapterList">
         <% for (var i = 0; i < data.tutorials.length; i++) { %>
@@ -19,5 +25,5 @@
         </div>
         <% } %>
     </div>
-</article>
+</main>
 <% include ../common/_footer %>

@@ -23,7 +23,7 @@
         <span id="title-school">School</span>
     </header>
 
-<div id="mainNavigation">
+<aside id="mainNavigation">
     <nav class="page-navi">
         <h3 class="side-title">Contents</h3>
         <ul>
@@ -98,9 +98,9 @@
         <div id="layer2"></div>
         <div id="layer3"></div>
     </div>
-</div>
+</aside>
 
-<article id="mainContents">
+<main id="mainContents">
     <h1>三角関数</h1><p>三角関数を使うとどのような表現ができるか解説していきます。</p>
 <h2>sin()とcos()</h2><p>高校で習うサインとコサインはsin()とcos()で表現できます。サイン、コサインとは何なのかという話はかなーり奥の深い数学の話になってしまうので、ここでは使い方に重点を置いて解説します。</p>
 <p>sin()とcos()のパラメータには角度をラジアン値で渡します。そして、sin()とcos()は渡されたラジアン値をもとに-1～1の値を返します。とりあえずsin()とcos()がどのような値を返すのか見てみましょう。まずはcos()から。</p>
@@ -169,6 +169,7 @@
 </code></pre>
 <p>どうやらcos()が返す値をx座標とし、sin()が返す値をy座標とするとpoint(x, y)は円を描くようにグルグル回るようです。このことがわかったうえで、高校で習う三角関数がどのようなものかをちょっとだけ解説します。</p>
 <p>高校数学では、サインとコサインは次のように表現されています。</p>
+<p><img src="/images/Chapter11/unitcircle.jpg" alt=""></p>
 <p>半径rの円が原点にあったとして、αはx軸との角度を表し、座標(x, y)はx軸との角度αの円上の点を表しています。このとき、<br>
 sin(α) = y / r<br>
 cos(α) = x / r<br>
@@ -176,6 +177,7 @@ cos(α) = x / r<br>
 sin(α) = y<br>
 cos(α) = x<br>
 になります。この半径1のときのsin(α)とcos(α)が、Processingのsin()とcos()になります。sin()とcos()はパラメータにx軸との角度αを渡すと、角度αで半径1の円上の点の座標を返す関数です。ただし、Processingの座標系は高校数学で使う座標系とは違い、角度が時計回りに増えていくことに注意です。</p>
+<p><img src="/images/Chapter11/rad_deg.jpg" alt=""></p>
 <p>次のプログラムではsin()とcos()を使って円状に点を描画しています。</p>
 <iframe src="/samples/tutorial/Chapter11/sketch04.html" class="sample-sketch"></iframe>
 
@@ -254,7 +256,7 @@ cos(α) = x<br>
 <p>円のy座標は次のように決めています。</p>
 <p><code class='code-fragment'>float y = height/2 + 100 * sin(x*0.01);</code></p>
 <p>まずsin()にx*0.01を渡します。x*0.01が角度として扱われるので、画面の右端に行くほど角度は大きくなっていきます。これで100*sin(x*0.01)は0 → 100 → 0 → -100 → 0のように値が変わっていくことになります。すると、yはheight/2を中心としてheight/2-100～height/2+100の間を動くことになります。</p>
-<p>xの最大値は700なので、x<em>0.01の最大値は7になります。TWO_PIが約6.28なので、sin(x\</em>0.01)は一周(TWO_PI)とちょっと回ったことになります。xに掛ける値を大きくすれば高さの変化が速くなり、小さくすれば遅くなります。色々試してみてください。</p>
+<p>xの最大値は700なので、x*0.01の最大値は7になります。TWO_PIが約6.28なので、sin(x*0.01)は一周(TWO_PI)とちょっと回ったことになります。xに掛ける値を大きくすれば高さの変化が速くなり、小さくすれば遅くなります。色々試してみてください。</p>
 <p>高さの決め方をちょこっと変えると次のようなものも作れます。</p>
 <iframe src="/samples/tutorial/Chapter11/sketch07.html" class="sample-sketch"></iframe>
 
@@ -313,7 +315,7 @@ cos(α) = x<br>
 <p>上下に変動する円のプログラムのように、右から左に動いているように見えますが、線の位置は全く動いていません。変わっているのは線の色だけです。</p>
 <p>お疲れさまでした。Chapter11はこれで終了です。</p>
 
-</article>
+</main>
     <footer>
         <p>&copy P5 Code School 2015</p>
     </footer>

@@ -4,6 +4,8 @@
 
 ## 図形を描く
 
+Processingで描くことのできる基本図形は以下の7つです。
+
 <dl class="func-list">
     <dt>[point(x, y)](p5ref:point_.html)</dt>
     <dd>座標(x, y)に点を描く</dd>
@@ -27,7 +29,9 @@
     <dd>座標(x, y)に幅ｗ高さｈ、角度startからstopまでの弧を描く</dd>
 </dl>
 
-Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。size(700,300)を指定した場合のウィンドウの角の座標は次のようになります。
+![](/images/Chapter2/shapes.jpg)
+
+Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。size(700, 300)を指定した場合のウィンドウの角の座標は次のようになります。
 
 ![](/images/Chapter2/coordinate.jpg)
 
