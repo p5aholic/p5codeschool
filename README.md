@@ -3,7 +3,33 @@
 [P5 Code School](http://p5codeschool.net/)
 
 # 制作環境の解説
-Markdownからhtmlの生成、sassのコンパイルなどをgulpで自動化してます。
+Markdownからhtmlを生成、sassのコンパイルなどをgulpで自動化してます。
+
+Markdownからhtmlを生成する方法などはICSさんの[CreateJS入門サイト](https://github.com/ics-creative/tutorial-createjs)が非常に参考になった。この場を借りて感謝を。
+
+docsフォルダにあるMarkdownファイルをhtmlに変換する
+
+```sh
+gulp genHTML
+```
+
+チュートリアル一覧ページ(tutorial/index.html)をjsonデータから作成
+
+```sh
+gulp genTutorial
+```
+
+Sassのコンパイル
+
+```sh
+gulp compileSass
+```
+
+```sh
+gulp
+```
+
+を実行するとローカルにサーバーが立ってsassファイルとmdファイルの変更を監視して、変更があれば`genHTML`、`compileSass`が実行されブラウザがリロードされる。
 
 ## docs
 チュートリアルで使う原稿のMarkdownファイルの保存場所
