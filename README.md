@@ -7,6 +7,7 @@ Markdownからhtmlを生成、sassのコンパイルなどをgulpで自動化し
 
 Markdownからhtmlを生成する方法などはICSさんの[CreateJS入門サイト](https://github.com/ics-creative/tutorial-createjs)が非常に参考になった。この場を借りて感謝を。
 
+## gulpのタスク
 docsフォルダにあるMarkdownファイルをhtmlに変換する
 
 ```sh
