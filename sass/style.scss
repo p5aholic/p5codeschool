@@ -204,7 +204,7 @@ a { text-decoration: none; };
   }
   p {
     font-size: 1.6rem;
-    line-height: 2.8rem;
+    line-height: 2.0;
     margin: 0 0 20px 0;
     color: $gray2;
     @include media($bp640) {
@@ -220,6 +220,8 @@ a { text-decoration: none; };
     }
   }
   img {
+    display: block;
+    margin: 0 auto;
     max-width: 100%;
   }
 }

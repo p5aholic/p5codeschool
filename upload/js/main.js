@@ -2,12 +2,9 @@ $(function() {
     // position main navigation
     var $mainNavigation = $("#mainNavigation");
     var $layer1 = $("#layer1");
-
-    if ($(window).width() <= 1240) {
-        $mainNavigation.css("left", -200).addClass("off");
-
-        $layer1.css("left", 20);
-    }
+    
+    $mainNavigation.css("left", -200).addClass("off");
+    $layer1.css("left", 20);
 
     // animate main navigation
     $("#naviControll").click(function() {
