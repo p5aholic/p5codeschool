@@ -4,10 +4,10 @@ Processingに限らず、何かのプログラミング言語を学習するに�
 
 [Processing公式 - ダウンロード](https://www.processing.org/download/)
 
-最初に寄付するかどうか選択肢があるので"No Donation"を選んで"Download"に進んでください。Processingの現在の最新安定バージョンはバージョン3.0.2です。自分のOSにあったバージョン3.0.2をダウンロードしてください。
+最初に寄付するかどうか選択肢があるので"No Donation"を選んで"Download"に進んでください。Processingの現在の最新安定バージョンはバージョン3.1.1です。自分のOSにあったバージョンをダウンロードしてください。
 
 ・Windows<br/>
-ダウンロードしたzipファイルを解凍すると"processing-3.0.2"というフォルダができます。その中の"processing.exe"がProcessingの実行ファイルになります。"processing-3.0.2"フォルダは基本的にどこにあっても構いません。好きな場所に保存しておいてください。実行ファイルを開くとProcessingがスタートします。
+ダウンロードしたzipファイルを解凍すると"processing-####(####はバージョンを表す数字)"というフォルダができます。その中の"processing.exe"がProcessingの実行ファイルになります。"processing-####"フォルダは基本的にどこにあっても構いません。好きな場所に保存しておいてください。実行ファイルを開くとProcessingがスタートします。
 
 ・Mac<br/>
 ダウンロードした"Processing.app"をアプリケーションフォルダに移動させます。ProcessingアイコンダブルクリックするとProcessingがスタートします。

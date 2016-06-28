@@ -8,6 +8,7 @@ var Emitter = require('events').EventEmitter,
     util = require('util'),
     path = require('path'),
     glob = require('glob'),
+    sass = require('../lib'),
     render = require('../lib/render'),
     stdin = require('get-stdin'),
     fs = require('fs');
@@ -18,15 +19,19 @@ var Emitter = require('events').EventEmitter,
 
 var cli = meow({
   pkg: '../package.json',
-  version: process.sass.versionInfo,
+  version: sass.info,
   help: [
-    'Usage',
-    '  node-sass [options] <input.scss> [output.css]',
+    'Usage:',
+    '  node-sass [options] <input.scss>',
     '  cat <input.scss> | node-sass [options] > output.css',
     '',
-    'Example',
-    '  node-sass --output-style compressed foobar.scss foobar.css',
+    'Example: Compile foobar.scss to foobar.css',
+    '  node-sass --output-style compressed foobar.scss > foobar.css',
     '  cat foobar.scss | node-sass --output-style compressed > foobar.css',
+    '',
+    'Example: Watch the sass directory for changes, compile with sourcemaps to the css directory',
+    '  node-sass --watch --recursive --output css',
+    '    --source-map true --source-map-contents sass',
     '',
     'Options',
     '  -w, --watch                Watch a directory or file',
@@ -48,14 +53,16 @@ var cli = meow({
     '  --include-path             Path to look for imported files',
     '  --follow                   Follow symlinked directories',
     '  --precision                The amount of precision allowed in decimal numbers',
+    '  --error-bell               Output a bell character on errors',
     '  --importer                 Path to .js file containing custom importer',
     '  --functions                Path to .js file containing custom functions',
     '  --help                     Print usage info'
   ].join('\n')
 }, {
   boolean: [
-    'indented-syntax',
+    'error-bell',
     'follow',
+    'indented-syntax',
     'omit-source-map-url',
     'quiet',
     'recursive',
@@ -109,7 +116,7 @@ function isDirectory(filePath) {
   var isDir = false;
   try {
     var absolutePath = path.resolve(filePath);
-    isDir = fs.lstatSync(absolutePath).isDirectory();
+    isDir = fs.statSync(absolutePath).isDirectory();
   } catch (e) {
     isDir = e.code === 'ENOENT';
   }
@@ -138,6 +145,9 @@ function getEmitter() {
   var emitter = new Emitter();
 
   emitter.on('error', function(err) {
+    if (options.errorBell) {
+      err += '\x07';
+    }
     console.error(err);
     if (!options.watch) {
       process.exit(1);
@@ -225,15 +235,23 @@ function getOptions(args, options) {
  */
 
 function watch(options, emitter) {
-  var watch = [];
+  var buildGraph = function(options) {
+    var graphOptions = {
+      loadPaths: options.includePath,
+      extensions: ['scss', 'sass', 'css']
+    };
 
-  var graphOptions = { loadPaths: options.includePath, extensions: ['scss', 'sass', 'css'] };
-  var graph;
-  if (options.directory) {
-    graph = grapher.parseDir(options.directory, graphOptions);
-  } else {
-    graph = grapher.parseFile(options.src, graphOptions);
+    if (options.directory) {
+      var graph = grapher.parseDir(options.directory, graphOptions);
+    } else {
+      var graph = grapher.parseFile(options.src, graphOptions);
+    }
+
+    return graph;
   }
+
+  var watch = [];
+  var graph = buildGraph(options);
 
   // Add all files to watch list
   for (var i in graph.index) {
@@ -254,6 +272,14 @@ function watch(options, emitter) {
         renderFile(file, options, emitter);
       }
     });
+  });
+
+  gaze.on('added', function(file) {
+    graph = buildGraph(options);
+  });
+
+  gaze.on('deleted', function(file) {
+    graph = buildGraph(options);
   });
 }
 
@@ -366,9 +392,13 @@ if (!options.src && process.stdin.isTTY) {
   emitter.emit('error', [
     'Provide a Sass file to render',
     '',
-    '  Example',
-    '    node-sass --output-style compressed foobar.scss foobar.css',
-    '    cat foobar.scss | node-sass --output-style compressed > foobar.css'
+    'Example: Compile foobar.scss to foobar.css',
+    '  node-sass --output-style compressed foobar.scss > foobar.css',
+    '  cat foobar.scss | node-sass --output-style compressed > foobar.css',
+    '',
+    'Example: Watch the sass directory for changes, compile with sourcemaps to the css directory',
+    '  node-sass --watch --recursive --output css',
+    '    --source-map true --source-map-contents sass',
   ].join('\n'));
 }
 

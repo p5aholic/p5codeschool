@@ -7,8 +7,8 @@ var connectUtils    = require("./connect-utils");
 var utils           = require("./utils");
 var logger          = require("./logger");
 
-var eachSeries      = require("async-each-series");
-var _               = require("lodash");
+var eachSeries      = utils.eachSeries;
+var _               = require("../lodash.custom");
 var EE              = require("easy-extender");
 
 /**
@@ -364,24 +364,37 @@ BrowserSync.prototype.getMiddleware = function (type) {
  * @param {String} path
  * @param {{type: string, content: string}} props
  */
+var _serveFileCount = 0;
 BrowserSync.prototype.serveFile = function (path, props) {
 
     var bs = this;
-
-    if (bs.app) {
-        bs.app.use(path, function (req, res) {
+    var mode = bs.options.get("mode");
+    var entry = {
+        handle: function (req, res) {
             res.setHeader("Content-Type", props.type);
             res.end(props.content);
-        });
-    }
+        },
+        id: "Browsersync - " + _serveFileCount++,
+        route: path
+    };
+
+    bs._addMiddlewareToStack(entry);
 };
 
 /**
  * Add middlewares on the fly
- * @param route
- * @param handle
- * @param opts
+ * @param {{route: string, handle: function, id?: string}}
  */
+BrowserSync.prototype._addMiddlewareToStack = function (entry) {
+    var bs = this;
+    if (bs.options.get("mode") === "proxy") {
+        bs.app.stack.splice(bs.app.stack.length-1, 0, entry);
+    } else {
+        bs.app.stack.push(entry);
+    }
+};
+
+var _addMiddlewareCount = 0;
 BrowserSync.prototype.addMiddleware = function (route, handle, opts) {
 
     var bs   = this;
@@ -390,31 +403,27 @@ BrowserSync.prototype.addMiddleware = function (route, handle, opts) {
         return;
     }
 
-    var mode = bs.options.get("mode");
-
     opts = opts || {};
 
     if (!opts.id) {
-        opts.id = "bs-mw-" + Math.random();
+        opts.id = "bs-mw-" + _addMiddlewareCount++;
     }
 
     if (route === "*") {
         route = "";
     }
 
-    if (opts.override) {
-        return bs.app.stack.unshift({id: opts.id, route: route, handle: handle});
-    }
-
-    if (mode === "proxy") {
-        return bs.app.use(route, handle, opts);
-    }
-
-    return bs.app.stack.push({
+    var entry = {
         id: opts.id,
         route: route,
         handle: handle
-    }); // function + route;
+    };
+
+    if (opts.override) {
+        return bs.app.stack.unshift(entry);
+    }
+
+    bs._addMiddlewareToStack(entry);
 };
 
 /**
@@ -611,14 +620,7 @@ BrowserSync.prototype.setRewriteRules = function (rules) {
     var bs = this;
 
     bs.rewriteRules = rules;
-
-    if (bs.options.get("mode") === "server") {
-        bs.snippetMw.opts.rules = rules;
-    }
-
-    if (bs.options.get("mode") === "proxy") {
-        bs.proxy.config.rules = rules;
-    }
+    bs.snippetMw.opts.rules = rules;
 };
 
 /**
@@ -646,39 +648,21 @@ BrowserSync.prototype.doFileReload = function (data) {
 
     var bs = this;
 
-    bs._reloadQueue = bs._reloadQueue || [];
-    bs._reloadQueue.push(data);
-
-    if (bs._reloadTimer) {
-        return;
-    }
-
     var willReload = utils.willCauseReload(
-        bs._reloadQueue.map(function (item) { return item.path; }),
+        [data.path],
         bs.options.get("injectFileTypes").toJS()
     );
 
-    bs._reloadTimer = setTimeout(function () {
+    /**
+     * If the current item will cause the browser
+     * to reload, fire the correct 
+     */
+    if (willReload) {
+        bs.io.sockets.emit("browser:reload");
+        return;
+    }
 
-        if (willReload) {
-            if (!bs._reloadDebounced) {
-                bs._reloadDebounced = setTimeout(function () {
-                    bs._reloadDebounced = false;
-                }, bs.options.get("reloadDebounce"));
-                bs.io.sockets.emit("browser:reload");
-            }
-        } else {
-            bs._reloadQueue.forEach(function (item) {
-                bs.io.sockets.emit("file:reload", item);
-            });
-        }
-
-        clearTimeout(bs._reloadTimer);
-
-        bs._reloadTimer = undefined;
-        bs._reloadQueue = [];
-
-    }, bs.options.get("reloadDelay"));
+    bs.io.sockets.emit("file:reload", data);
 };
 
 /**

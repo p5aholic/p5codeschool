@@ -23,17 +23,17 @@ renderer.link = function(href, title, text) {
     var target;
     if (href.indexOf("p5codeschool.net") === -1) target = "_blank";
     else target = "_self";
-    
+
     if (href.indexOf("github:") !== -1) {
         href = href.replace("github:", "");
         href = "https://github.com/p5aholic/p5codeschool/blob/master/samples/" + href;
     }
-    
+
     if (href.indexOf("p5ref:") !== -1) {
         href = href.replace("p5ref:", "");
         href = "https://www.processing.org/reference/" + href;
     }
-    
+
     return "<a href='" + href + "' target='" + target + "'>" + text + "</a>";
 };
 renderer.codespan = function(text) {
@@ -67,7 +67,7 @@ function mdToHTML(fileName) {
         prev: "",
         next: ""
     };
-    
+
     if (baseName === "top") {
         dirName = "";
         pageTitle = "ゼロから学べるProcessing入門サイト : P5 Code School";
@@ -82,7 +82,7 @@ function mdToHTML(fileName) {
         }
         pageTitle = "P5 Code School " + baseName + "「" + h1[1] + "」";
     }
-        
+    
     gulp.src("templates/index.ejs")
         .pipe(ejs(
             {
@@ -111,7 +111,7 @@ gulp.task("genTutorial", function() {
         prev: "",
         next: ""
     };
-    
+
     gulp.src("templates/tutorial/index.ejs")
     .pipe(ejs(
         {

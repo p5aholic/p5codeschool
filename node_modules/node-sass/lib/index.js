@@ -2,31 +2,26 @@
  * node-sass: lib/index.js
  */
 
-var eol = require('os').EOL,
-    path = require('path'),
+var path = require('path'),
     util = require('util'),
-    pkg = require('../package.json');
+    clonedeep = require('lodash.clonedeep'),
+    errors = require('./errors'),
+    sass = require('./extensions');
 
-require('./extensions');
+if (!sass.hasBinary(sass.getBinaryPath())) {
+  if (!sass.isSupportedEnvironment()) {
+    throw new Error(errors.unsupportedEnvironment());
+  } else {
+    throw new Error(errors.missingBinary());
+  }
+}
+
 
 /**
  * Require binding
  */
 
-var binding = require(process.sass.getBinaryPath(true));
-
-/**
- * Get Sass version information
- *
- * @api private
- */
-
-function getVersionInfo(binding) {
-  return [
-           ['node-sass', pkg.version, '(Wrapper)', '[JavaScript]'].join('\t'),
-           ['libsass  ', binding.libsassVersion(), '(Sass Compiler)', '[C/C++]'].join('\t'),
-  ].join(eol);
-}
+var binding = require(sass.getBinaryPath());
 
 /**
  * Get input file
@@ -176,8 +171,8 @@ function getLinefeed(options) {
  * @api private
  */
 
-function getOptions(options, cb) {
-  options = options || {};
+function getOptions(opts, cb) {
+  var options = clonedeep(opts || {});
   options.sourceComments = options.sourceComments || false;
   if (options.hasOwnProperty('file')) {
     options.file = getInputFile(options);
@@ -269,8 +264,8 @@ function normalizeFunctionSignature(signature, callback) {
  * @api public
  */
 
-module.exports.render = function(options, cb) {
-  options = getOptions(options, cb);
+module.exports.render = function(opts, cb) {
+  var options = getOptions(opts, cb);
 
   // options.error and options.success are for libsass binding
   options.error = function(err) {
@@ -299,35 +294,36 @@ module.exports.render = function(options, cb) {
 
   if (importer) {
     if (Array.isArray(importer)) {
+      options.importer = [];
       importer.forEach(function(subject, index) {
         options.importer[index] = function(file, prev, bridge) {
-          function done(data) {
-            bridge.success(data);
+          function done(result) {
+            bridge.success(result === module.exports.NULL ? null : result);
           }
 
           var result = subject.call(options.context, file, prev, done);
 
-          if (result) {
-            done(result === module.exports.NULL ? null : result);
+          if (result !== undefined) {
+            done(result);
           }
         };
       });
     } else {
       options.importer = function(file, prev, bridge) {
-        function done(data) {
-          bridge.success(data);
+        function done(result) {
+          bridge.success(result === module.exports.NULL ? null : result);
         }
 
         var result = importer.call(options.context, file, prev, done);
 
-        if (result) {
-          done(result === module.exports.NULL ? null : result);
+        if (result !== undefined) {
+          done(result);
         }
       };
     }
   }
 
-  var functions = options.functions;
+  var functions = clonedeep(options.functions);
 
   if (functions) {
     options.functions = {};
@@ -343,7 +339,7 @@ module.exports.render = function(options, cb) {
           bridge.success(data);
         }
 
-        var result = tryCallback(cb.callback, args.concat(done));
+        var result = tryCallback(cb.callback.bind(options.context), args.concat(done));
 
         if (result) {
           done(result);
@@ -368,13 +364,13 @@ module.exports.render = function(options, cb) {
  * @api public
  */
 
-module.exports.renderSync = function(options) {
-  options = getOptions(options);
-
+module.exports.renderSync = function(opts) {
+  var options = getOptions(opts);
   var importer = options.importer;
 
   if (importer) {
     if (Array.isArray(importer)) {
+      options.importer = [];
       importer.forEach(function(subject, index) {
         options.importer[index] = function(file, prev) {
           var result = subject.call(options.context, file, prev);
@@ -391,7 +387,7 @@ module.exports.renderSync = function(options) {
     }
   }
 
-  var functions = options.functions;
+  var functions = clonedeep(options.functions);
 
   if (options.functions) {
     options.functions = {};
@@ -400,7 +396,7 @@ module.exports.renderSync = function(options) {
       var cb = normalizeFunctionSignature(signature, functions[signature]);
 
       options.functions[cb.signature] = function() {
-        return tryCallback(cb.callback, arguments);
+        return tryCallback(cb.callback.bind(options.context), arguments);
       };
     });
   }
@@ -430,8 +426,7 @@ module.exports.renderSync = function(options) {
  * @api public
  */
 
-process.sass.versionInfo = getVersionInfo(binding);
-module.exports.info = process.sass.versionInfo;
+module.exports.info = sass.getVersionInfo(binding);
 
 /**
  * Expose sass types
@@ -441,3 +436,21 @@ module.exports.types = binding.types;
 module.exports.TRUE = binding.types.Boolean.TRUE;
 module.exports.FALSE = binding.types.Boolean.FALSE;
 module.exports.NULL = binding.types.Null.NULL;
+
+/**
+ * Polyfill the old API
+ *
+ * TODO: remove for 4.0
+ */
+
+function processSassDeprecationMessage() {
+  console.log('Deprecation warning: `process.sass` is an undocumented internal that will be removed in future versions of Node Sass.');
+}
+
+process.sass = process.sass || {
+  get versionInfo()   { processSassDeprecationMessage(); return module.exports.info; },
+  get binaryName()    { processSassDeprecationMessage(); return sass.getBinaryName(); },
+  get binaryUrl()     { processSassDeprecationMessage(); return sass.getBinaryUrl(); },
+  get binaryPath()    { processSassDeprecationMessage(); return sass.getBinaryPath(); },
+  get getBinaryPath() { processSassDeprecationMessage(); return sass.getBinaryPath; },
+};
