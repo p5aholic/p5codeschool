@@ -12,7 +12,7 @@ var browser = require("browser-sync");
 var marked = require("marked");
 var hljs = require("highlight.js");
 
-var DEST = "upload";
+var DEST = "public";
 var jsonData = JSON.parse(fs.readFileSync("templates/tutorial/data.json"));
 
 var renderer = new marked.Renderer();
@@ -82,7 +82,7 @@ function mdToHTML(fileName) {
         }
         pageTitle = "P5 Code School " + baseName + "「" + h1[1] + "」";
     }
-    
+
     gulp.src("templates/index.ejs")
         .pipe(ejs(
             {
