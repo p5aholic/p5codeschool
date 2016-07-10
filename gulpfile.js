@@ -19,6 +19,7 @@ var renderer = new marked.Renderer();
 renderer.heading = function(text, level) {
     return "<h" + level + ">" + text + "</h" + level + ">";
 };
+
 renderer.link = function(href, title, text) {
     var target;
     if (href.indexOf("p5codeschool.net") === -1) target = "_blank";
@@ -36,6 +37,7 @@ renderer.link = function(href, title, text) {
 
     return "<a href='" + href + "' target='" + target + "'>" + text + "</a>";
 };
+
 renderer.codespan = function(text) {
     return "<code class='code-fragment'>" + text + "</code>";
 };
