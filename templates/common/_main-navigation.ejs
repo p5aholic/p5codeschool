@@ -1,0 +1,61 @@
+<nav class="main-navigation">
+    <div class="page-navi">
+        <h3 class="nav-title">Contents</h3>
+        <ul>
+            <li>
+                <a href="/index.html">
+                    <span class="link-text">Top</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <span class="link-text">Tutorials</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <span class="link-text">Examples</span>
+                </a>
+            </li>
+            <% if (chapterLink.prev !== "") { %>
+            <li>
+                <a href="/tutorial/chapter<%= chapterLink.prev %>">
+                    <span class="link-text"> ← Chapter</span>
+                </a>
+            </li>
+            <% } %>
+            <% if (chapterLink.next !== "") { %>
+            <li>
+                <a href="/tutorial/chapter<%= chapterLink.next %>">
+                    <span class="link-text">Chapter →</span>
+                </a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="author">
+        <h3 class="nav-title">Author</h3>
+        <ul>
+            <li>
+                <a href="https://twitter.com/P5Aholic" target="_blank">
+                    <span class="link-text">Twitter</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://p5aholic.hatenablog.com/" target="_blank">
+                    <span class="link-text">Blog</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="links">
+        <h3 class="nav-title">Links</h3>
+        <ul>
+            <li>
+                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">
+                    <span class="link-text">Github</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

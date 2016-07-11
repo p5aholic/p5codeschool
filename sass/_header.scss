@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.header {
+  max-width: $articleWidth;
+  display: block;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.header-letter {
+  display: inline-block;
+  font-size: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #333;
+  opacity: 0;
+  margin-right: 2px;
+  transition-property: opacity transform;
+  transition-duration: 1000ms;
+  transition-delay: 500ms;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+$fromTop: translate3d(0, -20px, 0);
+$fromRight: translate3d(20px, 0, 0);
+$fromBottom: translate3d(0, 20px, 0);
+$fromLeft: translate3d(-20px, 0, 0);
+
+.letter-p { transform: $fromTop; }
+.letter-5 { transform: $fromRight; margin-right: 20px; }
+.letter-c { transform: $fromBottom; }
+.letter-0 { transform: $fromLeft; }
+.letter-d { transform: $fromTop; }
+.letter-e { transform: $fromRight; margin-right: 20px; }
+.letter-s { transform: $fromBottom; }
+.letter-c { transform: $fromLeft; }
+.letter-h { transform: $fromTop; }
+.letter-o { transform: $fromRight; }
+.letter-o { transform: $fromBottom; }
+.letter-l { transform: $fromLeft; }
+
+.ready .header-letter{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}

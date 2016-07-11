@@ -1,24 +1,8 @@
 $(function() {
-    // position main navigation
-    var $mainNavigation = $("#mainNavigation");
-    var $layer1 = $("#layer1");
-
-    $mainNavigation.css("left", -200).addClass("off");
-    $layer1.css("left", 20);
-
-    // animate main navigation
-    $("#naviControll").click(function() {
-        if ($mainNavigation.hasClass("off")) {
-            $mainNavigation
-            .animate({ left: "0"}, 300).removeClass("off");
-            $layer1.animate({ left: "-20px" }, 300);
-        } else {
-            $mainNavigation
-            .animate({ left: "-200" }, 300).addClass("off");
-            $layer1.animate({ left: "20px" }, 300);
-        }
+    $(window).on("load", function() {
+        $("body").addClass("ready");
     });
-
+    
     resizeIframe();
     $(window).on("resize", function() {
         resizeIframe();

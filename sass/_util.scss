@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-$containerWidth: 850px;
+$navigationWidth: 200px;
+$articleWidth: 850px;
 $blue: #266281;
 $navy: #033760;
 $green: #1E6667;
@@ -9,6 +10,10 @@ $winered: #9B1E50;
 $pink: #ff0073;
 $gray1: #111111; $gray2: #444444;
 $gray3: #777777; $gray4: #aaaaaa;
+
+//  z-index
+$main-nav-z-index: 20;
+$main-article-z-index: 15;
 
 $bp640: 640px;
 $bp960: 960px;

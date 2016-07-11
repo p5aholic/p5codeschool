@@ -5,102 +5,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <title>P5 Code School Chapter14「配列」</title>
-    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="js/libs/p5.js"></script>
-    <script src="js/libs/p5.dom.js"></script>
-    <script src="/js/header-sketch.js"></script>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
     <script src="/js/main.js"></script>
 </head>
 
 <body>
-    <div id="p5Header"></div>
-    <header id="header">
-        <span id="title-p5">P5</span>
-        <span id="title-code">Code</span>
-        <span id="title-school">School</span>
+    <header class="header">
+        
+        
+            
+            <span class="header-letter letter-p">p</span>
+        
+            
+            <span class="header-letter letter-5">5</span>
+        
+            
+            <span class="header-letter letter-c">c</span>
+        
+            
+            <span class="header-letter letter-o">o</span>
+        
+            
+            <span class="header-letter letter-d">d</span>
+        
+            
+            <span class="header-letter letter-e">e</span>
+        
+            
+            <span class="header-letter letter-s">s</span>
+        
+            
+            <span class="header-letter letter-c">c</span>
+        
+            
+            <span class="header-letter letter-h">h</span>
+        
+            
+            <span class="header-letter letter-o">o</span>
+        
+            
+            <span class="header-letter letter-o">o</span>
+        
+            
+            <span class="header-letter letter-l">l</span>
+        
     </header>
 
-<div id="mainNavigation">
-    <nav class="page-navi">
-        <h3 class="side-title">Contents</h3>
+<nav class="main-navigation">
+    <div class="page-navi">
+        <h3 class="nav-title">Contents</h3>
         <ul>
             <li>
                 <a href="/index.html">
-                    <div class="link-text">トップ</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Top</span>
                 </a>
             </li>
             <li>
                 <a href="/tutorial/index.html">
-                    <div class="link-text">チュートリアル</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Tutorials</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <span class="link-text">Examples</span>
                 </a>
             </li>
             
             <li>
                 <a href="/tutorial/chapter13">
-                    <div class="link-text">前のChapter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text"> ← Chapter</span>
                 </a>
             </li>
             
             
             <li>
                 <a href="/tutorial/chapter15_1">
-                    <div class="link-text">次のChapter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Chapter →</span>
                 </a>
             </li>
             
         </ul>
-    </nav>
+    </div>
     <div class="author">
-        <h3 class="side-title">Author</h3>
+        <h3 class="nav-title">Author</h3>
         <ul>
             <li>
                 <a href="https://twitter.com/P5Aholic" target="_blank">
-                    <div class="link-text">Twitter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Twitter</span>
                 </a>
             </li>
             <li>
                 <a href="http://p5aholic.hatenablog.com/" target="_blank">
-                    <div class="link-text">Blog</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Blog</span>
                 </a>
             </li>
         </ul>
     </div>
     <div class="links">
-        <h3 class="side-title">Links</h3>
+        <h3 class="nav-title">Links</h3>
         <ul>
             <li>
                 <a href="https://github.com/p5aholic/p5codeschool" target="_blank">
-                    <div class="link-text">Github</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Github</span>
                 </a>
             </li>
         </ul>
     </div>
-    
-    <div id="naviControll">
-        <div id="layer1"></div>
-        <div id="layer2"></div>
-        <div id="layer3"></div>
-    </div>
-</div>
+</nav>
 
-<main id="mainContents">
+<main class="main-article">
     <h1>配列</h1><p>配列を使うと同じデータ型の値を大量に扱うことができます。配列の直観的なイメージは番号順に一列に並んだ箱です。箱の一つ一つが変数で、値を入れておくことができます。全ての箱(変数)は同じデータ型になります。箱の集合(配列)の名前がAだとすると、先頭の箱(先頭の変数)はA[0]、２番目の箱(２番目の変数)はA[1]になります。</p>
 <h2>配列の作り方</h2><p>配列を作るにはまず次のようにします。</p>
 <p><code class='code-fragment'>データ型[] 配列変数名;

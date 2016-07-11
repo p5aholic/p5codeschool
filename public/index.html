@@ -5,86 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <title>ゼロから学べるProcessing入門サイト : P5 Code School</title>
-    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="js/libs/p5.js"></script>
-    <script src="js/libs/p5.dom.js"></script>
-    <script src="/js/header-sketch.js"></script>
+    <script src="/js/libs/p5.js"></script>
+    <script src="/js/libs/p5.dom.js"></script>
     <script src="/js/main.js"></script>
 </head>
 
 <body>
-    <div id="p5Header"></div>
-    <header id="header">
-        <span id="title-p5">P5</span>
-        <span id="title-code">Code</span>
-        <span id="title-school">School</span>
+    <header class="header">
+        
+        
+            
+            <span class="header-letter letter-p">p</span>
+        
+            
+            <span class="header-letter letter-5">5</span>
+        
+            
+            <span class="header-letter letter-c">c</span>
+        
+            
+            <span class="header-letter letter-o">o</span>
+        
+            
+            <span class="header-letter letter-d">d</span>
+        
+            
+            <span class="header-letter letter-e">e</span>
+        
+            
+            <span class="header-letter letter-s">s</span>
+        
+            
+            <span class="header-letter letter-c">c</span>
+        
+            
+            <span class="header-letter letter-h">h</span>
+        
+            
+            <span class="header-letter letter-o">o</span>
+        
+            
+            <span class="header-letter letter-o">o</span>
+        
+            
+            <span class="header-letter letter-l">l</span>
+        
     </header>
 
-<div id="mainNavigation">
-    <nav class="page-navi">
-        <h3 class="side-title">Contents</h3>
+<nav class="main-navigation">
+    <div class="page-navi">
+        <h3 class="nav-title">Contents</h3>
         <ul>
             <li>
                 <a href="/index.html">
-                    <div class="link-text">トップ</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Top</span>
                 </a>
             </li>
             <li>
                 <a href="/tutorial/index.html">
-                    <div class="link-text">チュートリアル</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Tutorials</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tutorial/index.html">
+                    <span class="link-text">Examples</span>
                 </a>
             </li>
             
             
         </ul>
-    </nav>
+    </div>
     <div class="author">
-        <h3 class="side-title">Author</h3>
+        <h3 class="nav-title">Author</h3>
         <ul>
             <li>
                 <a href="https://twitter.com/P5Aholic" target="_blank">
-                    <div class="link-text">Twitter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Twitter</span>
                 </a>
             </li>
             <li>
                 <a href="http://p5aholic.hatenablog.com/" target="_blank">
-                    <div class="link-text">Blog</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Blog</span>
                 </a>
             </li>
         </ul>
     </div>
     <div class="links">
-        <h3 class="side-title">Links</h3>
+        <h3 class="nav-title">Links</h3>
         <ul>
             <li>
                 <a href="https://github.com/p5aholic/p5codeschool" target="_blank">
-                    <div class="link-text">Github</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
+                    <span class="link-text">Github</span>
                 </a>
             </li>
         </ul>
     </div>
-    
-    <div id="naviControll">
-        <div id="layer1"></div>
-        <div id="layer2"></div>
-        <div id="layer3"></div>
-    </div>
-</div>
+</nav>
 
-<main id="mainContents">
+<main class="main-article">
     <h1>P5 Code Schoolについて</h1><p>P5 Code Schoolはプログラミング未経験者が一からProcessingを学ぶことができるWebサイトです。</p>
 <h2>Processingとは？</h2><p>ProcessingはJavaというプログラミング言語のグラフィックス処理機能を扱いやすくしたコンピュータアートのためのプログラミング言語です。無料かつ操作が容易な専用の開発環境でプログラムが書けて、アイデアがすぐに視覚的なフィードバックとして得られるためプログラミング入門者にも適ています。</p>
 <p>余談ですが、ProcessingはよくP5という略称で呼ばれます。Processingという単語は色んな分野で使われているので、プログラミング言語としてのProcessingをProce55ingと書くことにしよう、という流れがありました。「Processing」で検索してもプログラミング言語としてのProcessing以外の情報が多数ヒットしてしまうので、これを防ぐ目的もあります。今はあまりProce55ingという表記は見かけませんが、その略称であるP5は今も使われています。</p>
