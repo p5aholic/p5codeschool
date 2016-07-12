@@ -12,7 +12,7 @@
   font-size: 100px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #333;
+  color: $siteTitleColor;
   opacity: 0;
   margin-right: 2px;
   transition-property: opacity transform;
@@ -21,10 +21,10 @@
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-$fromTop: translate3d(0, -20px, 0);
-$fromRight: translate3d(20px, 0, 0);
-$fromBottom: translate3d(0, 20px, 0);
-$fromLeft: translate3d(-20px, 0, 0);
+$fromTop: translate3d(0, -40px, 0);
+$fromRight: translate3d(40px, 0, 0);
+$fromBottom: translate3d(0, 40px, 0);
+$fromLeft: translate3d(-40px, 0, 0);
 
 .letter-p { transform: $fromTop; }
 .letter-5 { transform: $fromRight; margin-right: 20px; }

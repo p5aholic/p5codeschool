@@ -152,5 +152,5 @@ gulp.task("compileSass", function(){
 gulp.task("default", ["server"], function() {
     gulp.watch("sass/*.scss", ["compileSass"]);
     gulp.watch("docs/*.md", ["genHTML"]);
-    gulp.watch("templates/**/*.ejs", ["genHTML"]);
+    gulp.watch("templates/**/*.ejs", ["genHTML", "genTutorial"]);
 });

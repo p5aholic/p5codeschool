@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-$textColor: #000;
-$borderColor: #000;
-
 .main-navigation {
   position: fixed;
   top: 0;
@@ -10,26 +7,23 @@ $borderColor: #000;
   width: $navigationWidth;
   height: 100%;
   padding: 60px 20px 0px;
-  border-left: 20px solid #3f7aad;
+  border-left: 20px solid $navBorderColor;
   box-shadow: 5px 0px 5px 0px #a6a6a6;
-  transform: translate3d(-20px, 0, 0);
-  transition-property: box-shadow transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease-out;
   font-family: 'Open Sans', sans-serif;
   z-index: $main-nav-z-index;
-  &:hover {
-    box-shadow: 8px 0px 8px 0px #a6a6a6;
-    transform: translate3d(0, 0, 0);
-  }
   .nav-title {
+    position: relative;
     margin: 0 0 10px;
-    padding: 0;
+    padding: 0 0 0 20px;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 1px;
-    color: $textColor;
-    border-bottom: 1px solid $borderColor;
+    color: $navTextColor;
+    border-bottom: 1px solid $navTextColor;
+  }
+  .nav-title::before {
+    content: "";
+    @include diamond(0.8, 1.2, $navDiamondColor);
   }
   ul {
     padding: 0;
@@ -37,21 +31,25 @@ $borderColor: #000;
     list-style-type: none;
   }
   a {
-    display: block;
-    width: 100%;
-    .link-text {
-      font-size: 1.8rem;
-      font-weight: 300;
-      line-height: 3.0rem;
-      text-decoration: none;
-      letter-spacing: 1px;
-      color: $textColor;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 3.0rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: $navTextColor;
+    border-bottom: 1px solid #fff;
+    transition-property: color border-bottom-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    &:hover {
+      color: $navTextHoverColor;
+      border-bottom-color: $navTextHoverColor;
     }
   }
   .page-navi {
     margin-bottom: 20px;
   }
-  .author {
+  .admin {
     margin-bottom: 20px;
   }
 }

@@ -11,9 +11,29 @@ $pink: #ff0073;
 $gray1: #111111; $gray2: #444444;
 $gray3: #777777; $gray4: #aaaaaa;
 
+// site title
+$siteTitleColor: #303030;
+
+// main-navigation
+$navBorderColor: #2371b5;
+$navTextColor: #303030;
+$navTextHoverColor: #1275cc;
+$navDiamondColor: #2371b5;
+
+// main-article
+$titleDiamondColor: #2371b5;
+$sectionDiamondColor: #2371b5;
+$maintextColor: #303030;
+$linkColor: #b50057;
+$linkHoverColor: #ff007b;
+
 //  z-index
 $main-nav-z-index: 20;
 $main-article-z-index: 15;
+
+%font {
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
 
 $bp640: 640px;
 $bp960: 960px;
@@ -25,6 +45,14 @@ $bp960: 960px;
   }
 }
 
-%font {
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+
+@mixin diamond($sx, $sy, $color: #000) {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) scale($sx, $sy) rotateZ(45deg);
+  background-color: $color;
 }
