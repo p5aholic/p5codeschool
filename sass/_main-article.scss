@@ -5,31 +5,56 @@
   max-width: $articleWidth;
   margin: 0 auto 50px;
   z-index: $main-article-z-index;
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 3.0rem;
+  %headding {
+    position: relative;
     font-weight: normal;
+    padding: 0 0 0 30px;
+  }
+  @mixin diamond($sx, $sy) {
+    display: block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) scale($sx, $sy) rotateZ(45deg);
+    background-color: #000;
+  }
+  h1 {
+    @extend %headding;
+    font-size: 3.0rem;
     color: #000;
+    margin: 0 0 10px 0;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
     @include media($bp640) {
       font-size: 2.5rem;
     }
   }
+  h1::before {
+    content: "";
+    @include diamond(1.2, 2);
+  }
   h2 {
-    margin: 0;
-    padding: 0;
+    @extend %headding;
     font-size: 2.2rem;
-    font-weight: normal;
     color: #000;
+    margin: 0 0 10px 0;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
     @include media($bp640) {
       font-size: 2.0rem;
     }
   }
+  h2::before {
+    content: "";
+    @include diamond(0.8, 1.2);
+  }
   p {
     font-size: 1.6rem;
     line-height: 2.0;
-    margin: 0 0 20px 0;
-    padding: 0px 15px;
+    margin: 0 0 20px;
+    padding: 0px 20px;
     color: #000;
     @include media($bp640) {
       font-size: 1.4rem;
