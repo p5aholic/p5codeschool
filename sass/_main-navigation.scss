@@ -6,6 +6,7 @@
   left: 0;
   width: $navigationWidth;
   height: 100%;
+  background-color: #fff;
   padding: 60px 20px 0px;
   border-left: 20px solid $navBorderColor;
   box-shadow: 5px 0px 5px 0px #a6a6a6;
@@ -23,7 +24,7 @@
   }
   .nav-title::before {
     content: "";
-    @include diamond(0.8, 1.2, $navDiamondColor);
+    @include diamond(0.8, 1.2, 0%, 50%, $mainColor);
   }
   ul {
     padding: 0;

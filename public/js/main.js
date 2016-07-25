@@ -2,7 +2,7 @@ $(function() {
     $(window).on("load", function() {
         $("body").addClass("ready");
     });
-    
+
     resizeIframe();
     $(window).on("resize", function() {
         resizeIframe();

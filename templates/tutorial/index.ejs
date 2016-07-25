@@ -9,21 +9,18 @@
         <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
     </p>
     <h2>Processing 基礎</h2>
-    <div id="chapterList">
+    <ul class="chapter-list clearfix">
         <% for (var i = 0; i < data.tutorials.length; i++) { %>
-        <div class="chapter">
+        <li class="chapter">
             <a href="chapter<%= data.tutorials[i].number %>" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
                 <h3 class="chapter-title">
                     <span class="chapter-number">Chapter <%= data.tutorials[i].number %></span><br>
                     <span class="sub-title"><%= data.tutorials[i].subTitle %></span>
                 </h3>
             </a>
             <p class="chapter-description"><%= data.tutorials[i].description %></p>
-        </div>
+        </li>
         <% } %>
-    </div>
+    </ul>
 </main>
 <% include ../common/_footer %>

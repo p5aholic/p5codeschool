@@ -10,51 +10,42 @@
     font-weight: normal;
     margin: 0 0 10px 0;
     padding: 5px 0 5px 30px;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-    color: $maintextColor;
+    border-top: 2px solid $textColor;
+    border-bottom: 2px solid $textColor;
   }
-  h1 {
+  > h1 {
     @extend %headding;
     font-size: 3.0rem;
     @include media($bp640) {
       font-size: 2.5rem;
     }
   }
-  h1::before {
+  > h1::before {
     content: "";
-    @include diamond(1.2, 2, $titleDiamondColor);
+    @include diamond(1.2, 2, 0%, 50%, $mainColor);
   }
-  h2 {
+  > h2 {
     @extend %headding;
     font-size: 2.2rem;
     @include media($bp640) {
       font-size: 2.0rem;
     }
   }
-  h2::before {
+  > h2::before {
     content: "";
-    @include diamond(0.8, 1.2, $sectionDiamondColor);
+    @include diamond(0.8, 1.2, 0%, 50%, $mainColor);
   }
-  p {
-    font-size: 1.6rem;
-    line-height: 2.0;
+  > p {
     margin: 0 0 20px;
-    padding: 0px 10px;
-    color: $maintextColor;
-    @include media($bp640) {
-      font-size: 1.4rem;
-      line-height: 2.6rem;
+    a {
+      color: $linkColor;
+      &:hover {
+        color: $linkHoverColor;
+        border-bottom: 1px solid $linkHoverColor;
+      }
     }
   }
-  a {
-    color: $linkColor;
-    &:hover {
-      color: $linkHoverColor;
-      border-bottom: 1px solid $linkHoverColor;
-    }
-  }
-  img {
+  > img {
     display: block;
     margin: 0 auto;
     max-width: 100%;

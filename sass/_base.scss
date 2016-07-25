@@ -10,13 +10,38 @@ html {
 }
 
 body {
-  @extend %font;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
   background-color: #fff;
+  color: $textColor;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 2.0;
+  @include media($bp640) {
+    font-size: 1.4rem;
+    line-height: 2.6rem;
+  }
 }
 
 a {
   text-decoration: none;
-};
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
 
 .clearfix::after {
   content: "";
