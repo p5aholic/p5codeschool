@@ -12,7 +12,7 @@ var browser = require("browser-sync");
 var marked = require("marked");
 var hljs = require("highlight.js");
 
-var DEST = "public";
+var DEST = "../public";
 var jsonData = JSON.parse(fs.readFileSync("templates/tutorial/data.json"));
 
 var renderer = new marked.Renderer();
