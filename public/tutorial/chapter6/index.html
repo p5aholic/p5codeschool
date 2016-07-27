@@ -453,11 +453,11 @@ y += vy;
 <p>caseの最後にbreakを書くのを忘れないようにしてください。breakが無いとswitchのブロックを抜けずに次のcaseの実行文に移ってしまいます。</p>
 <p>switch文の条件式に使うことができるのは整数値のみです。if文のように値を比較したりすることができません。なので、条件分岐の能力はif文に比べると劣るのですが、整数値による分岐をしたい場合はif文で書くよりもコンパクトに書くことができます。今はあまり使い時がわからないかもしれませんが、頭の片隅に置いておいてください。</p>
 <p>switch文ではdefaultを使うとどの値にも当てはまらなかった場合の分岐ができます。if文でいうとelseに当たります。</p>
-<p><code class='code-fragment'>switch (条件式) {
-  case 数値:
+<p><code class='code-fragment'>switch (値) {
+  case 値:
     実行分;
     break;
-  case 数値:
+  case 値:
     実行分;
     break;
   default:
