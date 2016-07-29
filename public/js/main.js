@@ -1,4 +1,24 @@
 $(function() {
+
+    var $naviBtn = $("#naviBtn");
+    var $line1 = $("#naviBtn .line1");
+    var $line2 = $("#naviBtn .line2");
+    var $line3 = $("#naviBtn .line3");
+
+    $naviBtn.on("mouseenter", function() {
+        $naviBtn.addClass("hover");
+    });
+    $naviBtn.on("mouseleave", function() {
+        $naviBtn.removeClass("hover");
+    });
+    $naviBtn.on("click", function() {
+        if ( $naviBtn.hasClass("cross") ) {
+            $naviBtn.removeClass("cross");
+        } else {
+            $naviBtn.addClass("cross");
+        }
+    });
+
     $(window).on("load", function() {
         $("body").addClass("ready");
     });
