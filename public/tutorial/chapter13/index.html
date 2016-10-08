@@ -2,77 +2,89 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <title>P5 Code School Chapter13「3D図形とカメラとライト」</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="/js/libs/p5.js"></script>
-    <script src="/js/libs/p5.dom.js"></script>
-    <script src="/js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P5 Code School Chapter13「3D図形とカメラとライト」</title>
+
+  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  <meta name="description" content="ゼロから学べるProcessing入門サイト">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/libs/p5.js"></script>
+  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 
-<body>
-    <header class="header">
-        <h1>p5 code school</h1>
-    </header>
 
-<div class="navi-btn" id="naviBtn">
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
+<body class="top">
+
+<header class="header">
+  <h1 class="header--site-title">p5 code school</h1>
+</header>
+
+<div class="header-tools">
+  <div class="inner">
+    <div class="navi-btn" id="naviBtn">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
 </div>
 
 <nav class="main-navigation">
-    <div class="page-navi">
-        <h3 class="nav-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="/index.html">Top</a>
-            </li>
-            <li>
-                <a href="/tutorial/index.html">Tutorials</a>
-            </li>
-            
-            <li>
-                <a href="/tutorial/chapter12">← Chapter</a>
-            </li>
-            
-            
-            <li>
-                <a href="/tutorial/chapter14">Chapter →</a>
-            </li>
-            
-        </ul>
-    </div>
+  <div class="page-navi">
+    <h3 class="nav-title">Contents</h3>
+    <ul>
+      <li>
+        <a href="/index.html">Top</a>
+      </li>
+      <li>
+        <a href="/tutorial/index.html">Tutorials</a>
+      </li>
+      
+      <li>
+        <a href="/tutorial/chapter12">← Chapter</a>
+      </li>
+      
+      
+      <li>
+        <a href="/tutorial/chapter14">Chapter →</a>
+      </li>
+      
+    </ul>
+  </div>
 
-    <div class="admin">
-        <h3 class="nav-title">Admin</h3>
-        <ul>
-            <li>
-                <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
-            </li>
-            <li>
-                <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
-            </li>
-        </ul>
-    </div>
+  <div class="admin">
+    <h3 class="nav-title">Admin</h3>
+    <ul>
+      <li>
+        <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
+      </li>
+      <li>
+        <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="links">
-        <h3 class="nav-title">Links</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
-            </li>
-        </ul>
-    </div>
+  <div class="links">
+    <h3 class="nav-title">Links</h3>
+    <ul>
+      <li>
+        <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
+
 <main class="main-article">
-    <h1>3D図形とカメラとライト</h1><p>3D空間に描くことができる図形と、カメラとライトの扱い方を解説します。今まではProcessingプログラムの動作をWeb上でも確認できるようにしていましたが、使っているp5.jsの3D対応が完全ではないのでこのChapterでは代わりに画像を使うことにします。</p>
+  <h1>3D図形とカメラとライト</h1><p>3D空間に描くことができる図形と、カメラとライトの扱い方を解説します。今まではProcessingプログラムの動作をWeb上でも確認できるようにしていましたが、使っているp5.jsの3D対応が完全ではないのでこのChapterでは代わりに画像を使うことにします。</p>
 <h2>3D図形</h2><p>3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第３パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは４種類あるのですが、3D空間を扱うにはP3Dを指定します。</p>
 <p><code class='code-fragment'>size(750, 350, P3D);</code></p>
 <p>これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。</p>
@@ -585,9 +597,13 @@
 <p>お疲れさまでした。Chapter13はこれで終了です。</p>
 
 </main>
-    <footer>
-        <p>&copy P5 Code School 2015</p>
-    </footer>
+
+<footer class="footer">
+  <div class="inner">
+    <p>&copy P5 Code School 2015</p>
+  </div>
+</footer>
+
+
 </body>
 </html>
-

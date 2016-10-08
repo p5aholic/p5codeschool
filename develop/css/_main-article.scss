@@ -1,28 +1,29 @@
-@charset "UTF-8";
-
 .main-article {
-  position: relative;
   max-width: $articleWidth;
   margin: 0 auto 50px;
-  z-index: $main-article-z-index;
+  padding: 0 40px;
   %headding {
     position: relative;
-    font-weight: normal;
     margin: 0 0 20px 0;
-    padding: 5px 0 5px 30px;
-    border-top: 2px solid $textColor;
-    border-bottom: 2px solid $textColor;
+    padding-left: 30px;
   }
   > h1 {
     @extend %headding;
     font-size: 3.0rem;
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 5px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: #0080ff;
+    }
     @include media($bp640) {
       font-size: 2.5rem;
     }
-  }
-  > h1::before {
-    content: "";
-    @include diamond(1.2, 2, 0%, 50%, $mainColor);
   }
   > h2 {
     @extend %headding;
@@ -30,10 +31,17 @@
     @include media($bp640) {
       font-size: 2.0rem;
     }
-  }
-  > h2::before {
-    content: "";
-    @include diamond(0.8, 1.2, 0%, 50%, $mainColor);
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 5px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: #ff006a;
+    }
   }
   > p {
     margin: 0 0 20px;
@@ -45,4 +53,7 @@
       }
     }
   }
+  @include lt-640 {
+    padding: 0 20px;
+  };
 }

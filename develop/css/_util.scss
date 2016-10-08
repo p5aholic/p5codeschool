@@ -1,7 +1,5 @@
-@charset "UTF-8";
-
-$navigationWidth: 200px;
-$articleWidth: 850px;
+$navigationWidth: 180px;
+$articleWidth: 960px;
 
 // global
 $mainColor: #2371b5;
@@ -18,28 +16,32 @@ $navTextColor: $textColor;
 $navTextHoverColor: #1275cc;
 
 //  z-index
-$main-article-z-index: 15;
-$main-nav-z-index: 20;
-$navi-btn-z-index: 25;
+$z: main-navigation, header-tools;
 
 $bp640: 640px;
 $bp960: 960px;
+
 @mixin media($media-width) {
   @if $media-width == $bp640 {
     @media(max-width: $bp640) {
       @content;
     }
   }
+
+  @if $media-width == $bp960 {
+    @media(max-width: $bp960) {
+      @content;
+    }
+  }
 }
 
-
-@mixin diamond($sx, $sy, $xPer, $yPer, $color: #000) {
-  display: block;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  left: $xPer;
-  top: $yPer;
-  transform: translate(-50%, -50%) scale($sx, $sy) rotateZ(45deg);
-  background-color: $color;
+@mixin lt-960 {
+  @media(max-width: 960px) {
+    @content;
+  }
+}
+@mixin lt-640 {
+  @media(max-width: 640px) {
+    @content;
+  }
 }

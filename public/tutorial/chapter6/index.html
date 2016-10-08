@@ -2,77 +2,89 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <title>P5 Code School Chapter6「条件分岐」</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="/js/libs/p5.js"></script>
-    <script src="/js/libs/p5.dom.js"></script>
-    <script src="/js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P5 Code School Chapter6「条件分岐」</title>
+
+  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  <meta name="description" content="ゼロから学べるProcessing入門サイト">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/libs/p5.js"></script>
+  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 
-<body>
-    <header class="header">
-        <h1>p5 code school</h1>
-    </header>
 
-<div class="navi-btn" id="naviBtn">
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
+<body class="top">
+
+<header class="header">
+  <h1 class="header--site-title">p5 code school</h1>
+</header>
+
+<div class="header-tools">
+  <div class="inner">
+    <div class="navi-btn" id="naviBtn">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
 </div>
 
 <nav class="main-navigation">
-    <div class="page-navi">
-        <h3 class="nav-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="/index.html">Top</a>
-            </li>
-            <li>
-                <a href="/tutorial/index.html">Tutorials</a>
-            </li>
-            
-            <li>
-                <a href="/tutorial/chapter5">← Chapter</a>
-            </li>
-            
-            
-            <li>
-                <a href="/tutorial/chapter7">Chapter →</a>
-            </li>
-            
-        </ul>
-    </div>
+  <div class="page-navi">
+    <h3 class="nav-title">Contents</h3>
+    <ul>
+      <li>
+        <a href="/index.html">Top</a>
+      </li>
+      <li>
+        <a href="/tutorial/index.html">Tutorials</a>
+      </li>
+      
+      <li>
+        <a href="/tutorial/chapter5">← Chapter</a>
+      </li>
+      
+      
+      <li>
+        <a href="/tutorial/chapter7">Chapter →</a>
+      </li>
+      
+    </ul>
+  </div>
 
-    <div class="admin">
-        <h3 class="nav-title">Admin</h3>
-        <ul>
-            <li>
-                <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
-            </li>
-            <li>
-                <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
-            </li>
-        </ul>
-    </div>
+  <div class="admin">
+    <h3 class="nav-title">Admin</h3>
+    <ul>
+      <li>
+        <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
+      </li>
+      <li>
+        <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="links">
-        <h3 class="nav-title">Links</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
-            </li>
-        </ul>
-    </div>
+  <div class="links">
+    <h3 class="nav-title">Links</h3>
+    <ul>
+      <li>
+        <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
+
 <main class="main-article">
-    <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立てて、ボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
+  <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立てて、ボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
 <h2>真偽値と比較演算子</h2><p>Chapter4でint、float、colorの３つのデータ型を紹介しました。ここではもう一つboolean(ブーリアン)型というデータ型を紹介します。boolean型は真偽値と呼ばれる値を扱うデータ型で、boolean型が扱える値はtrue(真)かfalse(偽)の２つのみです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch01/sketch01.pde' target='_blank'>Chapter6/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = <span class="hljs-keyword">true</span>;
@@ -499,9 +511,13 @@ y += vy;
 <p>お疲れさまでした。Chapter6はこれで終了です。</p>
 
 </main>
-    <footer>
-        <p>&copy P5 Code School 2015</p>
-    </footer>
+
+<footer class="footer">
+  <div class="inner">
+    <p>&copy P5 Code School 2015</p>
+  </div>
+</footer>
+
+
 </body>
 </html>
-

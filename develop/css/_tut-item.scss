@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 code.code-fragment {
   display: block;
   font-family: "Source Code Pro";
@@ -11,8 +9,6 @@ code.code-fragment {
 
 pre {
   margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #aaa;
   overflow-x: auto;
   code.lang-processing {
     font-family: "Source Code Pro";
@@ -25,7 +21,8 @@ pre {
   }
 }
 
-.sample-sketch {
+iframe.sample-sketch {
+  display: block;
   width: 100%;
   height: 375px;
   border: 1px solid #aaa;

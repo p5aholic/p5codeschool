@@ -1,47 +1,41 @@
-@charset "UTF-8";
-
 .main-navigation {
   position: fixed;
   top: 0;
   left: 0;
   width: $navigationWidth;
   height: 100%;
-  background-color: #fff;
-  padding: 60px 20px 0px;
-  border-left: 20px solid $navBorderColor;
-  box-shadow: 5px 0px 5px 0px #a6a6a6;
-  font-family: 'Open Sans', sans-serif;
-  z-index: $main-nav-z-index;
+  padding: 70px 20px 0;
+  background-color: rgba(255, 255, 255, 1.0);
+  // box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #aaa;
+  font-family: "Open Sans", sans-serif;
+  z-index: index($z, main-navigation);
+  transform: translate3d(-$navigationWidth, 0, 0);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  .navi-open & {
+    transform: translate3d(0, 0, 0);
+  }
   .nav-title {
     position: relative;
     margin: 0 0 10px;
-    padding: 0 0 0 20px;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 1px;
     color: $navTextColor;
     border-bottom: 1px solid $navTextColor;
   }
-  .nav-title::before {
-    content: "";
-    @include diamond(0.8, 1.2, 0%, 50%, $mainColor);
-  }
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
   a {
+    color: $navTextColor;
     font-size: 1.8rem;
     font-weight: 300;
-    line-height: 3.0rem;
-    text-decoration: none;
+    line-height: 1.6;
     letter-spacing: 1px;
-    color: $navTextColor;
     border-bottom: 1px solid #fff;
     transition-property: color border-bottom-color;
     transition-duration: 300ms;
-    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     &:hover {
       color: $navTextHoverColor;
       border-bottom-color: $navTextHoverColor;

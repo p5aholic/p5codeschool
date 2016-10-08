@@ -2,77 +2,89 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <title>P5 Code School Chapter9「インタラクション」</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="/js/libs/p5.js"></script>
-    <script src="/js/libs/p5.dom.js"></script>
-    <script src="/js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P5 Code School Chapter9「インタラクション」</title>
+
+  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  <meta name="description" content="ゼロから学べるProcessing入門サイト">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/libs/p5.js"></script>
+  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 
-<body>
-    <header class="header">
-        <h1>p5 code school</h1>
-    </header>
 
-<div class="navi-btn" id="naviBtn">
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
+<body class="top">
+
+<header class="header">
+  <h1 class="header--site-title">p5 code school</h1>
+</header>
+
+<div class="header-tools">
+  <div class="inner">
+    <div class="navi-btn" id="naviBtn">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
 </div>
 
 <nav class="main-navigation">
-    <div class="page-navi">
-        <h3 class="nav-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="/index.html">Top</a>
-            </li>
-            <li>
-                <a href="/tutorial/index.html">Tutorials</a>
-            </li>
-            
-            <li>
-                <a href="/tutorial/chapter8">← Chapter</a>
-            </li>
-            
-            
-            <li>
-                <a href="/tutorial/chapter10">Chapter →</a>
-            </li>
-            
-        </ul>
-    </div>
+  <div class="page-navi">
+    <h3 class="nav-title">Contents</h3>
+    <ul>
+      <li>
+        <a href="/index.html">Top</a>
+      </li>
+      <li>
+        <a href="/tutorial/index.html">Tutorials</a>
+      </li>
+      
+      <li>
+        <a href="/tutorial/chapter8">← Chapter</a>
+      </li>
+      
+      
+      <li>
+        <a href="/tutorial/chapter10">Chapter →</a>
+      </li>
+      
+    </ul>
+  </div>
 
-    <div class="admin">
-        <h3 class="nav-title">Admin</h3>
-        <ul>
-            <li>
-                <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
-            </li>
-            <li>
-                <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
-            </li>
-        </ul>
-    </div>
+  <div class="admin">
+    <h3 class="nav-title">Admin</h3>
+    <ul>
+      <li>
+        <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
+      </li>
+      <li>
+        <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="links">
-        <h3 class="nav-title">Links</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
-            </li>
-        </ul>
-    </div>
+  <div class="links">
+    <h3 class="nav-title">Links</h3>
+    <ul>
+      <li>
+        <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
+
 <main class="main-article">
-    <h1>インタラクション</h1><p>インタラクションは相互作用という意味です。Processingプログラムにおけるインタラクションはマウスやキーボードからプログラムに動きを加えることを意味します。今までに見てきたmouseX、mouseYを使ったプログラムもインタラクション性のあるプログラムです。この章ではマウスやキーボードから情報を受け取りプログラムに変化を加える方法を解説していきます。</p>
+  <h1>インタラクション</h1><p>インタラクションは相互作用という意味です。Processingプログラムにおけるインタラクションはマウスやキーボードからプログラムに動きを加えることを意味します。今までに見てきたmouseX、mouseYを使ったプログラムもインタラクション性のあるプログラムです。この章ではマウスやキーボードから情報を受け取りプログラムに変化を加える方法を解説していきます。</p>
 <h2>mousePressed、mouseButton</h2><p>変数mousePressedはboolean型の変数で、マウスのいずれかのボタンが押されているときtrueになるので、マウスのボタンが押されているかどうかを判定することができます。次のプログラムではマウスのボタンが押されているとき円をランダムな位置に表示して、押されていないときは中央に表示しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch01/sketch01.pde' target='_blank'>Chapter9/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -316,9 +328,13 @@ void keyPressed() {
 <p>お疲れさまでした。Chapter9はこれで終了です。</p>
 
 </main>
-    <footer>
-        <p>&copy P5 Code School 2015</p>
-    </footer>
+
+<footer class="footer">
+  <div class="inner">
+    <p>&copy P5 Code School 2015</p>
+  </div>
+</footer>
+
+
 </body>
 </html>
-

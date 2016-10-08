@@ -2,73 +2,85 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <title>P5 Code School Chapter0「開発環境の設定」</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="/js/libs/p5.js"></script>
-    <script src="/js/libs/p5.dom.js"></script>
-    <script src="/js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P5 Code School Chapter0「開発環境の設定」</title>
+
+  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  <meta name="description" content="ゼロから学べるProcessing入門サイト">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/libs/p5.js"></script>
+  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 
-<body>
-    <header class="header">
-        <h1>p5 code school</h1>
-    </header>
 
-<div class="navi-btn" id="naviBtn">
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
+<body class="top">
+
+<header class="header">
+  <h1 class="header--site-title">p5 code school</h1>
+</header>
+
+<div class="header-tools">
+  <div class="inner">
+    <div class="navi-btn" id="naviBtn">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
 </div>
 
 <nav class="main-navigation">
-    <div class="page-navi">
-        <h3 class="nav-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="/index.html">Top</a>
-            </li>
-            <li>
-                <a href="/tutorial/index.html">Tutorials</a>
-            </li>
-            
-            
-            <li>
-                <a href="/tutorial/chapter1">Chapter →</a>
-            </li>
-            
-        </ul>
-    </div>
+  <div class="page-navi">
+    <h3 class="nav-title">Contents</h3>
+    <ul>
+      <li>
+        <a href="/index.html">Top</a>
+      </li>
+      <li>
+        <a href="/tutorial/index.html">Tutorials</a>
+      </li>
+      
+      
+      <li>
+        <a href="/tutorial/chapter1">Chapter →</a>
+      </li>
+      
+    </ul>
+  </div>
 
-    <div class="admin">
-        <h3 class="nav-title">Admin</h3>
-        <ul>
-            <li>
-                <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
-            </li>
-            <li>
-                <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
-            </li>
-        </ul>
-    </div>
+  <div class="admin">
+    <h3 class="nav-title">Admin</h3>
+    <ul>
+      <li>
+        <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
+      </li>
+      <li>
+        <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="links">
-        <h3 class="nav-title">Links</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
-            </li>
-        </ul>
-    </div>
+  <div class="links">
+    <h3 class="nav-title">Links</h3>
+    <ul>
+      <li>
+        <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
+
 <main class="main-article">
-    <h1>開発環境の設定</h1><p>Processingに限らず、何かのプログラミング言語を学習するにはその言語の開発環境を整える必要があります。中にはかなり面倒くさい手順を踏む必要のある言語もありますが、Processingはとても簡単です。まずは下記ページからProcessingをダウンロードしてください。</p>
+  <h1>開発環境の設定</h1><p>Processingに限らず、何かのプログラミング言語を学習するにはその言語の開発環境を整える必要があります。中にはかなり面倒くさい手順を踏む必要のある言語もありますが、Processingはとても簡単です。まずは下記ページからProcessingをダウンロードしてください。</p>
 <p><a href='https://www.processing.org/download/' target='_blank'>Processing公式 - ダウンロード</a></p>
 <p>最初に寄付するかどうか選択肢があるので&quot;No Donation&quot;を選んで&quot;Download&quot;に進んでください。Processingの現在の最新安定バージョンはバージョン3.1.1です。自分のOSにあったバージョンをダウンロードしてください。</p>
 <p>・Windows<br/>
@@ -100,9 +112,13 @@
 <p>以上で開発環境の設定は終了です。まだ触れていないPDEの機能や設定がありますが、この先必要に応じて解説します。</p>
 
 </main>
-    <footer>
-        <p>&copy P5 Code School 2015</p>
-    </footer>
+
+<footer class="footer">
+  <div class="inner">
+    <p>&copy P5 Code School 2015</p>
+  </div>
+</footer>
+
+
 </body>
 </html>
-
