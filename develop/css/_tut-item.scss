@@ -9,13 +9,15 @@ code.code-fragment {
 
 pre {
   margin: 20px 0;
+  padding: 10px;
   overflow-x: auto;
+  border: 1px solid #ccc;
   code.lang-processing {
     font-family: "Source Code Pro";
     font-size: 1.6rem;
     font-weight: 400;
-    line-height: 1.5;
-    @include media($bp640) {
+    line-height: 1.4;
+    @include lt-640 {
       font-size: 1.4rem;
     }
   }
@@ -25,36 +27,31 @@ iframe.sample-sketch {
   display: block;
   width: 100%;
   height: 375px;
-  border: 1px solid #aaa;
+  border: 1px solid #ccc;
 }
 
 .func-list {
-  margin: 15px 0;
+  margin: 0 0 15px;
   dt {
-    float: left;
-    width: 50%;
-    font-family: "Source Code Pro";
+    margin: 0 0 5px;
     font-size: 1.6rem;
-    padding-right: 15px;
-    @include media($bp640) {
+    font-family: "Source Code Pro";
+    @include lt-640 {
       font-size: 1.4rem;
     }
     a {
-      color: $linkColor;
+      color: $main-pink;
       &:hover {
-        color: $linkHoverColor;
-        border-bottom: 2px dotted $linkHoverColor;
+        color: $main-pink;
+        border-bottom: 2px solid $main-pink;
       }
     }
   }
   dd {
-    float: left;
-    width: 50%;
-    margin: 0;
+    margin: 0 0 15px;
     font-size: 1.6rem;
     text-align: left;
-    padding-bottom: 15px;
-    @include media($bp640) {
+    @include lt-640 {
       font-size: 1.4rem;
     }
   }

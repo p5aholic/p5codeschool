@@ -23,12 +23,12 @@ $(function() {
   $(window).on("load", function() {
     $("body").addClass("ready");
 
-    if ($(window).width() >= 1320) {
-      setTimeout(function() {
-        $naviBtn.addClass("cross");
-        $("body").addClass("navi-open");
-      }, 1000);
-    }
+    // if ($(window).width() >= 1320) {
+    //   setTimeout(function() {
+    //     $naviBtn.addClass("cross");
+    //     $("body").addClass("navi-open");
+    //   }, 1000);
+    // }
   });
 
   $(window).on("scroll", function() {

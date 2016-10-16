@@ -1,40 +1,20 @@
+// size
 $navigationWidth: 180px;
 $articleWidth: 960px;
 
-// global
-$mainColor: #2371b5;
-$textColor: #303030;
-$linkColor: #b50057;
-$linkHoverColor: #ff007b;
-
-// site title
-$siteTitleColor: #303030;
-
-// main-navigation
-$navBorderColor: $mainColor;
-$navTextColor: $textColor;
-$navTextHoverColor: #1275cc;
+// color
+$main-gray: #161616;
+$main-blue: #287bcd;
+$main-pink: #cd0055;
 
 //  z-index
-$z: main-navigation, header-tools;
+$z: header, main-navigation, navi-btn;
 
+// break point
 $bp640: 640px;
 $bp960: 960px;
 
-@mixin media($media-width) {
-  @if $media-width == $bp640 {
-    @media(max-width: $bp640) {
-      @content;
-    }
-  }
-
-  @if $media-width == $bp960 {
-    @media(max-width: $bp960) {
-      @content;
-    }
-  }
-}
-
+// mixins
 @mixin lt-960 {
   @media(max-width: 960px) {
     @content;

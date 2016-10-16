@@ -13,7 +13,7 @@ li.chapter {
   width: 30%;
   margin-right: 5%;
   margin-bottom: 20px;
-  @include media($bp640) {
+  @include lt-640 {
     width: 45%;
   }
   &:nth-child(3n) {
@@ -23,29 +23,30 @@ li.chapter {
 
 a.chapter-link {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   .chapter-title {
     .chapter-number {
+      display: block;
+      margin-bottom: 5px;
       font-size: 2.2rem;
-      color: $mainColor;
-      transition-property: color;
-      transition-duration: 100ms;
-      transition-timing-function: ease-out;
-      @include media($bp640) {
+      color: $main-blue;
+      transition: color 100ms ease-out;
+      @include lt-640 {
         font-size: 1.8rem;
       }
     }
     .sub-title {
       font-size: 1.6rem;
-      color: $textColor;
+      color: $main-gray;
     }
   }
-  &:hover .chapter-number {
-    color: $linkHoverColor;
+  &:hover {
+    .chapter-number {
+      color: $main-pink;
+    }
   }
 }
 
 p.chapter-description {
-  margin: 0;
-  line-height: 1.6;
+  line-height: 1.4;
 }

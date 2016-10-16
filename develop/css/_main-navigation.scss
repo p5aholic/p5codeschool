@@ -4,10 +4,8 @@
   left: 0;
   width: $navigationWidth;
   height: 100%;
-  padding: 70px 20px 0;
-  background-color: rgba(255, 255, 255, 1.0);
-  // box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
-  border-right: 1px solid #aaa;
+  background-color: #fff;
+  border-right: 4px solid $main-gray;
   font-family: "Open Sans", sans-serif;
   z-index: index($z, main-navigation);
   transform: translate3d(-$navigationWidth, 0, 0);
@@ -17,34 +15,82 @@
   .navi-open & {
     transform: translate3d(0, 0, 0);
   }
-  .nav-title {
-    position: relative;
-    margin: 0 0 10px;
-    font-size: 2.6rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: $navTextColor;
-    border-bottom: 1px solid $navTextColor;
+  .inner {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  a {
-    color: $navTextColor;
+  .view-all {
+    display: block;
+    margin: 70px 0 20px;
+    padding: 10px 0;
+    border-radius: 2px;
     font-size: 1.8rem;
-    font-weight: 300;
-    line-height: 1.6;
+    font-weight: bold;
+    color: $main-gray;
+    text-align: center;
     letter-spacing: 1px;
-    border-bottom: 1px solid #fff;
-    transition-property: color border-bottom-color;
+    background-color: white;
+    transition-property: color, background-color;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     &:hover {
-      color: $navTextHoverColor;
-      border-bottom-color: $navTextHoverColor;
+      color: #fff;
+      background-color: $main-blue;
     }
   }
-  .page-navi {
-    margin-bottom: 20px;
-  }
-  .admin {
-    margin-bottom: 20px;
+  ul {
+    width: 120px;
+    margin: 0 auto;
+    font-size: 0;
+    li {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 22px;
+      &:nth-child(3n+2) {
+        top: 31px;
+      }
+      &:nth-child(3n) {
+        top: 62px;
+      }
+      a {
+        position: relative;
+        display: block;
+        color: $main-gray;
+        font-size: 2rem;
+        text-align: center;
+        line-height: 40px;
+        .border-inner {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40px;
+          height: 40px;
+          background-color: #fff;
+          border: 3px solid $main-gray;
+          transform: rotate(45deg);
+          transition-property: background-color, border-color;
+          transition-duration: 300ms;
+          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        .number {
+          position: relative;
+          color: #000;
+        }
+      }
+      &.current, &:hover {
+        a {
+          .border-inner {
+            background-color: $main-blue;
+            border-color: $main-blue;
+          }
+          .number {
+            color: #fff;
+          }
+        }
+      }
+    }
   }
 }

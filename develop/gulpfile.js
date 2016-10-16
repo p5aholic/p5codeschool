@@ -18,7 +18,7 @@ var Config = {
   DEST: "../public",
 };
 
-var jsonData = JSON.parse(fs.readFileSync("html/tutorial/data.json"));
+var jsonData = JSON.parse(fs.readFileSync("html/data.json"));
 
 var renderer = new marked.Renderer();
 renderer.heading = function(text, level) {
@@ -58,7 +58,7 @@ gulp.task("genHTML", function() {
   var files = fs.readdirSync("docs");
   for (var i = 0; i < files.length; i++) {
     var fileName = files[i];
-    mdToHTML(fileName);
+    mdToHTML(fileName, false);
   }
   browserSync.reload();
   console.log("Finish !!");
@@ -70,24 +70,15 @@ function mdToHTML(fileName) {
   var baseName = fileName.replace(".md", "");
   var dirName;
   var pageTitle;
+  var chapterNum;
   var h1 = htmlData.match(/<h1>(.*?)<\/h1>/);
-  var chapterLink = {
-    prev: "",
-    next: ""
-  };
 
   if (baseName === "top") {
     dirName = "";
     pageTitle = "ゼロから学べるProcessing入門サイト : P5 Code School";
   } else {
     dirName = "tutorial/" + baseName.toLowerCase();
-    var index = getChapterIndex(baseName.slice(7));
-    if (index >= 1) {
-      chapterLink.prev = jsonData.tutorials[index-1].number;
-    }
-    if (index <= jsonData.tutorials.length-2) {
-      chapterLink.next = jsonData.tutorials[index+1].number;
-    }
+    chapterNum = baseName.replace("Chapter", "");
     pageTitle = "P5 Code School " + baseName + "「" + h1[1] + "」";
   }
 
@@ -96,7 +87,8 @@ function mdToHTML(fileName) {
       {
         pageTitle: pageTitle,
         htmlData: htmlData,
-        chapterLink
+        data: jsonData,
+        chapterNum: chapterNum
       },
       { "ext": ".html" }
     ))
@@ -106,26 +98,13 @@ function mdToHTML(fileName) {
     .pipe(gulp.dest(Config.DEST));
 }
 
-function getChapterIndex(chapterNum) {
-  for (var i = 0; i < jsonData.tutorials.length; i++) {
-    if (chapterNum === jsonData.tutorials[i].number) {
-      return i;
-    }
-  }
-}
-
 gulp.task("genTutorial", function() {
-  var chapterLink = {
-    prev: "",
-    next: ""
-  };
-
   gulp.src("html/tutorial/index.ejs")
   .pipe(ejs(
     {
       pageTitle: "P5 Code School : チュートリアル",
       data: jsonData,
-      chapterLink
+      chapterNum: undefined,
     },
     { "ext": ".html" }
   ))

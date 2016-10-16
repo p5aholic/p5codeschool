@@ -45,7 +45,7 @@ html {
 
 body {
   font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
-  color: $textColor;
+  color: $main-gray;
   line-height: 1.2;
   background-color: #fff;
 }
@@ -61,7 +61,7 @@ p {
   font-size: 1.6rem;
   line-height: 2.0;
   margin: 0;
-  @include media($bp640) {
+  @include lt-640 {
     font-size: 1.4rem;
     line-height: 1.8;
   }

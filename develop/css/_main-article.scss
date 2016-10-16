@@ -19,16 +19,16 @@
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      background-color: #0080ff;
+      background-color: $main-blue;
     }
-    @include media($bp640) {
+    @include lt-640 {
       font-size: 2.5rem;
     }
   }
   > h2 {
     @extend %headding;
     font-size: 2.2rem;
-    @include media($bp640) {
+    @include lt-640 {
       font-size: 2.0rem;
     }
     &::before {
@@ -40,16 +40,16 @@
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      background-color: #ff006a;
+      background-color: $main-pink;
     }
   }
   > p {
     margin: 0 0 20px;
     a {
-      color: $linkColor;
+      color: $main-pink;
       &:hover {
-        color: $linkHoverColor;
-        border-bottom: 1px solid $linkHoverColor;
+        color: $main-pink;
+        border-bottom: 1px solid $main-pink;
       }
     }
   }

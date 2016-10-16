@@ -1,44 +1,32 @@
 <nav class="main-navigation">
-  <div class="page-navi">
-    <h3 class="nav-title">Contents</h3>
+  <div class="inner">
+    <a class="view-all" href="/tutorial/">View All</a>
     <ul>
-      <li>
-        <a href="/index.html">Top</a>
+      <% for (var i = 0; i < data.tutorials.length; i++) { %>
+      <% if (chapterNum && i == chapterNum) { %>
+      <li class="current">
+        <a href="/tutorial/chapter<%= data.tutorials[i].number %>/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number"><%= data.tutorials[i].number %></span>
+        </a>
       </li>
+      <% } else { %>
       <li>
-        <a href="/tutorial/index.html">Tutorials</a>
-      </li>
-      <% if (chapterLink.prev != "") { %>
-      <li>
-        <a href="/tutorial/chapter<%= chapterLink.prev %>">← Chapter</a>
+        <a href="/tutorial/chapter<%= data.tutorials[i].number %>/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number"><%= data.tutorials[i].number %></span>
+        </a>
       </li>
       <% } %>
-      <% if (chapterLink.next != "") { %>
-      <li>
-        <a href="/tutorial/chapter<%= chapterLink.next %>">Chapter →</a>
-      </li>
       <% } %>
-    </ul>
-  </div>
-
-  <div class="admin">
-    <h3 class="nav-title">Admin</h3>
-    <ul>
-      <li>
-        <a href="https://twitter.com/P5Aholic" target="_blank">Twitter</a>
-      </li>
-      <li>
-        <a href="http://p5aholic.hatenablog.com/" target="_blank">Blog</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="links">
-    <h3 class="nav-title">Links</h3>
-    <ul>
-      <li>
-        <a href="https://github.com/p5aholic/p5codeschool" target="_blank">Github</a>
-      </li>
     </ul>
   </div>
 </nav>
+
+<div class="navi-btn" id="naviBtn">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
+</div>
