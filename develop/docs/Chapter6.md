@@ -499,11 +499,11 @@ switch文の条件式に使うことができるのは整数値のみです。if
 switch文ではdefaultを使うとどの値にも当てはまらなかった場合の分岐ができます。if文でいうとelseに当たります。
 
 `
-switch (条件式) {
-  case 数値:
+switch (値) {
+  case 値:
     実行分;
     break;
-  case 数値:
+  case 値:
     実行分;
     break;
   default:

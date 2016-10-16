@@ -1,0 +1,50 @@
+.navi-btn {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  width: 30px;
+  height: 18px;
+  cursor: pointer;
+  z-index: index($z, navi-btn);
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  .line {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: $main-gray;
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .line1 {
+    top: 0;
+  }
+  .line2 {
+    top: 8px;
+  }
+  .line3 {
+    top: 16px;
+  }
+}
+
+.navi-btn.hover {
+  .line2 {
+    transform: scale3d(0.8, 1, 1);
+  }
+}
+
+.navi-btn.cross {
+  .line1 {
+    transform: translate3d(0, 8px, 0) rotateZ(45deg);
+  }
+  .line2 {
+    transform: scale3d(0.8, 1, 1);
+    opacity: 0;
+  }
+  .line3 {
+    transform: translate3d(0, -8px, 0) rotateZ(-45deg);
+  }
+}

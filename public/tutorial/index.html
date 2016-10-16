@@ -2,338 +2,428 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <title>P5 Code School : チュートリアル</title>
-    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="js/libs/p5.js"></script>
-    <script src="js/libs/p5.dom.js"></script>
-    <script src="/js/header-sketch.js"></script>
-    <script src="/js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P5 Code School : チュートリアル</title>
+
+  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  <meta name="description" content="ゼロから学べるProcessing入門サイト">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/libs/p5.js"></script>
+  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 
-<body>
-    <div id="p5Header"></div>
-    <header id="header">
-        <span id="title-p5">P5</span>
-        <span id="title-code">Code</span>
-        <span id="title-school">School</span>
-    </header>
 
-<div id="mainNavigation">
-    <nav class="page-navi">
-        <h3 class="side-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="/index.html">
-                    <div class="link-text">トップ</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            <li>
-                <a href="/tutorial/index.html">
-                    <div class="link-text">チュートリアル</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            
-            
-        </ul>
-    </nav>
-    <div class="author">
-        <h3 class="side-title">Author</h3>
-        <ul>
-            <li>
-                <a href="https://twitter.com/P5Aholic" target="_blank">
-                    <div class="link-text">Twitter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            <li>
-                <a href="http://p5aholic.hatenablog.com/" target="_blank">
-                    <div class="link-text">Blog</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="links">
-        <h3 class="side-title">Links</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">
-                    <div class="link-text">Github</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-    <div id="naviControll">
-        <div id="layer1"></div>
-        <div id="layer2"></div>
-        <div id="layer3"></div>
-    </div>
+<body class="tutorial-list">
+
+<header class="header">
+  <h1 class="header--site-title">
+    <a href="/">p5 code school</a>
+  </h1>
+</header>
+
+<nav class="main-navigation">
+  <div class="inner">
+    <a class="view-all" href="/tutorial/">View All</a>
+    <ul>
+      
+      
+      <li>
+        <a href="/tutorial/chapter0/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">0</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter1/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">1</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter2/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">2</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter3/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">3</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter4/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">4</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter5/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">5</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter6/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">6</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter7/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">7</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter8/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">8</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter9/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">9</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter10/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">10</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter11/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">11</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter12/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">12</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter13/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">13</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter14/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">14</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter15/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">15</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter16/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">16</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter17/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">17</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="navi-btn" id="naviBtn">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
 </div>
 
-<main id="mainContents">
-    <h1>Processing チュートリアル</h1>
-    <p>
-        Processingチュートリアルは全くのプログラミング未経験からProcessingを学べるチュートリアルです。
-        このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
-        サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
-        <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
-    </p>
-    <h2>Processing 基礎</h2>
-    <div id="chapterList">
-        
-        <div class="chapter">
-            <a href="chapter0" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 0</span><br>
-                    <span class="sub-title">開発環境の設定</span>
-                </h3>
-            </a>
-            <p class="chapter-description">Processingの開発環境を整えたあと、各種操作方法を確認します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter1" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 1</span><br>
-                    <span class="sub-title">プログラミングを始める前に</span>
-                </h3>
-            </a>
-            <p class="chapter-description">プログラミングとは何か、どう書くかなどを解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter2" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 2</span><br>
-                    <span class="sub-title">図形の描画</span>
-                </h3>
-            </a>
-            <p class="chapter-description">Processingで描くことのできる基本的な図形の描画方法を解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter3" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 3</span><br>
-                    <span class="sub-title">色の表現</span>
-                </h3>
-            </a>
-            <p class="chapter-description">色の表現方法について解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter4" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 4</span><br>
-                    <span class="sub-title">変数と演算</span>
-                </h3>
-            </a>
-            <p class="chapter-description">プログラミングの基礎的な概念である変数と演算について解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter5" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 5</span><br>
-                    <span class="sub-title">setup()とdraw()</span>
-                </h3>
-            </a>
-            <p class="chapter-description">アニメーション作成に欠かせないsetup()関数とdraw()関数について解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter6" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 6</span><br>
-                    <span class="sub-title">条件分岐</span>
-                </h3>
-            </a>
-            <p class="chapter-description">プログラムの流れを分岐させる条件分岐文ついて解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter7" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 7</span><br>
-                    <span class="sub-title">繰り返し</span>
-                </h3>
-            </a>
-            <p class="chapter-description">同じ処理を大量に繰り返すことを可能にする繰り返し文について解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter8" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 8</span><br>
-                    <span class="sub-title">関数</span>
-                </h3>
-            </a>
-            <p class="chapter-description">Processingで使える便利な関数を紹介したあと、関数の自作方法を解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter9" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 9</span><br>
-                    <span class="sub-title">インタラクション</span>
-                </h3>
-            </a>
-            <p class="chapter-description">マウスとキーボードに反応するプログラムの作り方を解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter10" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 10</span><br>
-                    <span class="sub-title">座標変換</span>
-                </h3>
-            </a>
-            <p class="chapter-description">図形を回転させたり拡大縮小させたりする方法を解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter11" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 11</span><br>
-                    <span class="sub-title">三角関数</span>
-                </h3>
-            </a>
-            <p class="chapter-description">三角関数の使い方を解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter12" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 12</span><br>
-                    <span class="sub-title">乱数</span>
-                </h3>
-            </a>
-            <p class="chapter-description">random()による通常の乱数生成法とパーリンノイズと呼ばれる特殊な乱数について解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter13" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 13</span><br>
-                    <span class="sub-title">3D図形とカメラとライト</span>
-                </h3>
-            </a>
-            <p class="chapter-description">Processingで使える3D図形と、カメラとライトの扱いを解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter14" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 14</span><br>
-                    <span class="sub-title">配列</span>
-                </h3>
-            </a>
-            <p class="chapter-description">大量のデータを簡単に扱える配列について解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter15_1" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 15_1</span><br>
-                    <span class="sub-title">クラス基礎１</span>
-                </h3>
-            </a>
-            <p class="chapter-description">クラスと呼ばれる仕組みを解説する前に、クラスを作る理由を具体的に説明します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter15_2" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 15_2</span><br>
-                    <span class="sub-title">クラス基礎2</span>
-                </h3>
-            </a>
-            <p class="chapter-description">クラスの作り方を解説します。</p>
-        </div>
-        
-        <div class="chapter">
-            <a href="chapter15_3" class="chapter-link">
-                <div class="bar bar1"></div>
-                <div class="bar bar2"></div>
-                <div class="bar bar3"></div>
-                <h3 class="chapter-title">
-                    <span class="chapter-number">Chapter 15_3</span><br>
-                    <span class="sub-title">クラス基礎3</span>
-                </h3>
-            </a>
-            <p class="chapter-description">さらに便利なクラスの使い方を解説します</p>
-        </div>
-        
-    </div>
+
+<main class="main-article">
+  <h1>Processing チュートリアル</h1>
+  <p>
+    このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
+    サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
+    <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
+  </p>
+  <h2>Processing 基礎</h2>
+  <ul class="chapter-list clearfix">
+    
+    <li class="chapter">
+      <a href="chapter0" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 0</span><br>
+          <span class="sub-title">開発環境の設定</span>
+        </h3>
+      </a>
+      <p class="chapter-description">Processingの開発環境を整えたあと、各種操作方法を確認します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter1" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 1</span><br>
+          <span class="sub-title">プログラミングを始める前に</span>
+        </h3>
+      </a>
+      <p class="chapter-description">プログラミングとは何か、どう書くかなどを解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter2" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 2</span><br>
+          <span class="sub-title">図形の描画</span>
+        </h3>
+      </a>
+      <p class="chapter-description">Processingで描くことのできる基本的な図形の描画方法を解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter3" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 3</span><br>
+          <span class="sub-title">色の表現</span>
+        </h3>
+      </a>
+      <p class="chapter-description">色の表現方法について解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter4" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 4</span><br>
+          <span class="sub-title">変数と演算</span>
+        </h3>
+      </a>
+      <p class="chapter-description">プログラミングの基礎的な概念である変数と演算について解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter5" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 5</span><br>
+          <span class="sub-title">setup()とdraw()</span>
+        </h3>
+      </a>
+      <p class="chapter-description">アニメーション作成に欠かせないsetup()関数とdraw()関数について解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter6" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 6</span><br>
+          <span class="sub-title">条件分岐</span>
+        </h3>
+      </a>
+      <p class="chapter-description">プログラムの流れを分岐させる条件分岐文ついて解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter7" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 7</span><br>
+          <span class="sub-title">繰り返し</span>
+        </h3>
+      </a>
+      <p class="chapter-description">同じ処理を大量に繰り返すことを可能にする繰り返し文について解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter8" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 8</span><br>
+          <span class="sub-title">関数</span>
+        </h3>
+      </a>
+      <p class="chapter-description">Processingで使える便利な関数を紹介したあと、関数の自作方法を解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter9" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 9</span><br>
+          <span class="sub-title">インタラクション</span>
+        </h3>
+      </a>
+      <p class="chapter-description">マウスとキーボードに反応するプログラムの作り方を解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter10" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 10</span><br>
+          <span class="sub-title">座標変換</span>
+        </h3>
+      </a>
+      <p class="chapter-description">図形を回転させたり拡大縮小させたりする方法を解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter11" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 11</span><br>
+          <span class="sub-title">三角関数</span>
+        </h3>
+      </a>
+      <p class="chapter-description">三角関数の使い方を解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter12" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 12</span><br>
+          <span class="sub-title">乱数</span>
+        </h3>
+      </a>
+      <p class="chapter-description">random()による通常の乱数生成法とパーリンノイズと呼ばれる特殊な乱数について解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter13" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 13</span><br>
+          <span class="sub-title">3D図形とカメラとライト</span>
+        </h3>
+      </a>
+      <p class="chapter-description">Processingで使える3D図形と、カメラとライトの扱いを解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter14" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 14</span><br>
+          <span class="sub-title">配列</span>
+        </h3>
+      </a>
+      <p class="chapter-description">大量のデータを簡単に扱える配列について解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter15" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 15</span><br>
+          <span class="sub-title">クラス基礎１</span>
+        </h3>
+      </a>
+      <p class="chapter-description">クラスと呼ばれる仕組みを解説する前に、クラスを作る理由を具体的に説明します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter16" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 16</span><br>
+          <span class="sub-title">クラス基礎2</span>
+        </h3>
+      </a>
+      <p class="chapter-description">クラスの作り方を解説します。</p>
+    </li>
+    
+    <li class="chapter">
+      <a href="chapter17" class="chapter-link">
+        <h3 class="chapter-title">
+          <span class="chapter-number">Chapter 17</span><br>
+          <span class="sub-title">クラス基礎3</span>
+        </h3>
+      </a>
+      <p class="chapter-description">さらに便利なクラスの使い方を解説します</p>
+    </li>
+    
+  </ul>
 </main>
-    <footer>
-        <p>&copy P5 Code School 2015</p>
-    </footer>
+
+<footer class="footer">
+  <div class="inner">
+    <p>&copy P5 Code School 2015</p>
+  </div>
+</footer>
+
+
 </body>
 </html>
-

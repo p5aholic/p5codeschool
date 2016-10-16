@@ -1,6 +1,6 @@
 # P5 Code Schoolについて
 
-P5 Code Schoolはプログラミング未経験者が一からProcessingを学ぶことができるWebサイトです。
+P5 Code Schoolはプログラミング未経験者がゼロからProcessingを学ぶことができるWebサイトです。
 
 ## Processingとは？
 

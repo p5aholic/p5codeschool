@@ -2,106 +2,231 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-    <title>P5 Code School Chapter5「setup()とdraw()」</title>
-    <link href="https://fonts.googleapis.com/css?family=Elsie+Swash+Caps" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="js/libs/p5.js"></script>
-    <script src="js/libs/p5.dom.js"></script>
-    <script src="/js/header-sketch.js"></script>
-    <script src="/js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>P5 Code School Chapter5「setup()とdraw()」</title>
+
+  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  <meta name="description" content="ゼロから学べるProcessing入門サイト">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/js/libs/p5.js"></script>
+  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/main.js"></script>
 </head>
 
-<body>
-    <div id="p5Header"></div>
-    <header id="header">
-        <span id="title-p5">P5</span>
-        <span id="title-code">Code</span>
-        <span id="title-school">School</span>
-    </header>
 
-<div id="mainNavigation">
-    <nav class="page-navi">
-        <h3 class="side-title">Contents</h3>
-        <ul>
-            <li>
-                <a href="/index.html">
-                    <div class="link-text">トップ</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            <li>
-                <a href="/tutorial/index.html">
-                    <div class="link-text">チュートリアル</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/tutorial/chapter4">
-                    <div class="link-text">前のChapter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            
-            
-            <li>
-                <a href="/tutorial/chapter6">
-                    <div class="link-text">次のChapter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
-    <div class="author">
-        <h3 class="side-title">Author</h3>
-        <ul>
-            <li>
-                <a href="https://twitter.com/P5Aholic" target="_blank">
-                    <div class="link-text">Twitter</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-            <li>
-                <a href="http://p5aholic.hatenablog.com/" target="_blank">
-                    <div class="link-text">Blog</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="links">
-        <h3 class="side-title">Links</h3>
-        <ul>
-            <li>
-                <a href="https://github.com/p5aholic/p5codeschool" target="_blank">
-                    <div class="link-text">Github</div>
-                    <div class="rect"></div>
-                    <div class="line"></div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-    <div id="naviControll">
-        <div id="layer1"></div>
-        <div id="layer2"></div>
-        <div id="layer3"></div>
-    </div>
+<body class="top">
+
+<header class="header">
+  <h1 class="header--site-title">
+    <a href="/">p5 code school</a>
+  </h1>
+</header>
+
+<nav class="main-navigation">
+  <div class="inner">
+    <a class="view-all" href="/tutorial/">View All</a>
+    <ul>
+      
+      
+      <li>
+        <a href="/tutorial/chapter0/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">0</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter1/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">1</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter2/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">2</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter3/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">3</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter4/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">4</span>
+        </a>
+      </li>
+      
+      
+      
+      <li class="current">
+        <a href="/tutorial/chapter5/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">5</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter6/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">6</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter7/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">7</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter8/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">8</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter9/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">9</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter10/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">10</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter11/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">11</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter12/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">12</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter13/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">13</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter14/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">14</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter15/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">15</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter16/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">16</span>
+        </a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/tutorial/chapter17/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number">17</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="navi-btn" id="naviBtn">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
 </div>
 
-<main id="mainContents">
-    <h1>setup()とdraw()</h1><p>このChapterからちょっとずつ楽しいことができるようになってきます。今回はアニメーション作成の基本となるsetup()関数とdraw()関数について解説していきます。</p>
+
+<main class="main-article">
+  <h1>setup()とdraw()</h1><p>このChapterからちょっとずつ楽しいことができるようになってきます。今回はアニメーション作成の基本となるsetup()関数とdraw()関数について解説していきます。</p>
 <h2>setup()、draw()の役割</h2><p>とりあえず以下のプログラムを動かしてみてください。まだ理解できなくても大丈夫です。マウスの位置に半透明の円が連続して描画されることを確認してください。</p>
 <iframe src="/samples/tutorial/Chapter5/sketch01.html" class="sample-sketch"></iframe>
 
@@ -247,9 +372,13 @@
 <p>お疲れさまでした。Chapter5はこれで終了です。</p>
 
 </main>
-    <footer>
-        <p>&copy P5 Code School 2015</p>
-    </footer>
+
+<footer class="footer">
+  <div class="inner">
+    <p>&copy P5 Code School 2015</p>
+  </div>
+</footer>
+
+
 </body>
 </html>
-

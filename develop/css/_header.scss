@@ -1,0 +1,25 @@
+.header {
+  max-width: $articleWidth;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  z-index: index($z, header);
+  &--site-title {
+    font-size: 100px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    a {
+      color: $main-gray;
+    }
+  }
+  @include lt-960 {
+    h1 {
+      font-size: 60px;
+    }
+  }
+  @include lt-640 {
+    h1 {
+      font-size: 36px;
+    }
+  }
+}

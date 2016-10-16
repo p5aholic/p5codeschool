@@ -1,0 +1,32 @@
+<nav class="main-navigation">
+  <div class="inner">
+    <a class="view-all" href="/tutorial/">View All</a>
+    <ul>
+      <% for (var i = 0; i < data.tutorials.length; i++) { %>
+      <% if (chapterNum && i == chapterNum) { %>
+      <li class="current">
+        <a href="/tutorial/chapter<%= data.tutorials[i].number %>/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number"><%= data.tutorials[i].number %></span>
+        </a>
+      </li>
+      <% } else { %>
+      <li>
+        <a href="/tutorial/chapter<%= data.tutorials[i].number %>/">
+          <div class="border border-inner"></div>
+          <div class="border border-outer"></div>
+          <span class="number"><%= data.tutorials[i].number %></span>
+        </a>
+      </li>
+      <% } %>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+
+<div class="navi-btn" id="naviBtn">
+  <div class="line line1"></div>
+  <div class="line line2"></div>
+  <div class="line line3"></div>
+</div>
