@@ -2,7 +2,7 @@ Ball b1 = new Ball(); // Ball型のオブジェクトを生成
 Ball b2 = new Ball(); // Ball型のオブジェクトを生成
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // b1のフィールドに値を設定
   b1.radius = (int)random(25, 50);

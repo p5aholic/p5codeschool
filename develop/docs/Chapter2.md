@@ -7,26 +7,26 @@
 Processingで描くことのできる基本図形は以下の7つです。
 
 <dl class="func-list">
-    <dt>[point(x, y)](p5ref:point_.html)</dt>
-    <dd>座標(x, y)に点を描く</dd>
-    
-    <dt>[line(x1, y1, x2, y2)](p5ref:line_.html)</dt>
-    <dd>座標(x1, y1)から(x2, y2)まで線を引く</dd>
-    
-    <dt>[ellipse(x, y, w, h)](p5ref:ellipse_.html)</dt>
-    <dd>座標(x, y)に幅ｗ高さｈの楕円を描く</dd>
-    
-    <dt>[rect(x, y, w, h)](p5ref:rect_.html)</dt>
-    <dd>座標(x, y)に幅ｗ高さｈの長方形を描く</dd>
-    
-    <dt>[quad(x1, y1, x2, y2, x3, y3, x4, y4)](p5ref:quad_.html)</dt>
-    <dd>座標(x1, y1)、(x2, y2)、(x3, y3)、(x4, y4)を頂点とした四角形を描く</dd>
-    
-    <dt>[triangle(x1, y1, x2, y2, x3, y3)](p5ref:triangle_.html)</dt>
-    <dd>座標(x1, y1)、(x2, y2)、(x3, y3)を頂点とした三角形を描く</dd>
-    
-    <dt>[arc(x, y, w, h, start, stop)](p5ref:arc_.html)</dt>
-    <dd>座標(x, y)に幅ｗ高さｈ、角度startからstopまでの弧を描く</dd>
+  <dt>[point(x, y)](p5ref:point_.html)</dt>
+  <dd>座標(x, y)に点を描く</dd>
+
+  <dt>[line(x1, y1, x2, y2)](p5ref:line_.html)</dt>
+  <dd>座標(x1, y1)から(x2, y2)まで線を引く</dd>
+
+  <dt>[ellipse(x, y, w, h)](p5ref:ellipse_.html)</dt>
+  <dd>座標(x, y)に幅ｗ高さｈの楕円を描く</dd>
+
+  <dt>[rect(x, y, w, h)](p5ref:rect_.html)</dt>
+  <dd>座標(x, y)に幅ｗ高さｈの長方形を描く</dd>
+
+  <dt>[quad(x1, y1, x2, y2, x3, y3, x4, y4)](p5ref:quad_.html)</dt>
+  <dd>座標(x1, y1)、(x2, y2)、(x3, y3)、(x4, y4)を頂点とした四角形を描く</dd>
+
+  <dt>[triangle(x1, y1, x2, y2, x3, y3)](p5ref:triangle_.html)</dt>
+  <dd>座標(x1, y1)、(x2, y2)、(x3, y3)を頂点とした三角形を描く</dd>
+
+  <dt>[arc(x, y, w, h, start, stop)](p5ref:arc_.html)</dt>
+  <dd>座標(x, y)に幅ｗ高さｈ、角度startからstopまでの弧を描く</dd>
 </dl>
 
 ![](/images/Chapter2/shapes.jpg)
@@ -42,7 +42,7 @@ Processingの座標の取り方は数学などで一般的に使われるもの�
 [Chapter2/sketch01.pde](github:Chapter2/sketch01/sketch01.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 // 点を描く
 point(50, 175);
@@ -71,7 +71,7 @@ arc()関数を使ってみます。arc()関数の５つ目と６つ目のパラ�
 [Chapter2/sketch02.pde](github:Chapter2/sketch02/sketch02.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 
 // ラジアンをそのままの数値で指定
@@ -89,7 +89,7 @@ arc()関数には７つ目のパラメータがあります。このパラメー
 [Chapter2/sketch03.pde](github:Chapter2/sketch03/sketch03.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 
 arc(94, 175, 100, 100, radians(45), radians(315));
@@ -105,7 +105,7 @@ rect()にもパラメータを追加することができ、追加のパラメ�
 [Chapter2/sketch04.pde](github:Chapter2/sketch04/sketch04.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 
 // 全ての角が半径30pxの角丸にする
@@ -121,13 +121,13 @@ rect(475, 125, 100, 100, 10, 20, 30, 40);
 <dl class="func-list">
     <dt>[fill()](p5ref:fill_.html)</dt>
     <dd>図形の内側の色を指定する</dd>
-    
+
     <dt>[noFill()](p5ref:noFill_.html)</dt>
     <dd>図形の内側の色を無くす</dd>
-    
+
     <dt>[stroke()](p5ref:stroke_.html)</dt>
     <dd>図形の枠線の色を指定する</dd>
-    
+
     <dt>[noStroke()](p5ref:noStroke_.html)</dt>
     <dd>図形の枠線を無くす</dd>
 </dl>
@@ -139,7 +139,7 @@ point()とline()には内側というものがありません。point()とline()
 [Chapter2/sketch05.pde](github:Chapter2/sketch05/sketch05.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 
 // 線：枠線のみ指定
@@ -173,10 +173,10 @@ fill()、stroke()、noFill()、noStroke()や、後述するstrokeWeight()、stro
 <dl class="func-list">
     <dt>[strokeWeight()](p5ref:strokeWeight_.html)</dt>
     <dd>枠線の太さを変える</dd>
-    
+
     <dt>[strokeJoin()](p5ref:strokeJoin_.html)</dt>
     <dd>枠線の角の形を変える</dd>
-    
+
     <dt>[strokeCap()](p5ref:strokeCap_.html)</dt>
     <dd>枠線の両端の形を変える</dd>
 </dl>
@@ -188,7 +188,7 @@ strokeWeight()は枠線の太さを変える関数です。strokeJoin()は枠線
 [Chapter2/sketch06.pde](github:Chapter2/sketch06/sketch06.pde)
 
 ```processing
-size(750, 200);
+size(960, 200);
 background(255);
 
 // 枠線の太さを20pxにする
@@ -220,7 +220,7 @@ strokeCap()は枠線の両端の形を変える関数で、パラメータにROU
 [Chapter2/sketch07.pde](github:Chapter2/sketch07/sketch07.pde)
 
 ```processing
-size(750, 200);
+size(960, 200);
 background(255);
 
 stroke(30);
@@ -276,7 +276,7 @@ ellipseMode()関数とrectMode()関数を使うとellipse()とrect()に指定す
 [Chapter2/sketch08.pde](github:Chapter2/sketch08/sketch08.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 
 noStroke();
@@ -306,7 +306,7 @@ rectMode()にはCORNER、CORNERS、CENTERのいずれかを指定することが
 [Chapter2/sketch09.pde](github:Chapter2/sketch09/sketch09.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 
 noStroke();
@@ -331,7 +331,7 @@ rect(0, 0, 200, 100);     // 灰色の円
 [Chapter2/sketch10.pde](github:Chapter2/sketch10/sketch10.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(220);
 strokeWeight(2);
 noSmooth();

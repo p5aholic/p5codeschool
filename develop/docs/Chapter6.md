@@ -97,7 +97,7 @@ int vx, vy;   // ボールの速度
 int ballSize; // ボールの大きさ
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   fill(255);
   // ボールの初期値を設定
@@ -269,7 +269,7 @@ if (条件式) {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noFill();
   strokeWeight(5);
   rectMode(CENTER);
@@ -334,7 +334,7 @@ else if文は、それ以前にあるif文とelse if文が偽かつ自身が真�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noFill();
   strokeWeight(5);
   rectMode(CENTER);
@@ -379,7 +379,7 @@ if文の中にif文を書いて、その中にif文を書いて・・・とい�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noFill();
   strokeWeight(5);
   rectMode(CENTER);
@@ -468,7 +468,7 @@ switch文は条件式に指定された値と同じ数値を持つcaseへジャ�
 [Chapter6/sketch09.pde](github:Chapter6/sketch09/sketch09.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noStroke();
 fill(30);
@@ -517,7 +517,7 @@ switch (値) {
 [Chapter6/sketch10.pde](github:Chapter6/sketch10/sketch10.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noStroke();
 fill(30);

@@ -1,5 +1,5 @@
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   // 1秒間に1回実行
   frameRate(1);

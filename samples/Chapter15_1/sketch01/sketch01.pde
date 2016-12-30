@@ -13,7 +13,7 @@ int racketW, racketH; // 横幅と高さ
 color racketC;        // 色
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // ボール初期値を設定
   for (int i = 0; i < numBalls; i++) {
     radius[i] = (int)random(10, 20);

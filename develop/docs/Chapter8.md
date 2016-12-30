@@ -103,7 +103,7 @@ int x, y, size; // 箱の座標と大きさ
 int cageSize;   // 檻の大きさ
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   rectMode(CENTER);
   x = width/2;
   y = height/2;
@@ -155,7 +155,7 @@ int x, y, diameter; // 円の座標と直径
 color c1, c2;       // 円の色と線の色
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   x = width/2;
   y = height/2;
   diameter = 150;
@@ -195,7 +195,7 @@ map関数はある範囲にある値から別の範囲の数値を作りたい�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(0);
 }
 
@@ -300,7 +300,7 @@ int x1, y1, radius1; // 左の円の座標と半径
 int x2, y2, radius2; // 右の円の座標と半径
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   // 左の円の座標と半径を設定
   x1 = 150;
@@ -384,7 +384,7 @@ void 関数名(仮引数1, 仮引数2, ...) {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   // 1秒間に1回実行
   frameRate(1);

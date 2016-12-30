@@ -3,7 +3,7 @@ int[] data = new int[numData]; // 配列の宣言と代入
 int rectWidth;    // 棒の横幅
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noLoop();
   // dataの要素に値を入れる
   setData();

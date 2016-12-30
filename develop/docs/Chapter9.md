@@ -10,7 +10,7 @@
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   noStroke();
   fill(0);
@@ -37,7 +37,7 @@ int x = 0; // 縦棒のx座標
 int y = 0; // 横棒のy座標
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   strokeWeight(5);
   stroke(0);
 }
@@ -88,7 +88,7 @@ println(nine); // 出力 : 9
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
 }
 
@@ -122,7 +122,7 @@ void draw() {
 int x, y; // 円の座標
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   fill(0);
   x = width/2;
@@ -173,7 +173,7 @@ mousePressed関数はマウスが押されるたびに一回だけ実行され�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   noStroke();
 }
@@ -195,7 +195,7 @@ void mousePressed() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   noStroke();
   rectMode(CENTER);
@@ -224,7 +224,7 @@ keyPressed関数もキーが押されたときに実行される関数です。�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
 }
 
 void draw() {
@@ -243,7 +243,7 @@ cursor関数とnoCursor関数をここで解説しておきます。cursor関数
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
 }
 
 void draw() {
@@ -275,7 +275,7 @@ loop関数とnoLoop関数も解説しておきます。noLoop()を実行する�
 int diameter = 0; // 円の直径
 
 void setup() {
-  size(700, 350);
+  size(700, 540);
   noStroke();
 }
 

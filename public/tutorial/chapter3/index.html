@@ -230,7 +230,7 @@
 <h2>RGBカラーモード</h2><p>今まではbackground()やfill()、stroke()に１つのパラメータを与えることで黒～白の色を表現していました。background()、fill()、stroke()にはパラメータを最大で４つまで与えることができます。パラメータを２つ与える場合と４つ与える場合は後回しにして、３つ与える場合を解説していきます。 とりあえず次のサンプルを見てください。</p>
 <p><img src="/images/Chapter3/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch01/sketch01.pde' target='_blank'>Chapter3/sketch01.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-built_in">noStroke</span>();
@@ -250,14 +250,14 @@
 <h2>透明度</h2><p>後回しにしていたbackground()、fill()、stroke()にパラメータを２つ与える場合と４つ与える場合について解説します。色には透明度を指定することができて、パラメータを２つ与える場合は２つ目が透明度、４つ与える場合は４つ目が透明度になります。透明度も0～255で表現して、0が完全に透明、255が完全に不透明を表します。</p>
 <p><img src="/images/Chapter3/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch02/sketch02.pde' target='_blank'>Chapter3/sketch02.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-comment">// 横線</span>
 <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">3</span>);
 <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-<span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">750</span>, <span class="hljs-number">100</span>);
-<span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">250</span>, <span class="hljs-number">750</span>, <span class="hljs-number">250</span>);
+<span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">960</span>, <span class="hljs-number">100</span>);
+<span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">250</span>, <span class="hljs-number">960</span>, <span class="hljs-number">250</span>);
 
 <span class="hljs-built_in">rectMode</span>(CENTER);
 <span class="hljs-built_in">noStroke</span>();
@@ -310,7 +310,7 @@
 <p>とすることをオススメします。上の画像にもあるように、Hueは円状になっているのでHueの最大値を360としておくことでこの円と対応ができます。また、彩度、明度、透明度の最大値を100にしておくことで、それぞれをパーセントで指定することと同じになって考えやすいです。次のサンプルでは透明度を省略しています。その場合は透明度100（完全に不透明）になります。</p>
 <p><img src="/images/Chapter3/sketch03.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch03/sketch03.pde' target='_blank'>Chapter3/sketch03.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>); <span class="hljs-comment">// ここではまだRGBモード</span>
 <span class="hljs-comment">// HSBモードに変更</span>
 <span class="hljs-built_in">colorMode</span>(HSB, <span class="hljs-number">360</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
@@ -358,7 +358,7 @@
 <p>ちなみに、Color Selectorの色相を選べる縦長の長方形領域はHSBのHue(色相)を表していて、一番下が0度、一番上が360度になっています。左の正方形領域はHSBを円筒で表現したときの、その色の断面を表しています。正方形領域では、右に行くほどSaturation(彩度)が高く、上に行くほどBrightness(明度)が高くなります。</p>
 <p><img src="/images/Chapter3/sketch04.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch04/sketch04.pde' target='_blank'>Chapter3/sketch04.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(#A0A5A4);
 
 <span class="hljs-built_in">stroke</span>(#<span class="hljs-number">2</span>A7968);

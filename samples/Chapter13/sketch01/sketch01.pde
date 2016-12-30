@@ -1,6 +1,6 @@
 void setup() {
   // レンダラをP3Dに
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noLoop();
   stroke(220);
   strokeWeight(5);

@@ -1,7 +1,7 @@
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   b1 = new Ball();
   b2 = new Ball();

@@ -4,7 +4,7 @@ int radius;   // ボールの半径
 color c;      // ボールの色
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 初期値を設定
   radius = (int)random(10, 20);
   x = random(radius, width-radius);

@@ -2,7 +2,7 @@ float noise = 0.0;      // noise()に指定する値
 float noiseStep = 0.05; // noiseの更新に使う値
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noLoop();
   stroke(0);
   strokeWeight(5);

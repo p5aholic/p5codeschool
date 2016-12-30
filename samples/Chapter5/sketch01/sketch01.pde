@@ -1,6 +1,6 @@
 // 初期設定
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   noStroke();
   fill(0, 50);

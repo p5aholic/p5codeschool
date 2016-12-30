@@ -2,7 +2,7 @@
 Ball[] balls = new Ball[100];
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // ballsの要素のBallクラス型オブジェクトを生成
   for (int i = 0; i < balls.length; i++) {

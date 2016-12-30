@@ -230,7 +230,7 @@
 <h2>mousePressed、mouseButton</h2><p>変数mousePressedはboolean型の変数で、マウスのいずれかのボタンが押されているときtrueになるので、マウスのボタンが押されているかどうかを判定することができます。次のプログラムではマウスのボタンが押されているとき円をランダムな位置に表示して、押されていないときは中央に表示しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch01/sketch01.pde' target='_blank'>Chapter9/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
@@ -253,7 +253,7 @@
 <span class="hljs-built_in">int</span> y = <span class="hljs-number">0</span>; <span class="hljs-comment">// 横棒のy座標</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
 }
@@ -294,7 +294,7 @@
 <p>次のプログラムではｃキーを押しているときは水色、ｍキーを押しているときは紫色、ｙキーを押しているときは黄色の円を画面中心に表示しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch04/sketch04.pde' target='_blank'>Chapter9/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 
@@ -324,7 +324,7 @@
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y; <span class="hljs-comment">// 円の座標</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
   x = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
@@ -365,7 +365,7 @@ void keyPressed() {
 <p>mousePressed関数はマウスが押されるたびに一回だけ実行されます。押している間ずっと実行されるわけではないことに注意してください。次のプログラムでは、マウスの位置に半透明な黒色の円を表示し続け、マウスが押されたときのみ背景を白で初期化しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch06/sketch06.pde' target='_blank'>Chapter9/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
@@ -383,7 +383,7 @@ void keyPressed() {
 <p>もちろんmousePressed関数の中でも変数mouseButtonは使えます。次のプログラムでは左クリックで円を、右クリックで正方形をマウスの位置に描画しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch07/sketch07.pde' target='_blank'>Chapter9/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">rectMode</span>(CENTER);
@@ -407,7 +407,7 @@ void keyPressed() {
 <p>keyPressed関数もキーが押されたときに実行される関数です。ひとつ注意が必要なのは、使っているOSによってキーが押し続けられた時の挙動が異なることです。 mousePressed関数はマウスのボタンを押したままでも１度しか実行されませんが、keyPressed関数はキーを押し続けている間何度も実行されることがあります。次のプログラムを動かしてみて自分の環境でどうなるか確かめてみてください。キーを押し続けたとき画面の色が変わり続けたら何度も実行されていることになります。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch08/sketch08.pde' target='_blank'>Chapter9/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -420,7 +420,7 @@ void keyPressed() {
 <h2>マウスカーソル</h2><p>cursor関数とnoCursor関数をここで解説しておきます。cursor関数はマウスカーソルの見た目を変更する関数で、ARROW、CROSS、HAND、MOVE、TEXT、WAITのいずれかを指定できます。noCursor関数はカーソルを非表示にする関数です。次のプログラムではkeyPressed関数内でswitch文を使って、押されたキーごとにカーソルの見た目を変えています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch09/sketch09.pde' target='_blank'>Chapter9/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -445,7 +445,7 @@ void keyPressed() {
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> diameter = <span class="hljs-number">0</span>; <span class="hljs-comment">// 円の直径</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">700</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">700</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 

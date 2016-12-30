@@ -1,7 +1,7 @@
 Ball b1 = new Ball();
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // b1のフィールドに値を設定
   b1.radius = (int)random(25, 50);

@@ -2,7 +2,7 @@ int x, y, size; // 箱の座標と大きさ
 int cageSize;   // 檻の大きさ
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   rectMode(CENTER);
   x = width/2;
   y = height/2;

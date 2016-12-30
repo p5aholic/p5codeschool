@@ -11,7 +11,7 @@ Chapter3ではProcessingにおける色の表現について詳しく解説し�
 [Chapter3/sketch01.pde](github:Chapter3/sketch01/sketch01.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 
 noStroke();
@@ -41,14 +41,14 @@ fill()のパラメータを(255, 0, 0)にすると赤色に、(0, 255, 0)にす�
 [Chapter3/sketch02.pde](github:Chapter3/sketch02/sketch02.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 
 // 横線
 strokeWeight(3);
 stroke(0);
-line(0, 100, 750, 100);
-line(0, 250, 750, 250);
+line(0, 100, 960, 100);
+line(0, 250, 960, 250);
 
 rectMode(CENTER);
 noStroke();
@@ -115,7 +115,7 @@ HSBカラーモードに変更する場合は
 [Chapter3/sketch03.pde](github:Chapter3/sketch03/sketch03.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255); // ここではまだRGBモード
 // HSBモードに変更
 colorMode(HSB, 360, 100, 100, 100);
@@ -173,7 +173,7 @@ PDEに標準で備わっているColor Selectorを紹介します。[ツール]�
 [Chapter3/sketch04.pde](github:Chapter3/sketch04/sketch04.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(#A0A5A4);
 
 stroke(#2A7968);

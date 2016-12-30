@@ -1,7 +1,7 @@
 int boxW, boxH;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noFill();
   stroke(30);
   strokeWeight(3);

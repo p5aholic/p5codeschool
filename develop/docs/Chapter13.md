@@ -5,7 +5,7 @@
 ## 3D図形
 3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第３パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは４種類あるのですが、3D空間を扱うにはP3Dを指定します。
 
-`size(750, 350, P3D);`
+`size(960, 540, P3D);`
 
 これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。
 
@@ -29,7 +29,7 @@ Processingで扱える3D図形は次の2つです。
 ```processing
 void setup() {
   // レンダラをP3Dに
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noLoop();
   stroke(220);
   strokeWeight(5);
@@ -64,7 +64,7 @@ sphere()も描画してみましょう。
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noLoop();
 }
 
@@ -99,7 +99,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   stroke(255);
   noFill();
 }
@@ -146,7 +146,7 @@ rotate()とrotateZ()の違いは名前だけです。
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   stroke(0);
   strokeWeight(2);
 }
@@ -188,7 +188,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
 }
 
 void draw() {
@@ -238,7 +238,7 @@ point()とline()は3D空間内で使うこともできます。
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noLoop();
   stroke(0);
   strokeWeight(15);
@@ -268,7 +268,7 @@ z座標用のパラメータが用意されている２Ｄ図形はpoint()とlin
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   stroke(0);
   strokeWeight(3);
   fill(128);
@@ -359,7 +359,7 @@ float camX = 0, camY = 0;
 float speed = 12;
 
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
 }
 
 void draw() {
@@ -412,7 +412,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noStroke();
 }
 
@@ -466,7 +466,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noStroke();
 }
 
@@ -521,7 +521,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noStroke();
 }
 
@@ -557,7 +557,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
   noStroke();
 }
 

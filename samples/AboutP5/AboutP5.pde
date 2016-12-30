@@ -1,6 +1,7 @@
 // プログラム開始時に一度だけ実行される処理
 void setup() {
-  size(750, 350);  // 画面サイズを設定
+  size(960, 540);  // 画面サイズを設定
+  pixelDensity(displayDensity());
   background(255); // 背景色を設定
 }
 
@@ -12,4 +13,12 @@ void draw() {
   fill(random(255), random(255), random(255), random(255));
   // マウスの位置にランダムな大きさの楕円を描く
   ellipse(mouseX, mouseY, random(50), random(50));
+}
+
+void keyPressed() {
+  if (key == 's') {
+    saveFrame("sketch01.jpg");
+  } else if (key == ' ') {
+    background(255);
+  }
 }

@@ -13,7 +13,7 @@
 ```processing
 // 初期設定
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   noStroke();
   fill(0, 50);
@@ -52,7 +52,7 @@ draw()関数はsetup()の実行後に繰り返し実行される関数です。�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   strokeWeight(10);
   stroke(0, 50);
@@ -73,7 +73,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   strokeWeight(20);
   stroke(0);
   // フレームレートを15に変更
@@ -99,7 +99,7 @@ frameRate()関数によって設定できるフレームレートはあくまで
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
 }
 
@@ -144,7 +144,7 @@ void draw() {
 int hue = 0;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   colorMode(HSB, 360, 100, 100, 100);
   noStroke();
@@ -178,7 +178,7 @@ HSBカラーモードにして、setup関数の上でint型変数のhueを初期
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   noStroke();
 }

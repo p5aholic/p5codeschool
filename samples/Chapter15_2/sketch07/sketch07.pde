@@ -1,12 +1,12 @@
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 実引数ありのコンストラクタを呼び出す
   // 青
   b1 = new Ball(200, height/2, 60, color(0, 0, 180));
   // 黄
-  b2 = new Ball(350, height/2, 60, color(180, 180, 0));
+  b2 = new Ball(540, height/2, 60, color(180, 180, 0));
   // 赤
   b3 = new Ball(500, height/2, 60, color(180, 0, 0));
 }

@@ -4,7 +4,7 @@ float camX = 0, camY = 0;
 float speed = 12;
 
 void setup() {
-  size(750, 350, P3D);
+  size(960, 540, P3D);
 }
 
 void draw() {

@@ -228,7 +228,7 @@
 <main class="main-article">
   <h1>3D図形とカメラとライト</h1><p>3D空間に描くことができる図形と、カメラとライトの扱い方を解説します。今まではProcessingプログラムの動作をWeb上でも確認できるようにしていましたが、使っているp5.jsの3D対応が完全ではないのでこのChapterでは代わりに画像を使うことにします。</p>
 <h2>3D図形</h2><p>3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第３パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは４種類あるのですが、3D空間を扱うにはP3Dを指定します。</p>
-<p><code class='code-fragment'>size(750, 350, P3D);</code></p>
+<p><code class='code-fragment'>size(960, 540, P3D);</code></p>
 <p>これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。</p>
 <p>Processingで扱える3D図形は次の2つです。</p>
 <dl class="func-list">
@@ -244,7 +244,7 @@
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch01/sketch01.pde' target='_blank'>Chapter13/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-comment">// レンダラをP3Dに</span>
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noLoop</span>();
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
@@ -274,7 +274,7 @@
 <p><img src="/images/Chapter13/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch02/sketch02.pde' target='_blank'>Chapter13/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noLoop</span>();
 }
 
@@ -303,7 +303,7 @@
 <p><img src="/images/Chapter13/sketch03.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch03/sketch03.pde' target='_blank'>Chapter13/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noFill</span>();
 }
@@ -340,7 +340,7 @@
 <p><img src="/images/Chapter13/sketch04.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch04/sketch04.pde' target='_blank'>Chapter13/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">2</span>);
 }
@@ -377,7 +377,7 @@
 <p><img src="/images/Chapter13/sketch05.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch05/sketch05.pde' target='_blank'>Chapter13/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -420,7 +420,7 @@
 <p><img src="/images/Chapter13/sketch06.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch06/sketch06.pde' target='_blank'>Chapter13/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noLoop</span>();
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">15</span>);
@@ -445,7 +445,7 @@
 <p><img src="/images/Chapter13/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch07/sketch07.pde' target='_blank'>Chapter13/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">3</span>);
   <span class="hljs-built_in">fill</span>(<span class="hljs-number">128</span>);
@@ -523,7 +523,7 @@
 <span class="hljs-built_in">float</span> speed = <span class="hljs-number">12</span>;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -568,7 +568,7 @@
 <p><img src="/images/Chapter13/sketch09.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch09/sketch09.pde' target='_blank'>Chapter13/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 
@@ -616,7 +616,7 @@
 <p><img src="/images/Chapter13/sketch10.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch10/sketch10.pde' target='_blank'>Chapter13/sketch10.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 
@@ -666,7 +666,7 @@
 <p><img src="/images/Chapter13/sketch11.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch11/sketch11.pde' target='_blank'>Chapter13/sketch11.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 
@@ -697,7 +697,7 @@
 <p><img src="/images/Chapter13/sketch12.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch12/sketch12.pde' target='_blank'>Chapter13/sketch12.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-literal">P3D</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 

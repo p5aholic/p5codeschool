@@ -7,7 +7,7 @@ int[] radius = new int[numBalls]; // 半径の配列
 color[] c = new color[numBalls];  // 色の配列
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 初期値を設定
   for (int i = 0; i < numBalls; i++) {
     radius[i] = (int)random(10, 20);

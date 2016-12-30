@@ -17,7 +17,7 @@ class クラス名 {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
 }
 
 // ボールについての情報をまとめたBallクラス
@@ -59,7 +59,7 @@ b1.c
 Ball b1 = new Ball();
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // b1のフィールドに値を設定
   b1.radius = (int)random(25, 50);
@@ -95,7 +95,7 @@ Ball b1 = new Ball(); // Ball型のオブジェクトを生成
 Ball b2 = new Ball(); // Ball型のオブジェクトを生成
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // b1のフィールドに値を設定
   b1.radius = (int)random(25, 50);
@@ -200,7 +200,7 @@ Ball b1 = new Ball(); // Ball型のオブジェクトを生成
 Ball b2 = new Ball(); // Ball型のオブジェクトを生成
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   b1.radius = 40;     // b1のradiusに40を代入
   b2.radius = 20;     // b2のradiusに20を代入
@@ -267,7 +267,7 @@ class Ball {
 Ball b1, b2;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // size()使用後にBall()を呼び出す
   b1 = new Ball();
   b2 = new Ball();
@@ -320,12 +320,12 @@ class Ball {
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 実引数ありのコンストラクタを呼び出す
   // 青
   b1 = new Ball(200, height/2, 60, color(0, 0, 180));
   // 黄
-  b2 = new Ball(350, height/2, 60, color(180, 180, 0));
+  b2 = new Ball(540, height/2, 60, color(180, 180, 0));
   // 赤
   b3 = new Ball(500, height/2, 60, color(180, 0, 0));
 }
@@ -372,7 +372,7 @@ class Ball {
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   b1 = new Ball();
   b2 = new Ball();
   b3 = new Ball();
@@ -423,7 +423,7 @@ class Ball {
 Ball b1, b2;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   b1 = new Ball();
   b2 = new Ball();
 }
@@ -489,7 +489,7 @@ class Ball {
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   b1 = new Ball();
   b2 = new Ball();

@@ -14,7 +14,7 @@ sin()とcos()のパラメータには角度をラジアン値で渡します。�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(255, 0, 0);
   strokeWeight(20);
 }
@@ -40,7 +40,7 @@ sin()とcos()が返す値は-1～1なので、わかりやすいように100を�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(0, 255, 0);
   strokeWeight(20);
 }
@@ -66,7 +66,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(0, 0, 255);
   strokeWeight(20);
 }
@@ -106,7 +106,7 @@ cos(α) = x<br>
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noLoop();
   stroke(0);
   strokeWeight(10);
@@ -137,7 +137,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(0);
   strokeWeight(10);
 }
@@ -167,7 +167,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noLoop();
   noStroke();
   fill(0);
@@ -201,7 +201,7 @@ xの最大値は700なので、x\*0.01の最大値は7になります。TWO_PI�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   fill(0);
 }
@@ -226,7 +226,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noLoop();
 }
 
@@ -249,7 +249,7 @@ sin()は-1～1の値を返しますが、色にマイナス値はないのでabs
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
 }
 
 void draw() {

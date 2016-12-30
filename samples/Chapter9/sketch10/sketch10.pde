@@ -1,7 +1,7 @@
 int diameter = 0; // 円の直径
 
 void setup() {
-  size(700, 350);
+  size(700, 540);
   noStroke();
 }
 

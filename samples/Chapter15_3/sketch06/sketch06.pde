@@ -1,7 +1,7 @@
 Ball b1 = new Ball();
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 座標をセット
   b1.setPosition(width/2, height/2);
 }

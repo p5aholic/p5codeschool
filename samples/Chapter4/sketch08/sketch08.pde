@@ -1,4 +1,4 @@
-size(750, 175);
+size(960, 175);
 background(255);
 
 color red = color(200, 30, 30);

@@ -1,4 +1,4 @@
-size(750, 350);
+size(960, 540);
 background(#A0A5A4);
 
 stroke(#2A7968);

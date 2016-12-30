@@ -33,7 +33,7 @@ dataはint型の要素を持つint型配列ですが、クラスのインスタ�
 Ball[] balls = new Ball[100];
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // ballsの要素のBallクラス型オブジェクトを生成
   for (int i = 0; i < balls.length; i++) {
@@ -112,7 +112,7 @@ int[] radius = new int[numBalls]; // 半径の配列
 color[] c = new color[numBalls];  // 色の配列
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 初期値を設定
   for (int i = 0; i < numBalls; i++) {
     radius[i] = (int)random(10, 20);
@@ -157,11 +157,11 @@ void draw() {
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 青
   b1 = new Ball(200, height/2, 60, color(0, 0, 180));
   // 黄
-  b2 = new Ball(350, height/2, 60, color(180, 180, 0));
+  b2 = new Ball(540, height/2, 60, color(180, 180, 0));
   // 赤
   b3 = new Ball(500, height/2, 60, color(180, 0, 0));
 }
@@ -206,7 +206,7 @@ class Ball {
 Ball b1;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   b1 = new Ball(40, 50);
 }
 
@@ -230,11 +230,11 @@ class Ball {
 Ball b1, b2, b3;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 青
   b1 = new Ball(200, height/2, 60, color(0, 0, 180));
   // 黄
-  b2 = new Ball(350, height/2, 60, color(180, 180, 0));
+  b2 = new Ball(540, height/2, 60, color(180, 180, 0));
   // 赤
   b3 = new Ball(500, height/2, 60, color(180, 0, 0));
 }
@@ -293,7 +293,7 @@ this参照について詳しく解説します。上のプログラムで
 Ball b1 = new Ball();
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 座標をセット
   b1.setPosition(width/2, height/2);
 }
@@ -325,7 +325,7 @@ class Ball {
 Ball[] balls = new Ball[100];
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
 
   // ballsの要素のBallクラス型オブジェクトを生成
   for (int i = 0; i < balls.length; i++) {

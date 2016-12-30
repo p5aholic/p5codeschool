@@ -1,4 +1,4 @@
-size(750, 350);
+size(960, 540);
 background(220);
 
 arc(94, 175, 100, 100, radians(45), radians(315));

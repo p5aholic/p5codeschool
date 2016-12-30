@@ -2,7 +2,7 @@ int x1, y1, radius1; // 左の円の座標と半径
 int x2, y2, radius2; // 右の円の座標と半径
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   // 左の円の座標と半径を設定
   x1 = 150;

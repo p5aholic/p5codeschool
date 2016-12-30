@@ -1,7 +1,7 @@
 Ball b1, b2;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // size()使用後にBall()を呼び出す
   b1 = new Ball();
   b2 = new Ball();

@@ -233,7 +233,7 @@
 <p>波カッコの中に必要な変数を書き込みます。次のプログラムではボールについての情報をまとめたクラスを作っています。クラス名はそのクラスを端的に表す名前が良いのでBallとしています。クラス内にはボールの情報を表す位置、半径、色の変数を書き込んでいます。クラス内に書く変数のことをプログラミング用語でフィールドと呼ぶので覚えておいてください。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_2/sketch01/sketch01.pde' target='_blank'>Chapter15_2/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 }
 
 <span class="hljs-comment">// ボールについての情報をまとめたBallクラス</span>
@@ -262,7 +262,7 @@ b1.c</code></p>
 <pre><code class="lang-processing">Ball b1 = <span class="hljs-keyword">new</span> Ball();
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 
   <span class="hljs-comment">// b1のフィールドに値を設定</span>
   b1.radius = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">25</span>, <span class="hljs-number">50</span>);
@@ -294,7 +294,7 @@ class Ball {
 Ball b2 = <span class="hljs-keyword">new</span> Ball(); <span class="hljs-comment">// Ball型のオブジェクトを生成</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 
   <span class="hljs-comment">// b1のフィールドに値を設定</span>
   b1.radius = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">25</span>, <span class="hljs-number">50</span>);
@@ -363,7 +363,7 @@ float b;</code></p>
 Ball b2 = <span class="hljs-keyword">new</span> Ball(); <span class="hljs-comment">// Ball型のオブジェクトを生成</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 
   b1.radius = <span class="hljs-number">40</span>;     <span class="hljs-comment">// b1のradiusに40を代入</span>
   b2.radius = <span class="hljs-number">20</span>;     <span class="hljs-comment">// b2のradiusに20を代入</span>
@@ -411,7 +411,7 @@ class Ball {
 <pre><code class="lang-processing">Ball b1, b2;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-comment">// size()使用後にBall()を呼び出す</span>
   b1 = <span class="hljs-keyword">new</span> Ball();
   b2 = <span class="hljs-keyword">new</span> Ball();
@@ -455,12 +455,12 @@ class Ball {
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-comment">// 実引数ありのコンストラクタを呼び出す</span>
   <span class="hljs-comment">// 青</span>
   b1 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">60</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">180</span>));
   <span class="hljs-comment">// 黄</span>
-  b2 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">350</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">60</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">180</span>, <span class="hljs-number">180</span>, <span class="hljs-number">0</span>));
+  b2 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">540</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">60</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">180</span>, <span class="hljs-number">180</span>, <span class="hljs-number">0</span>));
   <span class="hljs-comment">// 赤</span>
   b3 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">500</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">60</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">180</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
 }
@@ -502,7 +502,7 @@ class Ball {
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   b1 = <span class="hljs-keyword">new</span> Ball();
   b2 = <span class="hljs-keyword">new</span> Ball();
   b3 = <span class="hljs-keyword">new</span> Ball();
@@ -545,7 +545,7 @@ class Ball {
 <pre><code class="lang-processing">Ball b1, b2;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   b1 = <span class="hljs-keyword">new</span> Ball();
   b2 = <span class="hljs-keyword">new</span> Ball();
 }
@@ -607,7 +607,7 @@ class Ball {
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 
   b1 = <span class="hljs-keyword">new</span> Ball();
   b2 = <span class="hljs-keyword">new</span> Ball();

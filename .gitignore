@@ -1,4 +1,5 @@
 .DS_Store
 develop/node_modules
 develop/npm-debug.log
+samples/**/build
 idea.txt

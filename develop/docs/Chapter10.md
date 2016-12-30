@@ -11,7 +11,7 @@ Processingでは、原点(0, 0)はウィンドウの左上の角にありまし�
 [Chapter10/sketch01.pde](github:Chapter10/sketch01/sketch01.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noStroke();
 
@@ -44,7 +44,7 @@ translate()を２回以上使うと、原点の移動量は加算されていき
 [Chapter10/sketch02.pde](github:Chapter10/sketch02/sketch02.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noStroke();
 
@@ -79,7 +79,7 @@ pushMatrix()とpopMatrix()を使うとtranslate()によって移動された原�
 [Chapter10/sketch03.pde](github:Chapter10/sketch03/sketch03.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noStroke();
 
@@ -118,7 +118,7 @@ translate()やこのあと解説するrotate()、scale()などによって変換
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   fill(0);
 }
@@ -140,23 +140,23 @@ rotate()を使うと座標を回転させることができます。パラメー
 [Chapter10/sketch05.pde](github:Chapter10/sketch05/sketch05.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noStroke();
 
 // 回転していない赤色の長方形
 fill(255, 0, 0);
-rect(0, 0, 350, 50);
+rect(0, 0, 540, 50);
 
 // 30度回転した青色の長方形
 rotate(radians(30));
 fill(0, 255, 0);
-rect(0, 0, 350, 50);
+rect(0, 0, 540, 50);
 
 // 60度回転した青色の長方形
 rotate(radians(30));
 fill(0, 0, 255);
-rect(0, 0, 350, 50);
+rect(0, 0, 540, 50);
 ```
 
 translate()による原点の移動量が加算されていったように、rotate()による座標の回転も加算されていきます。上のプログラムでは２回目のrotate(30)で座標が60度回転されています。
@@ -168,7 +168,7 @@ rotate()による座標の回転は常に原点を中心にして回転されま
 [Chapter10/sketch06.pde](github:Chapter10/sketch06/sketch06.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 rectMode(CENTER);
 noStroke();
@@ -207,7 +207,7 @@ scale()を使うと座標全体を拡大縮小することができます。scal
 [Chapter10/sketch07.pde](github:Chapter10/sketch07/sketch07.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 fill(220);
 
@@ -231,7 +231,7 @@ ellipse(50, 50, 50, 50);
 [Chapter10/sketch08.pde](github:Chapter10/sketch08/sketch08.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 fill(220);
 
@@ -251,7 +251,7 @@ scale()によって座標を拡大縮小すると、描かれる図形の枠線�
 [Chapter10/sketch09.pde](github:Chapter10/sketch09/sketch09.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 fill(220);
 
@@ -283,7 +283,7 @@ translate()で原点を画面中心に移動させた場合は次のようにな
 [Chapter10/sketch10.pde](github:Chapter10/sketch10/sketch10.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 noFill();
 
@@ -320,7 +320,7 @@ ellipse(0, 0, 50, 50);
 [Chapter10/sketch11.pde](github:Chapter10/sketch11/sketch11.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 stroke(0);
 strokeWeight(5);
@@ -371,7 +371,7 @@ draw()を使ってアニメーションにしてみましょう。
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   rectMode(CENTER);
   stroke(0);
   strokeWeight(5);

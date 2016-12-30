@@ -1,4 +1,4 @@
-size(750, 350);
+size(960, 540);
 background(220);
 
 noStroke();

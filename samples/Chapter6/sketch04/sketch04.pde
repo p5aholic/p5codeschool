@@ -3,7 +3,7 @@ int vx, vy;   // ボールの速度
 int ballSize; // ボールの大きさ
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noStroke();
   fill(255);
   // ボールの初期値を設定

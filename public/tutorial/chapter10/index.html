@@ -230,7 +230,7 @@
 <h2>原点の移動</h2><p>Processingでは、原点(0, 0)はウィンドウの左上の角にありましたが、translate関数を使うと原点をウィンドウの好きな位置に変えることができます。次のプログラムでは原点を画面中心に移動させたあと、３つの円を描画しています。</p>
 <p><img src="/images/Chapter10/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch01/sketch01.pde' target='_blank'>Chapter10/sketch01.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noStroke</span>();
 
@@ -255,7 +255,7 @@
 <p>translate()を２回以上使うと、原点の移動量は加算されていきます。次のプログラムを見てください。</p>
 <p><img src="/images/Chapter10/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch02/sketch02.pde' target='_blank'>Chapter10/sketch02.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noStroke</span>();
 
@@ -284,7 +284,7 @@
 <p>pushMatrix()とpopMatrix()を使うとtranslate()によって移動された原点の位置を、移動する前の位置に戻すことができます。</p>
 <p><img src="/images/Chapter10/sketch03.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch03/sketch03.pde' target='_blank'>Chapter10/sketch03.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noStroke</span>();
 
@@ -318,7 +318,7 @@
 <p>translate()やこのあと解説するrotate()、scale()などによって変換された座標情報はdraw()の度にリセットされます。次のプログラムでは、pushMatrix()、popMatrix()を使わずにdraw()の中でtranslate()を実行していますが、draw()の度に原点の移動量が増えるわけではないことがわかります。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch04/sketch04.pde' target='_blank'>Chapter10/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
 }
@@ -334,29 +334,29 @@
 <h2>回転</h2><p>rotate()を使うと座標を回転させることができます。パラメータにはラジアンで表された角度を指定します。次のプログラムではx軸に平行な(傾いていない)長方形と30度回転した長方形、60度回転した長方形を描画しています。</p>
 <p><img src="/images/Chapter10/sketch05.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch05/sketch05.pde' target='_blank'>Chapter10/sketch05.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noStroke</span>();
 
 <span class="hljs-comment">// 回転していない赤色の長方形</span>
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">350</span>, <span class="hljs-number">50</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">540</span>, <span class="hljs-number">50</span>);
 
 <span class="hljs-comment">// 30度回転した青色の長方形</span>
 <span class="hljs-built_in">rotate</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">30</span>));
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
-<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">350</span>, <span class="hljs-number">50</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">540</span>, <span class="hljs-number">50</span>);
 
 <span class="hljs-comment">// 60度回転した青色の長方形</span>
 <span class="hljs-built_in">rotate</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">30</span>));
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
-<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">350</span>, <span class="hljs-number">50</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">540</span>, <span class="hljs-number">50</span>);
 </code></pre>
 <p>translate()による原点の移動量が加算されていったように、rotate()による座標の回転も加算されていきます。上のプログラムでは２回目のrotate(30)で座標が60度回転されています。</p>
 <p>rotate()による座標の回転は常に原点を中心にして回転されます。translate()で原点を画面中心に移動させた場合は次のようになります。</p>
 <p><img src="/images/Chapter10/sketch06.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch06/sketch06.pde' target='_blank'>Chapter10/sketch06.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">rectMode</span>(CENTER);
 <span class="hljs-built_in">noStroke</span>();
@@ -385,7 +385,7 @@
 <p><code class='code-fragment'>scale(4.0, 0.5);</code></p>
 <p><img src="/images/Chapter10/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch07/sketch07.pde' target='_blank'>Chapter10/sketch07.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">220</span>);
 
@@ -405,7 +405,7 @@
 </code></pre>
 <p><img src="/images/Chapter10/sketch08.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch08/sketch08.pde' target='_blank'>Chapter10/sketch08.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">220</span>);
 
@@ -420,7 +420,7 @@
 <p>scale()によって座標を拡大縮小すると、描かれる図形の枠線の太さも拡大縮小されます。図形だけを拡大縮小して枠線の太さをそのままに保ちたい場合は次のようにします。</p>
 <p><img src="/images/Chapter10/sketch09.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch09/sketch09.pde' target='_blank'>Chapter10/sketch09.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">220</span>);
 
@@ -447,7 +447,7 @@
 <p>translate()で原点を画面中心に移動させた場合は次のようになります。</p>
 <p><img src="/images/Chapter10/sketch10.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch10/sketch10.pde' target='_blank'>Chapter10/sketch10.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">noFill</span>();
 
@@ -476,7 +476,7 @@
 ５：popMatrix()で座標情報を戻す</p>
 <p><img src="/images/Chapter10/sketch11.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch11/sketch11.pde' target='_blank'>Chapter10/sketch11.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
 <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
@@ -522,7 +522,7 @@
 
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter10/sketch12/sketch12.pde' target='_blank'>Chapter10/sketch12.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">rectMode</span>(CENTER);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);

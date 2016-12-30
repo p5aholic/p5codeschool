@@ -2,7 +2,7 @@ int x = 0; // 縦棒のx座標
 int y = 0; // 横棒のy座標
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   strokeWeight(5);
   stroke(0);
 }

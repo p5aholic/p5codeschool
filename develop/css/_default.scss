@@ -59,11 +59,10 @@ body {
 
 p {
   font-size: 1.6rem;
-  line-height: 2.0;
+  line-height: 1.8;
   margin: 0;
   @include lt-640 {
     font-size: 1.4rem;
-    line-height: 1.8;
   }
 }
 
@@ -84,9 +83,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 img {
-  display: block;
   max-width: 100%;
-  margin: 0 auto;
+  vertical-align: bottom;
 }
 
 .clearfix::after {

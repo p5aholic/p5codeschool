@@ -145,7 +145,7 @@ int[] data = new int[numData]; // 配列の宣言と代入
 int rectWidth;    // 棒の横幅
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noLoop();
   // dataの要素に値を入れる
   setData();
@@ -190,7 +190,7 @@ int radius;   // ボールの半径
 color c;      // ボールの色
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 初期値を設定
   radius = (int)random(10, 20);
   x = random(radius, width-radius);
@@ -247,7 +247,7 @@ int[] radius = new int[numBalls]; // 半径の配列
 color[] c = new color[numBalls];  // 色の配列
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   // 初期値を設定
   for (int i = 0; i < numBalls; i++) {
     radius[i] = (int)random(10, 20);

@@ -10,7 +10,7 @@
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(255);
 }
 
@@ -63,7 +63,7 @@ for文の()内に書く初期化は、for文の実行時に1度だけ実行さ�
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(255);
 }
 
@@ -104,7 +104,7 @@ for文の中にfor文を作って2重for文を作ることもできます。
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(255);
 }
 
@@ -125,7 +125,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(750, 350);
+  size(960, 540);
   stroke(255);
 }
 
@@ -139,7 +139,7 @@ void draw() {
   line(0, 200, mouseX, mouseY);
   line(0, 250, mouseX, mouseY);
   line(0, 300, mouseX, mouseY);
-  line(0, 350, mouseX, mouseY);
+  line(0, 540, mouseX, mouseY);
   // x = 150のとき
   line(150, 0, mouseX, mouseY);
   line(150, 50, mouseX, mouseY);
@@ -147,7 +147,7 @@ void draw() {
   line(150, 200, mouseX, mouseY);
   line(150, 250, mouseX, mouseY);
   line(150, 300, mouseX, mouseY);
-  line(150, 350, mouseX, mouseY);
+  line(150, 540, mouseX, mouseY);
   // x = 300のとき
   line(300, 0, mouseX, mouseY);
   line(300, 50, mouseX, mouseY);
@@ -155,7 +155,7 @@ void draw() {
   line(300, 200, mouseX, mouseY);
   line(300, 250, mouseX, mouseY);
   line(300, 300, mouseX, mouseY);
-  line(300, 350, mouseX, mouseY);
+  line(300, 540, mouseX, mouseY);
   // x = 450のとき
   line(450, 0, mouseX, mouseY);
   line(450, 50, mouseX, mouseY);
@@ -163,7 +163,7 @@ void draw() {
   line(450, 200, mouseX, mouseY);
   line(450, 250, mouseX, mouseY);
   line(450, 300, mouseX, mouseY);
-  line(450, 350, mouseX, mouseY);
+  line(450, 540, mouseX, mouseY);
   // x = 600のとき
   line(600, 0, mouseX, mouseY);
   line(600, 50, mouseX, mouseY);
@@ -171,15 +171,15 @@ void draw() {
   line(600, 200, mouseX, mouseY);
   line(600, 250, mouseX, mouseY);
   line(600, 300, mouseX, mouseY);
-  line(600, 350, mouseX, mouseY);
-  // x = 750のとき
-  line(750, 0, mouseX, mouseY);
-  line(750, 50, mouseX, mouseY);
-  line(750, 150, mouseX, mouseY);
-  line(750, 200, mouseX, mouseY);
-  line(750, 250, mouseX, mouseY);
-  line(750, 300, mouseX, mouseY);
-  line(750, 350, mouseX, mouseY);
+  line(600, 540, mouseX, mouseY);
+  // x = 960のとき
+  line(960, 0, mouseX, mouseY);
+  line(960, 50, mouseX, mouseY);
+  line(960, 150, mouseX, mouseY);
+  line(960, 200, mouseX, mouseY);
+  line(960, 250, mouseX, mouseY);
+  line(960, 300, mouseX, mouseY);
+  line(960, 540, mouseX, mouseY);
 }
 ```
 
@@ -191,7 +191,7 @@ void draw() {
 [Chapter7/sketch06.pde](github:Chapter7/sketch06/sketch06.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 colorMode(HSB, 360, 100, 100);
 
@@ -215,7 +215,7 @@ for (int x = 0; x < 10; x++) {
 [Chapter7/sketch07.pde](github:Chapter7/sketch07/sketch07.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 colorMode(HSB, 360, 100, 100);
 
@@ -250,7 +250,7 @@ for文の中で条件分岐を使い、描画する図形を切り替えるこ�
 [Chapter7/sketch08.pde](github:Chapter7/sketch08/sketch08.pde)
 
 ```processing
-size(750, 350);
+size(960, 540);
 background(255);
 
 int boxW = width/10;
@@ -285,7 +285,7 @@ for (int x = 0; x < 10; x++) {
 int boxW, boxH;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   noFill();
   stroke(30);
   strokeWeight(3);

@@ -4,7 +4,7 @@ Processingに限らず、何かのプログラミング言語を学習するに�
 
 [Processing公式 - ダウンロード](https://www.processing.org/download/)
 
-最初に寄付するかどうか選択肢があるので"No Donation"を選んで"Download"に進んでください。Processingの現在の最新安定バージョンはバージョン3.1.1です。自分のOSにあったバージョンをダウンロードしてください。
+最初に寄付するかどうか選択肢があるので"No Donation"を選んで"Download"に進んでください。Processingの現在の最新安定バージョンはバージョン3.2.1です。自分のOSに合った最新バージョンのProcessingをダウンロードしてください。
 
 ・Windows<br/>
 ダウンロードしたzipファイルを解凍すると"processing-####(####はバージョンを表す数字)"というフォルダができます。その中の"processing.exe"がProcessingの実行ファイルになります。"processing-####"フォルダは基本的にどこにあっても構いません。好きな場所に保存しておいてください。実行ファイルを開くとProcessingがスタートします。
@@ -17,7 +17,7 @@ Processingに限らず、何かのプログラミング言語を学習するに�
 ```processing
 // プログラム開始時に一度だけ実行される処理
 void setup() {
-  size(750, 350);  // 画面サイズを設定
+  size(960, 540);  // 画面サイズを設定
   background(255); // 背景色を設定
 }
 
@@ -31,8 +31,6 @@ void draw() {
   ellipse(mouseX, mouseY, random(50), random(50));
 }
 ```
-
-![](/images/Chapter0/editor.png)
 
 右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置にカラフルな楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。
 

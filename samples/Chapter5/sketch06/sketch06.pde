@@ -1,7 +1,7 @@
 int hue = 0;
 
 void setup() {
-  size(750, 350);
+  size(960, 540);
   background(255);
   colorMode(HSB, 360, 100, 100, 100);
   noStroke();
