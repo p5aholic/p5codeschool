@@ -1,0 +1,16 @@
+pre {
+  margin: 0 0 15px 0;
+  padding: 10px;
+  overflow-x: auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  code.lang-processing {
+    font-family: "Source Code Pro";
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    @include lt-640 {
+      font-size: 1.4rem;
+    }
+  }
+}

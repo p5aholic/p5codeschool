@@ -9,226 +9,47 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>乱数</h1><p>random()によって作ることができる乱数を復習したあと、パーリンノイズと呼ばれる特殊な乱数について解説します。</p>
 <h2>random()で作る乱数</h2><p>random()は今までに何回か出てきましたがもう一度復習しておきます。random()には次の２通りの使い方があります。</p>
-<dl class="func-list">
+<dl class="p5Functions">
     <dt><a href='https://www.processing.org/reference/random_.html' target='_blank'>random(high)</a></dt>
     <dd>0以上high未満の乱数を返す</dd>
     <dt><a href='https://www.processing.org/reference/random_.html' target='_blank'>radnom(low, high)</a></dt>
@@ -339,10 +160,10 @@
 </code></pre>
 <p>random()の場合とは違い、隣り合った点のy座標は近い値を取り、全体として滑らかに変化しているのがわかるかと思います。noise()を使うと滑らかに変化する乱数を作ることができるので、コンピュータグラフィックスの世界では物体のテクスチャを作ったりするのに重宝されています。僕はマインクラフトはやったことがないのですが、マインクラフトでは最初にワールドを作る際地形の生成にパーリンノイズを使っています。もしパーリンノイズではなく普通の乱数で地形を生成していたら、一歩先が崖になっていたり絶壁になっていたりして移動不可能なワールドができてしまいます。</p>
 <p>noise()の使い方を解説します。noise()は、パラメータにどんな値を指定しても0～1の間の値を返します。なので、必要に応じてnoise()に値を掛けたりnoise()から値を引いたりして欲しい値を作ります。上のプログラムでは、</p>
-<p><code class='code-fragment'>noise(noise) * 200 - 100</code></p>
+<p><code class='codeFragment'>noise(noise) * 200 - 100</code></p>
 <p>とすることで-100～100の間の値を作っています。</p>
 <p>noise()はパラメータにどんな値を指定しても0～1の間の値を返すので、パラメータの値はどうでもいいんです。重要なのはパラメータが増加(または減少)する間隔です。上のプログラムではnoise()に指定するパラメータが変数noiseで、noiseの増加間隔をnoiseStepという変数で用意しています。 noise()はパラメータに同じ値を指定すると同じ値を返します。raddom()とは全然違うので注意してください。noise(1234)を何度実行しても同じ値が返ってきます。noise()が返す値を変動させるには、noise()に指定するパラメータの値を増加させます。なので、上のプログラムではfor文の最後に</p>
-<p><code class='code-fragment'>noise += noiseStep;</code></p>
+<p><code class='codeFragment'>noise += noiseStep;</code></p>
 <p>を実行してnoise()に指定するパラメータを増加させています。noise()はパラメータの値の増加間隔が大きければ大きいほど隣り合った数値の差が大きくなり、増加間隔が小さければ小さいほど隣り合った数値の差が小さくなります。試しにnoiseStepの値を0.05から1に変えると次のようにrandom()の場合と見分けがつかなくなります。</p>
 <iframe src="/samples/tutorial/Chapter12/sketch06.html" class="sample-sketch"></iframe>
 
@@ -369,10 +190,12 @@
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

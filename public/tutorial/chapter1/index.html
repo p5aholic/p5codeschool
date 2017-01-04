@@ -9,234 +9,55 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>プログラミングを始める前に</h1><p>実際にProcessingを使ってプログラミングを始める前に、プログラミングとは何か、どう書くかなどを解説していきます。</p>
 <h2>プログラミングとは</h2><p>プログラミングとはプログラムを書くことで、プログラムはコンピュータに与える命令の集合です。コンピュータにどんな命令を与えるかはプログラミング言語によって様々で、プログラミング言語にも得意な処理、不得意な処理があります。Processingはコンピュータグラフィックスを描くことを得意とするプログラミング言語です。</p>
 <h2>関数</h2><p>プログラムはコンピュータに与える命令の集合だと言いました。その命令の集合の基本的な要素に関数というものがあります。関数を使うことで画面上に図形を描いたり、色を付けたり、計算したりすることができます。関数を使うときは関数名を書いて、そのあとに丸カッコが続きます。丸カッコの中にはその関数がどんな働きをするかを決めるパラメータと呼ばれるものを書き、パラメータが２つ以上あるときはコンマで区切ります。パメータがない関数もあります。size関数はProcessingで図形を描く舞台であるウィンドウサイズを指定する関数で、ほとんど全てのProcessingプログラムに登場します。Processingエディターに</p>
-<p><code class='code-fragment'>size(960, 540);</code></p>
+<p><code class='codeFragment'>size(960, 540);</code></p>
 <p>と書いて実行してみてください。最後のセミコロンも忘れないでください。幅960ピクセル、高さ540ピクセルのウィンドウが出てくるはずです。size関数の1つ目のパラメータにはウィンドウの幅を、2つ目のパラメータには高さをピクセルを単位とした数値で与えます。最後のセミコロンは命令の区切り文字です。これがないとコンピュータはどこからどこまでが一つの命令なのか理解できません。size(960, 540)が一つの命令だとコンピュータに理解させるために最後にセミコロンを付けます。</p>
 <p>もう一つ、ウィンドウの背景色を指定するbackground関数を紹介します。さっきの続きで以下のように書いて実行してみてください。</p>
-<p><code class='code-fragment'>size(960, 540);
+<p><code class='codeFragment'>size(960, 540);
 background(255);</code></p>
 <p>さっきは灰色だったウィンドウの背景が真っ白になっているはずです。background関数には0～255までの数値をパラメータとして与えることができます。この0～255の数値が色を表していて、backgroud()に0を与えると黒色の、255を与えると白色の、128を与えると中間的な灰色のウィンドウが出来上ります。なんで0～255のような中途半端な数値を使うのか疑問に思うかもしれません。0～255は全部で256個の数値です。256というのは2の8乗です。コンピュータは最終的に全ての情報を0と1の文字列(2進数)で扱います。なので2の何乗という数値はコンピュータにとって何かと都合がいいのです。色についてはChapter3で詳しく解説します。</p>
 <h2>大文字と小文字</h2><p>プログラムは大文字と小文字を厳密に区別します。例えば以下のように書くとメッセージエリアに「Size関数なんてないよ」という意味のエラーが出ます。</p>
-<p><code class='code-fragment'>size(960, 540);
+<p><code class='codeFragment'>size(960, 540);
 BackGround(255);</code></p>
 <p>sizeとbackgroundは全て小文字で記述しなければいけません。プログラム内で大文字を使ってはいけないというわけではありません。sizeとbackgroundは全て小文字で書くように定義されているというだけです。また、プログラム内の文字は全て(後述のコメントを除いて)半角文字で記述しなければいけません。</p>
 <p>間違ったプログラムを書くとメッセージエリアにエラーが表示されます。このエラー表示を消すには[ファイル]-[設定]の&quot;エラーのために継続的にチェックする&quot;と&quot;ワーニングを表示する&quot;のチェックを外します。プログラミングに慣れないうちはチェックを入れておくといいでしょう。チェックを外しても、プログラム実行時にはエラーが表示されます。</p>
@@ -281,10 +102,12 @@ BackGround(255);</code></p>
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

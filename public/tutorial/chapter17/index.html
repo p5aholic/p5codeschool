@@ -9,225 +9,46 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
-<p><code class='code-fragment'>int[] data = new int[100];</code></p>
+<p><code class='codeFragment'>int[] data = new int[100];</code></p>
 <p>実はdataのような配列変数も参照型変数なんです。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_3/sketch01/sketch01.pde' target='_blank'>Chapter15_3/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">50</span>];  <span class="hljs-comment">// 配列の宣言と代入</span>
@@ -239,7 +60,7 @@
 <span class="hljs-built_in">println</span>(data);
 </code></pre>
 <p>dataはint型の要素を持つint型配列ですが、クラスのインスタンスを持つクラス型配列というものを作ることができます。次のようにしてクラス型配列を作ることができます。</p>
-<p><code class='code-fragment'>クラス名[] 配列変数名 = new クラス名[要素数];</code></p>
+<p><code class='codeFragment'>クラス名[] 配列変数名 = new クラス名[要素数];</code></p>
 <p>次のプログラムでは、100個のBallクラスのインスタンスを持つ配列を作って画面内に100個のボールを描画しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_3/sketch02/sketch02.pde' target='_blank'>Chapter15_3/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 要素数100個のBallクラス型配列ballsを生成</span>
@@ -301,9 +122,9 @@ class Ball {
 }
 </code></pre>
 <p>次のように書いてBallクラスのインスタンスを要素とするBallクラス型配列を要素数100個で生成しています。</p>
-<p><code class='code-fragment'>Ball[] balls = new Ball[100];</code></p>
+<p><code class='codeFragment'>Ball[] balls = new Ball[100];</code></p>
 <p>注意が必要なのは、この時点ではBallクラス型配列を生成しただけで、個々の要素となるBallクラスのインスタンスは生成していないということです。配列ballsの個々の要素となるインスタンスは次のようにして生成します。</p>
-<p><code class='code-fragment'>for (int i = 0; i &lt; balls.length; i++) {
+<p><code class='codeFragment'>for (int i = 0; i &lt; balls.length; i++) {
   balls[i] = new Ball();
 }</code></p>
 <p>クラスを使わない場合のプログラムと比較してみると、setup関数とdraw関数の中がスッキリして非常に見やすいプログラムになっていることがわかると思います。</p>
@@ -461,11 +282,11 @@ class Ball {
 }
 </code></pre>
 <p>this参照について詳しく解説します。上のプログラムで</p>
-<p><code class='code-fragment'>this.x</code></p>
+<p><code class='codeFragment'>this.x</code></p>
 <p>という表現をしています。この表現は</p>
-<p><code class='code-fragment'>参照型変数.フィールド</code></p>
+<p><code class='codeFragment'>参照型変数.フィールド</code></p>
 <p>の形になっているので、thisは参照型変数であることがわかります。そして、コンストラクタ内でthisを使った場合、thisには生成中のインスタンスへの参照が代入されます。</p>
-<p><code class='code-fragment'>b1 = new Ball(200, height/2, 60, color(0, 0, 180));</code></p>
+<p><code class='codeFragment'>b1 = new Ball(200, height/2, 60, color(0, 0, 180));</code></p>
 <p>を実行すると、まず、new Ball()によってBallクラスのインスタンスが生成されます。次にBall()コンストラクタの実行に移るのですが、その際、thisにnew Ball()によって生成されたインスタンスへの参照が代入されます。すると、this.xは生成されたインスタンスが持つフィールドxを表し、ただのxは仮引数のxのことになります。こうすることで、コンストラクタの仮引数にフィールドと同じ変数名を使っても区別することができるのです。</p>
 <p>このthis参照は、コンストラクタだけでなくメソッドでも有効です。次のプログラムでは、座標をセットするsetPositionメソッドの仮引数にフィールドと同じ名前の変数名を使いthis参照により、フィールドと仮引数の区別をしています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_3/sketch06/sketch06.pde' target='_blank'>Chapter15_3/sketch06.pde</a></p>
@@ -559,10 +380,12 @@ class Ball {
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

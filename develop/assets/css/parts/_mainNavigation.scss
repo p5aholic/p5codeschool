@@ -1,0 +1,15 @@
+.mainNavigation {
+  display: flex;
+  align-items: center;
+  &__item {
+    font-size: 1.6rem;
+    margin-right: 20px;
+    a {
+      color: #000;
+    }
+  }
+  &__item--replay {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+}

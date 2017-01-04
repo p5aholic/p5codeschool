@@ -9,223 +9,44 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>インタラクション</h1><p>インタラクションは相互作用という意味です。Processingプログラムにおけるインタラクションはマウスやキーボードからプログラムに動きを加えることを意味します。今までに見てきたmouseX、mouseYを使ったプログラムもインタラクション性のあるプログラムです。この章ではマウスやキーボードから情報を受け取りプログラムに変化を加える方法を解説していきます。</p>
 <h2>mousePressed、mouseButton</h2><p>変数mousePressedはboolean型の変数で、マウスのいずれかのボタンが押されているときtrueになるので、マウスのボタンが押されているかどうかを判定することができます。次のプログラムではマウスのボタンが押されているとき円をランダムな位置に表示して、押されていないときは中央に表示しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch01/sketch01.pde' target='_blank'>Chapter9/sketch01.pde</a></p>
@@ -356,7 +177,7 @@
 }
 </code></pre>
 <h2>mousePressed()、keyPressed()</h2><p>mousePressed関数、keyPressed関数を使えばマウスやキーボードが押された時の処理をdraw関数と切り離すことができます。mousePressed関数、keyPressed関数は値を返さない関数で、setup関数やdraw関数のようにProcessingに標準で備わっている関数ですが、中身の処理が決められていません。 ですので中身を含めて私たちユーザー側が中身の処理を書き込んで再定義します。関数の再定義を書く場所どこでもいいですが、普通はdraw関数の下に書きます。</p>
-<p><code class='code-fragment'>void mousePressed() {
+<p><code class='codeFragment'>void mousePressed() {
   // 中身の処理
 }
 void keyPressed() {
@@ -473,10 +294,12 @@ void keyPressed() {
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

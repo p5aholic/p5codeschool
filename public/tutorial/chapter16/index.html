@@ -9,226 +9,47 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>クラス基礎 Part2</h1><h2>クラスの作り方</h2><p>プログラムを作っていると、複数の情報(変数)をまとめて扱えると便利な状況が多々あります。例えばボールについての複数の情報だったり、ブロックについての複数の情報だったりです。クラスは複数の情報をまとめる機能を持ちます。今回はボールについての情報をまとめたクラスを作りながら解説していきます。</p>
 <p>クラスは以下のようにして作ることができます。</p>
-<p><code class='code-fragment'>class クラス名 {
+<p><code class='codeFragment'>class クラス名 {
 }</code></p>
 <p>波カッコの中に必要な変数を書き込みます。次のプログラムではボールについての情報をまとめたクラスを作っています。クラス名はそのクラスを端的に表す名前が良いのでBallとしています。クラス内にはボールの情報を表す位置、半径、色の変数を書き込んでいます。クラス内に書く変数のことをプログラミング用語でフィールドと呼ぶので覚えておいてください。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_2/sketch01/sketch01.pde' target='_blank'>Chapter15_2/sketch01.pde</a></p>
@@ -252,9 +73,9 @@ class Ball {
 性質３：クラスをもとに、具体的なあるモノを作ることができる<br>
 <br>
 性質１はこれまでに説明した通りです。性質２と３について解説していきます。今、プログラム内にBallクラスというものを作りました。このBallクラスはボールというものの存在の定義でしかなく、具体的なあるボール、例えば赤色で半径が24pxのボールではありません。Ballクラスを作ることで、このプログラム内にボールという存在は位置と半径と色の情報を持つものだということを定義したわけです。そしてこのBallクラスをもとに具体的なボールを作ることができます。Ballクラスをもとに具体的なボールを作るには次のようにします。</p>
-<p><code class='code-fragment'>(例) Ball b1 = new Ball();</code></p>
+<p><code class='codeFragment'>(例) Ball b1 = new Ball();</code></p>
 <p>b1が変数名になります。配列のときにも出てきたnewという単語がありますが、まだこのnewの説明はできません。new Ball();と書くことで何が起こっているのか、b1に何を代入したのかはもう少し後で解説します。今はとにかくこう書くことでBallクラスから具体的なボールを作ることができるという理解に留めておいてください。さて、具体的なボールb1を作ることができましたので、b1に値を設定します。b1が持っているフィールドには</p>
-<p><code class='code-fragment'>b1.radius
+<p><code class='codeFragment'>b1.radius
 b1.x
 b1.c</code></p>
 <p>のようにb1のあとにドットを繋げてさらに変数名を書くことでアクセスできます。次のプログラムではb1のフィールドに値を設定して描画しています。</p>
@@ -336,25 +157,25 @@ class Ball {
 性質３：クラスをもとに、具体的なあるモノを作ることができる<br>
 <br>
 この具体的なあるモノというのがインスタンスのことです。そしてインスタンスは</p>
-<p><code class='code-fragment'>クラス名 変数名 = new クラス名();
+<p><code class='codeFragment'>クラス名 変数名 = new クラス名();
 (例) Ball b1 = new Ball();</code></p>
 <p>とすることで作ることができます。</p>
 <p>インスタンスのことをオブジェクトと呼ぶ場合があります。上のプログラムでは</p>
-<p><code class='code-fragment'>Ball b1 = new Ball(); // Ball型のオブジェクトを生成</code></p>
+<p><code class='codeFragment'>Ball b1 = new Ball(); // Ball型のオブジェクトを生成</code></p>
 <p>という表現をしていますが、これは「Ball型のインスタンスを生成」と同じ意味です。私が使っていたプログラミングの入門書が、クラスからインスタンスを作ることを「オブジェクトを生成する」という表現を使っていたので、私もそれにならうことにします。</p>
 <h2>new演算子</h2><p>さて、配列の解説にも登場し説明を後回しにしてきたnewという単語は、演算子の一つでnew演算子と呼ばれるものです。このnew演算子はクラスからインスタンスを作るときに必要となる演算子です。配列は</p>
-<p><code class='code-fragment'>(例) int[] data = new int[5];</code></p>
+<p><code class='codeFragment'>(例) int[] data = new int[5];</code></p>
 <p>のようにして作られていました。すると、「配列も何らかのクラスのインスタンスなのか」という疑問が浮かびます。答えはイエスですが、詳しくはもうちょっと後で解説します。</p>
 <p>new演算子がクラスからインスタンスを作る時に必要な演算子だということは言いましたが、new Ball();で何が起こっているのか、b1 = new Ball();としたとき、b1に何が代入されているのかについてはまだなので、解説していきます。</p>
 <h2>参照</h2><p>b1に何が代入されているかを解説します。結論から言うと、b1には参照と呼ばれるものが代入されています。参照はインスタンスが記憶されているコンピュータのメモリ上の場所を示しています。まとめると、</p>
-<p><code class='code-fragment'>Ball b1 = new Ball();</code></p>
+<p><code class='codeFragment'>Ball b1 = new Ball();</code></p>
 <p>と書くことで、new Ball();によってBallクラスのインスタンスが作られ、b1にはそのインスタンスの場所を示す参照が代入される、ということになります。さらに、</p>
-<p><code class='code-fragment'>Ball b2 = new Ball();</code></p>
+<p><code class='codeFragment'>Ball b2 = new Ball();</code></p>
 <p>と書くと、new Ball();によって新しいBallクラスのインスタンスが作られ、b2にそのインスタンスの場所を示す参照が代入されます。下の図のようなイメージで理解しておいてください。</p>
 <p><img src="/images/Chapter15/class_1.jpg" alt=""></p>
 <p>「b1.radius」は「b1が参照するインスタンスがもつ変数radius」、「b2.radius」は「b2が参照するインスタンスがもつ変数radius」という意味です。ですので、b1とb2には別の参照が代入されているのでb1.radiusとb2.radiusが異なる変数だというのは当たり前のことです。b1.radiusのことをいちいち「b1が参照するインスタンスが持つ変数radius」と呼ぶのは手間なので、単に「b1のradius」と呼ぶことにします。ですが頭の中では「b1が参照するインスタンスが持つ変数radius」という風に読みかえてください。</p>
 <p>b1やb2のようなインスタンスの場所を示す参照が代入されている変数は、参照型変数と呼ばれます。対して、</p>
-<p><code class='code-fragment'>int a;
+<p><code class='codeFragment'>int a;
 float b;</code></p>
 <p>などのaやbは基本データ型変数と呼ばれます。</p>
 <p>次のプログラムを通して参照についての理解を深めます。</p>
@@ -388,7 +209,7 @@ class Ball {
 <p>つまり、b1が持っていた参照をb2に代入したことにより、b1とb2が参照するインスタンスが同じになったのです。当然、b1.radiusとb2.radiusは同じ変数なのでprintln()で出力すると同じ値が出力されます。</p>
 <p>この参照とインスタンスの関係を理解したうえで、今までの解説をもう一度読み返すことをオススメします。</p>
 <h2>コンストラクタ</h2><p>コンストラクタと呼ばれるものについて解説します。コンストラクト(construct)は日本語で「組み立てる」という意味の英語で、コンストラクタ(constructor)は「組み立てるもの」というような意味になります。コンストラクタはクラスに最低でも１つは書かれているものなのですが、クラス定義にコンストラクタを書かなかった場合、デフォルトコンストラクタと呼ばれるものがあるとみなされます。デフォルトコンストラクタは次のように書きます。</p>
-<p><code class='code-fragment'>クラス名() {
+<p><code class='codeFragment'>クラス名() {
 }</code></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_2/sketch05/sketch05.pde' target='_blank'>Chapter15_2/sketch05.pde</a></p>
 <pre><code class="lang-processing">class Ball {
@@ -405,7 +226,7 @@ class Ball {
 }
 </code></pre>
 <p>コンストラクタはクラスからインスタンスを作る時に必要となるもので、実は</p>
-<p><code class='code-fragment'>Ball b1 = new Ball();</code></p>
+<p><code class='codeFragment'>Ball b1 = new Ball();</code></p>
 <p>のBall()の部分がコンストラクタです。new演算子に続いて、クラスに定義されている(とみなされている)コンストラクタを呼び出すことによってインスタンスを作っていたわけです。コンストラクタにはインスタンスを作るという最も重要な機能が初めから備わっているのですが、コンストラクタの中身にコードを加えて機能を付け足すことができます。次のプログラムではコンストラクタの中身にフィールドの代入処理を加えています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_2/sketch06/sketch06.pde' target='_blank'>Chapter15_2/sketch06.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2;
@@ -446,9 +267,9 @@ class Ball {
 }
 </code></pre>
 <p>コンストラクタに代入処理を書き込むことによって、setup関数内でいちいち個別に代入文を書く必要がなくなりました。</p>
-<p><code class='code-fragment'>b1 = new Ball();</code></p>
+<p><code class='codeFragment'>b1 = new Ball();</code></p>
 <p>を書く位置に注意が必要です。Ballクラスにあるフィールドx、yの代入処理にはwidthとheightが使われています。このwidthとheightはsize関数の使用後に値が設定されます。なので、widthとheightを使う代入処理を書き込んだBallコンストラクタはsize()を行ってから呼び出す必要があります。もし、今までのようにsetup関数の上側で</p>
-<p><code class='code-fragment'>Ball b1 = new Ball();</code></p>
+<p><code class='codeFragment'>Ball b1 = new Ball();</code></p>
 <p>のように書いていたら、widthとheightのデフォルト値である100を使ってフィールドx、yの代入処理を行うことになります。</p>
 <p>コンストラクタは関数のように仮引数を持つことができます。次のプログラムでは、bx、by、rad、bcを仮引数とするコンストラクタを作り、フィールドx、y、radius、cに代入することで値の代入処理をしています。コンストラクタを呼び出すときは、仮引数を持つコンストラクタに合わせて実引数を書き込んだコンストラクタを使います。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_2/sketch07/sketch07.pde' target='_blank'>Chapter15_2/sketch07.pde</a></p>
@@ -538,7 +359,7 @@ class Ball {
   }
 }
 </code></pre>
-<p><code class='code-fragment'>b1 = new Ball();</code></p>
+<p><code class='codeFragment'>b1 = new Ball();</code></p>
 <p>が実行されたときの実行過程は、まずnew Ball()によりインスタンスが作られ、インスタンスが持つフィールドにクラス定義に書かれたデフォルト値が設定されます。そのあとBall()に書かれたフィールドの代入処理が実行されます。上のプログラムではコンストラクタの代入処理によってフィールドradius、x、yの値が決められますが、色だけはデフォルト値のままになっています。</p>
 <h2>メソッド</h2><p>今までに解説してきたクラスを使って、ボールがウィンドウを跳ね回るプログラムを作りました。Ballクラスには速度を表すフィールドvx、vyを追加しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15_2/sketch09/sketch09.pde' target='_blank'>Chapter15_2/sketch09.pde</a></p>
@@ -665,7 +486,7 @@ class Ball {
 }
 </code></pre>
 <p>クラスにはインスタンスが行う処理を関数としてまとめる機能があります。例えばBallクラスのインスタンスに、動いて壁で跳ね返る処理と円を描画する処理を持たせたい場合は、Ballクラスにその処理を関数としてまとめることができるんです。上のプログラムでは、動いて壁で跳ね返る処理をupdateという名前の関数に、円を描画する処理をdisplayという名前の関数にまとめて、Ballクラス内で定義しています。インスタンスに対してクラスに定義した関数を呼び出す場合は</p>
-<p><code class='code-fragment'>b1.update();
+<p><code class='codeFragment'>b1.update();
 b1.display();</code></p>
 <p>という風に、フィールドにアクセスするのと同じように参照型変数にドットで繋げて関数を呼び出します。クラス定義に書く関数のことをプログラミング用語でメソッドと呼ぶことがあるので覚えておいてください。</p>
 <p>クラス定義に書くフィールドはインスタンスごとに保持されているので、b1.でアクセスするフィールドとb2.でアクセスするフィールドは別の変数でした。細かい話になるのですが、メソッドはインスタンスごとに保持されません。b1.display()と書いて呼び出すdisplayメソッドと、b2.display()と書いて呼び出すdisplayメソッドは、Ballクラス内に定義されている同じメソッドなんです。ですがProcessingの言語機能として、メソッド内に書かれたフィールドを、呼び出した参照型変数が参照するインスタンスが持つフィールドだと勝手に解釈してくれます。 例えばb1.update()を呼び出したときに実行されるupdate()メソッドは次のように解釈されて実行されます。</p>
@@ -700,10 +521,12 @@ b1.display();</code></p>
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

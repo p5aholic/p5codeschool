@@ -9,229 +9,50 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>3D図形とカメラとライト</h1><p>3D空間に描くことができる図形と、カメラとライトの扱い方を解説します。今まではProcessingプログラムの動作をWeb上でも確認できるようにしていましたが、使っているp5.jsの3D対応が完全ではないのでこのChapterでは代わりに画像を使うことにします。</p>
 <h2>3D図形</h2><p>3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第３パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは４種類あるのですが、3D空間を扱うにはP3Dを指定します。</p>
-<p><code class='code-fragment'>size(960, 540, P3D);</code></p>
+<p><code class='codeFragment'>size(960, 540, P3D);</code></p>
 <p>これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。</p>
 <p>Processingで扱える3D図形は次の2つです。</p>
-<dl class="func-list">
+<dl class="p5Functions">
     <dt><a href='https://www.processing.org/reference/box_.html' target='_blank'>box(size) || box(w, h, d)</a></dt>
     <dd>・１辺がsizeの箱を描画する<br>・幅w、高さh、奥行きdの箱を描画する</dd>
     <dt><a href='https://www.processing.org/reference/sphere_.html' target='_blank'>sphere(r)</a></dt>
@@ -324,7 +145,7 @@
 </code></pre>
 <p>マウスの座標をmap()で面の数に変換しています。水平方向は最低でも３面で分割しないと平面になってしまうので、hResの最小値は3にしています。</p>
 <h2>3D座標の回転</h2><p>今までの２Ｄ空間でのrotate()による回転はz軸中心の回転でした。３Ｄ空間ではx軸中心の回転とy軸中心の回転が使えるようになります。</p>
-<dl class="func-list">
+<dl class="p5Functions">
     <dt><a href='https://www.processing.org/reference/rotateX_.html' target='_blank'>rotateX(angle)</a></dt>
     <dd>x軸を中心にして回転する</dd>
     <dt><a href='https://www.processing.org/reference/rotateY_.html' target='_blank'>rotateY(angle)</a></dt>
@@ -410,7 +231,7 @@
 }
 </code></pre>
 <h2>3D空間内の2D図形</h2><p>point()とline()は3D空間内で使うこともできます。</p>
-<dl class="func-list">
+<dl class="p5Functions">
     <dt><a href='https://www.processing.org/reference/point_.html' target='_blank'>point(x, y, z)</a></dt>
     <dd>座標(x, y, z)に点を描画</dd>
     <dt><a href='https://www.processing.org/reference/line_.html' target='_blank'>line(x1, y1, z1, x2, y2, z2)</a></dt>
@@ -504,7 +325,7 @@
 }
 </code></pre>
 <h2>カメラ</h2><p>２Ｄ空間の場合はカメラという存在は必要ありません。ピクセルで指定した位置や大きさがそのままディスプレイに映るだけだからです。ですが３Ｄ空間では、最終的にディスプレイに描かれるものはカメラによって切り取られたものです。なので、カメラによってどの位置からどこを見ているのかということを設定しないといけません。カメラの設定をしなかった場合勝手にいい感じに設定してくれますが、camera()を使って自分で設定できます。camera()は９つのパラメータを持ちます。</p>
-<dl class="func-list">
+<dl class="p5Functions">
     <dt><a href='https://www.processing.org/reference/camera_.html' target='_blank'>camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)</a></dt>
     <dd>カメラの座標、カメラが注視する座標、カメラの上方向を設定</dd>
 </dl>
@@ -553,7 +374,7 @@
 }
 </code></pre>
 <h2>ライト</h2><p>3D空間でのライトの扱いを解説します。Processingで扱えるライトは以下の４種類です。</p>
-<dl class="func-list">
+<dl class="p5Functions">
     <dt><a href='https://www.processing.org/reference/ambientLight_.html' target='_blank'>ambientLight(r, g, b)</a></dt>
     <dd>環境光を3D空間に追加する</dd>
     <dt><a href='https://www.processing.org/reference/directionalLight_.html' target='_blank'>directionalLight(r, g, b, nx, ny, nz)</a></dt>
@@ -742,10 +563,12 @@
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

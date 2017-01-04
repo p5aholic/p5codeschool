@@ -1,0 +1,42 @@
+.mainContents {
+  max-width: $articleWidth;
+  margin: 0 auto;
+  padding: 100px 40px 50px;
+  background-color: rgba(255, 255, 255, 0.6);
+  %headding {
+    font-weight: 300;
+    margin-bottom: 15px;
+  }
+  > h1 {
+    @extend %headding;
+    font-size: 3.0rem;
+    color: #e60045;
+  }
+  > h2 {
+    @extend %headding;
+    font-size: 2.2rem;
+    color: #003aaa;
+  }
+  > p {
+    margin-bottom: 15px;
+  }
+  a {
+    color: $main-pink;
+    &:hover {
+      color: $main-pink;
+      border-bottom: 1px solid $main-pink;
+    }
+  }
+}
+
+@include lt-640 {
+  .mainContents {
+    padding: 0 20px;
+    > h1 {
+      font-size: 2.5rem;
+    }
+    > h2 {
+      font-size: 2.0rem;
+    }
+  }
+};

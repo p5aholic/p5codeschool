@@ -4,21 +4,40 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp",
+    "build": "gulp --task=build",
+    "build:hash": "gulp --task=build:hash",
+    "build:md": "gulp --task=build:md",
+    "build:css": "gulp --task=build:css",
+    "build:js": "gulp --task=build:js",
+    "release": "gulp --task=build --env=production",
+    "sprite": "gulp --task=sprite",
+    "texture": "gulp --task=texture",
+    "init": "gulp --task=init"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.17.5",
+    "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-changed": "^1.3.2",
-    "gulp-ejs": "^2.2.1",
+    "gulp-ejs": "^2.3.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jsonminify": "^1.0.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.0.0",
     "gulp-util": "^3.0.7",
-    "highlight.js": "^9.7.0",
-    "marked": "^0.3.6"
+    "gulp.spritesmith": "^6.2.1",
+    "highlight.js": "^9.9.0",
+    "imagemin-pngquant": "^5.0.0",
+    "marked": "^0.3.6",
+    "node-sass": "^4.1.1",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2",
+    "spritesmith-texturepacker": "^1.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "webpack": "^1.14.0",
+    "webpack-stream": "^3.2.0"
   }
 }

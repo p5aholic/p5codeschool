@@ -1,0 +1,31 @@
+.pageFrame {
+  display: none;
+  &__frame {
+    position: absolute;
+    background-color: #297acc;
+  }
+  &__frame--top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+  }
+  &__frame--bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+  }
+  &__frame--left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+  }
+  &__frame--right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+  }
+}

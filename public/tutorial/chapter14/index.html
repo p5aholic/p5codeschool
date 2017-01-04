@@ -9,236 +9,57 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>配列</h1><p>配列を使うと同じデータ型の値を大量に扱うことができます。配列の直観的なイメージは番号順に一列に並んだ箱です。箱の一つ一つが変数で、値を入れておくことができます。全ての箱(変数)は同じデータ型になります。箱の集合(配列)の名前がAだとすると、先頭の箱(先頭の変数)はA[0]、２番目の箱(２番目の変数)はA[1]になります。</p>
 <h2>配列の作り方</h2><p>配列を作るにはまず次のようにします。</p>
-<p><code class='code-fragment'>データ型[] 配列変数名;
+<p><code class='codeFragment'>データ型[] 配列変数名;
 (例) int[] data;</code></p>
 <p>これは配列変数の宣言に当たる部分です。このように書くと箱の集合(配列)の名前がdataになり、箱の一つ一つがint型変数になります。通常の変数の宣言と代入を思い出してみましょう。例えばint型の変数aを宣言して5を代入する場合は次のようにしました。</p>
-<p><code class='code-fragment'>int a;</code></p>
+<p><code class='codeFragment'>int a;</code></p>
 <p>こう書くことで変数aがint型の値を扱うことになり、</p>
-<p><code class='code-fragment'>a = 5;</code></p>
+<p><code class='codeFragment'>a = 5;</code></p>
 <p>これで変数aに具体的なint型の値5が代入されました。配列も同じで、宣言のあとは代入を行う必要があります。代入は次のように行います。</p>
-<p><code class='code-fragment'>配列変数名 = new データ型[要素数];
+<p><code class='codeFragment'>配列変数名 = new データ型[要素数];
 (例) data = new int[5];</code></p>
 <p>こう書くことで配列変数dataにint型を扱う要素数5の配列の実態が代入されます。要素数は配列が扱う箱(変数)の数のことです。「配列の実態ってなんぞや？」とか「newってなんぞや？」っていう疑問には次のChapterで詳しく解説するので今はあまり気にしないでください。残る作業は配列の変数の一つ一つに値を代入することです。配列変数dataの要素である変数一つ一つに値を代入するには次のようにします。</p>
-<p><code class='code-fragment'>(例)
+<p><code class='codeFragment'>(例)
 data[0] = 53;
 data[1] = 22;
 data[2] = 84;
@@ -285,7 +106,7 @@ data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</spa
 <span class="hljs-built_in">println</span>(data);
 </code></pre>
 <p>for文の初期化式、条件式には注意が必要です。</p>
-<p><code class='code-fragment'>for (int i = 0; i &lt; numData; i++) {
+<p><code class='codeFragment'>for (int i = 0; i &lt; numData; i++) {
 }</code></p>
 <p>と書いた時のfor文の実行過程は次のようになります。<br>
 １回目：i = 0<br>
@@ -299,7 +120,7 @@ data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</spa
 ４９回目：i = 48<br>
 ５０回目：i = 49<br>
 要素数50の配列の先頭の番号は0、最後の番号は49なので、それに対応するようにfor文を作らなければいけません。配列を使っているときによく起こるエラーを紹介します。for文の条件式を次のように変えて実行してみてくさい。</p>
-<p><code class='code-fragment'>for (int i = 0; i &lt;= numData; i++) {
+<p><code class='codeFragment'>for (int i = 0; i &lt;= numData; i++) {
 }</code></p>
 <p>&quot;ArrayIndexOutOfBoundsException:50&quot;というエラーがでます。これは配列の範囲外の要素にアクセスしたときに起こるエラーです。配列dataは要素数50の配列なので、配列の最後の要素はdata[49]です。条件式をi &lt;= numDataにした場合の実行過程は<br>
 １回目：i = 0<br>
@@ -397,7 +218,7 @@ data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</spa
 x = random(width);
 y = random(radius);
 xとyはボールの中心座標なので、例えばもしxの初期値が2などになったら、ボールの左側がウィンドウの左端に埋まった状態でスタートしてしまいます。するとdraw関数内の壁とのあたり判定でボールの動きがおかしくなってしまいます。試しにx = 0として試してみるとわかると思います。これを防ぐために、ボールの中心座標の初期値は以下のように設定して、ボールが壁に埋まった状態でスタートしないようにしています。</p>
-<p><code class='code-fragment'>x = random(radius, width-radius);
+<p><code class='codeFragment'>x = random(radius, width-radius);
 y = random(radius, height-radius);</code></p>
 <p>上のプログラムをもとに、配列を使ってボールが１００個飛び回るようにしたプログラムが次のプログラムです。</p>
 <iframe src="/samples/tutorial/Chapter14/sketch07.html" class="sample-sketch"></iframe>
@@ -453,10 +274,12 @@ y = random(radius, height-radius);</code></p>
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>

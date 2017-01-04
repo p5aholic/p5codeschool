@@ -9,226 +9,47 @@
   <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
+  <script src="/js/libs/p5.min.js"></script>
+  <script src="/js/libs/pixi.min.js"></script>
+  <script src="/js/libs/Util.js"></script>
   <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>図形の描画</h1><p>このChapterではProcessingで描くことのできる基本的な図形の描画方法を解説していきます。</p>
 <h2>図形を描く</h2><p>Processingで描くことのできる基本図形は以下の7つです。</p>
-<dl class="func-list">
+<dl class="p5Functions">
   <dt><a href='https://www.processing.org/reference/point_.html' target='_blank'>point(x, y)</a></dt>
   <dd>座標(x, y)に点を描く</dd>
 
@@ -311,18 +132,18 @@
 <span class="hljs-built_in">rect</span>(<span class="hljs-number">475</span>, <span class="hljs-number">125</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>);
 </code></pre>
 <h2>図形に色を塗る</h2><p>図形に色を指定する方法を見ていきましょう。色の表現方法はChapter3で詳しく解説します。ここでは黒～白の色に限定して話していきます。図形には枠線の色と内側の塗りつぶしの色を指定することができます。以下の４つの関数で色の指定ができます。fill()とstroke()のパラメータにはbackground()と同じく0～255の数値を与えます。noFill()とnoStroke()はパラメータを持たない関数です。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/fill_.html' target='_blank'>fill()</a></dt>
-    <dd>図形の内側の色を指定する</dd>
+<dl class="p5Functions">
+  <dt><a href='https://www.processing.org/reference/fill_.html' target='_blank'>fill()</a></dt>
+  <dd>図形の内側の色を指定する</dd>
 
-    <dt><a href='https://www.processing.org/reference/noFill_.html' target='_blank'>noFill()</a></dt>
-    <dd>図形の内側の色を無くす</dd>
+  <dt><a href='https://www.processing.org/reference/noFill_.html' target='_blank'>noFill()</a></dt>
+  <dd>図形の内側の色を無くす</dd>
 
-    <dt><a href='https://www.processing.org/reference/stroke_.html' target='_blank'>stroke()</a></dt>
-    <dd>図形の枠線の色を指定する</dd>
+  <dt><a href='https://www.processing.org/reference/stroke_.html' target='_blank'>stroke()</a></dt>
+  <dd>図形の枠線の色を指定する</dd>
 
-    <dt><a href='https://www.processing.org/reference/noStroke_.html' target='_blank'>noStroke()</a></dt>
-    <dd>図形の枠線を無くす</dd>
+  <dt><a href='https://www.processing.org/reference/noStroke_.html' target='_blank'>noStroke()</a></dt>
+  <dd>図形の枠線を無くす</dd>
 </dl>
 
 <p>point()とline()には内側というものがありません。point()とline()に色を指定する場合はstroke()だけでいいです。</p>
@@ -353,15 +174,15 @@
 <p>noFill()が指定された図形の内側の色は背景色と同じになります。また、図形が重なった場合は後から描かれた図形が前に描かれた図形の上に描かれます。</p>
 <p>fill()、stroke()、noFill()、noStroke()や、後述するstrokeWeight()、strokeCap()、strokeJoin()、ellipseMode()、rectMode()などは 一度指定するとそれ以降の図形にも適用されます。図形ごとにスタイルを切り替えたい場合は、今何が適用されているかに注意しましょう。</p>
 <h2>枠線の見た目を変える</h2><p>枠線の見た目を変える３種類の関数を見ていきましょう。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/strokeWeight_.html' target='_blank'>strokeWeight()</a></dt>
-    <dd>枠線の太さを変える</dd>
+<dl class="p5Functions">
+  <dt><a href='https://www.processing.org/reference/strokeWeight_.html' target='_blank'>strokeWeight()</a></dt>
+  <dd>枠線の太さを変える</dd>
 
-    <dt><a href='https://www.processing.org/reference/strokeJoin_.html' target='_blank'>strokeJoin()</a></dt>
-    <dd>枠線の角の形を変える</dd>
+  <dt><a href='https://www.processing.org/reference/strokeJoin_.html' target='_blank'>strokeJoin()</a></dt>
+  <dd>枠線の角の形を変える</dd>
 
-    <dt><a href='https://www.processing.org/reference/strokeCap_.html' target='_blank'>strokeCap()</a></dt>
-    <dd>枠線の両端の形を変える</dd>
+  <dt><a href='https://www.processing.org/reference/strokeCap_.html' target='_blank'>strokeCap()</a></dt>
+  <dd>枠線の両端の形を変える</dd>
 </dl>
 
 <p>strokeWeight()は枠線の太さを変える関数です。strokeJoin()は枠線の角の形を変える関数で、パラメータにMITER、BEVEL、ROUNDの３種類を指定することができます。MITERは角を尖った形に、BEVELは角を切り取った形に、ROUNDは角を丸い形にできます。MITERがデフォルトの設定です。</p>
@@ -497,10 +318,12 @@ ROUNDがデフォルトなので
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2015</p>
   </div>
 </footer>
 
 
+</div>
+<script src="/js/bg.js"></script>
 </body>
 </html>
