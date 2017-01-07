@@ -1,5 +1,5 @@
 /**
- * markdown タスク
+ * html タスク
  */
 var fs     = require("fs");
 var path   = require("path");
@@ -8,7 +8,7 @@ var gutil  = require("gulp-util");
 var rename = require("gulp-rename");
 var ejs    = require("gulp-ejs");
 var marked = require("marked");
-var hljs         = require("highlight.js");
+var hljs   = require("highlight.js");
 
 var jsonData = JSON.parse(fs.readFileSync(global.Config.SRC_DIR + "html/data.json"));
 
@@ -90,8 +90,8 @@ function mdToHTML(fileName) {
   .pipe(gulp.dest(global.Config.DEST_DIR));
 }
 
-gulp.task("genTutorial", function() {
-  gulp.src("html/tutorial/index.ejs")
+gulp.task("tutorial", function() {
+  gulp.src(global.Config.SRC_DIR + "html/index_tutorial.ejs")
   .pipe(ejs(
     {
       pageTitle: "P5 Code School : チュートリアル",
@@ -101,6 +101,7 @@ gulp.task("genTutorial", function() {
     { "ext": ".html" }
   ))
   .pipe(rename({
+    basename: "index",
     dirname: "tutorial"
   }))
   .pipe(gulp.dest(global.Config.DEST_DIR));

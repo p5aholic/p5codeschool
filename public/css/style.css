@@ -461,8 +461,8 @@ html {
 }
 
 body {
-  font-family: "Mplus 1p", sans-serif;
-  font-weight: 300;
+  font-family: "Noto Sans Japanese", sans-serif;
+  font-weight: 200;
   color: #161616;
   background-color: #fff;
 }
@@ -486,7 +486,13 @@ p {
 }
 
 a {
+  color: #cd0055;
   text-decoration: none;
+}
+
+a:hover {
+  color: #cd0055;
+  border-bottom: 1px solid #cd0055;
 }
 
 ul {
@@ -632,7 +638,7 @@ canvas {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 900px;
+  max-width: 840px;
   margin: 0 auto;
 }
 
@@ -645,6 +651,10 @@ canvas {
 .header__siteTitle a {
   display: block;
   color: #161616;
+}
+
+.header__siteTitle a:hover {
+  border-bottom: none;
 }
 
 @media (max-width: 640px) {
@@ -683,7 +693,7 @@ canvas {
 }
 
 .footer .inner {
-  max-width: 900px;
+  max-width: 840px;
   margin: 0 auto;
   padding: 15px 0;
 }
@@ -694,14 +704,15 @@ canvas {
 }
 
 .mainContents {
-  max-width: 900px;
+  position: relative;
+  max-width: 840px;
   margin: 0 auto;
-  padding: 100px 40px 50px;
+  padding: 100px 20px 50px;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
 .mainContents > h1, .mainContents > h2 {
-  font-weight: 300;
+  font-weight: 200;
   margin-bottom: 15px;
 }
 
@@ -711,21 +722,13 @@ canvas {
 }
 
 .mainContents > h2 {
+  margin-top: 30px;
   font-size: 2.2rem;
   color: #003aaa;
 }
 
 .mainContents > p {
   margin-bottom: 15px;
-}
-
-.mainContents a {
-  color: #cd0055;
-}
-
-.mainContents a:hover {
-  color: #cd0055;
-  border-bottom: 1px solid #cd0055;
 }
 
 @media (max-width: 640px) {
@@ -738,6 +741,59 @@ canvas {
   .mainContents > h2 {
     font-size: 2.0rem;
   }
+}
+
+.sectionNavi {
+  position: fixed;
+  top: 140px;
+  left: 100px;
+}
+
+.sectionNavi__title {
+  font-size: 1.8rem;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.sectionNavi .sectionNavi__prevBtn, .sectionNavi .sectionNavi__nextBtn {
+  display: block;
+  width: 0;
+  height: 0;
+  cursor: pointer;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.sectionNavi__prevBtn {
+  top: -40px;
+  border-top: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 16px solid #000000;
+  border-left: 12px solid transparent;
+  -webkit-transition: 0.4s border-bottom-color cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: 0.4s border-bottom-color cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.sectionNavi__prevBtn:hover {
+  border-bottom-color: #003aaa;
+}
+
+.sectionNavi__nextBtn {
+  bottom: -40px;
+  border-top: 16px solid #000000;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid transparent;
+  -webkit-transition: 0.4s border-top-color cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: 0.4s border-top-color cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.sectionNavi__nextBtn:hover {
+  border-top-color: #003aaa;
 }
 
 .codeFragment {
@@ -815,13 +871,13 @@ pre code.lang-processing {
   }
 }
 
-ul.chapter-list {
+.chapters {
   margin-top: 20px;
   padding: 0 15px;
   font-size: 0;
 }
 
-li.chapter {
+.chapters__item {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -831,21 +887,29 @@ li.chapter {
 }
 
 @media (max-width: 640px) {
-  li.chapter {
+  .chapters__item {
     width: 45%;
   }
 }
 
-li.chapter:nth-child(3n) {
+.chapters__item:nth-child(3n) {
   margin-right: 0;
 }
 
-a.chapter-link {
+.chapters__link {
   display: block;
   margin-bottom: 15px;
 }
 
-a.chapter-link .chapter-title .chapter-number {
+.chapters__link:hover {
+  border-bottom: none;
+}
+
+.chapters__title {
+  font-weight: 200;
+}
+
+.chapters__number {
   display: block;
   margin-bottom: 5px;
   font-size: 2.2rem;
@@ -855,20 +919,16 @@ a.chapter-link .chapter-title .chapter-number {
 }
 
 @media (max-width: 640px) {
-  a.chapter-link .chapter-title .chapter-number {
+  .chapters__number {
     font-size: 1.8rem;
   }
 }
 
-a.chapter-link .chapter-title .sub-title {
+.chapters__subTitle {
   font-size: 1.6rem;
   color: #161616;
 }
 
-a.chapter-link:hover .chapter-number {
-  color: #cd0055;
-}
-
-p.chapter-description {
+.chapters__description {
   line-height: 1.4;
 }

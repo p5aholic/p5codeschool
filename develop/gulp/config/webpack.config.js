@@ -3,10 +3,7 @@ var webpack = require("webpack");
 
 module.exports = {
   entry: {
-    // "common"       : "./assets/js/common/index.js",
-    // "index-phase1" : "./assets/js/index/phase1/index.js",
-    // "index-phase2" : "./assets/js/index/phase2/index.js",
-    // "index-phase3" : "./assets/js/index/phase3/index.js"
+    "common" : "./assets/js/common.js",
   },
 
   output: {
@@ -15,7 +12,7 @@ module.exports = {
 
   resolve: {
     root: [
-      path.resolve("./assets/js/lib")
+      path.resolve("./assets/js/libs")
     ]
   },
 

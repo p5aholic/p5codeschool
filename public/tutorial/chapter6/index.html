@@ -16,12 +16,6 @@
   <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.min.js"></script>
-  <script src="/js/libs/pixi.min.js"></script>
-  <script src="/js/libs/Util.js"></script>
-  <script src="/js/main.js"></script>
 </head>
 
 <body>
@@ -45,6 +39,12 @@
   </div>
 </header>
 
+
+<div class="sectionNavi">
+  <h2 class="sectionNavi__title">Section 01</h2>
+  <div class="sectionNavi__prevBtn"></div>
+  <div class="sectionNavi__nextBtn"></div>
+</div>
 
 <main class="mainContents">
   <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立てて、ボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
@@ -483,6 +483,13 @@ y += vy;
 
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/libs/p5.min.js"></script>
+<script src="/js/libs/pixi.min.js"></script>
+<script src="/js/libs/Util.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/main.js"></script>
 <script src="/js/bg.js"></script>
+
 </body>
 </html>

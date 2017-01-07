@@ -18,6 +18,9 @@
     a {
       display: block;
       color: $main-gray;
+      &:hover {
+        border-bottom: none;
+      }
     }
   }
 }

@@ -2,30 +2,31 @@
 <html lang="ja">
 
 <% include common/_head %>
-
 <body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <% include common/_header %>
-<% include common/_main-navigation %>
 
-<main class="main-article">
+<main class="mainContents">
   <h1>Processing チュートリアル</h1>
   <p>
     このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
     サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
     <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
   </p>
+  
   <h2>Processing 基礎</h2>
-  <ul class="chapter-list clearfix">
+  <ul class="chapters">
     <% for (var i = 0; i < data.tutorials.length; i++) { %>
-    <li class="chapter">
-      <a href="chapter<%= data.tutorials[i].number %>" class="chapter-link">
-        <h3 class="chapter-title">
-          <span class="chapter-number">Chapter <%= data.tutorials[i].number %></span><br>
-          <span class="sub-title"><%= data.tutorials[i].subTitle %></span>
+    <li class="chapters__item">
+      <a href="chapter<%= data.tutorials[i].number %>" class="chapters__link">
+        <h3 class="chapters__title">
+          <span class="chapters__number">Chapter <%= data.tutorials[i].number %></span><br>
+          <span class="chapters__subTitle"><%= data.tutorials[i].subTitle %></span>
         </h3>
       </a>
-      <p class="chapter-description"><%= data.tutorials[i].description %></p>
+      <p class="chapters__description"><%= data.tutorials[i].description %></p>
     </li>
     <% } %>
   </ul>
@@ -33,5 +34,7 @@
 
 <% include common/_footer %>
 
+</div>
+<% include common/_scripts %>
 </body>
 </html>
