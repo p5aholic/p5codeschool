@@ -26,17 +26,9 @@ gulp.task("default", function(callback) {
   else if (gutil.env.task && gutil.env.task == "build:md") {
     return runSequence("md", callback);
   }
-  // npm run sprite - sprite-imageタスクを実行
-  else if (gutil.env.task && gutil.env.task == "sprite") {
-    return runSequence("sprite-image", callback);
-  }
-  // npm run texture - sprite-textureタスクを実行
-  else if (gutil.env.task && gutil.env.task == "texture") {
-    return runSequence("sprite-texture", callback);
-  }
   // npm run init - 初期化、全タスクを実行
   else if (gutil.env.task && gutil.env.task == "init") {
-    return runSequence("hash", "css", "js", "sprite-image", "sprite-texture", "server", "watch", callback);
+    return runSequence("hash", "css", "js", "server", "watch", callback);
   }
   // npm start - serverタスクを実行
   else {

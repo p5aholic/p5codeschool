@@ -2,17 +2,10 @@
 
 var width = window.innerWidth * window.devicePixelRatio;
 var height = window.innerHeight * window.devicePixelRatio;
-var numX, numY;
-var spaceX = 20, spaceY = 20;
+var spaceX = 30, spaceY = 30;
 var $window = $(window);
 var scrollValue = 0;
 var needUpdate = true;
-
-init();
-function init() {
-  numX = Math.ceil(width / spaceX);
-  numY = Math.ceil(height / spaceY);
-}
 
 $window.on("scroll", function() {
   scrollValue = $window.scrollTop();
@@ -31,40 +24,41 @@ document.getElementById("BgCanvasContainer").appendChild(renderer.view);
 var stage = new PIXI.Container();
 var graphics = new PIXI.Graphics();
 
-// draw a circle
+graphics.lineStyle(1, 0xf5f5f5, 1);
+for (var x = 0; x < width; x += spaceX) {
+  graphics.moveTo(x, 0);
+  graphics.lineTo(x, height);
+}
+for (var y = 0; y < height; y += spaceY) {
+  graphics.moveTo(0, y);
+  graphics.lineTo(width, y);
+}
+
 graphics.lineStyle(0);
-graphics.beginFill(0x000000, 1);
-for (var x = 0; x < numX; x++) {
-  for (var y = 0; y < numY; y++) {
-    var posX = x * spaceX;
-    var posY = y * spaceY;
-    graphics.drawCircle(posX, posY, 0.5);
+for (var x = 0; x < width; x += spaceX) {
+  for (var y = 0; y < height; y += spaceY) {
+    var r = Math.floor(Util.random(30));
+    var radius;
+    if (r == 0) {
+      graphics.beginFill(0x21a3db, 1.0);
+      radius = Util.random(1.0, 4.0);
+    } else if (r == 1) {
+      graphics.beginFill(0xdb2254, 1.0);
+      radius = Util.random(1.0, 4.0);
+    } else {
+      graphics.beginFill(0x000000, Util.random(1.0));
+      radius = Util.random(0.5, 1.0);
+    }
+    graphics.drawCircle(x, y, radius);
   }
 }
 graphics.endFill();
 
 stage.addChild(graphics);
 
-// let's create a moving shape
-// var thing = new PIXI.Graphics();
-// stage.addChild(thing);
-// thing.position.x = 620/2;
-// thing.position.y = 380/2;
-//
-// var count = 0;
 animate();
 
 function animate() {
-  // count += 0.1;
-  // thing.clear();
-  // thing.lineStyle(10, 0xff0000, 1);
-  // thing.beginFill(0xffFF00, 0.5);
-  // thing.moveTo(-120 + Math.sin(count) * 20, -100 + Math.cos(count)* 20);
-  // thing.lineTo( 120 + Math.cos(count) * 20, -100 + Math.sin(count)* 20);
-  // thing.lineTo( 120 + Math.sin(count) * 20, 100 + Math.cos(count)* 20);
-  // thing.lineTo( -120 + Math.cos(count)* 20, 100 + Math.sin(count)* 20);
-  // thing.lineTo( -120 + Math.sin(count) * 20, -100 + Math.cos(count)* 20);
-  // thing.rotation = count * 0.1;
   renderer.render(stage);
   // requestAnimationFrame(animate);
 }
