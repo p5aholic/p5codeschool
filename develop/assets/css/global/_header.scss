@@ -1,0 +1,40 @@
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 3px solid #000;
+  z-index: index($z, header);
+  .inner {
+    max-width: $articleWidth;
+    margin: 0 auto;
+    padding: 10px $sidePadding;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__siteTitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4.0rem;
+    font-weight: 700;
+    a {
+      display: block;
+      color: $main-gray;
+      &:hover {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+@include lt-640 {
+  .header {
+    .inner {
+      display: block;
+    }
+    &__siteTitle {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}

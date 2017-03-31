@@ -1,37 +1,40 @@
 .mainContents {
-  position: relative;
   max-width: $articleWidth;
   margin: 0 auto;
-  padding: 100px 20px 50px;
-  background-color: rgba(255, 255, 255, 0.8);
-  %headding {
-    font-weight: 200;
-    margin-bottom: 15px;
-  }
+  padding: 120px $sidePadding 60px;
   > h1 {
-    @extend %headding;
-    font-size: 3.0rem;
-    color: #e60045;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #004b99;
+    margin-bottom: 20px;
   }
   > h2 {
-    @extend %headding;
-    margin-top: 30px;
     font-size: 2.2rem;
-    color: #003aaa;
+    font-weight: 300;
+    color: #004b99;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
   > p {
     margin-bottom: 15px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
   }
 }
 
 @include lt-640 {
   .mainContents {
-    padding: 0 20px;
+    padding: 100px $sidePadding 20px;
     > h1 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
+      margin-bottom: 15px;
     }
     > h2 {
       font-size: 2.0rem;
+      margin-bottom: 15px;
+      margin-top: 20px;
     }
   }
 };

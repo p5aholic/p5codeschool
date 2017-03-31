@@ -4,16 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter7「繰り返し」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -42,11 +39,10 @@
 
 <main class="mainContents">
   <h1>繰り返し</h1><h2>whileループ</h2><p>とりあえず次のプログラムを実行してみてください。</p>
-<iframe src="/samples/tutorial/Chapter7/sketch01.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch01/sketch01.pde' target='_blank'>Chapter7/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
 }
 
@@ -75,11 +71,10 @@
 <p>for文の()内に書く初期化は、for文の実行時に1度だけ実行されます。ループの度に実行されるわけではありません。次の条件式はwhile文と同じで、この条件式が真の間ループが続きます。最後の更新は1ループが終わるごとに実行されます。forループによるプログラムの実行過程を図示すると次のようになります。</p>
 <p><img src="/images/Chapter7/ForLoop.jpg" alt="image"></p>
 <p>上のプログラムをwhile文の代わりにfor文で書き換えたのが次のプログラムです。動作は全く同じです。上のプログラムでのwhile文による繰り返し文と、次のプログラムでのfor文による繰り返し文が対応していることを確認してください。</p>
-<iframe src="/samples/tutorial/Chapter7/sketch02.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch02/sketch02.pde' target='_blank'>Chapter7/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
 }
 
@@ -105,11 +100,10 @@
 </code></pre>
 <p>変数の寿命のことを思い出してみましょう。変数は、その変数が宣言された行以降の同じブロック内が有効範囲です。ブロックを抜けるとその変数の有効範囲が終わります。for文の中で宣言されたiなどのカウンタ変数の有効範囲はfor文のブロック内になります。変数iの有効範囲内で同名の変数は使えませんが、1つ目のfor文がループを抜けた時点で変数iの有効範囲を抜けているので、2つ目のfor文でもう一度変数名にiを使うことができるわけです。</p>
 <h2>２重for文</h2><p>for文の中にfor文を作って2重for文を作ることもできます。</p>
-<iframe src="/samples/tutorial/Chapter7/sketch04.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch04.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch04/sketch04.pde' target='_blank'>Chapter7/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
 }
 
@@ -126,7 +120,7 @@
 <p>この２重for文の実行過程をfor文を使わずに全て書き出すと次のようになります。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch05/sketch05.pde' target='_blank'>Chapter7/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
 }
 
@@ -140,7 +134,7 @@
   <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">540</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">350</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-comment">// x = 150のとき</span>
   <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">50</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
@@ -148,7 +142,7 @@
   <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">540</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">150</span>, <span class="hljs-number">350</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-comment">// x = 300のとき</span>
   <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">50</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
@@ -156,7 +150,7 @@
   <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">540</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">350</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-comment">// x = 450のとき</span>
   <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">50</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
@@ -164,7 +158,7 @@
   <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">540</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">450</span>, <span class="hljs-number">350</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-comment">// x = 600のとき</span>
   <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">50</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
@@ -172,20 +166,19 @@
   <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
   <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">540</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-comment">// x = 960のとき</span>
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">50</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">150</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">600</span>, <span class="hljs-number">350</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-comment">// x = 750のとき</span>
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">50</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">150</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">250</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">300</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
 }
 </code></pre>
 <p>外側のfor文でx座標、内側のfor文でy座標を表す場合と、その逆の場合では次のような違いがあります。</p>
-<iframe src="/samples/tutorial/Chapter7/sketch06.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch06.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch06/sketch06.pde' target='_blank'>Chapter7/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
@@ -205,8 +198,7 @@
   }
 }
 </code></pre>
-<iframe src="/samples/tutorial/Chapter7/sketch07.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch07/sketch07.pde' target='_blank'>Chapter7/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
@@ -231,8 +223,7 @@
 <p>外側のfor文でy座標、内側のfor文でx座標を表す場合</p>
 <p><img src="/images/Chapter7/NestedFor2.jpg" alt="image"></p>
 <p>for文の中で条件分岐を使い、描画する図形を切り替えることもできます。</p>
-<iframe src="/samples/tutorial/Chapter7/sketch08.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch08.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch08/sketch08.pde' target='_blank'>Chapter7/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
@@ -259,8 +250,7 @@
 }
 </code></pre>
 <p>次のプログラムでは、マウスと重なっている長方形にだけｘを描画しています。</p>
-<iframe src="/samples/tutorial/Chapter7/sketch09.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter7/sketch09.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch09/sketch09.pde' target='_blank'>Chapter7/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> boxW, boxH;
 
@@ -295,19 +285,13 @@
 
 <footer class="footer">
   <div class="inner">
-    <p class="copyright">&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/libs/p5.min.js"></script>
-<script src="/js/libs/pixi.min.js"></script>
-<script src="/js/libs/Util.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/bg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

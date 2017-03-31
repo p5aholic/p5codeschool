@@ -4,16 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter3「色の表現」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -51,13 +48,13 @@
 <span class="hljs-built_in">noStroke</span>();
 <span class="hljs-comment">// 赤色の円</span>
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">125</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">160</span>, <span class="hljs-number">270</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>);
 <span class="hljs-comment">// 緑色の円</span>
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
-<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">375</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">480</span>, <span class="hljs-number">270</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>);
 <span class="hljs-comment">// 青色の円</span>
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
-<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">625</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>, <span class="hljs-number">150</span>);
+<span class="hljs-built_in">ellipse</span>(<span class="hljs-number">800</span>, <span class="hljs-number">270</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>);
 </code></pre>
 <p>fill()のパラメータを(255, 0, 0)にすると赤色に、(0, 255, 0)にすると緑色に、(0, 0, 255)にすると青色になります。つまり、１つ目のパラメータが赤色成分の強さ、２つ目のパラメータが緑色成分の強さ、３つ目のパラメータが青色成分の強さを表しているわけです。いわゆる３原色ってやつです。この３原色の各成分の強さで色を表現するモードをRGB(Red Green Blue)カラーモードと呼びます。カラーモードにはもう一つHSBカラーモードというのがありますが、詳しくはあとで解説します。</p>
 <p>３原色とは色を表現するときに最低限必要な色のことで、赤緑青の３色があれば混ぜかたによってどんな色も表現できます。ちなみにRGBの各成分は0～255の256通りあるので、合計で256×256×256 = 16777216種類の色を表現できます。</p>
@@ -65,7 +62,7 @@
 <h2>透明度</h2><p>後回しにしていたbackground()、fill()、stroke()にパラメータを２つ与える場合と４つ与える場合について解説します。色には透明度を指定することができて、パラメータを２つ与える場合は２つ目が透明度、４つ与える場合は４つ目が透明度になります。透明度も0～255で表現して、0が完全に透明、255が完全に不透明を表します。</p>
 <p><img src="/images/Chapter3/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch02/sketch02.pde' target='_blank'>Chapter3/sketch02.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-comment">// 横線</span>
@@ -125,7 +122,7 @@
 <p>とすることをオススメします。上の画像にもあるように、Hueは円状になっているのでHueの最大値を360としておくことでこの円と対応ができます。また、彩度、明度、透明度の最大値を100にしておくことで、それぞれをパーセントで指定することと同じになって考えやすいです。次のサンプルでは透明度を省略しています。その場合は透明度100（完全に不透明）になります。</p>
 <p><img src="/images/Chapter3/sketch03.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch03/sketch03.pde' target='_blank'>Chapter3/sketch03.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>); <span class="hljs-comment">// ここではまだRGBモード</span>
 <span class="hljs-comment">// HSBモードに変更</span>
 <span class="hljs-built_in">colorMode</span>(HSB, <span class="hljs-number">360</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
@@ -173,7 +170,7 @@
 <p>ちなみに、Color Selectorの色相を選べる縦長の長方形領域はHSBのHue(色相)を表していて、一番下が0度、一番上が360度になっています。左の正方形領域はHSBを円筒で表現したときの、その色の断面を表しています。正方形領域では、右に行くほどSaturation(彩度)が高く、上に行くほどBrightness(明度)が高くなります。</p>
 <p><img src="/images/Chapter3/sketch04.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch04/sketch04.pde' target='_blank'>Chapter3/sketch04.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(#A0A5A4);
 
 <span class="hljs-built_in">stroke</span>(#<span class="hljs-number">2</span>A7968);
@@ -187,19 +184,13 @@
 
 <footer class="footer">
   <div class="inner">
-    <p class="copyright">&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/libs/p5.min.js"></script>
-<script src="/js/libs/pixi.min.js"></script>
-<script src="/js/libs/Util.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/bg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

@@ -4,16 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter4「変数と演算」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -45,7 +42,7 @@
 <h2>変数を使うメリット</h2><p>変数を使うと値をコンピュータのメモリ上に保存しておくことができます。変数はプログラム内で使いまわすことができて、値の変更も簡単にできます。下のプログラムでは変数を使わないで３つの正円を描いています。この３つの円を直径80pxから直径150pxに変えたくなったとすると、３つのellipse()の３つ目と４つ目のパラメータを変えることになるので、合計６つのパラメータを変えることになります。ちょっと面倒くさいですね。６つならまだしも、１０個２０個となると相当面倒くさいです。変数を使うとこの面倒くささから解放されます。</p>
 <p><img src="/images/Chapter4/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch01/sketch01.pde' target='_blank'>Chapter4/sketch01.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">175</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-built_in">noStroke</span>();
@@ -57,7 +54,7 @@
 <p>上のプログラムを変数を使って書き換えたのが下のプログラムです。初期値80のdiameter（直径という意味の英語）という変数を作ってellipse()の幅と高さに使用しています。</p>
 <p><img src="/images/Chapter4/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch02/sketch02.pde' target='_blank'>Chapter4/sketch02.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">175</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-comment">// 変数diameterを初期値80で作成</span>
@@ -74,7 +71,7 @@
 <p>と変更してみてください。全ての円の直径が150pxに変わっているのがわかるかと思います。</p>
 <p><img src="/images/Chapter4/sketch03.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch03/sketch03.pde' target='_blank'>Chapter4/sketch03.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">175</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-comment">// 変数diameterを初期値150で作成</span>
@@ -132,7 +129,7 @@ d = <span class="hljs-number">4</span>;
 <p>色も変数として保存しておくことができます。データ型はcolorで、値をcolor()関数で作って代入します。color()関数のパラメータには、fill()、stroke()と同じように１～４つのパラメータを与えることができます。作ったcolor型変数はbackground()や、fill()、stroke()にパラメータとして渡すことができます。</p>
 <p><img src="/images/Chapter4/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch07/sketch07.pde' target='_blank'>Chapter4/sketch07.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">175</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-built_in">color</span> <span class="hljs-built_in">red</span> = <span class="hljs-built_in">color</span>(<span class="hljs-number">200</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
@@ -166,7 +163,7 @@ d = <span class="hljs-number">4</span>;
 
 <p><img src="/images/Chapter4/sketch08.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch08/sketch08.pde' target='_blank'>Chapter4/sketch08.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">175</span>);
+<pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
 <span class="hljs-built_in">color</span> <span class="hljs-built_in">red</span> = <span class="hljs-built_in">color</span>(<span class="hljs-number">200</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
@@ -322,19 +319,13 @@ SIZE = <span class="hljs-number">150</span>; <span class="hljs-comment">// エ�
 
 <footer class="footer">
   <div class="inner">
-    <p class="copyright">&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/libs/p5.min.js"></script>
-<script src="/js/libs/pixi.min.js"></script>
-<script src="/js/libs/Util.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/bg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

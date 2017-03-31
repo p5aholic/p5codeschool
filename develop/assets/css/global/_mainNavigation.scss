@@ -1,0 +1,22 @@
+.mainNavigation {
+  display: flex;
+  &__item {
+    margin-right: 20px;
+    a {
+      font-size: 1.6rem;
+      font-family: "Open Sans";
+      font-weight: 400;
+      color: $main-gray;
+      letter-spacing: 1px;
+    }
+  }
+  &__item:last-child {
+    margin-right: 0;
+  }
+}
+
+@include lt-640 {
+  .mainNavigation {
+    justify-content: center;
+  }
+}

@@ -31,10 +31,12 @@
 }
 
 @include lt-640 {
-  dt {
-    font-size: 1.4rem;
-  }
-  dd {
-    font-size: 1.4rem;
+  .p5Functions {
+    dt {
+      font-size: 1.4rem;
+    }
+    dd {
+      font-size: 1.4rem;
+    }
   }
 };

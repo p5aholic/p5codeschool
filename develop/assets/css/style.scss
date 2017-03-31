@@ -5,21 +5,19 @@
 @import "setting/_mixins.scss";
 
 // base
-@import "base/_normalize.scss";
+@import "node_modules/normalize.css/normalize";
 @import "base/_default.scss";
 @import "base/_highlight.scss";
 
 // parts
-@import "parts/_pageContainer.scss";
-@import "parts/_header.scss";
-@import "parts/_mainNavigation.scss";
-@import "parts/_footer.scss";
+@import "global/_pageContainer.scss";
+@import "global/_header.scss";
+@import "global/_mainNavigation.scss";
+@import "global/_footer.scss";
 
 // modules
 @import "modules/_mainContents.scss";
-@import "modules/_sectionNavi.scss";
+@import "modules/_p5Functions.scss";
 @import "modules/_codeFragment.scss";
 @import "modules/_sampleCode.scss";
-@import "modules/_p5Functions.scss";
-
-@import "_tut-list.scss";
+@import "modules/_chapterList.scss";

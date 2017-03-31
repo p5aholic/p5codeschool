@@ -4,15 +4,15 @@ Processingに限らず、何かのプログラミング言語を学習するに�
 
 [Processing公式 - ダウンロード](https://www.processing.org/download/)
 
-最初に寄付するかどうか選択肢があるので"No Donation"を選んで"Download"に進んでください。Processingの現在の最新安定バージョンはバージョン3.2.1です。自分のOSに合った最新バージョンのProcessingをダウンロードしてください。
+最初に寄付するかどうか選択肢があるので"No Donation"を選んで"Download"に進み、自分のOSに合った最新バージョンのProcessingをダウンロードしてください。
 
 ・Windows<br/>
 ダウンロードしたzipファイルを解凍すると"processing-####(####はバージョンを表す数字)"というフォルダができます。その中の"processing.exe"がProcessingの実行ファイルになります。"processing-####"フォルダは基本的にどこにあっても構いません。好きな場所に保存しておいてください。実行ファイルを開くとProcessingがスタートします。
 
 ・Mac<br/>
-ダウンロードした"Processing.app"をアプリケーションフォルダに移動させます。ProcessingアイコンダブルクリックするとProcessingがスタートします。
+ダウンロードした"Processing.app"をアプリケーションフォルダに移動させます。ProcessingアイコンをダブルクリックするとProcessingがスタートします。
 
-起動させたProcessingに下のソースコード(プログラムの中身)をコピペしてください。
+起動させたProcessingに下のソースコードをコピペしてください。
 
 ```processing
 // プログラム開始時に一度だけ実行される処理
@@ -21,20 +21,20 @@ void setup() {
   background(255); // 背景色を設定
 }
 
-// setup実行後に繰り返し実行される処理
+// setup()実行後に繰り返し実行される処理
 void draw() {
   // 図形の輪郭線を消す
   noStroke();
-  // ランダムな色を指定
-  fill(random(255), random(255), random(255), random(255));
+  // 白黒のランダムな色を設定
+  fill(random(255));
   // マウスの位置にランダムな大きさの楕円を描く
   ellipse(mouseX, mouseY, random(50), random(50));
 }
 ```
 
-右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置にカラフルな楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。
+右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置に白黒の楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。
 
-これがProcessingの開発環境(PDE：Processing DevelopmentEnvironment)になります。真ん中の白い画面にプログラムを打ち込んで、実行ボタンでプログラムを動かします。
+これがProcessingの開発環境(PDE：Processing Development Environment)になります。真ん中の白い画面にプログラムを打ち込んで、実行ボタンでプログラムを動かします。
 
 PDEを新規に立ち上げると、sketch_####(####は英数字)という仮の名前が割り振られます。保存する時に任意の名前が付けられます。ProcessingでったプログラムはPC上のどこにでも保存可能です。
 

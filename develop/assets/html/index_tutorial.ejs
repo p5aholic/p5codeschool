@@ -17,16 +17,16 @@
   </p>
   
   <h2>Processing 基礎</h2>
-  <ul class="chapters">
+  <ul class="chapterList">
     <% for (var i = 0; i < data.tutorials.length; i++) { %>
-    <li class="chapters__item">
-      <a href="chapter<%= data.tutorials[i].number %>" class="chapters__link">
-        <h3 class="chapters__title">
-          <span class="chapters__number">Chapter <%= data.tutorials[i].number %></span><br>
-          <span class="chapters__subTitle"><%= data.tutorials[i].subTitle %></span>
+    <li class="chapterList__item">
+      <a href="chapter<%= data.tutorials[i].number %>" class="chapterList__link">
+        <h3 class="chapterList__title">
+          <span class="chapterList__number">Chapter <%= data.tutorials[i].number %></span><br>
+          <span class="chapterList__subTitle"><%= data.tutorials[i].subTitle %></span>
         </h3>
       </a>
-      <p class="chapters__description"><%= data.tutorials[i].description %></p>
+      <p class="chapterList__description"><%= data.tutorials[i].description %></p>
     </li>
     <% } %>
   </ul>

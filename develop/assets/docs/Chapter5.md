@@ -6,7 +6,7 @@
 
 とりあえず以下のプログラムを動かしてみてください。まだ理解できなくても大丈夫です。マウスの位置に半透明の円が連続して描画されることを確認してください。
 
-<iframe src="/samples/tutorial/Chapter5/sketch01.html" class="sample-sketch"></iframe>
+![](/images/Chapter5/sketch01.jpg)
 
 [Chapter5/sketch01.pde](github:Chapter5/sketch01/sketch01.pde)
 
@@ -46,7 +46,7 @@ draw()関数はsetup()の実行後に繰り返し実行される関数です。�
 
 上のプログラムをもう一度見てください。setup()関数の中でウィンドウサイズと背景色、色と枠線を設定しています。これらはdraw()関数が繰り返される中で変わらない設定だからです。draw()の中ではマウスの位置に半透明な円を描く処理を記述しています。mouseXとmouseYはwidthやheightを同じで、Processing側が用意してくれている変数で、常にマウスの現在の座標を保持しています。draw()関数は１秒間に60回実行されるので１秒間に60個の円がマウスの位置に描画されます。マウスをずっと同じ位置に置いておくと円が重なってすぐに真っ黒になり、マウスを素早く動かすと円が飛び飛びに描画されます。一つ前のフレームにおけるマウスの座標を保持しているpmouseX、pmouseYという変数もあります。これを使えば繋がった線を描画することができます。pmouseXのpは「前」を意味する英語のpreviousのことです。
 
-<iframe src="/samples/tutorial/Chapter5/sketch02.html" class="sample-sketch"></iframe>
+![](/images/Chapter5/sketch02.jpg)
 
 [Chapter5/sketch02.pde](github:Chapter5/sketch02/sketch02.pde)
 
@@ -66,8 +66,6 @@ void draw() {
 ```
 
 上の２つのプログラムでは、前のdraw()関数によって描画された内容が残り続けていました。draw()関数の先頭でbackground()を使うと背景色を初期化することができ、ウィンドウに常に現在のdraw()関数による描画内容だけを表示することができます。下のコードを確認してください。ついでにフレームレートを変更できるframeRate()関数を使ってみました。フレームレートを１５まで落としているので、描画がカクカクしているのがわかるかと思います。カクカクはしていますが、なかなか味のある動きになっているかと思います。 レートを色々変えて遊んでみてください。
-
-<iframe src="/samples/tutorial/Chapter5/sketch03.html" class="sample-sketch"></iframe>
 
 [Chapter5/sketch03.pde](github:Chapter5/sketch03/sketch03.pde)
 
@@ -93,7 +91,7 @@ frameRate()関数によって設定できるフレームレートはあくまで
 
 現在までに更新されたフレームの数はframeCountという変数に保存されています。フレームレートが60ならframeCountは1秒後に60、2秒後に120、3秒後に180とどんどん増えていきます。これと余りを求める%を使うと次のようなプログラムも作れます。
 
-<iframe src="/samples/tutorial/Chapter5/sketch04.html" class="sample-sketch"></iframe>
+![](/images/Chapter5/sketch04.jpg)
 
 [Chapter5/sketch04.pde](github:Chapter5/sketch04/sketch04.pde)
 
@@ -136,7 +134,7 @@ void draw() {
 
 次のプログラムを見てください。マウスの位置に色が徐々に変化する円を描画しています。
 
-<iframe src="/samples/tutorial/Chapter5/sketch06.html" class="sample-sketch"></iframe>
+![](/images/Chapter5/sketch06.jpg)
 
 [Chapter5/sketch06.pde](github:Chapter5/sketch06/sketch06.pde)
 
@@ -164,15 +162,15 @@ HSBカラーモードにして、setup関数の上でint型変数のhueを初期
 プログラムで乱数(ランダムな値)を作るrandom()関数を紹介します。使い方は次の２通りです。
 
 <dl class="p5Functions">
-    <dt>[random(high)](p5ref:random_.html)</dt>
-    <dd>0以上high未満のランダムな値を作る</dd>
-    <dt>[random(row, high)](p5ref:random_.html)</dt>
-    <dd>row以上high未満のランダムな値を作る</dd>
+  <dt>[random(high)](p5ref:random_.html)</dt>
+  <dd>0以上high未満のランダムな値を作る</dd>
+  <dt>[random(row, high)](p5ref:random_.html)</dt>
+  <dd>row以上high未満のランダムな値を作る</dd>
 </dl>
 
 次のプログラムではマウスの位置に色と大きさがランダムな円を描画しています。
 
-<iframe src="/samples/tutorial/Chapter5/sketch07.html" class="sample-sketch"></iframe>
+![](/images/Chapter5/sketch07.jpg)
 
 [Chapter5/sketch07.pde](github:Chapter5/sketch07/sketch07.pde)
 

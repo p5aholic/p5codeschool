@@ -11,7 +11,7 @@ Chapter4では、プログラミングの基礎的な概念である変数と演
 [Chapter4/sketch01.pde](github:Chapter4/sketch01/sketch01.pde)
 
 ```processing
-size(960, 175);
+size(750, 175);
 background(255);
 
 noStroke();
@@ -28,7 +28,7 @@ ellipse(625, 88, 80, 80);
 [Chapter4/sketch02.pde](github:Chapter4/sketch02/sketch02.pde)
 
 ```processing
-size(960, 175);
+size(750, 175);
 background(255);
 
 // 変数diameterを初期値80で作成
@@ -52,7 +52,7 @@ ellipse(625, 88, diameter, diameter);
 [Chapter4/sketch03.pde](github:Chapter4/sketch03/sketch03.pde)
 
 ```processing
-size(960, 175);
+size(750, 175);
 background(255);
 
 // 変数diameterを初期値150で作成
@@ -154,7 +154,7 @@ float b = 12.3;
 [Chapter4/sketch07.pde](github:Chapter4/sketch07/sketch07.pde)
 
 ```processing
-size(960, 175);
+size(750, 175);
 background(255);
 
 color red = color(200, 30, 30);
@@ -195,7 +195,7 @@ ellipse(625, 88, 120, 120);
 [Chapter4/sketch08.pde](github:Chapter4/sketch08/sketch08.pde)
 
 ```processing
-size(960, 175);
+size(750, 175);
 background(255);
 
 color red = color(200, 30, 30);

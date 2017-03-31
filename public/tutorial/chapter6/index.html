@@ -4,16 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter6「条件分岐」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -52,18 +49,18 @@
 <p>boolean型変数が真ならコッチ、偽ならアッチという風にプログラムの流れを変える場合に使ったりします。</p>
 <p>２つの値を比較してtrueかfalseを返す比較演算子と呼ばれるものを紹介します。</p>
 <dl class="p5Functions">
-    <dt>&lt;</dt>
-    <dd>より小さい</dd>
-    <dt>&lt;=</dt>
-    <dd>より小さい、もしくは等しい(以下)</dd>
-    <dt>&gt;</dt>
-    <dd>より大きい</dd>
-    <dt>&gt;=</dt>
-    <dd>より大きい、もしくは等しい(以上)</dd>
-    <dt>==</dt>
-    <dd>等しい</dd>
-    <dt>!=</dt>
-    <dd>等しくない</dd>
+  <dt>&lt;</dt>
+  <dd>より小さい</dd>
+  <dt>&lt;=</dt>
+  <dd>より小さい、もしくは等しい(以下)</dd>
+  <dt>&gt;</dt>
+  <dd>より大きい</dd>
+  <dt>&gt;=</dt>
+  <dd>より大きい、もしくは等しい(以上)</dd>
+  <dt>==</dt>
+  <dd>等しい</dd>
+  <dt>!=</dt>
+  <dd>等しくない</dd>
 </dl>
 
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch02/sketch02.pde' target='_blank'>Chapter6/sketch02.pde</a></p>
@@ -96,8 +93,7 @@
 <p><code class='codeFragment'>if (条件式) // 処理</code></p>
 <p>ただ、見やすさのために１行だけでも{}で囲むことはよくあります。</p>
 <p>ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。</p>
-<iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter6/sketch04.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch04/sketch04.pde' target='_blank'>Chapter6/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y;     <span class="hljs-comment">// ボールの位置</span>
 <span class="hljs-built_in">int</span> vx, vy;   <span class="hljs-comment">// ボールの速度</span>
@@ -112,7 +108,7 @@
   y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>;
   vx = <span class="hljs-number">3</span>;
   vy = <span class="hljs-number">2</span>;
-  ballSize = <span class="hljs-number">40</span>;
+  ballSize = <span class="hljs-number">50</span>;
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -187,12 +183,12 @@ y += vy;
 <p>これら４つのif文の{}で囲まれた中の処理はそれぞれのif文の条件式がtrueを返したときのみ実行されます。それぞれの条件式で使う比較演算子に &lt;= と &gt;= を使って、ボールの端がウィンドウの端と等しい場合だけでなく、超えた場合についても対応しています。vxとvyの値によってはボールの端とウィンドウの端が完全に一致せずに超えてしまうこともあるからです。</p>
 <h2>論理演算子</h2><p>上の４つのif文は論理演算子というものを使うと２つのif文にまとめることができます。論理演算子には以下の３つがあります。</p>
 <dl class="p5Functions">
-    <dt>||</dt>
-    <dd>または(論理和)、OR</dd>
-    <dt>&amp;&amp;</dt>
-    <dd>かつ(論理積)、AND</dd>
-    <dt>!</dt>
-    <dd>でなければ(論理否定)、NOT</dd>
+  <dt>||</dt>
+  <dd>または(論理和)、OR</dd>
+  <dt>&amp;&amp;</dt>
+  <dd>かつ(論理積)、AND</dd>
+  <dt>!</dt>
+  <dd>でなければ(論理否定)、NOT</dd>
 </dl>
 
 <p>論理和は２つの真偽値を比べて２つとも偽(false)だった場合のみfalseを返します。それ以外はtrueを返します。論理積は２つの真偽値を比べて２つとも真(true)だった場合のみtrueを返します。それ以外はfalseを返します。論理否定はtrueをfalseに、falseをtrueにして返します</p>
@@ -234,8 +230,7 @@ y += vy;
   // 偽の場合の処理
 }</code></p>
 <p>通常のif文の後にelse文を書くと、if文の条件式が偽(false)だった場合にelse文の処理が実行されます。次のプログラムは、マウスがウィンドウの左半分にあるときは円を表示、そうでない(ウィンドウの右半分にある)ときは正方形を表示するプログラムです。</p>
-<iframe src="/samples/tutorial/Chapter6/sketch06.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter6/sketch06.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch06/sketch06.pde' target='_blank'>Chapter6/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -284,8 +279,7 @@ y += vy;
 }</code></p>
 <p>else if文は、それ以前にあるif文とelse if文が偽かつ自身が真の場合のみ実行されます。先頭のif文が真ならばそれ以降のelse if文と最後のelseは無視されます。</p>
 <p>ウィンドウを４分割してそれぞれの領域で別々の図形を描くプログラムを作りました。</p>
-<iframe src="/samples/tutorial/Chapter6/sketch07.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter6/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch07/sketch07.pde' target='_blank'>Chapter6/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -322,8 +316,7 @@ y += vy;
 </code></pre>
 <p>else if文の中では論理演算子&amp;&amp;を使ってウィンドウの領域を区切っています。</p>
 <h2>if文の中のif文</h2><p>if文の中にif文を書いて、その中にif文を書いて・・・という風に入れ子状に書いていくことができます。次のプログラムはウィンドウを縦横に４分割して、それぞれの領域で別々の図形を描くプログラムです。</p>
-<iframe src="/samples/tutorial/Chapter6/sketch08.html" class="sample-sketch"></iframe>
-
+<p><img src="/images/Chapter6/sketch08.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch08/sketch08.pde' target='_blank'>Chapter6/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -367,24 +360,24 @@ y += vy;
 <p>まずウィンドウの左半分か右半分かで分岐させて、その中でさらに上半分か下半分で分岐させています。この入れ子状のif文も以下のように４つのif文で書くこともできますが、あまり適切ではないことはさきほど言った通りです。</p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 左半分かつ上半分</span>
 <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &lt;= <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
-    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>, <span class="hljs-number">90</span>, <span class="hljs-number">20</span>);
-    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>, <span class="hljs-number">90</span>, <span class="hljs-number">20</span>);
+  <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
 }
 <span class="hljs-comment">// 左半分かつ下半分</span>
 <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &lt;= <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &gt; <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
-    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">50</span>, <span class="hljs-number">110</span>, <span class="hljs-number">150</span>);
-    <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
-    <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">50</span>, <span class="hljs-number">110</span>, <span class="hljs-number">150</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+  <span class="hljs-built_in">line</span>(<span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
 }
 <span class="hljs-comment">// 右半分かつ上半分</span>
 <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt; <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &lt;= <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
-    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">230</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>);
-    <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">230</span>, <span class="hljs-number">175</span>, <span class="hljs-number">150</span>);
+  <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
 }
 <span class="hljs-comment">// 右半分かつ下半分</span>
 <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mouseX</span> &gt; <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span> &amp;&amp; <span class="hljs-built_in">mouseY</span> &gt; <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>) {
-    <span class="hljs-built_in">stroke</span>(<span class="hljs-number">65</span>, <span class="hljs-number">180</span>, <span class="hljs-number">110</span>);
-    <span class="hljs-built_in">triangle</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">65</span>, <span class="hljs-number">180</span>, <span class="hljs-number">110</span>);
+  <span class="hljs-built_in">triangle</span>(<span class="hljs-built_in">mouseX</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span><span class="hljs-number">-25</span>, <span class="hljs-built_in">mouseX</span>+<span class="hljs-number">25</span>, <span class="hljs-built_in">mouseY</span>+<span class="hljs-number">25</span>);
 }
 </code></pre>
 <h2>switch文</h2><p>if文ともうひとつ、switch文でも条件分岐を行えます。switch文は次のように使います。</p>
@@ -399,8 +392,6 @@ y += vy;
     .
 }</code></p>
 <p>switch文は条件式に指定された値と同じ数値を持つcaseへジャンプします。そして、そのcase内の実行分を実行し、break文を見つけるとswitch文のブロックを抜けます。次のプログラムでは変数rによって描く図形を分岐させています。</p>
-<iframe src="/samples/tutorial/Chapter6/sketch09.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch09/sketch09.pde' target='_blank'>Chapter6/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
@@ -439,8 +430,6 @@ y += vy;
     実行分;
     break;
 }</code></p>
-<iframe src="/samples/tutorial/Chapter6/sketch10.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter6/sketch10/sketch10.pde' target='_blank'>Chapter6/sketch10.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
@@ -471,19 +460,13 @@ y += vy;
 
 <footer class="footer">
   <div class="inner">
-    <p class="copyright">&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/libs/p5.min.js"></script>
-<script src="/js/libs/pixi.min.js"></script>
-<script src="/js/libs/Util.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/bg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

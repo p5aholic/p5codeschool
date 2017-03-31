@@ -17,13 +17,13 @@ background(255);
 noStroke();
 // 赤色の円
 fill(255, 0, 0);
-ellipse(125, 175, 150, 150);
+ellipse(160, 270, 200, 200);
 // 緑色の円
 fill(0, 255, 0);
-ellipse(375, 175, 150, 150);
+ellipse(480, 270, 200, 200);
 // 青色の円
 fill(0, 0, 255);
-ellipse(625, 175, 150, 150);
+ellipse(800, 270, 200, 200);
 ```
 
 fill()のパラメータを(255, 0, 0)にすると赤色に、(0, 255, 0)にすると緑色に、(0, 0, 255)にすると青色になります。つまり、１つ目のパラメータが赤色成分の強さ、２つ目のパラメータが緑色成分の強さ、３つ目のパラメータが青色成分の強さを表しているわけです。いわゆる３原色ってやつです。この３原色の各成分の強さで色を表現するモードをRGB(Red Green Blue)カラーモードと呼びます。カラーモードにはもう一つHSBカラーモードというのがありますが、詳しくはあとで解説します。
@@ -41,7 +41,7 @@ fill()のパラメータを(255, 0, 0)にすると赤色に、(0, 255, 0)にす�
 [Chapter3/sketch02.pde](github:Chapter3/sketch02/sketch02.pde)
 
 ```processing
-size(960, 540);
+size(750, 350);
 background(255);
 
 // 横線
@@ -115,7 +115,7 @@ HSBカラーモードに変更する場合は
 [Chapter3/sketch03.pde](github:Chapter3/sketch03/sketch03.pde)
 
 ```processing
-size(960, 540);
+size(750, 350);
 background(255); // ここではまだRGBモード
 // HSBモードに変更
 colorMode(HSB, 360, 100, 100, 100);
@@ -173,7 +173,7 @@ PDEに標準で備わっているColor Selectorを紹介します。[ツール]�
 [Chapter3/sketch04.pde](github:Chapter3/sketch04/sketch04.pde)
 
 ```processing
-size(960, 540);
+size(750, 350);
 background(#A0A5A4);
 
 stroke(#2A7968);

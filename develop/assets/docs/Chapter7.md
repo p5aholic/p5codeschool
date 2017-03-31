@@ -4,13 +4,13 @@
 
 とりあえず次のプログラムを実行してみてください。
 
-<iframe src="/samples/tutorial/Chapter7/sketch01.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch01.jpg)
 
 [Chapter7/sketch01.pde](github:Chapter7/sketch01/sketch01.pde)
 
 ```processing
 void setup() {
-  size(960, 540);
+  size(750, 350);
   stroke(255);
 }
 
@@ -57,13 +57,13 @@ for文の()内に書く初期化は、for文の実行時に1度だけ実行さ�
 
 上のプログラムをwhile文の代わりにfor文で書き換えたのが次のプログラムです。動作は全く同じです。上のプログラムでのwhile文による繰り返し文と、次のプログラムでのfor文による繰り返し文が対応していることを確認してください。
 
-<iframe src="/samples/tutorial/Chapter7/sketch02.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch02.jpg)
 
 [Chapter7/sketch02.pde](github:Chapter7/sketch02/sketch02.pde)
 
 ```processing
 void setup() {
-  size(960, 540);
+  size(750, 350);
   stroke(255);
 }
 
@@ -98,13 +98,13 @@ void setup() {
 
 for文の中にfor文を作って2重for文を作ることもできます。
 
-<iframe src="/samples/tutorial/Chapter7/sketch04.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch04.jpg)
 
 [Chapter7/sketch04.pde](github:Chapter7/sketch04/sketch04.pde)
 
 ```processing
 void setup() {
-  size(960, 540);
+  size(750, 350);
   stroke(255);
 }
 
@@ -125,7 +125,7 @@ void draw() {
 
 ```processing
 void setup() {
-  size(960, 540);
+  size(750, 350);
   stroke(255);
 }
 
@@ -139,7 +139,7 @@ void draw() {
   line(0, 200, mouseX, mouseY);
   line(0, 250, mouseX, mouseY);
   line(0, 300, mouseX, mouseY);
-  line(0, 540, mouseX, mouseY);
+  line(0, 350, mouseX, mouseY);
   // x = 150のとき
   line(150, 0, mouseX, mouseY);
   line(150, 50, mouseX, mouseY);
@@ -147,7 +147,7 @@ void draw() {
   line(150, 200, mouseX, mouseY);
   line(150, 250, mouseX, mouseY);
   line(150, 300, mouseX, mouseY);
-  line(150, 540, mouseX, mouseY);
+  line(150, 350, mouseX, mouseY);
   // x = 300のとき
   line(300, 0, mouseX, mouseY);
   line(300, 50, mouseX, mouseY);
@@ -155,7 +155,7 @@ void draw() {
   line(300, 200, mouseX, mouseY);
   line(300, 250, mouseX, mouseY);
   line(300, 300, mouseX, mouseY);
-  line(300, 540, mouseX, mouseY);
+  line(300, 350, mouseX, mouseY);
   // x = 450のとき
   line(450, 0, mouseX, mouseY);
   line(450, 50, mouseX, mouseY);
@@ -163,7 +163,7 @@ void draw() {
   line(450, 200, mouseX, mouseY);
   line(450, 250, mouseX, mouseY);
   line(450, 300, mouseX, mouseY);
-  line(450, 540, mouseX, mouseY);
+  line(450, 350, mouseX, mouseY);
   // x = 600のとき
   line(600, 0, mouseX, mouseY);
   line(600, 50, mouseX, mouseY);
@@ -171,22 +171,21 @@ void draw() {
   line(600, 200, mouseX, mouseY);
   line(600, 250, mouseX, mouseY);
   line(600, 300, mouseX, mouseY);
-  line(600, 540, mouseX, mouseY);
-  // x = 960のとき
-  line(960, 0, mouseX, mouseY);
-  line(960, 50, mouseX, mouseY);
-  line(960, 150, mouseX, mouseY);
-  line(960, 200, mouseX, mouseY);
-  line(960, 250, mouseX, mouseY);
-  line(960, 300, mouseX, mouseY);
-  line(960, 540, mouseX, mouseY);
+  line(600, 350, mouseX, mouseY);
+  // x = 750のとき
+  line(750, 0, mouseX, mouseY);
+  line(750, 50, mouseX, mouseY);
+  line(750, 150, mouseX, mouseY);
+  line(750, 200, mouseX, mouseY);
+  line(750, 250, mouseX, mouseY);
+  line(750, 300, mouseX, mouseY);
+  line(750, 350, mouseX, mouseY);
 }
 ```
 
 外側のfor文でx座標、内側のfor文でy座標を表す場合と、その逆の場合では次のような違いがあります。
 
-
-<iframe src="/samples/tutorial/Chapter7/sketch06.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch06.jpg)
 
 [Chapter7/sketch06.pde](github:Chapter7/sketch06/sketch06.pde)
 
@@ -210,7 +209,7 @@ for (int x = 0; x < 10; x++) {
 }
 ```
 
-<iframe src="/samples/tutorial/Chapter7/sketch07.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch07.jpg)
 
 [Chapter7/sketch07.pde](github:Chapter7/sketch07/sketch07.pde)
 
@@ -245,7 +244,7 @@ for (int y = 0; y < 10; y++) {
 
 for文の中で条件分岐を使い、描画する図形を切り替えることもできます。
 
-<iframe src="/samples/tutorial/Chapter7/sketch08.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch08.jpg)
 
 [Chapter7/sketch08.pde](github:Chapter7/sketch08/sketch08.pde)
 
@@ -277,7 +276,7 @@ for (int x = 0; x < 10; x++) {
 
 次のプログラムでは、マウスと重なっている長方形にだけｘを描画しています。
 
-<iframe src="/samples/tutorial/Chapter7/sketch09.html" class="sample-sketch"></iframe>
+![](/images/Chapter7/sketch09.jpg)
 
 [Chapter7/sketch09.pde](github:Chapter7/sketch09/sketch09.pde)
 

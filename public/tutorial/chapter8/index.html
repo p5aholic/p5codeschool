@@ -4,16 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter8「関数」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -118,8 +115,6 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
 <p><code class='codeFragment'>constrain(a, 0, 100);</code></p>
 <p>と書いただけでは変数aの値が変わらないことに注意してください。</p>
 <p>次のプログラムはマウスの位置にrect関数で箱を表示していますが、箱の座標をconstrain関数で制限することで檻の外に出られないようにしています。</p>
-<iframe src="/samples/tutorial/Chapter8/sketch02.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch02/sketch02.pde' target='_blank'>Chapter8/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y, <span class="hljs-built_in">size</span>; <span class="hljs-comment">// 箱の座標と大きさ</span>
 <span class="hljs-built_in">int</span> cageSize;   <span class="hljs-comment">// 檻の大きさ</span>
@@ -162,8 +157,6 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
 <span class="hljs-built_in">println</span>(d2); <span class="hljs-comment">// 出力 : 100.0</span>
 </code></pre>
 <p>dist関数を使うと円とマウスの接触判定ができるようになります。円の中心からマウスまでの距離がd、円の半径がrとするとd &lt;= rのときマウスは円内にあります。</p>
-<iframe src="/samples/tutorial/Chapter8/sketch04.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch04/sketch04.pde' target='_blank'>Chapter8/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y, diameter; <span class="hljs-comment">// 円の座標と直径</span>
 <span class="hljs-built_in">color</span> c1, c2;       <span class="hljs-comment">// 円の色と線の色</span>
@@ -201,8 +194,6 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
 }
 </code></pre>
 <p>map関数はある範囲にある値から別の範囲の数値を作りたいときに便利です。言葉で説明してもわかりにくいので次のプログラムを見てください。マウスがウィンドウの右端にあるほど縦線の太さが太く、下端にあるほど横線の太さが太くなります。</p>
-<iframe src="/samples/tutorial/Chapter8/sketch05.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch06/sketch06.pde' target='_blank'>Chapter8/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -276,8 +267,6 @@ a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0<
 <p><code class='codeFragment'>int a = myConstrain(-10, 0, 100);</code></p>
 <p>と書いた場合は仮引数のvalueに-10が、lowに0が、highに100がセットされmyConstrain関数が実行されます。その結果myConstrain関数はreturn文でlowを結果として返します。関数内でreturn文が実行されるとプログラムの処理が呼び出し側のsetup関数内に戻り変数aにmyConstrain関数が返したlowが代入されます。</p>
 <p>さらに具体例を紹介していきます。円を2つ配置して、マウスが円内にある時は円の色をランダムに切り替えています。マウスが円内にあるかどうかを確かめる処理をmouseOver関数にまとめました。mouseOver関数には円の座標と半径をパラメータとして渡します。mouseOver関数はboolean型を返すので、if(mouseOver())と書くことで場合わけができます。</p>
-<iframe src="/samples/tutorial/Chapter8/sketch07.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch07/sketch07.pde' target='_blank'>Chapter8/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x1, y1, radius1; <span class="hljs-comment">// 左の円の座標と半径</span>
 <span class="hljs-built_in">int</span> x2, y2, radius2; <span class="hljs-comment">// 右の円の座標と半径</span>
@@ -348,8 +337,6 @@ void 関数名(仮引数1, 仮引数2, ...) {
 }</code></p>
 <p>値を返す関数は関数名の前に返す値のデータ型を書きますが、値を返さない関数はvoidと書きます。ちなみにvoidは「空の～」とか「空虚な～」なんて意味の英語です。値を返さない関数には当たり前ですがreturn文は必要ありません。</p>
 <p>値を返さない関数の例として顔を描くface関数を作ってみました。 face関数には顔を描く座標と顔の大きさをパラメータとして渡します。</p>
-<iframe src="/samples/tutorial/Chapter8/sketch08.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter8/sketch08/sketch08.pde' target='_blank'>Chapter8/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -430,19 +417,13 @@ void 関数名(仮引数1, 仮引数2, ...) {
 
 <footer class="footer">
   <div class="inner">
-    <p class="copyright">&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/js/libs/p5.min.js"></script>
-<script src="/js/libs/pixi.min.js"></script>
-<script src="/js/libs/Util.js"></script>
-<script src="/js/common.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/bg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

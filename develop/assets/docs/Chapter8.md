@@ -94,8 +94,6 @@ println(a);
 
 次のプログラムはマウスの位置にrect関数で箱を表示していますが、箱の座標をconstrain関数で制限することで檻の外に出られないようにしています。
 
-<iframe src="/samples/tutorial/Chapter8/sketch02.html" class="sample-sketch"></iframe>
-
 [Chapter8/sketch02.pde](github:Chapter8/sketch02/sketch02.pde)
 
 ```processing
@@ -146,8 +144,6 @@ println(d2); // 出力 : 100.0
 
 dist関数を使うと円とマウスの接触判定ができるようになります。円の中心からマウスまでの距離がd、円の半径がrとするとd <= rのときマウスは円内にあります。
 
-<iframe src="/samples/tutorial/Chapter8/sketch04.html" class="sample-sketch"></iframe>
-
 [Chapter8/sketch04.pde](github:Chapter8/sketch04/sketch04.pde)
 
 ```processing
@@ -188,8 +184,6 @@ void draw() {
 ```
 
 map関数はある範囲にある値から別の範囲の数値を作りたいときに便利です。言葉で説明してもわかりにくいので次のプログラムを見てください。マウスがウィンドウの右端にあるほど縦線の太さが太く、下端にあるほど横線の太さが太くなります。
-
-<iframe src="/samples/tutorial/Chapter8/sketch05.html" class="sample-sketch"></iframe>
 
 [Chapter8/sketch06.pde](github:Chapter8/sketch06/sketch06.pde)
 
@@ -291,8 +285,6 @@ setup関数内でmyConstrain関数を使った時のプログラムの実行過�
 
 さらに具体例を紹介していきます。円を2つ配置して、マウスが円内にある時は円の色をランダムに切り替えています。マウスが円内にあるかどうかを確かめる処理をmouseOver関数にまとめました。mouseOver関数には円の座標と半径をパラメータとして渡します。mouseOver関数はboolean型を返すので、if(mouseOver())と書くことで場合わけができます。
 
-<iframe src="/samples/tutorial/Chapter8/sketch07.html" class="sample-sketch"></iframe>
-
 [Chapter8/sketch07.pde](github:Chapter8/sketch07/sketch07.pde)
 
 ```processing
@@ -377,8 +369,6 @@ void 関数名(仮引数1, 仮引数2, ...) {
 値を返す関数は関数名の前に返す値のデータ型を書きますが、値を返さない関数はvoidと書きます。ちなみにvoidは「空の～」とか「空虚な～」なんて意味の英語です。値を返さない関数には当たり前ですがreturn文は必要ありません。
 
 値を返さない関数の例として顔を描くface関数を作ってみました。 face関数には顔を描く座標と顔の大きさをパラメータとして渡します。
-
-<iframe src="/samples/tutorial/Chapter8/sketch08.html" class="sample-sketch"></iframe>
 
 [Chapter8/sketch08.pde](github:Chapter8/sketch08/sketch08.pde)
 

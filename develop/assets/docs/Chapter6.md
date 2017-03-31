@@ -20,18 +20,18 @@ boolean型変数が真ならコッチ、偽ならアッチという風にプロ�
 ２つの値を比較してtrueかfalseを返す比較演算子と呼ばれるものを紹介します。
 
 <dl class="p5Functions">
-    <dt><</dt>
-    <dd>より小さい</dd>
-    <dt><=</dt>
-    <dd>より小さい、もしくは等しい(以下)</dd>
-    <dt>></dt>
-    <dd>より大きい</dd>
-    <dt>>=</dt>
-    <dd>より大きい、もしくは等しい(以上)</dd>
-    <dt>==</dt>
-    <dd>等しい</dd>
-    <dt>!=</dt>
-    <dd>等しくない</dd>
+  <dt><</dt>
+  <dd>より小さい</dd>
+  <dt><=</dt>
+  <dd>より小さい、もしくは等しい(以下)</dd>
+  <dt>></dt>
+  <dd>より大きい</dd>
+  <dt>>=</dt>
+  <dd>より大きい、もしくは等しい(以上)</dd>
+  <dt>==</dt>
+  <dd>等しい</dd>
+  <dt>!=</dt>
+  <dd>等しくない</dd>
 </dl>
 
 [Chapter6/sketch02.pde](github:Chapter6/sketch02/sketch02.pde)
@@ -87,7 +87,7 @@ if (条件式) // 処理
 
 ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。
 
-<iframe src="/samples/tutorial/Chapter6/sketch04.html" class="sample-sketch"></iframe>
+![](/images/Chapter6/sketch04.jpg)
 
 [Chapter6/sketch04.pde](github:Chapter6/sketch04/sketch04.pde)
 
@@ -105,7 +105,7 @@ void setup() {
   y = height/2;
   vx = 3;
   vy = 2;
-  ballSize = 40;
+  ballSize = 50;
 }
 
 void draw() {
@@ -201,12 +201,12 @@ if (y+ballSize/2 >= height) {
 上の４つのif文は論理演算子というものを使うと２つのif文にまとめることができます。論理演算子には以下の３つがあります。
 
 <dl class="p5Functions">
-    <dt>||</dt>
-    <dd>または(論理和)、OR</dd>
-    <dt>&&</dt>
-    <dd>かつ(論理積)、AND</dd>
-    <dt>!</dt>
-    <dd>でなければ(論理否定)、NOT</dd>
+  <dt>||</dt>
+  <dd>または(論理和)、OR</dd>
+  <dt>&&</dt>
+  <dd>かつ(論理積)、AND</dd>
+  <dt>!</dt>
+  <dd>でなければ(論理否定)、NOT</dd>
 </dl>
 
 論理和は２つの真偽値を比べて２つとも偽(false)だった場合のみfalseを返します。それ以外はtrueを返します。論理積は２つの真偽値を比べて２つとも真(true)だった場合のみtrueを返します。それ以外はfalseを返します。論理否定はtrueをfalseに、falseをtrueにして返します
@@ -263,7 +263,7 @@ if (条件式) {
 
 通常のif文の後にelse文を書くと、if文の条件式が偽(false)だった場合にelse文の処理が実行されます。次のプログラムは、マウスがウィンドウの左半分にあるときは円を表示、そうでない(ウィンドウの右半分にある)ときは正方形を表示するプログラムです。
 
-<iframe src="/samples/tutorial/Chapter6/sketch06.html" class="sample-sketch"></iframe>
+![](/images/Chapter6/sketch06.jpg)
 
 [Chapter6/sketch06.pde](github:Chapter6/sketch06/sketch06.pde)
 
@@ -328,7 +328,7 @@ else if文は、それ以前にあるif文とelse if文が偽かつ自身が真�
 
 ウィンドウを４分割してそれぞれの領域で別々の図形を描くプログラムを作りました。
 
-<iframe src="/samples/tutorial/Chapter6/sketch07.html" class="sample-sketch"></iframe>
+![](/images/Chapter6/sketch07.jpg)
 
 [Chapter6/sketch07.pde](github:Chapter6/sketch07/sketch07.pde)
 
@@ -373,7 +373,7 @@ else if文の中では論理演算子&&を使ってウィンドウの領域を�
 
 if文の中にif文を書いて、その中にif文を書いて・・・という風に入れ子状に書いていくことができます。次のプログラムはウィンドウを縦横に４分割して、それぞれの領域で別々の図形を描くプログラムです。
 
-<iframe src="/samples/tutorial/Chapter6/sketch08.html" class="sample-sketch"></iframe>
+![](/images/Chapter6/sketch08.jpg)
 
 [Chapter6/sketch08.pde](github:Chapter6/sketch08/sketch08.pde)
 
@@ -423,24 +423,24 @@ void draw() {
 ```processing
 // 左半分かつ上半分
 if (mouseX <= width/2 && mouseY <= height/2) {
-    stroke(220, 90, 20);
-    ellipse(mouseX, mouseY, 50, 50);
+  stroke(220, 90, 20);
+  ellipse(mouseX, mouseY, 50, 50);
 }
 // 左半分かつ下半分
 if (mouseX <= width/2 && mouseY > height/2) {
-    stroke(50, 110, 150);
-    line(mouseX-25, mouseY-25, mouseX+25, mouseY+25);
-    line(mouseX+25, mouseY-25, mouseX-25, mouseY+25);
+  stroke(50, 110, 150);
+  line(mouseX-25, mouseY-25, mouseX+25, mouseY+25);
+  line(mouseX+25, mouseY-25, mouseX-25, mouseY+25);
 }
 // 右半分かつ上半分
 if (mouseX > width/2 && mouseY <= height/2) {
-    stroke(230, 175, 150);
-    rect(mouseX, mouseY, 50, 50);
+  stroke(230, 175, 150);
+  rect(mouseX, mouseY, 50, 50);
 }
 // 右半分かつ下半分
 if (mouseX > width/2 && mouseY > height/2) {
-    stroke(65, 180, 110);
-    triangle(mouseX-25, mouseY+25, mouseX, mouseY-25, mouseX+25, mouseY+25);
+  stroke(65, 180, 110);
+  triangle(mouseX-25, mouseY+25, mouseX, mouseY-25, mouseX+25, mouseY+25);
 }
 ```
 
@@ -462,8 +462,6 @@ switch (条件式) {
 `
 
 switch文は条件式に指定された値と同じ数値を持つcaseへジャンプします。そして、そのcase内の実行分を実行し、break文を見つけるとswitch文のブロックを抜けます。次のプログラムでは変数rによって描く図形を分岐させています。
-
-<iframe src="/samples/tutorial/Chapter6/sketch09.html" class="sample-sketch"></iframe>
 
 [Chapter6/sketch09.pde](github:Chapter6/sketch09/sketch09.pde)
 
@@ -511,8 +509,6 @@ switch (値) {
     break;
 }
 `
-
-<iframe src="/samples/tutorial/Chapter6/sketch10.html" class="sample-sketch"></iframe>
 
 [Chapter6/sketch10.pde](github:Chapter6/sketch10/sketch10.pde)
 
