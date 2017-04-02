@@ -14,8 +14,11 @@ html {
 body {
   font-family: "Noto Sans Japanese", sans-serif;
   font-weight: 200;
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.05em;
   color: $main-gray;
   background-color: #fff;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

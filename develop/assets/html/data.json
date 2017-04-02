@@ -57,36 +57,26 @@
     },
     {
       "number": "11",
-      "subTitle": "三角関数",
-      "description": "三角関数の使い方を解説します。"
+      "subTitle": "3D図形とカメラ",
+      "description": "Processingで使える3D図形とカメラの扱いを解説します。"
     },
     {
       "number": "12",
-      "subTitle": "乱数",
-      "description": "random()による通常の乱数生成法とパーリンノイズと呼ばれる特殊な乱数について解説します。"
-    },
-    {
-      "number": "13",
-      "subTitle": "3D図形とカメラとライト",
-      "description": "Processingで使える3D図形と、カメラとライトの扱いを解説します。"
-    },
-    {
-      "number": "14",
       "subTitle": "配列",
       "description": "大量のデータを簡単に扱える配列について解説します。"
     },
     {
-      "number": "15",
+      "number": "13",
       "subTitle": "クラス基礎１",
       "description": "クラスと呼ばれる仕組みを解説する前に、クラスを作る理由を具体的に説明します。"
     },
     {
-      "number": "16",
+      "number": "14",
       "subTitle": "クラス基礎2",
       "description": "クラスの作り方を解説します。"
     },
     {
-      "number": "17",
+      "number": "15",
       "subTitle": "クラス基礎3",
       "description": "さらに便利なクラスの使い方を解説します"
     }

@@ -63,9 +63,9 @@
   <dd>座標(x, y)に幅ｗ高さｈ、角度startからstopまでの弧を描く</dd>
 </dl>
 
-<p><img src="/images/Chapter2/shapes.jpg" alt=""></p>
-<p>Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。size(700, 300)を指定した場合のウィンドウの角の座標は次のようになります。</p>
-<p><img src="/images/Chapter2/coordinate.jpg" alt=""></p>
+<p><img src="/images/Chapter2/shapes.jpg" width="700" height="680"></p>
+<p>Processingの座標の取り方は数学などで一般的に使われるものとは少し違います。Processingではウィンドウの左上の角を原点とし、xのプラス方向を右に、yのプラス方向を下にします。<em>size(700, 300)</em>を指定した場合のウィンドウの角の座標は次のようになります。</p>
+<p><img src="/images/Chapter2/coordinate.jpg" width="700" height="300"></p>
 <p>最初は違和感を感じますがすぐに慣れるでしょう。実際に図形を描いてみます。</p>
 <p><img src="/images/Chapter2/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch01/sketch01.pde' target='_blank'>Chapter2/sketch01.pde</a></p>
@@ -84,10 +84,11 @@
 <span class="hljs-comment">// 三角形を描く</span>
 <span class="hljs-built_in">triangle</span>(<span class="hljs-number">800</span>, <span class="hljs-number">250</span>, <span class="hljs-number">880</span>, <span class="hljs-number">190</span>, <span class="hljs-number">830</span>, <span class="hljs-number">320</span>);
 </code></pre>
-<p>ellipse()に指定する座標は円の中心座標です。対して、rect()で指定する座標は長方形の左上の角の座標になります。ellipseは楕円を意味する英語です。正円を作るにはellipse()に同じ幅と高さを指定します。</p>
-<p>arc()関数を使ってみます。arc()関数の５つ目と６つ目のパラメータは孤を描き始める角度と描き終わる角度です。２つの角度はどちらも０度から数えた角度です。数学では角度は反時計回りで増えていきますが、Processingでは時計回りに増えます。また、単位は度ではなくラジアンで指定します。ラジアンについて詳しく解説すると長くなっちゃうのでここでは止めておきます。簡単に説明しておくと、下の画像にもある通り、0度が0ラジアン、45度が0.79ラジアン、90度が1.57ラジアンという感じになっています。Processingでコードを書くときにこのラジアンの数値をそのまま使うことはまずないでしょう。代わりに他の方法で角度を表現します。下の画像は度(Degrees)とラジアン(Radians)の数値の対応を示しています。</p>
-<p><img src="/images/Chapter2/rad_deg.jpg" alt=""></p>
-<p>下のサンプルコードは角度を指定する３つの方法を示しています。１つ目のarc()はラジアンの数値をそのまま使う方法。２つ目のarc()は定数と呼ばれる文字を使う方法です。QUARTER_PIと書くとラジアンの数値で0.79を指定するのと同じことになります。他に、90度を表すHALF_PI、180度を表すPI、360度を表すTWO_PIがあります。このように、Processingではわかりにくい数値を文字として表現できることがあります。なぜこのような文字のことを定数と呼ぶのかはChapter4で解説しています。６つ目のパラメータを指定するときにちょっとした計算をしています。TWO_PIからQUARTER_PIを引き算することで315度を表しています。このような計算についても詳しくはChapter4で解説します。３つ目のarc()には度数をラジアンに変換してくれるradians()関数を使っています。radians()関数に度数を与えると対応するラジアンを返してくれます。このradians()関数を使った角度の指定方法が一番使われています。</p>
+<p><em>ellipse()</em>に指定する座標は円の中心座標です。対して、<em>rect()</em>で指定する座標は長方形の左上の角の座標になります。<em>ellipse</em>は楕円を意味する英語です。正円を作るには<em>ellipse()</em>に同じ幅と高さを指定します。</p>
+<p><em>arc()</em>関数を使ってみます。<em>arc()</em>関数の5つ目と6つ目のパラメータは孤を描き始める角度と描き終わる角度です。2つの角度はどちらも0度から数えた角度です。数学では角度は反時計回りで増えていきますが、Processingでは時計回りに増えます。また、単位は度ではなくラジアンで指定します。ラジアンについて詳しく解説すると長くなっちゃうのでここでは止めておきます。簡単に説明しておくと、下の画像にもある通り、0度が0ラジアン、45度が約
+0.79ラジアン、90度が約1.57ラジアンという感じになっています。Processingでコードを書くときにこのラジアンの数値をそのまま使うことはまずないでしょう。代わりに他の方法で角度を表現します。下の画像は度(Degrees)とラジアン(Radians)の数値の対応を示しています。</p>
+<p><img src="/images/Chapter2/rad_deg.jpg" width="700" height="350"></p>
+<p>下のサンプルコードは角度を指定する３つの方法を示しています。１つ目の<em>arc()</em>はラジアンの数値をそのまま使う方法。２つ目の<em>arc()</em>は定数と呼ばれる文字を使う方法です。<em>QUARTER_PI</em>と書くとラジアンの数値で0.79を指定するのと同じことになります。他に、90度を表す<em>HALF_PI</em>、180度を表す<em>PI</em>、360度を表す<em>TWO_PI</em>があります。このように、Processingではわかりにくい数値を文字として表現できることがあります。なぜこのような文字のことを定数と呼ぶのかはChapter4で解説しています。６つ目のパラメータを指定するときにちょっとした計算をしています。<em>TWO_PI</em>から<em>QUARTER_PI</em>を引き算することで315度を表しています。このような計算についても詳しくはChapter4で解説します。３つ目の<em>arc()</em>には度数をラジアンに変換してくれる<em>radians()</em>を使っています。<em>radians()</em>に度数を与えると対応するラジアンを返してくれます。</p>
 <p><img src="/images/Chapter2/sketch02.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch02/sketch02.pde' target='_blank'>Chapter2/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -100,7 +101,7 @@
 <span class="hljs-comment">// ラジアンを関数で指定</span>
 <span class="hljs-built_in">arc</span>(<span class="hljs-number">780</span>, <span class="hljs-number">270</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>));
 </code></pre>
-<p>arc()関数には７つ目のパラメータがあります。このパラメータにはPIE、OPEN、CHORDのいずれかを指定します。文字の説明を読むより見たほうが早いので次のサンプルで確認してください。７つ目のパラメータを指定しなかった場合と指定した場合の３つを比較しています。</p>
+<p><em>arc()</em>には７つ目のパラメータがあります。このパラメータには<em>PIE</em>、<em>OPEN</em>、<em>CHORD</em>のいずれかを指定します。文字の説明を読むより見たほうが早いので次のサンプルで確認してください。７つ目のパラメータを指定しなかった場合と指定した場合の３つを比較しています。</p>
 <p><img src="/images/Chapter2/sketch03.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch03/sketch03.pde' target='_blank'>Chapter2/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -111,7 +112,7 @@
 <span class="hljs-built_in">arc</span>(<span class="hljs-number">600</span>, <span class="hljs-number">270</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>), OPEN);
 <span class="hljs-built_in">arc</span>(<span class="hljs-number">840</span>, <span class="hljs-number">270</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">radians</span>(<span class="hljs-number">45</span>), <span class="hljs-built_in">radians</span>(<span class="hljs-number">315</span>), CHORD);
 </code></pre>
-<p>rect()に追加のパラメータを与えることで角丸の長方形を作ることができます。パラメータは角丸の半径を表します。５つ目のパラメータを与えた場合はすべての角が同じ半径の角丸に、５、６、７、８つ目のパラメータを与えると左上の角から時計回りに角丸の半径を指定できます。</p>
+<p><em>rect()</em>に追加のパラメータを与えることで角丸の長方形を作ることができます。パラメータは角丸の半径を表します。５つ目のパラメータを与えた場合はすべての角が同じ半径の角丸に、５、６、７、８つ目のパラメータを与えると左上の角から時計回りに角丸の半径を指定できます。</p>
 <p><img src="/images/Chapter2/sketch04.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch04/sketch04.pde' target='_blank'>Chapter2/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -122,7 +123,7 @@
 <span class="hljs-comment">// 時計回りに、半径10px、20px、30px、40pxの角丸にする</span>
 <span class="hljs-built_in">rect</span>(<span class="hljs-number">520</span>, <span class="hljs-number">170</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>);
 </code></pre>
-<h2>図形に色を塗る</h2><p>図形に色を指定する方法を見ていきましょう。色の表現方法はChapter3で詳しく解説します。ここでは黒～白の色に限定して話していきます。図形には枠線の色と内側の塗りつぶしの色を指定することができます。以下の４つの関数で色の指定ができます。fill()とstroke()のパラメータにはbackground()と同じく0～255の数値を与えます。noFill()とnoStroke()はパラメータを持たない関数です。</p>
+<h2>図形に色を塗る</h2><p>図形に色を指定する方法を見ていきましょう。色の表現方法はChapter3で詳しく解説します。ここでは黒～白の色に限定して話していきます。図形には枠線の色と内側の塗りつぶしの色を指定することができます。以下の４つの関数で色の指定ができます。<em>fill()</em>と<em>stroke()</em>のパラメータには<em>background()</em>と同じく0～255の数値を与えます。<em>noFill()</em>と<em>noStroke()</em>はパラメータを持たない関数です。</p>
 <dl class="p5Functions">
   <dt><a href='https://www.processing.org/reference/fill_.html' target='_blank'>fill()</a></dt>
   <dd>図形の内側の色を指定する</dd>
@@ -137,7 +138,7 @@
   <dd>図形の枠線を無くす</dd>
 </dl>
 
-<p>point()とline()には内側というものがありません。point()とline()に色を指定する場合はstroke()だけでいいです。</p>
+<p><em>point()</em>と<em>line()</em>には内側というものがありません。色を指定する場合は<em>stroke()</em>だけでいいです。</p>
 <p><img src="/images/Chapter2/sketch05.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch05/sketch05.pde' target='_blank'>Chapter2/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -162,8 +163,8 @@
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">rect</span>(<span class="hljs-number">520</span>, <span class="hljs-number">200</span>, <span class="hljs-number">140</span>, <span class="hljs-number">140</span>);
 </code></pre>
-<p>noFill()が指定された図形の内側の色は背景色と同じになります。また、図形が重なった場合は後から描かれた図形が前に描かれた図形の上に描かれます。</p>
-<p>fill()、stroke()、noFill()、noStroke()や、後述するstrokeWeight()、strokeCap()、strokeJoin()、ellipseMode()、rectMode()などは 一度指定するとそれ以降の図形にも適用されます。図形ごとにスタイルを切り替えたい場合は、今何が適用されているかに注意しましょう。</p>
+<p><em>noFill()</em>が指定された図形の内側の色は背景色と同じになります。また、図形が重なった場合は後から描かれた図形が前に描かれた図形の上に描かれます。</p>
+<p><em>fill()</em>、<em>stroke()</em>、<em>noFill()</em>、<em>noStroke()</em>や、後述する<em>strokeWeight()</em>、<em>strokeCap()</em>、<em>strokeJoin()</em>、<em>ellipseMode()</em>、<em>rectMode()</em>などは 一度指定するとそれ以降の図形にも適用されます。図形ごとにスタイルを切り替えたい場合は、今何が適用されているかに注意しましょう。</p>
 <h2>枠線の見た目を変える</h2><p>枠線の見た目を変える３種類の関数を見ていきましょう。</p>
 <dl class="p5Functions">
   <dt><a href='https://www.processing.org/reference/strokeWeight_.html' target='_blank'>strokeWeight()</a></dt>
@@ -176,7 +177,7 @@
   <dd>枠線の両端の形を変える</dd>
 </dl>
 
-<p>strokeWeight()は枠線の太さを変える関数です。strokeJoin()は枠線の角の形を変える関数で、パラメータにMITER、BEVEL、ROUNDの３種類を指定することができます。MITERは角を尖った形に、BEVELは角を切り取った形に、ROUNDは角を丸い形にできます。MITERがデフォルトの設定です。</p>
+<p><em>strokeWeight()</em>は枠線の太さを変える関数です。<em>strokeJoin()</em>は枠線の角の形を変える関数で、パラメータに<em>MITER</em>、<em>BEVEL</em>、<em>ROUND</em>の３種類を指定することができます。<em>MITER</em>は角を尖った形に、<em>BEVEL</em>は角を切り取った形に、<em>ROUND</em>は角を丸い形にできます。<em>MITER</em>がデフォルトの設定です。</p>
 <p><img src="/images/Chapter2/sketch06.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch06/sketch06.pde' target='_blank'>Chapter2/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">200</span>);
@@ -203,7 +204,7 @@ MITERがデフォルトなので
 <span class="hljs-built_in">strokeJoin</span>(ROUND);
 <span class="hljs-built_in">rect</span>(<span class="hljs-number">575</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
 </code></pre>
-<p>strokeCap()は枠線の両端の形を変える関数で、パラメータにROUND、PROJECT、SQUAREの３種類を指定することができます。ROUNDは両端を丸い形に、PROJECTは両端を尖った形に、SQUAREは両端を尖った形にした上でstrokeWeight()による両端のはみ出しを消します。ROUNDがデフォルトの設定です。以下のコードでは比較のために太さ20pxの線の左横と下に太さ1pxの線を描いています。</p>
+<p><em>strokeCap()</em>は枠線の両端の形を変える関数で、パラメータに<em>ROUND</em>、<em>PROJECT</em>、<em>SQUARE</em>の３種類を指定することができます。<em>ROUND</em>は両端を丸い形に、<em>PROJECT</em>は両端を尖った形に、<em>SQUARE</em>は両端を尖った形にした上で<em>strokeWeight()</em>による両端のはみ出しを消します。<em>ROUND</em>がデフォルトの設定です。以下のコードでは比較のために太さ20pxの線の左横と下に太さ1pxの線を描いています。</p>
 <p><img src="/images/Chapter2/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch07/sketch07.pde' target='_blank'>Chapter2/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">200</span>);
@@ -248,9 +249,9 @@ ROUNDがデフォルトなので
 <span class="hljs-comment">// 幅20px太さ1pxの線</span>
 <span class="hljs-built_in">line</span>(<span class="hljs-number">615</span>, <span class="hljs-number">180</span>, <span class="hljs-number">635</span>, <span class="hljs-number">180</span>);
 </code></pre>
-<p>line()にstrokeWeight()を指定すると線の両端にも太さが割り振られます。高さが100pxの線に20pxの枠線の太さを指定すると、両端に10pxずつ太さが割り振られて、全体で120pxの線になります。strokeCap(SQUARE)は両端に割り振られる太さを無くす設定です。</p>
-<h2>ellipse()とrect()の描画方法を変更する</h2><p>ellipseMode()関数とrectMode()関数を使うとellipse()とrect()に指定するパラメータの挙動を変えることができます。ellipseMode()にはCENTER、RADIUS、CORNER、CORNERSのいずれかを指定することができます。CENTERがデフォルトです。それぞれを指定した場合の挙動は以下の通りです。</p>
-<p><img src="/images/Chapter2/ellipseMode.jpg" alt=""></p>
+<p><em>line()</em>に<em>strokeWeight()</em>を指定すると線の両端にも太さが割り振られます。高さが100pxの線に20pxの枠線の太さを指定すると、両端に10pxずつ太さが割り振られて、全体で120pxの線になります。<em>strokeCap(SQUARE)</em>は両端に割り振られる太さを無くす設定です。</p>
+<h2>ellipse()とrect()の描画方法を変更する</h2><p><em>ellipseMode()</em>と<em>rectMode()</em>を使うと<em>ellipse()</em>と<em>rect()</em>に指定するパラメータの挙動を変えることができます。<em>ellipseMode()</em>には<em>CENTER</em>、<em>RADIUS</em>、<em>CORNER</em>、<em>CORNERS</em>のいずれかを指定することができます。<em>CENTER</em>がデフォルトです。それぞれを指定した場合の挙動は以下の通りです。</p>
+<p><img src="/images/Chapter2/ellipseMode.jpg" width="700" height="600"></p>
 <p><img src="/images/Chapter2/sketch08.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch08/sketch08.pde' target='_blank'>Chapter2/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -273,8 +274,8 @@ ROUNDがデフォルトなので
 <span class="hljs-built_in">ellipseMode</span>(CORNERS);
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">150</span>);     <span class="hljs-comment">// 明るい灰色の円</span>
 </code></pre>
-<p>rectMode()にはCORNER、CORNERS、CENTERのいずれかを指定することができます。CORNERがデフォルトです。それぞれを指定した場合の挙動は以下の通りです。</p>
-<p><img src="/images/Chapter2/rectMode.jpg" alt=""></p>
+<p><em>rectMode()</em>には<em>CORNER</em>、<em>CORNERS</em>、<em>CENTER</em>のいずれかを指定することができます。<em>CORNER</em>がデフォルトです。それぞれを指定した場合の挙動は以下の通りです。</p>
+<p><img src="/images/Chapter2/rectMode.jpg" width="700" height="600"></p>
 <p><img src="/images/Chapter2/sketch09.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter2/sketch09/sketch09.pde' target='_blank'>Chapter2/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);

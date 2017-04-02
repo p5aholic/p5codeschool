@@ -1,8 +1,11 @@
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 3px solid #000;
+  background-color: $main-gray;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius: 0 0 40px 40px;
   z-index: index($z, header);
   .inner {
     max-width: $articleWidth;
@@ -18,7 +21,7 @@
     font-weight: 700;
     a {
       display: block;
-      color: $main-gray;
+      color: #fff;
       &:hover {
         border-bottom: none;
       }
@@ -30,6 +33,7 @@
   .header {
     .inner {
       display: block;
+      padding: 5px $sidePadding;
     }
     &__siteTitle {
       font-size: 2.8rem;

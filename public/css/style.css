@@ -1,32 +1,22 @@
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
+/*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
 html {
-  font-family: sans-serif;
-  /* 1 */
   line-height: 1.15;
-  /* 2 */
+  /* 1 */
   -ms-text-size-adjust: 100%;
-  /* 3 */
+  /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 3 */
+  /* 2 */
 }
 
 /* Sections
    ========================================================================== */
-/**
- * Remove the margin in all browsers (opinionated).
- */
-body {
-  margin: 0;
-}
-
 /**
  * Add the correct display in IE 9-.
  */
@@ -106,16 +96,7 @@ a {
 }
 
 /**
- * Remove the outline on focused links when they are also active or hovered
- * in all browsers (opinionated).
- */
-a:active,
-a:hover {
-  outline-width: 0;
-}
-
-/**
- * 1. Remove the bottom border in Firefox 39-.
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
@@ -233,22 +214,14 @@ svg:not(:root) {
 /* Forms
    ========================================================================== */
 /**
- * 1. Change the font styles in all browsers (opinionated).
- * 2. Remove the margin in Firefox and Safari.
+ * Remove the margin in Firefox and Safari.
  */
 button,
 input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
   margin: 0;
-  /* 2 */
 }
 
 /**
@@ -303,15 +276,6 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
-}
-
-/**
- * Change the border, margin, and padding in all browsers (opinionated).
- */
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
 }
 
 /**
@@ -463,8 +427,12 @@ html {
 body {
   font-family: "Noto Sans Japanese", sans-serif;
   font-weight: 200;
+  -webkit-font-feature-settings: "palt" 1;
+          font-feature-settings: "palt" 1;
+  letter-spacing: 0.05em;
   color: #161616;
   background-color: #fff;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -625,9 +593,12 @@ canvas {
 
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 3px solid #000;
+  background-color: #161616;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius: 0 0 40px 40px;
   z-index: 1;
 }
 
@@ -654,7 +625,7 @@ canvas {
 
 .header__siteTitle a {
   display: block;
-  color: #161616;
+  color: #fff;
 }
 
 .header__siteTitle a:hover {
@@ -664,6 +635,7 @@ canvas {
 @media (max-width: 640px) {
   .header .inner {
     display: block;
+    padding: 5px 15px;
   }
   .header__siteTitle {
     font-size: 2.8rem;
@@ -686,7 +658,7 @@ canvas {
   font-size: 1.6rem;
   font-family: "Open Sans";
   font-weight: 400;
-  color: #161616;
+  color: #fff;
   letter-spacing: 1px;
 }
 
@@ -703,8 +675,9 @@ canvas {
 }
 
 .footer {
-  background-color: #fff;
-  border-top: 3px solid #000;
+  background-color: #161616;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius: 40px 40px 0 0;
 }
 
 .footer .inner {
@@ -715,7 +688,7 @@ canvas {
 
 .footer .copyright {
   font-size: 1.2rem;
-  color: #161616;
+  color: #fff;
 }
 
 .mainContents {
@@ -727,20 +700,26 @@ canvas {
 .mainContents > h1 {
   font-size: 2.8rem;
   font-weight: 300;
-  color: #004b99;
+  color: #004082;
   margin-bottom: 20px;
 }
 
 .mainContents > h2 {
   font-size: 2.2rem;
   font-weight: 300;
-  color: #004b99;
+  color: #004082;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 
 .mainContents > p {
   margin-bottom: 15px;
+}
+
+.mainContents > p > em {
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .mainContents img {
@@ -847,11 +826,10 @@ pre code.lang-processing {
 
 .chapterList {
   margin-top: 20px;
-  font-size: 0;
 }
 
 .chapterList__item {
-  display: inline-block;
+  float: left;
   vertical-align: top;
   width: calc(33.3333% - 20px);
   margin-right: 30px;
@@ -875,40 +853,47 @@ pre code.lang-processing {
   }
 }
 
-.chapterList__link {
+.chapterList__title {
+  position: relative;
   display: block;
+  background-color: #161616;
+  border-radius: 16px;
+  box-shadow: 2px 2px 3px 0px #666;
   margin-bottom: 15px;
 }
 
-.chapterList__link:hover {
-  border-bottom: none;
-}
-
-.chapterList__title {
-  font-weight: 200;
-}
-
-.chapterList__number {
-  position: relative;
+.chapterList__title a {
   display: block;
-  padding: 5px 0 5px 10px;
+  padding: 5px 0 6px 10px;
   font-size: 2.2rem;
+  font-weight: 200;
   color: #fff;
   letter-spacing: 1px;
-  background-color: #161616;
-  border-radius: 4px;
-  margin-bottom: 5px;
   -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.chapterList__number:after {
+.chapterList__title a:hover {
+  color: #cd0055;
+  text-decoration: none;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .chapterList__title a {
+    font-size: 1.8rem;
+    padding: 5px 0 6px 5px;
+  }
+}
+
+.chapterList__title:after {
   content: "";
-  display: inline-block;
+  display: block;
   width: 10px;
   height: 10px;
-  margin-bottom: 3px;
-  margin-left: 10px;
+  position: absolute;
+  top: 12px;
+  right: 120px;
   border-top: 2px solid #fff;
   border-right: 2px solid #fff;
   -webkit-transform: rotateZ(45deg);
@@ -917,35 +902,28 @@ pre code.lang-processing {
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.chapterList__number:hover {
-  color: #cd0055;
+@media (max-width: 640px) {
+  .chapterList__title:after {
+    top: 10px;
+    right: 30px;
+  }
 }
 
-.chapterList__number:hover:after {
+.chapterList__title:hover:after {
   border-color: #cd0055;
   -webkit-transform: translateX(10px) rotateZ(45deg);
           transform: translateX(10px) rotateZ(45deg);
 }
 
-@media (max-width: 640px) {
-  .chapterList__number {
-    font-size: 1.8rem;
-    padding: 5px 0 5px 5px;
-  }
-  .chapterList__number:after {
-    margin-bottom: 2px;
-  }
-}
-
 .chapterList__subTitle {
-  font-size: 1.6rem;
-  color: #161616;
-  padding-left: 10px;
+  line-height: 1.4;
+  padding: 0 10px;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 640px) {
   .chapterList__subTitle {
-    padding-left: 5px;
+    padding: 0 5px;
   }
 }
 

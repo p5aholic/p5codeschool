@@ -1,266 +1,392 @@
-# 三角関数
+# 3D図形とカメラ
 
-三角関数を使うとどのような表現ができるか解説していきます。
+3D空間に描くことができる図形とカメラの扱い方を解説します。
 
-## sin()とcos()
+## 3D図形
+3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第３パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは４種類あるのですが、3D空間を扱うにはP3Dを指定します。
 
-高校で習うサインとコサインはsin()とcos()で表現できます。サイン、コサインとは何なのかという話はかなーり奥の深い数学の話になってしまうので、ここでは使い方に重点を置いて解説します。
+`size(960, 540, P3D);`
 
-sin()とcos()のパラメータには角度をラジアン値で渡します。そして、sin()とcos()は渡されたラジアン値をもとに-1～1の値を返します。とりあえずsin()とcos()がどのような値を返すのか見てみましょう。まずはcos()から。
+これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。
 
-<iframe src="/samples/tutorial/Chapter11/sketch01.html" class="sample-sketch"></iframe>
+Processingで扱える3D図形は次の2つです。
 
-[Chapter11/sketch01.pde](github:Chapter11/sketch01/sketch01.pde)
+<dl class="p5Functions">
+    <dt>[box(size) || box(w, h, d)](p5ref:box_.html)</dt>
+    <dd>・１辺がsizeの箱を描画する<br>・幅w、高さh、奥行きdの箱を描画する</dd>
+    <dt>[sphere(r)](p5ref:sphere_.html)</dt>
+    <dd>半径rの球体を描画する</dd>
+</dl>
+
+3D図形として用意されているのは箱と球体だけなんです。自由な形の3D図形を自作できる方法があるのですが、それはまた別のChapterで解説します。
+
+ところで、box()とsphere()には座標が指定できません。「は？」ってなると思いますが、まぁそうなんです。box()とsphere()は原点にしか描画できないんです。なので、ウィンドウ内の任意の場所にbox()とsphere()を描画したい場合はtranslate()でその場所まで原点を移す必要があります。面倒臭いですが仕方ありません。次のプログラムでは２つの箱を描画しています。
+
+![](/images/Chapter13/sketch01.jpg)
+
+[Chapter13/sketch01.pde](github:Chapter13/sketch01/sketch01.pde)
 
 ```processing
 void setup() {
-  size(960, 540);
+  // レンダラをP3Dに
+  size(960, 540, P3D);
+  noLoop();
+  stroke(220);
+  strokeWeight(5);
+}
+
+void draw() {
+  background(0);
+
+  pushMatrix();
+  // 座標(width/2-100, height/2, 100)にboxを描く
+  translate(width/2-100, height/2, 100);
+  fill(128);
+  // 幅、高さ、奥行きが100pxの箱
+  box(100);
+  popMatrix();
+
+  pushMatrix();
+  // 座標(width/2+100, height/2, -100)にboxを描く
+  translate(width/2+100, height/2, -100);
+  noFill();
+  // 幅100px、高さ50px、奥行き200pxの箱
+  box(100, 50, 200);
+  popMatrix();
+}
+```
+
+sphere()も描画してみましょう。
+
+![](/images/Chapter13/sketch02.jpg)
+
+[Chapter13/sketch02.pde](github:Chapter13/sketch02/sketch02.pde)
+
+```processing
+void setup() {
+  size(960, 540, P3D);
+  noLoop();
+}
+
+void draw() {
+  background(0);
+
+  pushMatrix();
+  translate(width/2-100, height/2, 0);
+  noStroke();
+  fill(128);
+  // 半径100の球体
+  sphere(100);
+  popMatrix();
+
+  pushMatrix();
+  translate(width/2+100, height/2, 0);
+  stroke(128);
+  noFill();
+  // 半径100の球体
+  sphere(100);
+  popMatrix();
+}
+```
+
+左の球体に立体感が無いのがわかるかと思います。立体感が無いのはライトの設定をしていないからです。ライトの設定は後で詳しく解説します。
+
+球体は小さな面の集まりでできています。sphereDetail()を使うと、球体をいくつの面で分割するかを変えることができます。sphereDetail(30)とした場合、球体の水平方向と垂直方向に面が30個できます。水平方向は１周360度なので12(360÷30)度間隔で面が作られ、垂直方向は上から下まで180度なので6(180÷30)度間隔で面が作られます。sphereDetail()を指定しなかった場合のデフォルト値は30です。パラメータを２つ与えると水平方向と垂直方向の面の数を別々に指定できます。次のプログラムを実行してみてください。マウスが左端に近いほど水平方向の面の数が増え、下端に近いほど垂直方向の面の数が増えます。
+
+![](/images/Chapter13/sketch03.jpg)
+
+[Chapter13/sketch03.pde](github:Chapter13/sketch03/sketch03.pde)
+
+```processing
+void setup() {
+  size(960, 540, P3D);
+  stroke(255);
+  noFill();
+}
+
+void draw() {
+  background(0);
+
+  // 水平方向の解像度(resolution)
+  int uRes = (int)map(mouseX, 0, width, 3, 30);
+  // 垂直方向の解像度(resolution)
+  int vRes = (int)map(mouseY, 0, height, 2, 30);
+
+  translate(width/2, height/2, 0);
+  // 面の細かさを設定
+  sphereDetail(uRes, vRes);
+  sphere(100);
+}
+```
+
+マウスの座標をmap()で面の数に変換しています。水平方向は最低でも３面で分割しないと平面になってしまうので、hResの最小値は3にしています。
+
+## 3D座標の回転
+
+今までの２Ｄ空間でのrotate()による回転はz軸中心の回転でした。３Ｄ空間ではx軸中心の回転とy軸中心の回転が使えるようになります。
+
+<dl class="p5Functions">
+    <dt>[rotateX(angle)](p5ref:rotateX_.html)</dt>
+    <dd>x軸を中心にして回転する</dd>
+    <dt>[rotateY(angle)](p5ref:rotateY_.html)</dt>
+    <dd>y軸を中心にして回転する</dd>
+    <dt>[rotateZ(angle)](p5ref:rotateZ_.html)</dt>
+    <dd>z軸を中心にして回転する</dd>
+    <dt>[rotate(angle)](p5ref:rotate_.html)</dt>
+    <dd>z軸を中心にして回転する</dd>
+</dl>
+
+rotate()とrotateZ()の違いは名前だけです。
+
+次のプログラムでは赤緑青の箱をrotateX()、rotateY()、rotateZ()で回しています。
+
+![](/images/Chapter13/sketch04.jpg)
+
+[Chapter13/sketch04.pde](github:Chapter13/sketch04/sketch04.pde)
+
+```processing
+void setup() {
+  size(960, 540, P3D);
+  stroke(0);
+  strokeWeight(2);
+}
+
+void draw() {
+  background(255);
+
+  // x軸中心に回転する赤色の箱
+  pushMatrix();
+  translate(width/2, height/2-100, 0);
+  rotateX(frameCount*0.03);
+  fill(255, 0, 0);
+  box(50);
+  popMatrix();
+
+  // y軸中心に回転する緑色の箱
+  pushMatrix();
+  translate(width/2, height/2, 0);
+  rotateY(frameCount*0.03);
+  fill(0, 255, 0);
+  box(50);
+  popMatrix();
+
+  // z軸中心に回転する青色の箱
+  pushMatrix();
+  translate(width/2, height/2+100, 0);
+  rotateZ(frameCount*0.03); // rotate()でも可
+  fill(0, 0, 255);
+  box(50);
+  popMatrix();
+}
+```
+
+次のプログラムのほうが軸で回転しているのがわかりやすいです。実行してマウスを動かしてみてください。マウスの上下の動きがx軸中心の回転角度、左右の動きがy軸中心の回転角度になっています。このプログラムで６つのパラメータを持つline()を使っています。解説は後ほど。
+
+![](/images/Chapter13/sketch05.jpg)
+
+[Chapter13/sketch05.pde](github:Chapter13/sketch05/sketch05.pde)
+
+```processing
+void setup() {
+  size(960, 540, P3D);
+}
+
+void draw() {
+  background(255);
+  // 原点を画面中心に移動
+  translate(width/2, height/2, 0);
+
+  // マウスの座標を回転角度に変換
+  float rotationX = map(mouseY, 0, height, -PI, PI);
+  float rotationY = map(mouseX, 0, width, -PI, PI);
+  // x軸中心の回転
+  rotateX(rotationX);
+  // y軸中心の回転
+  rotateY(rotationY);
+
+  // 画面中心の箱
+  stroke(0);
+  fill(220);
+  box(50);
+
+  // x軸を示す赤色の線
   stroke(255, 0, 0);
-  strokeWeight(20);
-}
-
-void draw() {
-  background(255);
-  // 原点を画面中心に移動
-  translate(width/2, height/2);
-
-  // cos()が返した値をxに代入
-  float x = 100 * cos(frameCount * 0.05);
-
-  // xを表す点を描画してみる
-  point(x, 0);
-}
-```
-
-sin()とcos()が返す値は-1～1なので、わかりやすいように100を掛けています。sin()も同じようにしてどのような値を返すのか見てみましょう。
-
-<iframe src="/samples/tutorial/Chapter11/sketch02.html" class="sample-sketch"></iframe>
-
-[Chapter11/sketch02.pde](github:Chapter11/sketch02/sketch02.pde)
-
-```processing
-void setup() {
-  size(960, 540);
+  line(0, 0, 0, 500, 0, 0);
+  // y軸を示す緑色の線
   stroke(0, 255, 0);
-  strokeWeight(20);
-}
-
-void draw() {
-  background(255);
-  // 原点を画面中心に移動
-  translate(width/2, height/2);
-
-  // sin()が返した値をyに代入
-  float y = 100 * sin(frameCount * 0.05);
-
-  // yを表す点を描画してみる
-  point(0, y);
-}
-```
-
-では、この２つを組み合わせてpoint(x, y)を描画してみましょう。
-
-<iframe src="/samples/tutorial/Chapter11/sketch03.html" class="sample-sketch"></iframe>
-
-[Chapter11/sketch03.pde](github:Chapter11/sketch03/sketch03.pde)
-
-```processing
-void setup() {
-  size(960, 540);
+  line(0, 0, 0, 0, 500, 0);
+  // x軸を示す青色の線
   stroke(0, 0, 255);
-  strokeWeight(20);
-}
-
-void draw() {
-  background(255);
-  translate(width/2, height/2);
-
-  float x = 100*cos(frameCount * 0.05);
-  float y = 100*sin(frameCount * 0.05);
-
-  point(x, y);
+  line(0, 0, 0, 0, 0, 500);
 }
 ```
 
-どうやらcos()が返す値をx座標とし、sin()が返す値をy座標とするとpoint(x, y)は円を描くようにグルグル回るようです。このことがわかったうえで、高校で習う三角関数がどのようなものかをちょっとだけ解説します。
+## 3D空間内の2D図形
 
-高校数学では、サインとコサインは次のように表現されています。
+point()とline()は3D空間内で使うこともできます。
 
-![](/images/Chapter11/unitcircle.jpg)
+<dl class="p5Functions">
+    <dt>[point(x, y, z)](p5ref:point_.html)</dt>
+    <dd>座標(x, y, z)に点を描画</dd>
+    <dt>[line(x1, y1, z1, x2, y2, z2)](p5ref:line_.html)</dt>
+    <dd>座標(x1, y1, z1)と座標(x2, y2, z2)をつなぐ線を描画</dd>
+</dl>
 
-半径rの円が原点にあったとして、αはx軸との角度を表し、座標(x, y)はx軸との角度αの円上の点を表しています。このとき、<br>
-sin(α) = y / r<br>
-cos(α) = x / r<br>
-となります。r = 1だったとすると、当然<br>
-sin(α) = y<br>
-cos(α) = x<br>
-になります。この半径1のときのsin(α)とcos(α)が、Processingのsin()とcos()になります。sin()とcos()はパラメータにx軸との角度αを渡すと、角度αで半径1の円上の点の座標を返す関数です。ただし、Processingの座標系は高校数学で使う座標系とは違い、角度が時計回りに増えていくことに注意です。
+![](/images/Chapter13/sketch06.jpg)
 
-![](/images/Chapter11/rad_deg.jpg)
-
-次のプログラムではsin()とcos()を使って円状に点を描画しています。
-
-<iframe src="/samples/tutorial/Chapter11/sketch04.html" class="sample-sketch"></iframe>
-
-[Chapter11/sketch04.pde](github:Chapter11/sketch04/sketch04.pde)
+[Chapter13/sketch06.pde](github:Chapter13/sketch06/sketch06.pde)
 
 ```processing
 void setup() {
-  size(960, 540);
+  size(960, 540, P3D);
   noLoop();
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(15);
 }
 
 void draw() {
   background(255);
-  translate(width/2, height/2);
+  translate(width/2, height/2, 0);
 
-  // 0度から360度になるまで5度ずつ増やす
-  for (int i = 0; i < 360; i += 5) {
-    // ラジアンに変換
-    float angle = radians(i);
-    // 半径150の円上の座標を計算
-    float x = 150 * cos(angle);
-    float y = 150 * sin(angle);
-    // 点を描画
-    point(x, y);
+  // 縦横に５つの点を表示
+  for (int x = -2; x <= 2; x++) {
+    for (int y = -2; y <= 2; y++) {
+      float pointX = x * 50;
+      float pointY = y * 50;
+      float pointZ = -x * 50;
+      point(pointX, pointY, pointZ);
+    }
   }
 }
 ```
 
-このプログラムでは360度になるまで描画していますが、マウスのx座標をmap()を使って角度に変換すると次のようになります。
+z座標用のパラメータが用意されている２Ｄ図形はpoint()とline()だけですが、translate()を使えば他の２Ｄ図形も３Ｄ空間内に描画できます。次のプログラムでは３Ｄ空間にellipse()を使って円を描画しています。
 
-<iframe src="/samples/tutorial/Chapter11/sketch05.html" class="sample-sketch"></iframe>
+![](/images/Chapter13/sketch07.jpg)
 
-[Chapter11/sketch05.pde](github:Chapter11/sketch05/sketch05.pde)
+[Chapter13/sketch07.pde](github:Chapter13/sketch07/sketch07.pde)
 
 ```processing
 void setup() {
-  size(960, 540);
+  size(960, 540, P3D);
   stroke(0);
-  strokeWeight(10);
+  strokeWeight(3);
+  fill(128);
 }
 
 void draw() {
   background(255);
-  translate(width/2, height/2);
+  translate(width/2, height/2, 0);
 
-  // マウスのx座標を角度に変換
-  float endAngle = map(mouseX, 0, width, 0, 360);
+  float rotationX = map(mouseY, 0, height, -PI, PI);
+  float rotationY = map(mouseX, 0, width, -PI, PI);
+  rotateX(rotationX);
+  rotateY(rotationY);
 
-  // 0度からendAngleになるまで5度ずつ増やす
-  for (int i = 0; i < endAngle; i += 5) {
-    float angle = radians(i);
-    float x = 150 * cos(angle);
-    float y = 150 * sin(angle);
-    point(x, y);
-  }
+  /* 画面中心に原点を移動してから
+   さらにx、y、z軸方向に100、-100移動したところに円を描画する */
+
+  /* 元々の原点(左上角)から見て
+   (width/2+100, height/2, 0)にある円 */
+  pushMatrix();
+  translate(100, 0, 0);
+  // 画面中心に円が向くように90度回転させる
+  rotateY(HALF_PI);
+  ellipse(0, 0, 100, 100);
+  popMatrix();
+
+  /* 元々の原点(左上角)から見て
+   (width/2-100, height/2, 0)にある円 */
+  pushMatrix();
+  translate(-100, 0, 0);
+  rotateY(HALF_PI);
+  ellipse(0, 0, 100, 100);
+  popMatrix();
+
+  pushMatrix();
+  translate(0, 100, 0);
+  rotateX(HALF_PI);
+  ellipse(0, 0, 100, 100);
+  popMatrix();
+
+  pushMatrix();
+  translate(0, -100, 0);
+  rotateX(HALF_PI);
+  ellipse(0, 0, 100, 100);
+  popMatrix();
+
+  pushMatrix();
+  translate(0, 0, 100);
+  ellipse(0, 0, 100, 100);
+  popMatrix();
+
+  pushMatrix();
+  translate(0, 0, -100);
+  ellipse(0, 0, 100, 100);
+  popMatrix();
 }
 ```
 
-次のプログラムでは、画面の左端から右端まで15px間隔で円を描画しています。 円のy座標をx座標に応じてsin()で変動させています。
+## カメラ
 
-<iframe src="/samples/tutorial/Chapter11/sketch06.html" class="sample-sketch"></iframe>
+２Ｄ空間の場合はカメラという存在は必要ありません。ピクセルで指定した位置や大きさがそのままディスプレイに映るだけだからです。ですが３Ｄ空間では、最終的にディスプレイに描かれるものはカメラによって切り取られたものです。なので、カメラによってどの位置からどこを見ているのかということを設定しないといけません。カメラの設定をしなかった場合勝手にいい感じに設定してくれますが、camera()を使って自分で設定できます。camera()は９つのパラメータを持ちます。
 
-[Chapter11/sketch06.pde](github:Chapter11/sketch06/sketch06.pde)
+<dl class="p5Functions">
+    <dt>[camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)](p5ref:camera_.html)</dt>
+    <dd>カメラの座標、カメラが注視する座標、カメラの上方向を設定</dd>
+</dl>
+
+最初の３つのパラメータ(eyeX, eyeY, eyeZ)はカメラの位置、次の３つのパラメータ(centerX, centerY, centerZ)はカメラが注視する座標、最後の３つのパラメータ(upX, upY, upZ)はカメラの上方向の向きを表します。最後の３つのパラメータについて補足します。３Ｄの場合、ディスプレイに描画されるのはカメラによって切り取られた空間です。このカメラは次の画像のようになっています(画像はProcessingとは違う座標系で表現されています)。
+
+![](/images/Chapter13/camera1.jpg)
+
+![](/images/Chapter13/camera2.jpg)
+
+[OpenGL Programming Guide](http://www.glprogramming.com/red/chapter03.html)より引用
+
+カメラによって切り取られた空間がディスプレイに描画されるので、カメラが傾いているとディスプレイに描画される画像も傾きます。なので、camera()の最後の３つのパラメータにはカメラの上方向の向きを指定します。カメラが傾いていない状態は(0, 1, 0)になるので、特に変わったことをしない場合は最後の３つのパラメータは(0, 1, 0)にします。
+
+次のプログラムではカメラの座標を(camX, camY, 200)、カメラの注視点を原点(0, 0, 0)にしています。camXとcamYはキーボードの矢印キーで操作できるようにしています。
+
+![](/images/Chapter13/sketch08.jpg)
+
+[Chapter13/sketch08.pde](github:Chapter13/sketch08/sketch08.pde)
 
 ```processing
+// カメラのx座標とy座標
+float camX = 0, camY = 0;
+// カメラが動くスピード
+float speed = 12;
+
 void setup() {
-  size(960, 540);
-  noLoop();
-  noStroke();
-  fill(0);
+  size(960, 540, P3D);
 }
 
 void draw() {
   background(255);
+  translate(width/2, height/2, 0);
 
-  // 左端から右端まで15px間隔で円を描画
-  for (int x = 0; x <= width; x += 15) {
-    // xに応じて高さを変える
-    float y = height/2 + 100 * sin(x * 0.01);
-    ellipse(x, y, 15, 15);
+  // カメラを動かす
+  if (keyPressed) {
+    if (keyCode == LEFT) camX -= speed;
+    if (keyCode == RIGHT) camX += speed;
+    if (keyCode == UP) camY -= speed;
+    if (keyCode == DOWN) camY += speed;
   }
+  // カメラの設定
+  camera(camX, camY, 200, 0, 0, 0, 0, 1, 0);
+
+  stroke(0);
+  fill(220);
+  box(50);
+
+  stroke(255, 0, 0);
+  line(0, 0, 0, 500, 0, 0);
+  stroke(0, 255, 0);
+  line(0, 0, 0, 0, 500, 0);
+  stroke(0, 0, 255);
+  line(0, 0, 0, 0, 0, 500);
 }
 ```
 
-円のy座標は次のように決めています。
-
-`float y = height/2 + 100 * sin(x*0.01);`
-
-まずsin()にx\*0.01を渡します。x\*0.01が角度として扱われるので、画面の右端に行くほど角度は大きくなっていきます。これで100\*sin(x\*0.01)は0 → 100 → 0 → -100 → 0のように値が変わっていくことになります。すると、yはheight/2を中心としてheight/2-100～height/2+100の間を動くことになります。
-
-xの最大値は700なので、x\*0.01の最大値は7になります。TWO_PIが約6.28なので、sin(x\*0.01)は一周(TWO_PI)とちょっと回ったことになります。xに掛ける値を大きくすれば高さの変化が速くなり、小さくすれば遅くなります。色々試してみてください。
-
-高さの決め方をちょこっと変えると次のようなものも作れます。
-
-<iframe src="/samples/tutorial/Chapter11/sketch07.html" class="sample-sketch"></iframe>
-
-[Chapter11/sketch07.pde](github:Chapter11/sketch07/sketch07.pde)
-
-```processing
-void setup() {
-  size(960, 540);
-  noStroke();
-  fill(0);
-}
-
-void draw() {
-  background(255);
-
-  for (int x = 0; x <= width; x += 15) {
-    float y = height/2 + 100 * sin(frameCount * 0.04 + x * 0.02);
-    ellipse(x, y, 15, 15);
-  }
-}
-```
-
-波が右から左に流れているのように見えますが、円を左に動かしているわけではありません。sin()の中にframeCount\*0.04を加えたので１つ１つの円のy座標が変動するようになりました。全ての円でframeCount\*0.04の値は同じで、隣り合った円のy座標の差はsin(x\*0.02)になります。
-
-上の２つのプログラムではsin()を使って円のy座標を変動させていましたが、次のプログラムでは画面左端から右端まで1pxの太さで描画された縦線を描画し、その色を変動させています。
-
-<iframe src="/samples/tutorial/Chapter11/sketch08.html" class="sample-sketch"></iframe>
-
-[Chapter11/sketch08.pde](github:Chapter11/sketch08/sketch08.pde)
-
-```processing
-void setup() {
-  size(960, 540);
-  noLoop();
-}
-
-void draw() {
-  // 左端から右端まで太さ1pxの縦線を敷き詰める
-  for (int x = 0; x <= width; x++) {
-    // xに応じて色変える
-    float c = 255 * abs(sin(x * 0.01));
-    stroke(c);
-    line(x, 0, x, height);
-  }
-}
-```
-
-sin()は-1～1の値を返しますが、色にマイナス値はないのでabs()を使ってsin()の絶対値を取っています。sin()の中にframeCountを加えると次のようになります。
-
-<iframe src="/samples/tutorial/Chapter11/sketch09.html" class="sample-sketch"></iframe>
-
-[Chapter11/sketch09.pde](github:Chapter11/sketch09/sketch09.pde)
-
-```processing
-void setup() {
-  size(960, 540);
-}
-
-void draw() {
-  for (int x = 0; x <= width; x++) {
-    float c = 255 * abs(sin(frameCount * 0.04 + x * 0.04));
-    stroke(c);
-    line(x, 0, x, height);
-  }
-}
-```
-
-上下に変動する円のプログラムのように、右から左に動いているように見えますが、線の位置は全く動いていません。変わっているのは線の色だけです。
-
-お疲れさまでした。Chapter11はこれで終了です。
+お疲れさまでした。Chapter13はこれで終了です。

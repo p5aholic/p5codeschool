@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   
-  <title>P5 Code School Chapter12「乱数」</title>
+  <title>P5 Code School Chapter12「配列」</title>
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -38,144 +38,222 @@
 
 
 <main class="mainContents">
-  <h1>乱数</h1><p>random()によって作ることができる乱数を復習したあと、パーリンノイズと呼ばれる特殊な乱数について解説します。</p>
-<h2>random()で作る乱数</h2><p>random()は今までに何回か出てきましたがもう一度復習しておきます。random()には次の２通りの使い方があります。</p>
-<dl class="p5Functions">
-    <dt><a href='https://www.processing.org/reference/random_.html' target='_blank'>random(high)</a></dt>
-    <dd>0以上high未満の乱数を返す</dd>
-    <dt><a href='https://www.processing.org/reference/random_.html' target='_blank'>radnom(low, high)</a></dt>
-    <dd>low以上high未満の乱数を返す</dd>
-</dl>
-
-<p>返す値がhigh未満だということだけ注意してください。random(5)なら返ってくる値は5を含みません。random(10.4)なら返ってくる値は10.4を含みません。前回解説したsin()とcos()を使って次のプログラムを作りました。</p>
-<iframe src="/samples/tutorial/Chapter12/sketch01.html" class="sample-sketch"></iframe>
-
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch01/sketch01.pde' target='_blank'>Chapter12/sketch01.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
-  <span class="hljs-built_in">noLoop</span>();
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>);
-
-  <span class="hljs-comment">// 長さがランダムな線を放射状に描画する</span>
-  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">360</span>; i += <span class="hljs-number">5</span>) {
-    <span class="hljs-built_in">float</span> angle = <span class="hljs-built_in">radians</span>(i);
-    <span class="hljs-comment">// ランダムな半径</span>
-    <span class="hljs-built_in">float</span> radius = <span class="hljs-built_in">random</span>(<span class="hljs-number">200</span>);
-    <span class="hljs-built_in">float</span> x = radius * <span class="hljs-built_in">cos</span>(angle);
-    <span class="hljs-built_in">float</span> y = radius * <span class="hljs-built_in">sin</span>(angle);
-    <span class="hljs-comment">// 中心から(x, y)に向かう線</span>
-    <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, x, y);
-  }
-}
-
-<span class="hljs-comment">// マウスクリックで再描画</span>
-<span class="hljs-keyword">void</span> <span class="hljs-built_in">mousePressed</span>() {
-  <span class="hljs-built_in">redraw</span>();
-}
+  <h1>配列</h1><p>配列を使うと同じデータ型の値を大量に扱うことができます。配列の直観的なイメージは番号順に一列に並んだ箱です。箱の一つ一つが変数で、値を入れておくことができます。全ての箱(変数)は同じデータ型になります。箱の集合(配列)の名前がAだとすると、先頭の箱(先頭の変数)はA[0]、２番目の箱(２番目の変数)はA[1]になります。</p>
+<h2>配列の作り方</h2><p>配列を作るにはまず次のようにします。</p>
+<p><code class='codeFragment'>データ型[] 配列変数名;
+(例) int[] data;</code></p>
+<p>これは配列変数の宣言に当たる部分です。このように書くと箱の集合(配列)の名前がdataになり、箱の一つ一つがint型変数になります。通常の変数の宣言と代入を思い出してみましょう。例えばint型の変数aを宣言して5を代入する場合は次のようにしました。</p>
+<p><code class='codeFragment'>int a;</code></p>
+<p>こう書くことで変数aがint型の値を扱うことになり、</p>
+<p><code class='codeFragment'>a = 5;</code></p>
+<p>これで変数aに具体的なint型の値5が代入されました。配列も同じで、宣言のあとは代入を行う必要があります。代入は次のように行います。</p>
+<p><code class='codeFragment'>配列変数名 = new データ型[要素数];
+(例) data = new int[5];</code></p>
+<p>こう書くことで配列変数dataにint型を扱う要素数5の配列の実態が代入されます。要素数は配列が扱う箱(変数)の数のことです。「配列の実態ってなんぞや？」とか「newってなんぞや？」っていう疑問には次のChapterで詳しく解説するので今はあまり気にしないでください。残る作業は配列の変数の一つ一つに値を代入することです。配列変数dataの要素である変数一つ一つに値を代入するには次のようにします。</p>
+<p><code class='codeFragment'>(例)
+data[0] = 53;
+data[1] = 22;
+data[2] = 84;
+data[3] = 17;
+data[4] = 49;</code></p>
+<p>配列では先頭の要素を0番目とします。配列変数のi番目の要素は配列変数名[i]と書くことで表します。今までの説明をまとめたものが次のプログラムです。println関数に配列変数を渡すと配列の中身が出力されます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch01/sketch01.pde' target='_blank'>Chapter14/sketch01.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data;        <span class="hljs-comment">// int型配列のdataを宣言</span>
+data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// 要素数5のint型配列の実態をdataに代入</span>
+<span class="hljs-comment">// dataのそれぞれの要素に数値を代入</span>
+data[<span class="hljs-number">0</span>] = <span class="hljs-number">53</span>;
+data[<span class="hljs-number">1</span>] = <span class="hljs-number">22</span>;
+data[<span class="hljs-number">2</span>] = <span class="hljs-number">84</span>;
+data[<span class="hljs-number">3</span>] = <span class="hljs-number">17</span>;
+data[<span class="hljs-number">4</span>] = <span class="hljs-number">49</span>;
+<span class="hljs-comment">// dataの中身を出力</span>
+<span class="hljs-built_in">println</span>(data);
 </code></pre>
-<h2>シード値</h2><p>通常、random()によって作られる乱数はプログラムが実行されるたびに違った値になります。言葉ではよくわからないと思うので、次のプログラムを実行してみてください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch02/sketch02.pde' target='_blank'>Chapter12/sketch02.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  <span class="hljs-built_in">println</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>));
-}
+<p>普通の変数と同じように、宣言と代入を１行で書くことも可能です。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch02/sketch02.pde' target='_blank'>Chapter14/sketch02.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// 宣言と代入</span>
+<span class="hljs-comment">// dataのそれぞれの要素に数値を代入</span>
+data[<span class="hljs-number">0</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
+data[<span class="hljs-number">1</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
+data[<span class="hljs-number">2</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
+data[<span class="hljs-number">3</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
+data[<span class="hljs-number">4</span>] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>);
+<span class="hljs-built_in">println</span>(data);
 </code></pre>
-<p>0以上100未満の値を10個出力します。このプログラムを終了してもう１度実行すると、全く異なる10個の乱数が出力されます。次のプログラムも同じように、1度実行して、プログラムを終了してからもう１度実行してみてください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch03/sketch03.pde' target='_blank'>Chapter12/sketch03.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-comment">// シード値を設定</span>
-<span class="hljs-built_in">randomSeed</span>(<span class="hljs-number">10</span>);
-<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  <span class="hljs-built_in">println</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">100</span>));
-}
+<p>また次のようにして、配列の宣言、代入、要素の一つ一つの値の代入を一気に書くこともできます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch03/sketch03.pde' target='_blank'>Chapter14/sketch03.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = {<span class="hljs-number">20</span>, <span class="hljs-number">12</span>, <span class="hljs-number">45</span>, <span class="hljs-number">65</span>, <span class="hljs-number">78</span>, <span class="hljs-number">32</span>};
+<span class="hljs-built_in">println</span>(data);
 </code></pre>
-<p>このプログラムでは何度実行しても全く同じ10個の乱数が出力されます。randomSeed()を使ってシード値(int型)と呼ばれるものを設定すると、プログラムの実行ごとに同じ乱数列を作ることができます。シード値はint型ならなんでも構いません。randomSeed()を使わなかった場合、シード値は毎回別の値になってrandom()はプログラムの実行ごとに異なる乱数列を作ります。Processingでプログラムを書く限りではrandomSeed()の出番はほとんど無いかと思いますが、まぁそういう機能もあるってことだけ知っていればいいかと思います。</p>
-<h2>パーリンノイズ</h2><p>random()の他にProcessingにはnoise()という関数が用意されていて、noise()を使うとパーリンノイズと呼ばれる乱数を作ることができます。Ken Perlinさんが考えた乱数生成法なのでパーリンノイズと呼ばれます。noise()によって作られた乱数は隣り合った乱数の数値の差がわずかで、全体として滑らかに変化する乱数になります。random()によって作られる乱数は隣り合った乱数の差がとびとびの値を取っていました。次のプログラムではrandom()によってy座標が変動する点を左端から右端まで描画しています。</p>
-<iframe src="/samples/tutorial/Chapter12/sketch04.html" class="sample-sketch"></iframe>
-
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch04/sketch04.pde' target='_blank'>Chapter12/sketch04.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
-  <span class="hljs-built_in">noLoop</span>();
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+<p>この場合の配列の要素数は値を書いた分だけ自動的に割り当てられます。</p>
+<p>for文を使うと配列の要素に値を代入するのがとても楽になります。次のプログラムでは要素数50のint型配列の要素にfor文を使ってランダムな値を代入しています。for文を使わなかったら50行も代入文を書かなくてはいけないので、配列とfor文の相性がとても良いことがわかると思います。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch04/sketch04.pde' target='_blank'>Chapter14/sketch04.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numData = <span class="hljs-number">50</span>; <span class="hljs-comment">// 配列の要素数</span>
+<span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numData]; <span class="hljs-comment">// 配列の宣言と代入</span>
+<span class="hljs-comment">// dataの要素に値を入れる</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numData; i++) {
+  data[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-built_in">height</span>);
 }
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-
-  <span class="hljs-comment">// 左端から右端まで5px間隔で点を描画する</span>
-  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-built_in">width</span>; x += <span class="hljs-number">5</span>) {
-    <span class="hljs-comment">// 点のy座標をrandom()で変動させる</span>
-    <span class="hljs-built_in">float</span> y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span> + <span class="hljs-built_in">random</span>(<span class="hljs-number">-100</span>, <span class="hljs-number">100</span>);
-    <span class="hljs-comment">// 点を描画</span>
-    <span class="hljs-built_in">point</span>(x, y);
-  }
-}
+<span class="hljs-built_in">println</span>(data);
 </code></pre>
-<p>次のプログラムは点のy座標をrandom()ではなくnoise()によって変動させたものです。解説は後で詳しくするのでざっとプログラムを見てください。マウスクリックで再描画できます。</p>
-<iframe src="/samples/tutorial/Chapter12/sketch05.html" class="sample-sketch"></iframe>
-
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch05/sketch05.pde' target='_blank'>Chapter12/sketch05.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-built_in">float</span> <span class="hljs-built_in">noise</span> = <span class="hljs-number">0.0</span>;      <span class="hljs-comment">// noise()に指定する値</span>
-<span class="hljs-built_in">float</span> noiseStep = <span class="hljs-number">0.05</span>; <span class="hljs-comment">// noiseの更新に使う値</span>
+<p>for文の初期化式、条件式には注意が必要です。</p>
+<p><code class='codeFragment'>for (int i = 0; i &lt; numData; i++) {
+}</code></p>
+<p>と書いた時のfor文の実行過程は次のようになります。<br>
+１回目：i = 0<br>
+２回目：i = 1<br>
+３回目：i = 2<br>
+４回目：i = 3<br>
+・<br>
+・<br>
+・<br>
+４８回目：i = 47<br>
+４９回目：i = 48<br>
+５０回目：i = 49<br>
+要素数50の配列の先頭の番号は0、最後の番号は49なので、それに対応するようにfor文を作らなければいけません。配列を使っているときによく起こるエラーを紹介します。for文の条件式を次のように変えて実行してみてくさい。</p>
+<p><code class='codeFragment'>for (int i = 0; i &lt;= numData; i++) {
+}</code></p>
+<p>&quot;ArrayIndexOutOfBoundsException:50&quot;というエラーがでます。これは配列の範囲外の要素にアクセスしたときに起こるエラーです。配列dataは要素数50の配列なので、配列の最後の要素はdata[49]です。条件式をi &lt;= numDataにした場合の実行過程は<br>
+１回目：i = 0<br>
+２回目：i = 1<br>
+３回目：i = 2<br>
+４回目：i = 3<br>
+・<br>
+・<br>
+・<br>
+４８回目：i = 47<br>
+４９回目：i = 48<br>
+５０回目：i = 49<br>
+５１回目：i = 50<br>
+になります。すると５１回目のfor文ではdata[50]にアクセスすることになり、data[50]は存在しないのでエラーが出るというわけです。ちなみに、data[-1]などにアクセスした場合は&quot;ArrayIndexOutOfBoundsException:-1&quot;というエラーが出ます。エラー文の最後の数字がエラーを起こす原因になった配列の番号というわけです。</p>
+<p>次のプログラムでは配列dataの中身を棒グラフにして視覚化しています。マウスクリックでdataの中身にランダムな値を入れなおすことができます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch05/sketch05.pde' target='_blank'>Chapter14/sketch05.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numData = <span class="hljs-number">50</span>; <span class="hljs-comment">// 配列の要素数</span>
+<span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numData]; <span class="hljs-comment">// 配列の宣言と代入</span>
+<span class="hljs-built_in">int</span> rectWidth;    <span class="hljs-comment">// 棒の横幅</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noLoop</span>();
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-comment">// dataの要素に値を入れる</span>
+  setData();
+  rectWidth = <span class="hljs-built_in">width</span>/numData;
+}
+
+<span class="hljs-comment">// dataの要素に値を入れる関数</span>
+<span class="hljs-keyword">void</span> setData() {
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numData; i++) {
+    data[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-built_in">height</span>);
+  }
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">128</span>);
+  <span class="hljs-comment">// 配列dataの中身を棒グラフで可視化</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numData; i++) {
+    <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>);
+    <span class="hljs-built_in">rect</span>(i*rectWidth, <span class="hljs-built_in">height</span>-data[i], rectWidth, data[i]);
+  }
+}
+
+<span class="hljs-comment">// マウスクリックで配列の中身を入れ替える</span>
+<span class="hljs-keyword">void</span> <span class="hljs-built_in">mousePressed</span>() {
+  setData();
+  <span class="hljs-built_in">redraw</span>();
+}
+</code></pre>
+<p>配列dataの要素にランダムな値を入れる処理は自作関数のsetData()にまとめています。setup関数でもmousePressed関数でも同じ処理をする場合は、その処理を関数にしてまとめておくことでプログラムがコンパクトになります。全く同じ処理が２回以上出てきたら関数にまとめてみるということを意識しておくといいでしょう。</p>
+<p>最後に配列を使って、大きさ、座標、速度、色が異なる１００個のボールが画面内を飛び回るプログラムを作ってみます。念のため、配列を使わないで１個のボールが画面内を飛び回るプログラムを見てみます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch06/sketch06.pde' target='_blank'>Chapter14/sketch06.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">float</span> x, y;   <span class="hljs-comment">// ボールの中心座標</span>
+<span class="hljs-built_in">float</span> vx, vy; <span class="hljs-comment">// ボールの速度</span>
+<span class="hljs-built_in">int</span> radius;   <span class="hljs-comment">// ボールの半径</span>
+<span class="hljs-built_in">color</span> c;      <span class="hljs-comment">// ボールの色</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 初期値を設定</span>
+  radius = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+  x = <span class="hljs-built_in">random</span>(radius, <span class="hljs-built_in">width</span>-radius);
+  y = <span class="hljs-built_in">random</span>(radius, <span class="hljs-built_in">height</span>-radius);
+  vx = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+  vy = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+  c = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
-  <span class="hljs-comment">// 左端から右端まで5px間隔で点を描画する</span>
-  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-built_in">width</span>; x += <span class="hljs-number">5</span>) {
-    <span class="hljs-comment">// 点のy座標をnoise()で変動させる</span>
-    <span class="hljs-built_in">float</span> y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span> + <span class="hljs-built_in">noise</span>(<span class="hljs-built_in">noise</span>) * <span class="hljs-number">200</span> - <span class="hljs-number">100</span>;
-    <span class="hljs-comment">// 点を描画</span>
-    <span class="hljs-built_in">point</span>(x, y);
-    <span class="hljs-comment">// noiseを更新</span>
-    <span class="hljs-built_in">noise</span> += noiseStep;
+  <span class="hljs-comment">// ボールの位置を更新</span>
+  x += vx;
+  y += vy;
+  <span class="hljs-comment">// 左右の壁との当たり判定</span>
+  <span class="hljs-keyword">if</span> (x-radius &lt;= <span class="hljs-number">0</span> || x+radius &gt;= <span class="hljs-built_in">width</span>) {
+    vx *= <span class="hljs-number">-1</span>;
+  }
+  <span class="hljs-comment">// 上下の壁との当たり判定</span>
+  <span class="hljs-keyword">if</span> (y-radius &lt;= <span class="hljs-number">0</span> || y+radius &gt;= <span class="hljs-built_in">height</span>) {
+    vy *= <span class="hljs-number">-1</span>;
+  }
+  <span class="hljs-comment">// ボールを描画</span>
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-built_in">fill</span>(c);
+  <span class="hljs-built_in">ellipse</span>(x, y, <span class="hljs-number">2</span>*radius, <span class="hljs-number">2</span>*radius);
+}
+</code></pre>
+<p>ボールの座標の初期値に注意が必要です。もしボールの座標の初期値を次のように設定したとします。
+x = random(width);
+y = random(radius);
+xとyはボールの中心座標なので、例えばもしxの初期値が2などになったら、ボールの左側がウィンドウの左端に埋まった状態でスタートしてしまいます。するとdraw関数内の壁とのあたり判定でボールの動きがおかしくなってしまいます。試しにx = 0として試してみるとわかると思います。これを防ぐために、ボールの中心座標の初期値は以下のように設定して、ボールが壁に埋まった状態でスタートしないようにしています。</p>
+<p><code class='codeFragment'>x = random(radius, width-radius);
+y = random(radius, height-radius);</code></p>
+<p>上のプログラムをもとに、配列を使ってボールが１００個飛び回るようにしたプログラムが次のプログラムです。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch07/sketch07.pde' target='_blank'>Chapter14/sketch07.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">100</span>; <span class="hljs-comment">// ボールの数</span>
+<span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
+<span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
+<span class="hljs-built_in">float</span>[] vx = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// x軸方向の速度の配列</span>
+<span class="hljs-built_in">float</span>[] vy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// y軸方向の速度の配列</span>
+<span class="hljs-built_in">int</span>[] radius = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numBalls]; <span class="hljs-comment">// 半径の配列</span>
+<span class="hljs-built_in">color</span>[] c = <span class="hljs-keyword">new</span> <span class="hljs-built_in">color</span>[numBalls];  <span class="hljs-comment">// 色の配列</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 初期値を設定</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    radius[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">width</span>-radius[i]);
+    y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
+    vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
   }
 }
 
-<span class="hljs-keyword">void</span> <span class="hljs-built_in">mousePressed</span>() {
-  <span class="hljs-built_in">redraw</span>();
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    <span class="hljs-comment">// ボールの位置を更新</span>
+    x[i] += vx[i];
+    y[i] += vy[i];
+    <span class="hljs-comment">// 左右の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (x[i]-radius[i] &lt;= <span class="hljs-number">0</span> || x[i]+radius[i] &gt;= <span class="hljs-built_in">width</span>) {
+      vx[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// 上下の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (y[i]-radius[i] &lt;= <span class="hljs-number">0</span> || y[i]+radius[i] &gt;= <span class="hljs-built_in">height</span>) {
+      vy[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// ボールを描画</span>
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c[i]);
+    <span class="hljs-built_in">ellipse</span>(x[i], y[i], <span class="hljs-number">2</span>*radius[i], <span class="hljs-number">2</span>*radius[i]);
+  }
 }
 </code></pre>
-<p>random()の場合とは違い、隣り合った点のy座標は近い値を取り、全体として滑らかに変化しているのがわかるかと思います。noise()を使うと滑らかに変化する乱数を作ることができるので、コンピュータグラフィックスの世界では物体のテクスチャを作ったりするのに重宝されています。僕はマインクラフトはやったことがないのですが、マインクラフトでは最初にワールドを作る際地形の生成にパーリンノイズを使っています。もしパーリンノイズではなく普通の乱数で地形を生成していたら、一歩先が崖になっていたり絶壁になっていたりして移動不可能なワールドができてしまいます。</p>
-<p>noise()の使い方を解説します。noise()は、パラメータにどんな値を指定しても0～1の間の値を返します。なので、必要に応じてnoise()に値を掛けたりnoise()から値を引いたりして欲しい値を作ります。上のプログラムでは、</p>
-<p><code class='codeFragment'>noise(noise) * 200 - 100</code></p>
-<p>とすることで-100～100の間の値を作っています。</p>
-<p>noise()はパラメータにどんな値を指定しても0～1の間の値を返すので、パラメータの値はどうでもいいんです。重要なのはパラメータが増加(または減少)する間隔です。上のプログラムではnoise()に指定するパラメータが変数noiseで、noiseの増加間隔をnoiseStepという変数で用意しています。 noise()はパラメータに同じ値を指定すると同じ値を返します。raddom()とは全然違うので注意してください。noise(1234)を何度実行しても同じ値が返ってきます。noise()が返す値を変動させるには、noise()に指定するパラメータの値を増加させます。なので、上のプログラムではfor文の最後に</p>
-<p><code class='codeFragment'>noise += noiseStep;</code></p>
-<p>を実行してnoise()に指定するパラメータを増加させています。noise()はパラメータの値の増加間隔が大きければ大きいほど隣り合った数値の差が大きくなり、増加間隔が小さければ小さいほど隣り合った数値の差が小さくなります。試しにnoiseStepの値を0.05から1に変えると次のようにrandom()の場合と見分けがつかなくなります。</p>
-<iframe src="/samples/tutorial/Chapter12/sketch06.html" class="sample-sketch"></iframe>
-
-<p>noiseStepを0.01まで下げると少し曲がった直線のようになります。</p>
-<iframe src="/samples/tutorial/Chapter12/sketch07.html" class="sample-sketch"></iframe>
-
-<p>noiseSeed()を使えばnoise()で生成する乱数にもシード値を設定することができます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch06/sketch06.pde' target='_blank'>Chapter12/sketch06.pde</a></p>
-<pre><code class="lang-processing">ffloat <span class="hljs-built_in">noise</span> = <span class="hljs-number">0.0</span>;
-<span class="hljs-built_in">float</span> noiseStep = <span class="hljs-number">0.05</span>;
-
-<span class="hljs-comment">// シード値を設定して乱数を固定</span>
-
-<span class="hljs-built_in">noiseSeed</span>(<span class="hljs-number">10</span>);
-<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
-  <span class="hljs-built_in">float</span> n = <span class="hljs-built_in">noise</span>(<span class="hljs-built_in">noise</span>) * <span class="hljs-number">100</span>;
-  <span class="hljs-built_in">println</span>(n);
-  <span class="hljs-built_in">noise</span> += noiseStep;
-}
-</code></pre>
-<p>お疲れさまでした。Chapter12はこれで終了です。</p>
+<p>座標、速度、大きさ、色を全て配列にして、初期値の設定、ボールの座標の更新、当たり判定、描画をfor文で行っています。</p>
+<p>お疲れさまでした。Chapter14はこれで終了です。</p>
 
 </main>
 

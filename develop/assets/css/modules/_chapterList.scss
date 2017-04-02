@@ -2,9 +2,8 @@
 
 .chapterList {
   margin-top: 20px;
-  font-size: 0;
   &__item {
-    display: inline-block;
+    float: left;
     vertical-align: top;
     width: calc(33.3333% - 20px);
     margin-right: 30px;
@@ -23,60 +22,59 @@
       }
     }
   }
-  &__link {
-    display: block;
-    margin-bottom: 15px;
-    &:hover {
-      border-bottom: none;
-    }
-  }
   &__title {
-    font-weight: 200;
-  }
-  &__number {
     position: relative;
     display: block;
-    padding: 5px 0 5px 10px;
-    font-size: 2.2rem;
-    color: #fff;
-    letter-spacing: 1px;
     background-color: $main-gray;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border-radius: 16px;
+    box-shadow: 2px 2px 3px 0px #666;
+    margin-bottom: 15px;
+    a {
+      display: block;
+      padding: 5px 0 6px 10px;
+      font-size: 2.2rem;
+      font-weight: 200;
+      color: #fff;
+      letter-spacing: 1px;
+      transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      &:hover {
+        color: $main-pink;
+        text-decoration: none;
+        border: none;
+      }
+      @include lt-640 {
+        font-size: 1.8rem;
+        padding: 5px 0 6px 5px;
+      }
+    }
     &:after {
       content: "";
-      display: inline-block;
+      display: block;
       width: 10px;
       height: 10px;
-      margin-bottom: 3px;
-      margin-left: 10px;
+      position: absolute;
+      top: 12px;
+      right: 120px;
       border-top: 2px solid #fff;
       border-right: 2px solid #fff;
       transform: rotateZ(45deg);
       transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    &:hover {
-      color: $main-pink;
+      @include lt-640 {
+        top: 10px;
+        right: 30px;
+      }
     }
     &:hover:after {
       border-color: $main-pink;
       transform: translateX(10px) rotateZ(45deg);
     }
-    @include lt-640 {
-      font-size: 1.8rem;
-      padding: 5px 0 5px 5px;
-      &:after {
-        margin-bottom: 2px;
-      }
-    }
   }
   &__subTitle {
-    font-size: 1.6rem;
-    color: $main-gray;
-    padding-left: 10px;
+    line-height: 1.4;
+    padding: 0 10px;
+    margin-bottom: 8px;
     @include lt-640 {
-      padding-left: 5px;
+      padding: 0 5px;
     }
   }
   &__description {

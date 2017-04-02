@@ -15,17 +15,15 @@
     サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
     <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
   </p>
-  
+
   <h2>Processing 基礎</h2>
-  <ul class="chapterList">
+  <ul class="chapterList clearfix">
     <% for (var i = 0; i < data.tutorials.length; i++) { %>
     <li class="chapterList__item">
-      <a href="chapter<%= data.tutorials[i].number %>" class="chapterList__link">
-        <h3 class="chapterList__title">
-          <span class="chapterList__number">Chapter <%= data.tutorials[i].number %></span><br>
-          <span class="chapterList__subTitle"><%= data.tutorials[i].subTitle %></span>
-        </h3>
-      </a>
+      <h3 class="chapterList__title">
+        <a href="chapter<%= data.tutorials[i].number %>">Chapter <%= data.tutorials[i].number %></a>
+      </h3>
+      <p class="chapterList__subTitle"><%= data.tutorials[i].subTitle %></p>
       <p class="chapterList__description"><%= data.tutorials[i].description %></p>
     </li>
     <% } %>

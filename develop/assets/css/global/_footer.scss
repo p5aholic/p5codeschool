@@ -1,6 +1,7 @@
 .footer {
-  background-color: #fff;
-  border-top: 3px solid #000;
+  background-color: $main-gray;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius: 40px 40px 0 0;
   .inner {
     max-width: $articleWidth;
     margin: 0 auto;
@@ -8,6 +9,6 @@
   }
   .copyright {
     font-size: 1.2rem;
-    color: $main-gray;
+    color: #fff;
   }
 }
