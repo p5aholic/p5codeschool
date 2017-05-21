@@ -1,0 +1,34 @@
+{
+  "name": "p5codeschool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "md": "gulp --task=build:md",
+    "css": "gulp --task=build:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-changed": "^3.1.0",
+    "gulp-ejs": "^3.0.1",
+    "gulp-jsonminify": "^1.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-util": "^3.0.7",
+    "highlight.js": "^9.11.0",
+    "marked": "^0.3.6",
+    "node-sass": "^4.5.3",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2",
+    "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  }
+}

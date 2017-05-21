@@ -1,2 +1,4 @@
 .DS_Store
-develop/node_modules
+node_modules
+public/css
+public/js
