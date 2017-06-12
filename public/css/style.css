@@ -452,8 +452,8 @@ html {
 }
 
 body {
-  font-family: "Noto Sans Japanese", sans-serif;
-  font-weight: 200;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
   -webkit-font-feature-settings: "palt" 1;
           font-feature-settings: "palt" 1;
   letter-spacing: 0.05em;
@@ -727,8 +727,8 @@ canvas {
 }
 
 .mainContents > h1 {
-  font-size: 2.8rem;
-  font-weight: 300;
+  font-size: 5.0rem;
+  font-weight: 400;
   color: #004082;
   margin-bottom: 20px;
 }
@@ -743,6 +743,7 @@ canvas {
 
 .mainContents > p {
   margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
 .mainContents > p > em {
