@@ -178,17 +178,17 @@ translate(width/2, height/2);
 
 // 回転していない赤色の長方形
 fill(255, 0, 0);
-rect(0, 0, 300, 100);
+rect(0, 0, 500, 30);
 
 // 30度回転した青色の長方形
 rotate(radians(30));
 fill(0, 255, 0);
-rect(0, 0, 300, 100);
+rect(0, 0, 500, 30);
 
 // 60度回転した青色の長方形
 rotate(radians(30));
 fill(0, 0, 255);
-rect(0, 0, 300, 100);
+rect(0, 0, 500, 30);
 ```
 
 注意が必要なのは、rotate()は座標全体、いわば図形が描画される世界全体を回転させます。上のプログラムでは、傾いた世界に平行な線を描画しています。平行な世界に傾いた線を描画しているわけではないです。translate()やrotate()とこれから解説するscale()は、個々の図形を移動させたり回転させたり拡大縮小させたりする関数ではありません。translate()は世界の原点を移動させ、rotate()は世界全体を回転させ、scale()は世界全体を拡大縮小させます。ただ、pushMatrix()とpopMatrix()を上手く使うと、個々の図形が回転や拡大縮小をしているように見せることはできます。方法はscale()を紹介したあとに解説します。
@@ -262,14 +262,14 @@ ellipse(50, 50, 50, 50);
 float s = 2.0;
 
 // 2倍に拡大された緑色の円
-scale(2.0);
+scale(s);
 stroke(0, 255, 0);
 // 枠線の太さを維持
 strokeWeight(1.0/s);
 ellipse(50, 50, 50, 50);
 
 // 4倍に拡大された青色の円
-scale(2.0);
+scale(s);
 stroke(0, 0, 255);
 // 枠線の太さを維持
 strokeWeight(1.0/(s*s));
@@ -351,7 +351,7 @@ point(0, 0);
 popMatrix();
 
 pushMatrix();
-translate(500, height/2);
+translate(700, height/2);
 // 回転と拡大
 rotate(radians(90));
 scale(3.0);
@@ -364,8 +364,6 @@ popMatrix();
 図形の１つ１つをpushMatrix()とpopMatrix()で囲っているので、前に行った座標変換のことを気にする必要がありません。translate()で図形を描画したい位置に原点を移動させ、原点に図形を描画しているので、rotate()とscale()が個々の図形を回転させたり拡大縮小を行っているように見えます。
 
 draw()を使ってアニメーションにしてみましょう。
-
-<iframe src="/samples/tutorial/Chapter10/sketch12.html" class="sample-sketch"></iframe>
 
 [Chapter10/sketch12.pde](github:Chapter10/sketch12/sketch12.pde)
 

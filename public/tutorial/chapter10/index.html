@@ -178,17 +178,17 @@
 
 <span class="hljs-comment">// 回転していない赤色の長方形</span>
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">100</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">30</span>);
 
 <span class="hljs-comment">// 30度回転した青色の長方形</span>
 <span class="hljs-built_in">rotate</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">30</span>));
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
-<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">100</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">30</span>);
 
 <span class="hljs-comment">// 60度回転した青色の長方形</span>
 <span class="hljs-built_in">rotate</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">30</span>));
 <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
-<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">300</span>, <span class="hljs-number">100</span>);
+<span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">30</span>);
 </code></pre>
 <p>注意が必要なのは、rotate()は座標全体、いわば図形が描画される世界全体を回転させます。上のプログラムでは、傾いた世界に平行な線を描画しています。平行な世界に傾いた線を描画しているわけではないです。translate()やrotate()とこれから解説するscale()は、個々の図形を移動させたり回転させたり拡大縮小させたりする関数ではありません。translate()は世界の原点を移動させ、rotate()は世界全体を回転させ、scale()は世界全体を拡大縮小させます。ただ、pushMatrix()とpopMatrix()を上手く使うと、個々の図形が回転や拡大縮小をしているように見せることはできます。方法はscale()を紹介したあとに解説します。</p>
 <h2>拡大縮小</h2><p>scale()を使うと座標全体を拡大縮小することができます。scale()のパラーメータには何倍するかを表す数値をfloat型で指定します。2.5倍したい場合は</p>
@@ -243,14 +243,14 @@
 <span class="hljs-built_in">float</span> s = <span class="hljs-number">2.0</span>;
 
 <span class="hljs-comment">// 2倍に拡大された緑色の円</span>
-<span class="hljs-built_in">scale</span>(<span class="hljs-number">2.0</span>);
+<span class="hljs-built_in">scale</span>(s);
 <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
 <span class="hljs-comment">// 枠線の太さを維持</span>
 <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">1.0</span>/s);
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
 
 <span class="hljs-comment">// 4倍に拡大された青色の円</span>
-<span class="hljs-built_in">scale</span>(<span class="hljs-number">2.0</span>);
+<span class="hljs-built_in">scale</span>(s);
 <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
 <span class="hljs-comment">// 枠線の太さを維持</span>
 <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">1.0</span>/(s*s));
@@ -319,7 +319,7 @@
 <span class="hljs-built_in">popMatrix</span>();
 
 <span class="hljs-built_in">pushMatrix</span>();
-<span class="hljs-built_in">translate</span>(<span class="hljs-number">500</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>);
+<span class="hljs-built_in">translate</span>(<span class="hljs-number">700</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>);
 <span class="hljs-comment">// 回転と拡大</span>
 <span class="hljs-built_in">rotate</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">90</span>));
 <span class="hljs-built_in">scale</span>(<span class="hljs-number">3.0</span>);
@@ -330,8 +330,6 @@
 </code></pre>
 <p>図形の１つ１つをpushMatrix()とpopMatrix()で囲っているので、前に行った座標変換のことを気にする必要がありません。translate()で図形を描画したい位置に原点を移動させ、原点に図形を描画しているので、rotate()とscale()が個々の図形を回転させたり拡大縮小を行っているように見えます。</p>
 <p>draw()を使ってアニメーションにしてみましょう。</p>
-<iframe src="/samples/tutorial/Chapter10/sketch12.html" class="sample-sketch"></iframe>
-
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter10/sketch12/sketch12.pde' target='_blank'>Chapter10/sketch12.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
