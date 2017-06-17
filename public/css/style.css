@@ -652,10 +652,13 @@ canvas {
 .header__siteTitle a {
   display: block;
   color: #fff;
+  -webkit-transition: color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .header__siteTitle a:hover {
-  border-bottom: none;
+  color: #cd0055;
+  border: none;
 }
 
 @media (max-width: 640px) {
@@ -676,19 +679,26 @@ canvas {
   display: flex;
 }
 
-.mainNavigation__item {
+.mainNavigation li {
   margin-right: 20px;
 }
 
-.mainNavigation__item a {
-  font-size: 1.6rem;
+.mainNavigation li a {
   font-family: "Open Sans";
+  font-size: 1.6rem;
   font-weight: 400;
   color: #fff;
   letter-spacing: 1px;
+  -webkit-transition: color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.mainNavigation__item:last-child {
+.mainNavigation li a:hover {
+  color: #cd0055;
+  border: none;
+}
+
+.mainNavigation li:last-child {
   margin-right: 0;
 }
 
@@ -911,7 +921,6 @@ pre code.lang-processing {
 @media (max-width: 640px) {
   .chapterList__title a {
     font-size: 1.8rem;
-    padding: 5px 0 6px 5px;
   }
 }
 
@@ -934,7 +943,9 @@ pre code.lang-processing {
 @media (max-width: 640px) {
   .chapterList__title:after {
     top: 10px;
-    right: 30px;
+    right: 20px;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
   }
 }
 

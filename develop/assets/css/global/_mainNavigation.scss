@@ -1,16 +1,21 @@
 .mainNavigation {
   display: flex;
-  &__item {
+  li {
     margin-right: 20px;
     a {
-      font-size: 1.6rem;
       font-family: "Open Sans";
+      font-size: 1.6rem;
       font-weight: 400;
       color: #fff;
       letter-spacing: 1px;
+      transition: color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+      &:hover {
+        color: $main-pink;
+        border: none;
+      }
     }
   }
-  &__item:last-child {
+  li:last-child {
     margin-right: 0;
   }
 }

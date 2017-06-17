@@ -44,7 +44,6 @@
       }
       @include lt-640 {
         font-size: 1.8rem;
-        padding: 5px 0 6px 5px;
       }
     }
     &:after {
@@ -61,7 +60,9 @@
       transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
       @include lt-640 {
         top: 10px;
-        right: 30px;
+        right: 20px;
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
       }
     }
     &:hover:after {

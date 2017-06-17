@@ -22,8 +22,10 @@
     a {
       display: block;
       color: #fff;
+      transition: color 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
       &:hover {
-        border-bottom: none;
+        color: $main-pink;
+        border: none;
       }
     }
   }
