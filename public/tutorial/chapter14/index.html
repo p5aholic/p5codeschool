@@ -43,7 +43,7 @@
 <p><code class='codeFragment'>class クラス名 {
 }</code></p>
 <p>波カッコの中に必要な変数を書き込みます。次のプログラムではボールについての情報をまとめたクラスを作っています。クラス名はそのクラスを端的に表す名前が良いのでBallとしています。クラス内にはボールの情報を表す位置、半径、色の変数を書き込んでいます。クラス内に書く変数のことをプログラミング用語でフィールドと呼ぶので覚えておいてください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch01/sketch01.pde' target='_blank'>Chapter16/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch01/sketch01.pde' target='_blank'>Chapter14/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 }
@@ -70,7 +70,7 @@ class Ball {
 b1.x
 b1.c</code></p>
 <p>のようにb1のあとにドットを繋げてさらに変数名を書くことでアクセスできます。次のプログラムではb1のフィールドに値を設定して描画しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch02/sketch02.pde' target='_blank'>Chapter16/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch02/sketch02.pde' target='_blank'>Chapter14/sketch02.pde</a></p>
 <pre><code class="lang-processing">Ball b1 = <span class="hljs-keyword">new</span> Ball();
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -101,7 +101,7 @@ class Ball {
 }
 </code></pre>
 <p>具体的なボールはコンピュータのメモリが許す限りいくつでも作ることができます。次のプログラムではBallクラスからボールb1とb2を作って描画しています。 画面上に位置、半径、色の異なる２つのボールが描画されることを確認してください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch03/sketch03.pde' target='_blank'>Chapter16/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch03/sketch03.pde' target='_blank'>Chapter14/sketch03.pde</a></p>
 <pre><code class="lang-processing">Ball b1 = <span class="hljs-keyword">new</span> Ball(); <span class="hljs-comment">// Ball型のオブジェクトを生成</span>
 Ball b2 = <span class="hljs-keyword">new</span> Ball(); <span class="hljs-comment">// Ball型のオブジェクトを生成</span>
 
@@ -163,14 +163,14 @@ class Ball {
 <p>と書くことで、new Ball();によってBallクラスのインスタンスが作られ、b1にはそのインスタンスの場所を示す参照が代入される、ということになります。さらに、</p>
 <p><code class='codeFragment'>Ball b2 = new Ball();</code></p>
 <p>と書くと、new Ball();によって新しいBallクラスのインスタンスが作られ、b2にそのインスタンスの場所を示す参照が代入されます。下の図のようなイメージで理解しておいてください。</p>
-<p><img src="/images/Chapter16/class_1.png" width="655" height="363"></p>
+<p><img src="/images/Chapter14/class_1.png" width="655" height="363"></p>
 <p>「b1.radius」は「b1が参照するインスタンスがもつ変数radius」、「b2.radius」は「b2が参照するインスタンスがもつ変数radius」という意味です。ですので、b1とb2には別の参照が代入されているのでb1.radiusとb2.radiusが異なる変数だというのは当たり前のことです。b1.radiusのことをいちいち「b1が参照するインスタンスが持つ変数radius」と呼ぶのは手間なので、単に「b1のradius」と呼ぶことにします。ですが頭の中では「b1が参照するインスタンスが持つ変数radius」という風に読みかえてください。</p>
 <p>b1やb2のようなインスタンスの場所を示す参照が代入されている変数は、参照型変数と呼ばれます。対して、</p>
 <p><code class='codeFragment'>int a;
 float b;</code></p>
 <p>などのaやbは基本データ型変数と呼ばれます。</p>
 <p>次のプログラムを通して参照についての理解を深めます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch04/sketch04.pde' target='_blank'>Chapter16/sketch04.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch04/sketch04.pde' target='_blank'>Chapter14/sketch04.pde</a></p>
 <pre><code class="lang-processing">Ball b1 = <span class="hljs-keyword">new</span> Ball(); <span class="hljs-comment">// Ball型のオブジェクトを生成</span>
 Ball b2 = <span class="hljs-keyword">new</span> Ball(); <span class="hljs-comment">// Ball型のオブジェクトを生成</span>
 
@@ -196,13 +196,13 @@ class Ball {
 }
 </code></pre>
 <p>参照型変数b1、b2のradiusに、それぞれ40と20の値を代入します。println()でそれぞれのradiusを出力すると、当然、40と20が出力されます。次にb2 = b1としたあとにもう一度radiusを出力すると、今度はどちらも40になります。b2 = b1を実行したとき、プログラムでは次の図のようなことが起こっています。</p>
-<p><img src="/images/Chapter16/class_2.png" width="655" height="363"></p>
+<p><img src="/images/Chapter14/class_2.png" width="655" height="363"></p>
 <p>つまり、b1が持っていた参照をb2に代入したことにより、b1とb2が参照するインスタンスが同じになったのです。当然、b1.radiusとb2.radiusは同じ変数なのでprintln()で出力すると同じ値が出力されます。</p>
 <p>この参照とインスタンスの関係を理解したうえで、今までの解説をもう一度読み返すことをオススメします。</p>
 <h2>コンストラクタ</h2><p>コンストラクタと呼ばれるものについて解説します。コンストラクト(construct)は日本語で「組み立てる」という意味の英語で、コンストラクタ(constructor)は「組み立てるもの」というような意味になります。コンストラクタはクラスに最低でも１つは書かれているものなのですが、クラス定義にコンストラクタを書かなかった場合、デフォルトコンストラクタと呼ばれるものがあるとみなされます。デフォルトコンストラクタは次のように書きます。</p>
 <p><code class='codeFragment'>クラス名() {
 }</code></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch05/sketch05.pde' target='_blank'>Chapter16/sketch05.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch05/sketch05.pde' target='_blank'>Chapter14/sketch05.pde</a></p>
 <pre><code class="lang-processing">class Ball {
   <span class="hljs-built_in">float</span> x, y;
   <span class="hljs-built_in">int</span> radius;
@@ -219,7 +219,7 @@ class Ball {
 <p>コンストラクタはクラスからインスタンスを作る時に必要となるもので、実は</p>
 <p><code class='codeFragment'>Ball b1 = new Ball();</code></p>
 <p>のBall()の部分がコンストラクタです。new演算子に続いて、クラスに定義されている(とみなされている)コンストラクタを呼び出すことによってインスタンスを作っていたわけです。コンストラクタにはインスタンスを作るという最も重要な機能が初めから備わっているのですが、コンストラクタの中身にコードを加えて機能を付け足すことができます。次のプログラムではコンストラクタの中身にフィールドの代入処理を加えています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch06/sketch06.pde' target='_blank'>Chapter16/sketch06.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch06/sketch06.pde' target='_blank'>Chapter14/sketch06.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -263,7 +263,7 @@ class Ball {
 <p><code class='codeFragment'>Ball b1 = new Ball();</code></p>
 <p>のように書いていたら、widthとheightのデフォルト値である100を使ってフィールドx、yの代入処理を行うことになります。</p>
 <p>コンストラクタは関数のように仮引数を持つことができます。次のプログラムでは、bx、by、rad、bcを仮引数とするコンストラクタを作り、フィールドx、y、radius、cに代入することで値の代入処理をしています。コンストラクタを呼び出すときは、仮引数を持つコンストラクタに合わせて実引数を書き込んだコンストラクタを使います。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch07/sketch07.pde' target='_blank'>Chapter16/sketch07.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch07/sketch07.pde' target='_blank'>Chapter14/sketch07.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -310,7 +310,7 @@ class Ball {
 </code></pre>
 <p>今までは全てのフィールドにランダムな値を代入していたので、仮引数による代入処理が必要ありませんでしたが、青、黄、赤のボールを作り横一列に並ばせるといった場合には、仮引数ありのコンストラクタによってフィールドの値の代入処理をする方法が有効です。</p>
 <p>クラス定義に書くフィールドには、デフォルト値を設定しておくことができます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch08/sketch08.pde' target='_blank'>Chapter16/sketch08.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch08/sketch08.pde' target='_blank'>Chapter14/sketch08.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -353,7 +353,7 @@ class Ball {
 <p><code class='codeFragment'>b1 = new Ball();</code></p>
 <p>が実行されたときの実行過程は、まずnew Ball()によりインスタンスが作られ、インスタンスが持つフィールドにクラス定義に書かれたデフォルト値が設定されます。そのあとBall()に書かれたフィールドの代入処理が実行されます。上のプログラムではコンストラクタの代入処理によってフィールドradius、x、yの値が決められますが、色だけはデフォルト値のままになっています。</p>
 <h2>メソッド</h2><p>今までに解説してきたクラスを使って、ボールがウィンドウを跳ね回るプログラムを作りました。Ballクラスには速度を表すフィールドvx、vyを追加しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch09/sketch09.pde' target='_blank'>Chapter16/sketch09.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch09/sketch09.pde' target='_blank'>Chapter14/sketch09.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -415,7 +415,7 @@ class Ball {
 }
 </code></pre>
 <p>インスタンスがもつフィールドにアクセスするたびにb1.やb2.と書かなければならず、ちょっと面倒臭いですね。それに、ボールを動かす処理、壁との衝突処理、ボールの描画処理をb1とb2のそれぞれに書かなければならず、これも面倒です。実はクラスには、インスタンスが持つ変数だけでなく、インスタンスが行う処理もまとめることができます。言葉での解説は後回しにして、まずは次のプログラムを見てください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch10/sketch10.pde' target='_blank'>Chapter16/sketch10.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter14/sketch10/sketch10.pde' target='_blank'>Chapter14/sketch10.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -506,7 +506,7 @@ b1.display();</code></p>
   }
 }
 </code></pre>
-<p>お疲れさまでした。かなり難しい概念の話を長々としてきました。ですがまだ続きます。次のChapter15_3でさらに便利なクラスの使い方を解説していきます。</p>
+<p>お疲れさまでした。かなり難しい概念の話を長々としてきました。ですがまだ続きます。次のChapterでさらに便利なクラスの使い方を解説していきます。</p>
 
 </main>
 

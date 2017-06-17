@@ -8,7 +8,7 @@
 
 dataのような配列変数も参照型変数です。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。
 
-[Chapter17/sketch01.pde](github:Chapter17/sketch01/sketch01.pde)
+[Chapter15/sketch01.pde](github:Chapter15/sketch01/sketch01.pde)
 
 ```processing
 int[] data = new int[50];  // 配列の宣言と代入
@@ -26,7 +26,7 @@ dataはint型の要素を持つint型配列ですが、次のようにしてク�
 
 次のプログラムでは、100個のBallクラスのインスタンスを持つ配列を作って画面内に100個のボールを描画しています。
 
-[Chapter17/sketch02.pde](github:Chapter17/sketch02/sketch02.pde)
+[Chapter15/sketch02.pde](github:Chapter15/sketch02/sketch02.pde)
 
 ```processing
 // 要素数１００個のBallクラス型配列ballsを生成
@@ -151,7 +151,7 @@ void draw() {
 
 仮引数を持つコンストラクタによるフィールドの代入処理を思い出してください。
 
-[Chapter16/sketch07.pde](github:Chapter16/sketch07/sketch07.pde)
+[Chapter14/sketch07.pde](github:Chapter16/sketch07/sketch07.pde)
 
 ```processing
 Ball b1, b2, b3;
@@ -201,7 +201,7 @@ class Ball {
 
 フィールドxには仮引数bx、フィールドcには仮引数bcのように対応付けて代入をしていました。bxやbcのbはballのbのつもりです。実は、仮引数の変数名をフィールドと同じ変数名にする方法があります。ここで一つルールを紹介します。次のプログラムを実行してみてください。
 
-[Chapter17/sketch03.pde](github:Chapter17/sketch03/sketch03.pde)
+[Chapter15/sketch03.pde](github:Chapter15/sketch03/sketch03.pde)
 
 ```processing
 Ball b1;
@@ -225,7 +225,7 @@ class Ball {
 
 コンストラクタ内でxとyの値を出力していますが、このとき40と50が出力されます。つまり、クラス内に書かれたフィールドx、yよりも、コンストラクタの仮引数であるx、yが出力されていることになります。コンストラクタの仮引数がフィールドと同名の変数だった場合、フィールドよりもそれらが優先されるというルールがあるからです。このルールがわかったところで、次のプログラムを見てください。コンストラクタの仮引数にフィールドと同じ名前の変数名を使っていますが、this参照と呼ばれるものを使ってフィールドと仮引数の区別をしています。
 
-[Chapter17/sketch04.pde](github:Chapter17/sketch04/sketch04.pde)
+[Chapter15/sketch04.pde](github:Chapter15/sketch04/sketch04.pde)
 
 ```processing
 Ball b1, b2, b3;
@@ -289,7 +289,7 @@ this参照について詳しく解説します。上のプログラムで
 
 このthis参照は、コンストラクタだけでなくメソッドでも有効です。次のプログラムでは、座標をセットするsetPositionメソッドの仮引数にフィールドと同じ名前の変数名を使いthis参照により、フィールドと仮引数の区別をしています。
 
-[Chapter17/sketch05.pde](github:Chapter17/sketch05/sketch05.pde)
+[Chapter15/sketch05.pde](github:Chapter15/sketch05/sketch05.pde)
 
 ```processing
 Ball b1 = new Ball();
@@ -320,7 +320,7 @@ class Ball {
 
 実は、コンストラクタやメソッドの仮引数にフィールドと同じ変数名を使わなかった場合、コンストラクタ内やメソッド内で使われるフィールドの前には暗黙的にthis.が付けられていると解釈されて実行されます。そしてそのthisには、コンストラクタなら生成したインスタンスへの参照が、メソッドなら呼び出した参照型変数に代入されている参照が代入されて実行されていたわけです。コンストラクタやメソッドの仮引数にフィールドと同じ変数名を使わない場合はthis.は省略可能なので今まで書きませんでしたが、以下のように明示的に書くこともできます。
 
-[Chapter17/sketch06.pde](github:Chapter17/sketch06/sketch06.pde)
+[Chapter15/sketch06.pde](github:Chapter15/sketch06/sketch06.pde)
 
 ```processing
 // 要素数１００個のBallクラス型配列ballsを生成

@@ -47,7 +47,7 @@
 ラケット<br>
 ・位置、速度、大きさ、色<br>
 ここで前回のChapterで作った画面内をボールが飛び回るプログラムを思い出してみると、ボールが持つ情報を表すだけでも６つの変数(x, y, vx, vy, radius, c)が必要だったことがわかります。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch01/sketch01.pde' target='_blank'>Chapter15/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter12/sketch07/sketch07.pde' target='_blank'>Chapter12/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">100</span>; <span class="hljs-comment">// ボールの数</span>
 <span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
 <span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
@@ -65,7 +65,7 @@
     y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
     vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
     vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
-    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
   }
 }
 
@@ -92,6 +92,8 @@
 }
 </code></pre>
 <p>このプログラムにラケットを加えてみました。ラケットを描画するための変数を用意しているだけなので、ラケットに当たってもボールは跳ね返りません。</p>
+<p><img src="/images/Chapter13/sketch01.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch01/sketch01.pde' target='_blank'>Chapter13/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">5</span>; <span class="hljs-comment">// ボールの数</span>
 <span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
 <span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
@@ -115,7 +117,7 @@
     y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
     vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
     vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
-    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
   }
   <span class="hljs-comment">// ラケットの初期値を設定</span>
   racketX = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
@@ -153,7 +155,7 @@
   <span class="hljs-built_in">rect</span>(racketX, racketY, racketW, racketH);
 }
 </code></pre>
-<p>ここからさらにブロックを足そうとすると、ブロックは複数あるものなので変数を配列で管理しなければいけません。プログラム中に配列が大量に記述されることになり非常にプログラムが見づらくなり、書くのも面倒になります。クラスには情報をまとめておく機能があるので、変数ごとに配列を作成する必要がなくなりプログラムの見通しがよくなります。クラスの機能やクラスを使う利点は他にも色々あります。ではChapter16でクラスの作り方を解説していきます。</p>
+<p>ここからさらにブロックを足そうとすると、ブロックは複数あるものなので変数を配列で管理しなければいけません。プログラム中に配列が大量に記述されることになり非常にプログラムが見づらくなり、書くのも面倒になります。クラスには情報をまとめておく機能があるので、変数ごとに配列を作成する必要がなくなりプログラムの見通しがよくなります。クラスの機能やクラスを使う利点は他にも色々あります。では次のChapterでクラスの作り方を解説していきます。</p>
 
 </main>
 

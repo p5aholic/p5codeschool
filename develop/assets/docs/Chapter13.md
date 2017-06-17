@@ -12,7 +12,7 @@
 ・位置、速度、大きさ、色<br>
 ここで前回のChapterで作った画面内をボールが飛び回るプログラムを思い出してみると、ボールが持つ情報を表すだけでも６つの変数(x, y, vx, vy, radius, c)が必要だったことがわかります。
 
-[Chapter15/sketch01.pde](github:Chapter15/sketch01/sketch01.pde)
+[Chapter12/sketch07.pde](github:Chapter12/sketch07/sketch07.pde)
 
 ```processing
 int numBalls = 100; // ボールの数
@@ -32,7 +32,7 @@ void setup() {
     y[i] = random(radius[i], height-radius[i]);
     vx[i] = random(-5, 5);
     vy[i] = random(-5, 5);
-    c[i] = color(random(255), random(255), random(255), random(255));
+    c[i] = color(random(255), random(255), random(255));
   }
 }
 
@@ -61,6 +61,10 @@ void draw() {
 
 このプログラムにラケットを加えてみました。ラケットを描画するための変数を用意しているだけなので、ラケットに当たってもボールは跳ね返りません。
 
+![](/images/Chapter13/sketch01.jpg)
+
+[Chapter13/sketch01.pde](github:Chapter13/sketch01/sketch01.pde)
+
 ```processing
 int numBalls = 5; // ボールの数
 float[] x = new float[numBalls];  // x座標の配列
@@ -85,7 +89,7 @@ void setup() {
     y[i] = random(radius[i], height-radius[i]);
     vx[i] = random(-5, 5);
     vy[i] = random(-5, 5);
-    c[i] = color(random(255), random(255), random(255), random(255));
+    c[i] = color(random(255), random(255), random(255));
   }
   // ラケットの初期値を設定
   racketX = width/2;
@@ -124,4 +128,4 @@ void draw() {
 }
 ```
 
-ここからさらにブロックを足そうとすると、ブロックは複数あるものなので変数を配列で管理しなければいけません。プログラム中に配列が大量に記述されることになり非常にプログラムが見づらくなり、書くのも面倒になります。クラスには情報をまとめておく機能があるので、変数ごとに配列を作成する必要がなくなりプログラムの見通しがよくなります。クラスの機能やクラスを使う利点は他にも色々あります。ではChapter16でクラスの作り方を解説していきます。
+ここからさらにブロックを足そうとすると、ブロックは複数あるものなので変数を配列で管理しなければいけません。プログラム中に配列が大量に記述されることになり非常にプログラムが見づらくなり、書くのも面倒になります。クラスには情報をまとめておく機能があるので、変数ごとに配列を作成する必要がなくなりプログラムの見通しがよくなります。クラスの機能やクラスを使う利点は他にも色々あります。では次のChapterでクラスの作り方を解説していきます。

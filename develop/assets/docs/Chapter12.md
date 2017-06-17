@@ -39,7 +39,7 @@ data[4] = 49;
 
 配列では先頭の要素を0番目とします。配列変数のi番目の要素は配列変数名[i]と書くことで表します。今までの説明をまとめたものが次のプログラムです。println関数に配列変数を渡すと配列の中身が出力されます。
 
-[Chapter14/sketch01.pde](github:Chapter14/sketch01/sketch01.pde)
+[Chapter12/sketch01.pde](github:Chapter12/sketch01/sketch01.pde)
 
 ```processing
 int[] data;        // int型配列のdataを宣言
@@ -56,7 +56,7 @@ println(data);
 
 普通の変数と同じように、宣言と代入を１行で書くことも可能です。
 
-[Chapter14/sketch02.pde](github:Chapter14/sketch02/sketch02.pde)
+[Chapter12/sketch02.pde](github:Chapter12/sketch02/sketch02.pde)
 
 ```processing
 int[] data = new int[5]; // 宣言と代入
@@ -71,7 +71,7 @@ println(data);
 
 また次のようにして、配列の宣言、代入、要素の一つ一つの値の代入を一気に書くこともできます。
 
-[Chapter14/sketch03.pde](github:Chapter14/sketch03/sketch03.pde)
+[Chapter12/sketch03.pde](github:Chapter12/sketch03/sketch03.pde)
 
 ```processing
 int[] data = {20, 12, 45, 65, 78, 32};
@@ -82,14 +82,14 @@ println(data);
 
 for文を使うと配列の要素に値を代入するのがとても楽になります。次のプログラムでは要素数50のint型配列の要素にfor文を使ってランダムな値を代入しています。for文を使わなかったら50行も代入文を書かなくてはいけないので、配列とfor文の相性がとても良いことがわかると思います。
 
-[Chapter14/sketch04.pde](github:Chapter14/sketch04/sketch04.pde)
+[Chapter12/sketch04.pde](github:Chapter12/sketch04/sketch04.pde)
 
 ```processing
 int numData = 50; // 配列の要素数
 int[] data = new int[numData]; // 配列の宣言と代入
 // dataの要素に値を入れる
 for (int i = 0; i < numData; i++) {
-  data[i] = (int)random(height);
+  data[i] = (int)random(100);
 }
 println(data);
 ```
@@ -135,7 +135,9 @@ for (int i = 0; i <= numData; i++) {
 
 次のプログラムでは配列dataの中身を棒グラフにして視覚化しています。マウスクリックでdataの中身にランダムな値を入れなおすことができます。
 
-[Chapter14/sketch05.pde](github:Chapter14/sketch05/sketch05.pde)
+![](/images/Chapter12/sketch05.jpg)
+
+[Chapter12/sketch05.pde](github:Chapter12/sketch05/sketch05.pde)
 
 ```processing
 int numData = 50; // 配列の要素数
@@ -177,7 +179,9 @@ void mousePressed() {
 
 最後に配列を使って、大きさ、座標、速度、色が異なる１００個のボールが画面内を飛び回るプログラムを作ってみます。念のため、配列を使わないで１個のボールが画面内を飛び回るプログラムを見てみます。
 
-[Chapter14/sketch06.pde](github:Chapter14/sketch06/sketch06.pde)
+![](/images/Chapter12/sketch06.jpg)
+
+[Chapter12/sketch06.pde](github:Chapter12/sketch06/sketch06.pde)
 
 ```processing
 float x, y;   // ボールの中心座標
@@ -188,12 +192,12 @@ color c;      // ボールの色
 void setup() {
   size(960, 540);
   // 初期値を設定
-  radius = (int)random(10, 20);
+  radius = (int)random(30, 60);
   x = random(radius, width-radius);
   y = random(radius, height-radius);
   vx = random(-5, 5);
   vy = random(-5, 5);
-  c = color(random(255), random(255), random(255), random(255));
+  c = color(random(255), random(255), random(255));
 }
 
 void draw() {
@@ -229,7 +233,9 @@ y = random(radius, height-radius);
 
 上のプログラムをもとに、配列を使ってボールが１００個飛び回るようにしたプログラムが次のプログラムです。
 
-[Chapter14/sketch07.pde](github:Chapter14/sketch07/sketch07.pde)
+![](/images/Chapter12/sketch07.jpg)
+
+[Chapter12/sketch07.pde](github:Chapter12/sketch07/sketch07.pde)
 
 ```processing
 int numBalls = 100; // ボールの数
@@ -249,7 +255,7 @@ void setup() {
     y[i] = random(radius[i], height-radius[i]);
     vx[i] = random(-5, 5);
     vy[i] = random(-5, 5);
-    c[i] = color(random(255), random(255), random(255), random(255));
+    c[i] = color(random(255), random(255), random(255));
   }
 }
 
@@ -278,4 +284,4 @@ void draw() {
 
 座標、速度、大きさ、色を全て配列にして、初期値の設定、ボールの座標の更新、当たり判定、描画をfor文で行っています。
 
-お疲れさまでした。Chapter14はこれで終了です。
+お疲れさまでした。Chapter12はこれで終了です。
