@@ -734,14 +734,14 @@ canvas {
   padding: 120px 15px 60px;
 }
 
-.mainContents > h1 {
+.mainContents h1 {
   font-size: 5.0rem;
   font-weight: 400;
   color: #004082;
   margin-bottom: 20px;
 }
 
-.mainContents > h2 {
+.mainContents h2 {
   font-size: 2.2rem;
   font-weight: 300;
   color: #004082;
@@ -749,12 +749,12 @@ canvas {
   margin-bottom: 20px;
 }
 
-.mainContents > p {
+.mainContents p {
   margin-bottom: 15px;
   letter-spacing: 2px;
 }
 
-.mainContents > p > em {
+.mainContents p > em {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 1px;
@@ -769,11 +769,11 @@ canvas {
   .mainContents {
     padding: 100px 15px 20px;
   }
-  .mainContents > h1 {
+  .mainContents h1 {
     font-size: 2.4rem;
     margin-bottom: 15px;
   }
-  .mainContents > h2 {
+  .mainContents h2 {
     font-size: 2.0rem;
     margin-bottom: 15px;
     margin-top: 20px;
@@ -864,12 +864,13 @@ pre code.lang-processing {
 
 .chapterList {
   margin-top: 20px;
+  font-size: 0;
 }
 
 .chapterList__item {
-  float: left;
+  display: inline-block;
   vertical-align: top;
-  width: calc(33.3333% - 20px);
+  width: calc(33.3333% - 21px);
   margin-right: 30px;
   margin-bottom: 30px;
 }

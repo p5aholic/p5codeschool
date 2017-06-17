@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp",
+    "start": "gulp & npm run watch:js",
     "md": "gulp --task=build:md",
-    "css": "gulp --task=build:css"
+    "css": "gulp --task=build:css",
+    "build:js": "webpack --config ./config/webpack.config.js",
+    "watch:js": "webpack --config ./config/webpack.config.js -w"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +34,8 @@
     "webpack": "^2.6.1"
   },
   "dependencies": {
+    "barba.js": "^1.0.0",
+    "gsap": "^1.19.1",
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0",
     "ua-parser-js": "^0.7.12"

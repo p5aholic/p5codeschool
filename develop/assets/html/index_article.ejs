@@ -8,8 +8,19 @@
 
 <% include common/_header %>
 
-<main class="mainContents">
-  <%- htmlData %>
+<main class="mainContents" id="barba-wrapper">
+  <div class="barba-container">
+    <% if (chapterNum) { %>
+      <% if (data.tutorials[chapterNum].number-1 >= 0) { %>
+      <a href="../chapter<%= data.tutorials[chapterNum].number-1 %>/" data-chapter="a">Prev</a>
+      <% } %>
+      <% if (data.tutorials[chapterNum].number+1 <= 15) { %>
+      <a href="../chapter<%= data.tutorials[chapterNum].number+1 %>/" data-chapter="a">Next</a>
+      <% } %>
+    <% } %>
+    <hr>
+    <%- htmlData %>
+  </div>
 </main>
 
 <% include common/_footer %>

@@ -2,10 +2,11 @@
 
 .chapterList {
   margin-top: 20px;
+  font-size: 0;
   &__item {
-    float: left;
+    display: inline-block;
     vertical-align: top;
-    width: calc(33.3333% - 20px);
+    width: calc(33.3333% - 21px);
     margin-right: 30px;
     margin-bottom: 30px;
     &:nth-child(3n) {

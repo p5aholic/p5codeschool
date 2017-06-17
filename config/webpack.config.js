@@ -7,13 +7,13 @@ const MODULES_PARH = path.resolve(__dirname, "../node_modules");
 
 module.exports = {
   entry: {
-    vendor: ["jquery", "three", "gsap"],
+    vendor: ["jquery"],
     main: DEVELOP_PATH + "/assets/js/main.js"
   },
 
   output: {
     path: PUBLIC_PATH + "/assets/js/",
-    filename: "[name].js"
+    filename: "bundle.js"
   },
 
   resolve: {
@@ -22,7 +22,10 @@ module.exports = {
       MODULES_PARH
     ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'TweenLite': 'gsap/src/uncompressed/TweenLite.js',
+      'TweenMax': 'gsap/src/uncompressed/TweenMax.js',
+      'gsap.easing': 'gsap/src/uncompressed/EasePack.js',
+      'gsap.plugins': 'gsap/src/uncompressed/plugins/'
     }
   },
 
@@ -39,22 +42,12 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
-      THREE: "three",
-      TweenMax: "gsap"
+      jQuery: "jquery"
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
       filename: "vendor.js"
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    // new webpack.optimize.UglifyJsPlugin()
   ]
 };

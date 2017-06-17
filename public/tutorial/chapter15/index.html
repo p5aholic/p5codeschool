@@ -36,8 +36,16 @@
 </header>
 
 
-<main class="mainContents">
-  <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
+<main class="mainContents" id="barba-wrapper">
+  <div class="barba-container">
+    
+      
+      <a href="../chapter14/" data-chapter="a">Prev</a>
+      
+      
+    
+    <hr>
+    <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
 <p><code class='codeFragment'>int[] data = new int[100];</code></p>
 <p>dataのような配列変数も参照型変数です。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch01/sketch01.pde' target='_blank'>Chapter15/sketch01.pde</a></p>
@@ -368,6 +376,7 @@ class Ball {
 </code></pre>
 <p>お疲れさまでした。これで今の段階で必要なクラスの知識は一通り解説しました。クラスにはまだまだ色んな機能があるのですが、それは追々解説します。</p>
 
+  </div>
 </main>
 
 <footer class="footer">
@@ -378,7 +387,8 @@ class Ball {
 
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="/assets/js/vendor.js"></script>
+<script src="/assets/js/bundle.js"></script>
 
 </body>
 </html>
