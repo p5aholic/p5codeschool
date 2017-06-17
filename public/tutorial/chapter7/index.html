@@ -40,7 +40,7 @@
 <main class="mainContents">
   <h1>繰り返し</h1><h2>whileループ</h2><p>とりあえず次のプログラムを実行してみてください。</p>
 <p><img src="/images/Chapter7/sketch01.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch01/sketch01.pde' target='_blank'>Chapter7/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch01/sketch01.pde' target='_blank'>Chapter7/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
@@ -72,7 +72,7 @@
 <p><img src="/images/Chapter7/ForLoop.jpg" alt="image"></p>
 <p>上のプログラムをwhile文の代わりにfor文で書き換えたのが次のプログラムです。動作は全く同じです。上のプログラムでのwhile文による繰り返し文と、次のプログラムでのfor文による繰り返し文が対応していることを確認してください。</p>
 <p><img src="/images/Chapter7/sketch02.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch02/sketch02.pde' target='_blank'>Chapter7/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch02/sketch02.pde' target='_blank'>Chapter7/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
@@ -87,7 +87,7 @@
 }
 </code></pre>
 <p>for文で用いるカウンタ変数は、for文内で宣言する場合は同じ変数名をもう一度使うことができます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch03/sketch03.pde' target='_blank'>Chapter7/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch03/sketch03.pde' target='_blank'>Chapter7/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
     <span class="hljs-built_in">println</span>(i);
@@ -101,7 +101,7 @@
 <p>変数の寿命のことを思い出してみましょう。変数は、その変数が宣言された行以降の同じブロック内が有効範囲です。ブロックを抜けるとその変数の有効範囲が終わります。for文の中で宣言されたiなどのカウンタ変数の有効範囲はfor文のブロック内になります。変数iの有効範囲内で同名の変数は使えませんが、1つ目のfor文がループを抜けた時点で変数iの有効範囲を抜けているので、2つ目のfor文でもう一度変数名にiを使うことができるわけです。</p>
 <h2>２重for文</h2><p>for文の中にfor文を作って2重for文を作ることもできます。</p>
 <p><img src="/images/Chapter7/sketch04.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch04/sketch04.pde' target='_blank'>Chapter7/sketch04.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch04/sketch04.pde' target='_blank'>Chapter7/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
@@ -118,7 +118,7 @@
 }
 </code></pre>
 <p>この２重for文の実行過程をfor文を使わずに全て書き出すと次のようになります。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch05/sketch05.pde' target='_blank'>Chapter7/sketch05.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch05/sketch05.pde' target='_blank'>Chapter7/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
@@ -179,7 +179,7 @@
 </code></pre>
 <p>外側のfor文でx座標、内側のfor文でy座標を表す場合と、その逆の場合では次のような違いがあります。</p>
 <p><img src="/images/Chapter7/sketch06.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch06/sketch06.pde' target='_blank'>Chapter7/sketch06.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch06/sketch06.pde' target='_blank'>Chapter7/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">colorMode</span>(HSB, <span class="hljs-number">360</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
@@ -199,7 +199,7 @@
 }
 </code></pre>
 <p><img src="/images/Chapter7/sketch07.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch07/sketch07.pde' target='_blank'>Chapter7/sketch07.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch07/sketch07.pde' target='_blank'>Chapter7/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 <span class="hljs-built_in">colorMode</span>(HSB, <span class="hljs-number">360</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
@@ -224,7 +224,7 @@
 <p><img src="/images/Chapter7/NestedFor2.jpg" alt="image"></p>
 <p>for文の中で条件分岐を使い、描画する図形を切り替えることもできます。</p>
 <p><img src="/images/Chapter7/sketch08.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch08/sketch08.pde' target='_blank'>Chapter7/sketch08.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch08/sketch08.pde' target='_blank'>Chapter7/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -251,7 +251,7 @@
 </code></pre>
 <p>次のプログラムでは、マウスと重なっている長方形にだけｘを描画しています。</p>
 <p><img src="/images/Chapter7/sketch09.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter7/sketch09/sketch09.pde' target='_blank'>Chapter7/sketch09.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch09/sketch09.pde' target='_blank'>Chapter7/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> boxW, boxH;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {

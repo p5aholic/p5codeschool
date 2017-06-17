@@ -19,11 +19,7 @@ void setup() {
 void draw() {
   // マウスが押されているとき
   if (mousePressed) {
-    ellipse(random(width), random(height), 50, 50);
-  }
-  // 押されてないとき
-  else {
-    ellipse(width/2, height/2, 50, 50);
+    ellipse(mouseX, mouseY, random(50), random(50));
   }
 }
 ```
@@ -53,11 +49,6 @@ void draw() {
     // 右ボタンが押されているとき
     else if (mouseButton == RIGHT) {
       y += 2;
-    }
-    // 真ん中のボタンが押されているとき
-    else if (mouseButton == CENTER) {
-      x = 0;
-      y = 0;
     }
   }
   // 縦棒
@@ -275,7 +266,7 @@ loop関数とnoLoop関数も解説しておきます。noLoop()を実行する�
 int diameter = 0; // 円の直径
 
 void setup() {
-  size(700, 540);
+  size(960, 540);
   noStroke();
 }
 

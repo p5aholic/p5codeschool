@@ -25,7 +25,7 @@ renderer.link = function(href, title, text) {
 
   if (href.indexOf('github:') !== -1) {
     href = href.replace('github:', '');
-    href = 'https://github.com/p5aholic/p5codeschool/blob/master/samples/' + href;
+    href = 'https://github.com/p5aholic/p5codeschool-samples/tree/master/' + href;
   }
 
   if (href.indexOf('p5ref:') !== -1) {

@@ -41,7 +41,7 @@
   <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
 <p><code class='codeFragment'>int[] data = new int[100];</code></p>
 <p>dataのような配列変数も参照型変数です。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch01/sketch01.pde' target='_blank'>Chapter15/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch01/sketch01.pde' target='_blank'>Chapter15/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">50</span>];  <span class="hljs-comment">// 配列の宣言と代入</span>
 <span class="hljs-built_in">println</span>(data.length);      <span class="hljs-comment">// dataの要素数を出力</span>
 <span class="hljs-comment">// dataの要素に値を入れる</span>
@@ -53,7 +53,7 @@
 <p>dataはint型の要素を持つint型配列ですが、次のようにしてクラスのインスタンスを持つクラス型配列というものを作ることができます。</p>
 <p><code class='codeFragment'>クラス名[] 配列変数名 = new クラス名[要素数];</code></p>
 <p>次のプログラムでは、100個のBallクラスのインスタンスを持つ配列を作って画面内に100個のボールを描画しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch02/sketch02.pde' target='_blank'>Chapter15/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch02/sketch02.pde' target='_blank'>Chapter15/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 要素数１００個のBallクラス型配列ballsを生成</span>
 Ball[] balls = <span class="hljs-keyword">new</span> Ball[<span class="hljs-number">100</span>];
 
@@ -163,7 +163,7 @@ class Ball {
 }
 </code></pre>
 <h2>this参照</h2><p>仮引数を持つコンストラクタによるフィールドの代入処理を思い出してください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter16/sketch07/sketch07.pde' target='_blank'>Chapter14/sketch07.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter16/sketch07/sketch07.pde' target='_blank'>Chapter14/sketch07.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -209,7 +209,7 @@ class Ball {
 }
 </code></pre>
 <p>フィールドxには仮引数bx、フィールドcには仮引数bcのように対応付けて代入をしていました。bxやbcのbはballのbのつもりです。実は、仮引数の変数名をフィールドと同じ変数名にする方法があります。ここで一つルールを紹介します。次のプログラムを実行してみてください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch03/sketch03.pde' target='_blank'>Chapter15/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch03/sketch03.pde' target='_blank'>Chapter15/sketch03.pde</a></p>
 <pre><code class="lang-processing">Ball b1;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -229,7 +229,7 @@ class Ball {
 }
 </code></pre>
 <p>コンストラクタ内でxとyの値を出力していますが、このとき40と50が出力されます。つまり、クラス内に書かれたフィールドx、yよりも、コンストラクタの仮引数であるx、yが出力されていることになります。コンストラクタの仮引数がフィールドと同名の変数だった場合、フィールドよりもそれらが優先されるというルールがあるからです。このルールがわかったところで、次のプログラムを見てください。コンストラクタの仮引数にフィールドと同じ名前の変数名を使っていますが、this参照と呼ばれるものを使ってフィールドと仮引数の区別をしています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch04/sketch04.pde' target='_blank'>Chapter15/sketch04.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch04/sketch04.pde' target='_blank'>Chapter15/sketch04.pde</a></p>
 <pre><code class="lang-processing">Ball b1, b2, b3;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -282,7 +282,7 @@ class Ball {
 <p><code class='codeFragment'>b1 = new Ball(200, height/2, 60, color(0, 0, 180));</code></p>
 <p>を実行すると、まず、new Ball()によってBallクラスのインスタンスが生成されます。次にBall()コンストラクタの実行に移るのですが、その際、thisにnew Ball()によって生成されたインスタンスへの参照が代入されます。すると、this.xは生成されたインスタンスが持つフィールドxを表し、ただのxは仮引数のxのことになります。こうすることで、コンストラクタの仮引数にフィールドと同じ変数名を使っても区別することができるのです。</p>
 <p>このthis参照は、コンストラクタだけでなくメソッドでも有効です。次のプログラムでは、座標をセットするsetPositionメソッドの仮引数にフィールドと同じ名前の変数名を使いthis参照により、フィールドと仮引数の区別をしています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch05/sketch05.pde' target='_blank'>Chapter15/sketch05.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch05/sketch05.pde' target='_blank'>Chapter15/sketch05.pde</a></p>
 <pre><code class="lang-processing">Ball b1 = <span class="hljs-keyword">new</span> Ball();
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -308,7 +308,7 @@ class Ball {
 </code></pre>
 <p>コンストラクタ内でthis参照を使った場合は生成したインスタンスへの参照がthisに代入されていましたが、メソッド内でthis参照を使った場合は、呼び出した参照型変数に代入されている参照がthisに代入されて実行されます。例えばb1.setPosition()を実行するとsetPosition()内のthisにはb1の参照が代入されます。</p>
 <p>実は、コンストラクタやメソッドの仮引数にフィールドと同じ変数名を使わなかった場合、コンストラクタ内やメソッド内で使われるフィールドの前には暗黙的にthis.が付けられていると解釈されて実行されます。そしてそのthisには、コンストラクタなら生成したインスタンスへの参照が、メソッドなら呼び出した参照型変数に代入されている参照が代入されて実行されていたわけです。コンストラクタやメソッドの仮引数にフィールドと同じ変数名を使わない場合はthis.は省略可能なので今まで書きませんでしたが、以下のように明示的に書くこともできます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter15/sketch06/sketch06.pde' target='_blank'>Chapter15/sketch06.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch06/sketch06.pde' target='_blank'>Chapter15/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 要素数１００個のBallクラス型配列ballsを生成</span>
 Ball[] balls = <span class="hljs-keyword">new</span> Ball[<span class="hljs-number">100</span>];
 

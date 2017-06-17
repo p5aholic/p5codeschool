@@ -41,7 +41,7 @@
   <h1>色の表現</h1><p>Chapter3ではProcessingにおける色の表現について詳しく解説していきます。</p>
 <h2>RGBカラーモード</h2><p>今までは<em>background()</em>や<em>fill()</em>、<em>stroke()</em>に１つのパラメータを与えることで黒～白の色を表現していました。<em>background()</em>、<em>fill()</em>、<em>stroke()</em>にはパラメータを最大で4つまで与えることができます。パラメータを2つ与える場合と4つ与える場合は後回しにして、3つ与える場合を解説していきます。 とりあえず次のサンプルを見てください。</p>
 <p><img src="/images/Chapter3/sketch01.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch01/sketch01.pde' target='_blank'>Chapter3/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter3/sketch01/sketch01.pde' target='_blank'>Chapter3/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">300</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -61,7 +61,7 @@
 <p>3つのパラメータに同じ値を指定することでパラメータを3つ与える方法でも黒～白を表現できます。<em>(0, 0, 0)</em>を指定すると黒色に、<em>(128, 128, 128)</em>を指定すると灰色に、<em>(255, 255, 255)</em>を指定すると白色になります。赤緑青を混ぜると白になるというのは不思議な感じがしますが、現実世界でもこのようになっていて、現実世界の白色の光は全ての色成分を含んでいます。例えば赤色(255, 0, 0)のソファーがあったとして、そのソファーが赤色なのは、白色(255, 255, 255)の光から水色(0, 255, 255)の光を吸収して、赤色(255, 0, 0)だけを反射しているから赤色に見えています。同様に、緑色の葉っぱは、自ら緑色に発光しているわけではなく、白色の光から緑色以外の色を吸収して、緑色だけを反射しているから緑色に見えます。</p>
 <h2>透明度</h2><p>後回しにしていた<em>background()</em>、<em>fill()</em>、<em>stroke()</em>にパラメータを2つ与える場合と4つ与える場合について解説します。色には透明度を指定することができて、パラメータを2つ与える場合は2つ目が透明度、4つ与える場合は4つ目が透明度になります。透明度も0～255で表現して、0が完全に透明、255が完全に不透明を表します。</p>
 <p><img src="/images/Chapter3/sketch02.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch02/sketch02.pde' target='_blank'>Chapter3/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter3/sketch02/sketch02.pde' target='_blank'>Chapter3/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -119,7 +119,7 @@
 <p><code class='codeFragment'>colorMode(HSB, 360, 100, 100, 100);</code></p>
 <p>Hueは円状で表すことができるのでHueの最大値を360としておくことで円と対応ができます。また、彩度、明度、透明度の最大値を100にしておくことで、それぞれをパーセントで指定することと同じになって考えやすいです。次のサンプルでは透明度を省略しています。その場合は透明度100（完全に不透明）になります。</p>
 <p><img src="/images/Chapter3/sketch03.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch03/sketch03.pde' target='_blank'>Chapter3/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter3/sketch03/sketch03.pde' target='_blank'>Chapter3/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>); <span class="hljs-comment">// ここではまだRGBモード</span>
 <span class="hljs-comment">// HSBモードに変更</span>
@@ -166,7 +166,7 @@
 <p><img src="/images/Chapter3/ColorSelector.jpg" width="466" height="362"></p>
 <p>縦長の長方形から色相を選択したあと、大きな正方形内をドラッグして好きな色を選びます。色を選んだら、右下のコピーをクリックすると選んだ色の16進数表現の値をコピーできます。Webサイト制作の経験がある人なら色の16進数表現に慣れているかもしれません。慣れていなくて16進数表現がわかりにくいなら、Color Selectorに表示されているRGB値もしくはHSB値をそのまま使えばいいかと思います。</p>
 <p><img src="/images/Chapter3/sketch04.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter3/sketch04/sketch04.pde' target='_blank'>Chapter3/sketch04.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter3/sketch04/sketch04.pde' target='_blank'>Chapter3/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
 <span class="hljs-built_in">background</span>(#A0A5A4);
 

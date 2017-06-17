@@ -54,7 +54,7 @@ BackGround(255);</code></p>
 <p>間違ったプログラムを書くとメッセージエリアにエラーが表示されます。このエラー表示を消すには[ファイル]-[設定]の<em>&quot;エラーのために継続的にチェックする&quot;</em>と<em>&quot;ワーニングを表示する&quot;</em>のチェックを外します。プログラミングに慣れないうちはチェックを入れておくといいでしょう。チェックを外しても、プログラム実行時にはエラーが表示されます。</p>
 <h2>スペースの扱いと見やすいプログラム</h2><p>スペースはプログラム内でどんな使い方をしても許されます。
 例えば以下のような書き方でもプログラムはちゃんと動きます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter1/sketch01/sketch01.pde' target='_blank'>Chapter1/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter1/sketch01/sketch01.pde' target='_blank'>Chapter1/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>      (
     <span class="hljs-number">960</span>      ,
 <span class="hljs-number">540</span>     )      ;
@@ -64,7 +64,7 @@ BackGround(255);</code></p>
 <p>ただし<em>size</em>や<em>background</em>の途中にスペースを入れると関数として認識されなくなります。</p>
 <p>上のプログラムでのスペースの使い方は100%冗談です。スペースはプログラムを見やすくするために適度に使うものです。例えば<em>size</em>関数に与える２つのパラメータの間のスペースなどが適切な使い方の例です。スペースももちろん半角でないといけません。全角スペースは見つけにくいので注意してください。</p>
 <h2>コメント</h2><p>コメントはプログラムに加えるちょっとした解説のようなものです。次のように使います。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter1/sketch02/sketch02.pde' target='_blank'>Chapter1/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter1/sketch02/sketch02.pde' target='_blank'>Chapter1/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// この行はコメントです</span>
 
 <span class="hljs-comment">/*
@@ -82,7 +82,7 @@ BackGround(255);</code></p>
 <p>//から始まる行はコメントとみなされます。また/**/で囲んだ中の文字もコメントとみなされ、複数行のコメントを書くときに便利です。コメントはプログラムから無視されるので実行結果に影響はありません。コメントには例外的に全角文字が使えます。</p>
 <p>長いプログラムを書くようになってくると、後でそのプログラムを見直したときに、自分で書いたプログラムであったとしても「この処理なんで書いたんだったっけ？」と思うことがあります。プログラムに適切なコメントを書くことでそのような事態を防げます。また、いずれ自分の作ったプログラムをネット上に公開することもあるでしょう。ほかの人が自分のプログラムを読んだときに理解しやすいようにするためにもコメントは重要です。プログラムの最初にプログラムの作成日や作成者の情報を付け加える、などの使い方もあります。</p>
 <h2>コンソール画面</h2><p>Processingエディターの下の黒い画面はコンソール画面と呼ばれています。プログラムの実行中に起きたエラーなどがここに表示されるのですが、<em>print</em>関数と<em>println</em>関数を使えばここに文字を書き込むこともできます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter1/sketch03/sketch03.pde' target='_blank'>Chapter1/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter1/sketch03/sketch03.pde' target='_blank'>Chapter1/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">println</span>(<span class="hljs-string">"text 1"</span>);
 <span class="hljs-built_in">print</span>(<span class="hljs-string">"text 2"</span>);
 <span class="hljs-built_in">print</span>(<span class="hljs-string">"text 3"</span>);

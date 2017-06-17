@@ -41,7 +41,7 @@
   <h1>setup()とdraw()</h1><p>このChapterからちょっとずつ楽しいことができるようになってきます。今回はアニメーション作成の基本となる<em>setup</em>関数と<em>draw</em>関数について解説していきます。</p>
 <h2>setup()、draw()の役割</h2><p>とりあえず以下のプログラムを動かしてみてください。まだ理解できなくても大丈夫です。マウスの位置に半透明の円が連続して描画されることを確認してください。</p>
 <p><img src="/images/Chapter5/sketch01.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch01/sketch01.pde' target='_blank'>Chapter5/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch01/sketch01.pde' target='_blank'>Chapter5/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 初期設定</span>
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -69,7 +69,7 @@
 <p>上のプログラムをもう一度見てください。<em>setup()</em>の中でウィンドウサイズと背景色、色と枠線を設定しています。これらは<em>draw()</em>が繰り返される中で変わらない設定だからです。<em>draw()</em>の中ではマウスの位置に半透明な円を描く処理を記述しています。<em>mouseX</em>と<em>mouseY</em>は<em>width</em>や<em>height</em>と同じで、Processing側が用意してくれている変数で、常にマウスの現在の座標を保持しています。<em>draw()</em>は1秒間に60回実行されるので１秒間に60個の円がマウスの位置に描画されます。マウスをずっと同じ位置に置いておくと円が重なってすぐに真っ黒になり、マウスを素早く動かすと円が飛び飛びに描画されます。</p>
 <p>一つ前のフレームにおけるマウスの座標を保持している<em>pmouseX</em>、<em>pmouseY</em>という変数もあります。これを使えば繋がった線を描画することができます。<em>pmouseX</em>のpは「前」を意味する英語のpreviousのことです。</p>
 <p><img src="/images/Chapter5/sketch02.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch02/sketch02.pde' target='_blank'>Chapter5/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch02/sketch02.pde' target='_blank'>Chapter5/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
@@ -84,7 +84,7 @@
 }
 </code></pre>
 <p>上の2つのプログラムでは、前の<em>draw()</em>によって描画された内容が残り続けていました。<em>draw()</em>の先頭で<em>background()</em>を使うと背景色を初期化することができ、ウィンドウに常に現在の<em>draw()</em>による描画内容だけを表示することができます。下のコードを確認してください。ついでにフレームレートを変更できる<em>frameRate</em>関数を使ってみました。フレームレートを15まで落としているので、描画がカクカクしているのがわかるかと思います。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch03/sketch03.pde' target='_blank'>Chapter5/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch03/sketch03.pde' target='_blank'>Chapter5/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">20</span>);
@@ -102,7 +102,7 @@
 <p><em>frameRate()</em>によって設定できるフレームレートはあくまでも最大のフレームレートです。<em>frameRate(60)</em>と設定していても、Processingプログラムを動かすコンピュータの性能が悪かったり、<em>draw()</em>の処理内容が高負荷だったりすると60fpsを下回ることがあります。</p>
 <p>現在までに更新されたフレームの数は<em>frameCount</em>という変数に保存されています。フレームレートが60なら<em>frameCount</em>は1秒後に60、2秒後に120、3秒後に180とどんどん増えていきます。これと余りを求める<em>%</em>を使うと次のようなプログラムも作れます。</p>
 <p><img src="/images/Chapter5/sketch04.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch04/sketch04.pde' target='_blank'>Chapter5/sketch04.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch04/sketch04.pde' target='_blank'>Chapter5/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
@@ -115,7 +115,7 @@
 </code></pre>
 <p><em>frameCount</em>はどんどん増えていきますが、<em>frameCount</em>を256で割った余りは256以上になることはありません。255になると次はまた0になります。これを背景色と<em>ellipse()</em>の大きさに指定しています。</p>
 <h2>変数の寿命</h2><p>変数には寿命(有効である期間)があります。{}で囲まれた範囲のことをブロックと言うのですが、ブロック内で宣言された変数の寿命は宣言されてからそのブロックが終了するまでです。対して、<em>setup</em>関数や<em>draw</em>関数のブロックの外側で宣言された変数はプログラム開始からプログラム終了までの寿命を持ちます。次のプログラムでは、<em>setup</em>関数と<em>draw</em>関数のブロックの外側で<em>int</em>型変数の<em>a</em>を宣言しています。変数<em>b</em>は<em>setup</em>関数内で宣言されているので、変数<em>b</em>が使える範囲は<em>setup</em>関数内の<em>b</em>が宣言された行以降のみになります。<em>draw</em>関数内で変数<em>b</em>を使おうとしても変数<em>b</em>は<em>setup</em>関数が終わった時点で有効期間が終わっているのでエラーが出ます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch05/sketch05.pde' target='_blank'>Chapter5/sketch05.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch05/sketch05.pde' target='_blank'>Chapter5/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> a = <span class="hljs-number">5</span>; <span class="hljs-comment">// プログラム終了まで生き残る変数</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -132,7 +132,7 @@
 <p>変数の寿命にはその他にも細かいルールがあるのですが、それらは必要に応じて後のChapterで詳しく解説します。</p>
 <p>次のプログラムを見てください。マウスの位置に色が徐々に変化する円を描画しています。</p>
 <p><img src="/images/Chapter5/sketch06.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch06/sketch06.pde' target='_blank'>Chapter5/sketch06.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch06/sketch06.pde' target='_blank'>Chapter5/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> <span class="hljs-built_in">hue</span> = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -159,7 +159,7 @@
 
 <p>次のプログラムではマウスの位置に色と大きさがランダムな円を描画しています。</p>
 <p><img src="/images/Chapter5/sketch07.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter5/sketch07/sketch07.pde' target='_blank'>Chapter5/sketch07.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch07/sketch07.pde' target='_blank'>Chapter5/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
