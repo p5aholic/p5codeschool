@@ -4,232 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter4「変数と演算」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
-  <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
-  <h1>変数と演算</h1><p>Chapter4では、プログラミングの基礎的な概念である変数と演算について解説していきます。ちょっと退屈な内容ですが、重要なのでちょっと我慢して習得してください。</p>
-<h2>変数を使うメリット</h2><p>変数を使うと値をコンピュータのメモリ上に保存しておくことができます。変数はプログラム内で使いまわすことができて、値の変更も簡単にできます。下のプログラムでは変数を使わないで３つの正円を描いています。この３つの円を直径80pxから直径150pxに変えたくなったとすると、３つのellipse()の３つ目と４つ目のパラメータを変えることになるので、合計６つのパラメータを変えることになります。ちょっと面倒くさいですね。６つならまだしも、１０個２０個となると相当面倒くさいです。変数を使うとこの面倒くささから解放されます。</p>
+<main class="mainContents">
+  <h1>変数と演算</h1><p>Chapter4では、プログラミングの基礎的な概念である変数と演算について解説していきます。退屈な内容ですが、重要なのでちょっと我慢して習得してください。</p>
+<h2>変数を使うメリット</h2><p>変数を使うと値をコンピュータのメモリ上に保存しておくことができます。変数はプログラム内で使いまわすことができて、値の変更も簡単にできます。下のプログラムでは変数を使わないで3つの正円を描いています。この3つの円を直径80pxから直径150pxに変えたくなったとすると、3つのellipse()の3つ目と4つ目のパラメータを変えることになるので、合計6つのパラメータを変えることになります。ちょっと面倒くさいですね。6つならまだしも、10個20個となると相当面倒くさいです。変数を使うとこの面倒くささから解放されます。</p>
 <p><img src="/images/Chapter4/sketch01.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch01/sketch01.pde' target='_blank'>Chapter4/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch01/sketch01.pde' target='_blank'>Chapter4/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -239,9 +51,9 @@
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">375</span>, <span class="hljs-number">88</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">625</span>, <span class="hljs-number">88</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
 </code></pre>
-<p>上のプログラムを変数を使って書き換えたのが下のプログラムです。初期値80のdiameter（直径という意味の英語）という変数を作ってellipse()の幅と高さに使用しています。</p>
+<p>上のプログラムを変数を使って書き換えたのが下のプログラムです。初期値80の<em>diameter</em>（直径という意味の英語）という変数を作って<em>ellipse()</em>の幅と高さに使用しています。</p>
 <p><img src="/images/Chapter4/sketch02.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch02/sketch02.pde' target='_blank'>Chapter4/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch02/sketch02.pde' target='_blank'>Chapter4/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -255,10 +67,10 @@
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">625</span>, <span class="hljs-number">88</span>, diameter, diameter);
 </code></pre>
 <p>試しに</p>
-<p><code class='code-fragment'>int diameter = 150;</code></p>
+<p><code class='codeFragment'>int diameter = 150;</code></p>
 <p>と変更してみてください。全ての円の直径が150pxに変わっているのがわかるかと思います。</p>
 <p><img src="/images/Chapter4/sketch03.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch03/sketch03.pde' target='_blank'>Chapter4/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch03/sketch03.pde' target='_blank'>Chapter4/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -272,17 +84,17 @@
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">625</span>, <span class="hljs-number">88</span>, diameter, diameter);
 </code></pre>
 <h2>変数の作成</h2><p>変数を作るときは</p>
-<p><code class='code-fragment'>データ型 変数名;
+<p><code class='codeFragment'>データ型 変数名;
 (例) int diameter;</code></p>
-<p>とします。これを変数の宣言と呼びます。データ型とはその変数が扱う値の種類のことで、int（integerの略、「イント」と呼ぶのが一般的）は整数(0, 12, -34, 156など)を意味するデータ型です。変数名はその変数の意味が伝わり、かつ長すぎないものを選ぶようにしましょう。直径を意味する変数ならばdよりもdiameterとしたほうがいいでしょう。変数に適切な名前を付けていると自分が後々プログラムを見直したときに思い出しやすくなります。また、いずれ自分が作ったプログラムをネット上で公開することもあるでしょう。そのとき自分のプログラムを見た他の人にわかりやすくするためにも重要です。</p>
+<p>とします。これを変数の宣言と呼びます。データ型とはその変数が扱う値の種類のことで、<em>int</em>（integerの略、「イント」と呼ぶのが一般的）は整数を意味するデータ型です。変数名はその変数の意味が伝わり、かつ長すぎないものを選ぶようにしましょう。直径を意味する変数ならばdよりもdiameterとしたほうがいいでしょう。変数に適切な名前を付けていると自分が後々プログラムを見直したときに思い出しやすくなります。また、いずれ自分が作ったプログラムをネット上で公開することもあるでしょう。そのとき自分のプログラムを見た他の人にわかりやすくするためにも重要です。</p>
 <p>変数に値を入れるときは</p>
-<p><code class='code-fragment'>変数名 = 値;
+<p><code class='codeFragment'>変数名 = 値;
 (例) diameter = 80;</code></p>
 <p>とします。これを値の代入と呼びます。また、以下のように変数の宣言と値の代入を一度に行うこともできます。この書き方を特別に初期化と呼んだりします。</p>
-<p><code class='code-fragment'>データ型 変数名 = 値;
+<p><code class='codeFragment'>データ型 変数名 = 値;
 (例) int diameter = 80;</code></p>
-<p>変数にデータ型を指定する必要があるのは宣言するときの一度だけです。データ型の付いた変数は新しい変数の宣言とみなされます。同じ名前の変数を２回宣言するとエラーが出ます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch04/sketch04.pde' target='_blank'>Chapter4/sketch04.pde</a></p>
+<p>変数にデータ型を指定する必要があるのは宣言するときの一度だけです。データ型の付いた変数は新しい変数の宣言とみなされます。同じ名前の変数を2回宣言するとエラーが出ます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch04/sketch04.pde' target='_blank'>Chapter4/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> diameter = <span class="hljs-number">80</span>;
 <span class="hljs-comment">/* 下の画面に
 「変数diameterが重複しています」
@@ -290,7 +102,7 @@
 <span class="hljs-built_in">int</span> diameter = <span class="hljs-number">150</span>;
 </code></pre>
 <p>データ型が同じであれば次のようにして複数の変数の宣言と代入を行うこともできます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch05/sketch05.pde' target='_blank'>Chapter4/sketch05.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch05/sketch05.pde' target='_blank'>Chapter4/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> a, b, c, d;
 a = <span class="hljs-number">1</span>;
 b = <span class="hljs-number">2</span>;
@@ -300,23 +112,24 @@ d = <span class="hljs-number">4</span>;
 <span class="hljs-built_in">int</span> x = <span class="hljs-number">10</span>, y = <span class="hljs-number">20</span>, z = <span class="hljs-number">30</span>;
 </code></pre>
 <p>変数名には命名規則があります。まず、変数名の先頭の文字は必ず数字以外の文字でなければいけません。</p>
-<p><code class='code-fragment'>int 8a = 10; // エラー</code></p>
-<p>また、変数名には予約語を使ってはいけません。予約語はProcessingプログラムが特別な扱いをする文字のことで、例えばintも予約語の一つです。</p>
-<p><code class='code-fragment'>int int = 10; // エラー</code></p>
+<p><code class='codeFragment'>int 8a = 10; // エラー</code></p>
+<p>また、変数名には予約語を使ってはいけません。予約語はProcessingプログラムが特別な扱いをする文字のことで、例えば<em>int</em>も予約語の一つです。</p>
+<p><code class='codeFragment'>int int = 10; // エラー</code></p>
 <p>予約語はこの先のChapterで色々登場しますが、とりあえずProcessingエディター上で文字の色が変わる単語は変数名には使わないでください。</p>
-<p>これらは守らないとエラーが出る命名規則ですが、守らなくてもエラーは出ないけど守ることが推奨される規則もあります。例えば、複数の単語からなる変数名を使う場合は１つ目の単語は小文字から始め、２つ目以降の単語は大文字で始めるという規則があります。例えばellipse()で描く円をボールに見立て、幅と高さをボールのサイズとすると、変数diameterはballsizeという変数名でも良さそうです。</p>
-<p><code class='code-fragment'>int ballsize = 80;</code></p>
+<p>これらは守らないとエラーが出る命名規則ですが、守らなくてもエラーは出ないけど守ることが推奨される規則もあります。例えば、複数の単語からなる変数名を使う場合は1つ目の単語は小文字から始め、2つ目以降の単語は大文字で始めるキャメルケースと呼ばれる規則があります。例えば<em>ellipse()</em>で描く円をボールに見立て、幅と高さをボールのサイズとすると、変数<em>diameter</em>は<em>ballsize</em>という変数名でも良さそうです。</p>
+<p><code class='codeFragment'>int ballsize = 80;</code></p>
 <p>こう書いてもエラーはもちろん出ませんが、命名規則を守るとすると次のように書いたほうがいいです。</p>
-<p><code class='code-fragment'>int ballSize = 80;</code></p>
-<p>ballsizeはballとsizeの複数の単語からなる変数名なので、１つ目の単語は小文字から始め、２つ目の単語は大文字で始めています。ちなみに、noStroke()関数やnoFill()関数もこの規則で命名されています。</p>
-<h2>色々なデータ型</h2><p>データ型には他にもいくつか種類があります。ここでは、浮動小数点を扱うfloatと色を扱うcolorを紹介します。浮動小数点についてはとりあえず小数点を扱えるデータ型だと思っておけば大丈夫です。浮動小数点は英語でfloating pointなので略してfloat、読みはフロートが一般的です。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch06/sketch06.pde' target='_blank'>Chapter4/sketch06.pde</a></p>
+<p><code class='codeFragment'>int ballSize = 80;</code></p>
+<p><em>ballsize</em>はballとsizeの複数の単語からなる変数名なので、1つ目の単語は小文字から始め、2つ目の単語は大文字で始めています。ちなみに<em>noStroke()</em>や<em>noFill()</em>のように、Processingは変数や関数の命名にキャメルケースを使用しています。
+もちろん命名規則はこれ以外にもあるので好きなようにしてください。このサイトではキャメルケースを使用しています。</p>
+<h2>色々なデータ型</h2><p>データ型には他にもいくつか種類があります。ここでは、浮動小数点を扱う<em>float</em>と色を扱う<em>color</em>を紹介します。浮動小数点は小数点を扱えるデータ型です。浮動小数点は英語でfloating pointなので略してfloat、読みはフロートが一般的です。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch06/sketch06.pde' target='_blank'>Chapter4/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">float</span> a = <span class="hljs-number">0.05</span>;
 <span class="hljs-built_in">float</span> b = <span class="hljs-number">12.3</span>;
 </code></pre>
-<p>色も変数として保存しておくことができます。データ型はcolorで、値をcolor()関数で作って代入します。color()関数のパラメータには、fill()、stroke()と同じように１～４つのパラメータを与えることができます。作ったcolor型変数はbackground()や、fill()、stroke()にパラメータとして渡すことができます。</p>
+<p>色も変数として保存しておくことができます。データ型は<em>color</em>で、値を<em>color()</em>で作って代入します。<em>color()</em>のパラメータには、<em>fill()</em>、<em>stroke()</em>と同じように1～4つのパラメータを与えることができます。作った<em>color</em>型変数は<em>background()</em>や、<em>fill()</em>、<em>stroke()</em>にパラメータとして渡すことができます。</p>
 <p><img src="/images/Chapter4/sketch07.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch07/sketch07.pde' target='_blank'>Chapter4/sketch07.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch07/sketch07.pde' target='_blank'>Chapter4/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -336,21 +149,21 @@ d = <span class="hljs-number">4</span>;
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">625</span>, <span class="hljs-number">88</span>, <span class="hljs-number">120</span>, <span class="hljs-number">120</span>);
 </code></pre>
 <h2>算術演算</h2><p>算術演算子というものを使うとプログラム中で計算をすることができます。代表的な算術演算子を紹介します。</p>
-<dl class="func-list">
-    <dt>+</dt>
-    <dd>足し算をする</dd>
-    <dt>-</dt>
-    <dd>引き算をする</dd>
-    <dt>*</dt>
-    <dd>掛け算をする</dd>
-    <dt>/</dt>
-    <dd>割り算をする</dd>
-    <dt>%</dt>
-    <dd>余りを求める</dd>
+<dl class="p5Functions">
+  <dt>+</dt>
+  <dd>足し算をする</dd>
+  <dt>-</dt>
+  <dd>引き算をする</dd>
+  <dt>*</dt>
+  <dd>掛け算をする</dd>
+  <dt>/</dt>
+  <dd>割り算をする</dd>
+  <dt>%</dt>
+  <dd>余りを求める</dd>
 </dl>
 
 <p><img src="/images/Chapter4/sketch08.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch08/sketch08.pde' target='_blank'>Chapter4/sketch08.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch08/sketch08.pde' target='_blank'>Chapter4/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">175</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
@@ -370,40 +183,40 @@ d = <span class="hljs-number">4</span>;
 <span class="hljs-built_in">fill</span>(<span class="hljs-built_in">blue</span>);
 <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">1.5</span>*diameter, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">2</span>*diameter, <span class="hljs-number">2</span>*diameter);
 </code></pre>
-<p>プログラム中にwidthとheightという変数を使いました。widthとheightはProcessing側が最初から用意してくれている変数で、widthにはウィンドウの幅、heightにはウィンドウの高さの値が入っています。ウィンドウの中心は(width/2, height/2)で表現できます。</p>
-<p>演算子には優先順位が決められています。掛け算と割り算は足し算と引き算より優先して計算されます。()で囲んだ計算は最も優先順位が高くなります。代入(=)は最も優先順位が低い演算子なので、全ての計算が終わってから代入が行われます。下のコードではprintln()関数を使って計算結果をコンソール画面に出力しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch09/sketch09.pde' target='_blank'>Chapter4/sketch09.pde</a></p>
+<p>プログラム中に<em>width</em>と<em>height</em>という変数を使いました。<em>width</em>と<em>height</em>はProcessing側が最初から用意してくれている変数で、<em>width</em>にはウィンドウの幅、<em>height</em>にはウィンドウの高さの値が入っています。ウィンドウの中心は<em>(width/2, height/2)</em>で表現できます。</p>
+<p>演算子には優先順位が決められています。掛け算と割り算は足し算と引き算より優先して計算されます。()で囲んだ計算は最も優先順位が高くなります。代入<em>=</em>は最も優先順位が低い演算子なので、全ての計算が終わってから代入が行われます。下のコードでは<em>println()</em>を使って計算結果をコンソール画面に出力しています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch09/sketch09.pde' target='_blank'>Chapter4/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x = <span class="hljs-number">5</span> + <span class="hljs-number">10</span> * <span class="hljs-number">2</span>;
 <span class="hljs-built_in">println</span>(x); <span class="hljs-comment">// 25を出力</span>
 <span class="hljs-built_in">int</span> y = (<span class="hljs-number">5</span> + <span class="hljs-number">10</span>) * <span class="hljs-number">2</span>;
 <span class="hljs-built_in">println</span>(y); <span class="hljs-comment">// 30を出力</span>
 </code></pre>
 <p>代入についてもう少し詳しく解説していきます。 とりあえず、下のプログラムを見てください。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch10/sketch10.pde' target='_blank'>Chapter4/sketch10.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch10/sketch10.pde' target='_blank'>Chapter4/sketch10.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x = <span class="hljs-number">100</span>;
 x = x + <span class="hljs-number">100</span>;
 <span class="hljs-built_in">println</span>(x); <span class="hljs-comment">// 200と出力</span>
 </code></pre>
-<p>x = x + 100という計算をしています。数学ではこんな式ありえませんが、プログラミングで行う計算は数学とは似て非なるものです。数学では右辺のｘを左辺に移項して0 = 100となってしまいますが、プログラムは移項などしません。x = x + 100を分解して考ると、まず、= より + のほうが演算子としての優先順位が高いので x + 100が計算されます。すると左辺は200になります。残る演算子は = だけなのでx = 200が実行されて、xに200が代入されるわけです。</p>
+<p><em>x = x + 100</em>という計算をしています。数学ではこんな式ありえませんが、プログラミングで行う計算は数学とは似て非なるものです。数学では右辺のxを左辺に移項して0 = 100となってしまいますが、プログラムは移項などしません。<em>x = x + 100</em>を分解して考ると、まず、<em>=</em> より<em>+</em>のほうが演算子としての優先順位が高いので<em>x + 100</em>が計算されます。すると左辺は200になります。残る演算子は<em>=</em>だけなので<em>x = 200</em>が実行されて、<em>x</em>に200が代入されるわけです。</p>
 <p>計算と代入を一度に行ってくれる便利な演算子も紹介しておきます。</p>
-<dl class="func-list">
-    <dt>+=</dt>
-    <dd>足し算をして代入</dd>
-    <dt>-=</dt>
-    <dd>引き算をして代入</dd>
-    <dt>*=</dt>
-    <dd>掛け算をして代入</dd>
-    <dt>/=</dt>
-    <dd>割り算をして代入</dd>
-    <dt>%=</dt>
-    <dd>余りを計算して代入</dd>
-    <dt>++</dt>
-    <dd>１を加えて代入</dd>
-    <dt>--</dt>
-    <dd>１を引いて代入</dd>
+<dl class="p5Functions">
+  <dt>+=</dt>
+  <dd>足し算をして代入</dd>
+  <dt>-=</dt>
+  <dd>引き算をして代入</dd>
+  <dt>*=</dt>
+  <dd>掛け算をして代入</dd>
+  <dt>/=</dt>
+  <dd>割り算をして代入</dd>
+  <dt>%=</dt>
+  <dd>余りを計算して代入</dd>
+  <dt>++</dt>
+  <dd>１を加えて代入</dd>
+  <dt>--</dt>
+  <dd>１を引いて代入</dd>
 </dl>
 
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch11/sketch11.pde' target='_blank'>Chapter4/sketch11.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch11/sketch11.pde' target='_blank'>Chapter4/sketch11.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x = <span class="hljs-number">10</span>;
 x += <span class="hljs-number">10</span>;    <span class="hljs-comment">// x = x + 10と同じ</span>
 <span class="hljs-built_in">println</span>(x); <span class="hljs-comment">// 20と出力</span>
@@ -421,17 +234,17 @@ x--;        <span class="hljs-comment">// x = x - 1 と同じ</span>
 <span class="hljs-built_in">println</span>(x); <span class="hljs-comment">// 1と出力</span>
 </code></pre>
 <h2>データ型の区別</h2><p>計算をするときはその計算結果がどんなデータ型になるか、また計算結果をどんなデータ型の変数に代入するか注意が必要です。次のような代入を行うと「float型からint型に変換できません」という意味のエラーが出ます。</p>
-<p><code class='code-fragment'>int a = 1.0/2.0;</code></p>
-<p>float型の計算結果をint型の変数に代入しようとしているからです。このように、データ型は厳密に区別されなければいけません。どのような計算がどんなデータ型になるのか詳しく見ていきます。</p>
-<p>int型どうしの計算結果はint型になり、float型が１つでも混ざると計算結果はfloat型になります。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch12/sketch12.pde' target='_blank'>Chapter4/sketch12.pde</a></p>
+<p><code class='codeFragment'>int a = 1.0/2.0;</code></p>
+<p><em>float</em>型の計算結果を<em>int</em>型の変数に代入しようとしているからです。このように、データ型は厳密に区別しなければいけません。どのような計算がどんなデータ型になるのか詳しく見ていきます。</p>
+<p><em>int</em>型どうしの計算結果は<em>int</em>型になり、<em>float</em>型が１つでも混ざると計算結果は<em>float</em>型になります。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch12/sketch12.pde' target='_blank'>Chapter4/sketch12.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">println</span>(<span class="hljs-number">3</span>/<span class="hljs-number">2</span>);     <span class="hljs-comment">// 1と出力</span>
 <span class="hljs-built_in">println</span>(<span class="hljs-number">3.0</span>/<span class="hljs-number">2</span>);   <span class="hljs-comment">// 1.5と出力</span>
 <span class="hljs-built_in">println</span>(<span class="hljs-number">3</span>/<span class="hljs-number">2.0</span>);   <span class="hljs-comment">// 1.5と出力</span>
 <span class="hljs-built_in">println</span>(<span class="hljs-number">3.0</span>/<span class="hljs-number">2.0</span>); <span class="hljs-comment">// 1.5と出力</span>
 </code></pre>
-<p>float型変数にint型の値を代入することはできますが、int型変数にfloat型の値を代入することはできません。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch13/sketch13.pde' target='_blank'>Chapter4/sketch13.pde</a></p>
+<p><em>float</em>型変数に<em>int</em>型の値を代入することはできますが、<em>int</em>型変数に<em>float</em>型の値を代入することはできません。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch13/sketch13.pde' target='_blank'>Chapter4/sketch13.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> a = <span class="hljs-number">3</span>/<span class="hljs-number">2</span>;
 <span class="hljs-built_in">println</span>(a);        <span class="hljs-comment">// １と出力</span>
 <span class="hljs-built_in">float</span> b = <span class="hljs-number">3</span>/<span class="hljs-number">2</span>;
@@ -440,9 +253,12 @@ x--;        <span class="hljs-comment">// x = x - 1 と同じ</span>
 <span class="hljs-built_in">println</span>(c);        <span class="hljs-comment">// 1.5と出力</span>
 <span class="hljs-built_in">int</span> d = <span class="hljs-number">3.0</span>/<span class="hljs-number">2.0</span>;   <span class="hljs-comment">// エラー</span>
 </code></pre>
-<p>3/2はint型どうしの計算なので結果は1になります。それをint型変数aに代入するのでaは1を表します。これをfloat型変数bに代入したときbは1.0を表します。float型変数にはint型の数値を代入することができますが、代入するときにfloat型に合わせて.0が付け加えられるからです。bが1.5にならないのは、3/2を計算するときにfloat型に合わせられるのではなくて、3/2の計算結果である1が代入時にfloat型に合わせられるからです。3.0/2.0はfloat型の混じった計算なので結果は1.5になります。それをfloat型変数のcに代入するので当然cは1.5を表します。int型の変数にはfloat型の数値は代入できないので最後の行はエラーになります。</p>
-<h2>データの変換</h2><p>int型変数にfloat型の数値は代入できません。でも、float型の数値が混じった計算の結果をint型の変数に代入したいということはよくあることです。例えば税抜き価格から税込み価格を計算するときなどがそういう場合です。そういうときはデータを変換する必要があります。データはキャストという機能を使って以下のように変換することができます。(変換する型)値 (変換する型)変数 次のサンプルはキャストを用いて消費税を計算するプログラムです。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch14/sketch14.pde' target='_blank'>Chapter4/sketch14.pde</a></p>
+<p>3/2は<em>int</em>型どうしの計算なので結果は1になります。それを<em>int</em>型変数<em>a</em>に代入するので<em>a</em>は1を表します。これを<em>float</em>型変数<em>b</em>に代入したとき<em>b</em>は1.0を表します。<em>float</em>型変数には<em>int</em>型の数値を代入することができますが、代入するときに<em>float</em>型に合わせて.0が付け加えられるからです。<em>b</em>が1.5にならないのは、3/2を計算するときにfloat型に合わせられるのではなくて、3/2の計算結果である1が代入時に<em>float</em>型に合わせられるからです。3.0/2.0は<em>float</em>型の混じった計算なので結果は1.5になります。それを<em>float</em>型変数の<em>c</em>に代入するので当然<em>c</em>は1.5を表します。<em>int</em>型の変数には<em>float</em>型の数値は代入できないので最後の行はエラーになります。</p>
+<h2>データの変換</h2><p><em>int</em>型変数に<em>float</em>型の数値は代入できません。でも、<em>float</em>型の数値が混じった計算の結果を<em>int</em>型の変数に代入したいということはよくあることです。例えば税抜き価格から税込み価格を計算するときなどがそういう場合です。そういうときはデータを変換する必要があります。データはキャストという機能を使って以下のように変換することができます。</p>
+<p><code class='codeFragment'>(変換する型)値
+(変換する型)変数</code></p>
+<p>次のサンプルはキャストを用いて消費税を計算するプログラムです。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch14/sketch14.pde' target='_blank'>Chapter4/sketch14.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">float</span> rate = <span class="hljs-number">0.08</span>; <span class="hljs-comment">// 消費税</span>
 <span class="hljs-built_in">int</span> price1 = <span class="hljs-number">1000</span>; <span class="hljs-comment">// 税抜き価格</span>
 <span class="hljs-built_in">int</span> price2;        <span class="hljs-comment">// 税込み価格</span>
@@ -457,9 +273,9 @@ price2 = price1 + (<span class="hljs-built_in">int</span>)(price1 * rate);
 </code></pre>
 <p>価格に小数点は付かないので価格を表す変数はint型にしています。<br>
 税込み価格 = 税抜き価格 + 税抜き価格 × 消費税<br>
-となりますが、int型変数の税込み価格にfloat型の計算結果は普通では代入できません。上のプログラムではprice1 * rateの計算結果をint型に変換することで代入が正しく行われます。キャストを用いてデータを変換する場所に注意が必要です。ダメな例の１つ目は元々int型のprice1をint型に変換しているだけなので意味がないです。ダメな例の２つ目は0.08をint型に変換しているのでprice1 * 0を計算することになります。</p>
-<p>与えられた数値をint型に変換するint()関数や、与えられた数値をfloat型に変換するfloat()関数を使ってもキャストと同じことができます。次のプログラムは上のプログラムをint()関数を使って書き換えたものです。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch15/sketch15.pde' target='_blank'>Chapter4/sketch15.pde</a></p>
+となりますが、<em>int</em>型変数の税込み価格に<em>float</em>型の計算結果は普通では代入できません。上のプログラムではprice1 * rateの計算結果を<em>int</em>型に変換することで代入が正しく行われます。キャストを用いてデータを変換する場所に注意が必要です。ダメな例の1つ目は元々<em>int</em>型の<em>price1</em>を<em>int</em>型に変換しているだけなので意味がないです。ダメな例の2つ目は0.08を<em>int</em>型に変換しているのでprice1 * 0を計算することになります。</p>
+<p>与えられた数値を<em>int</em>型に変換する<em>int()</em>や<em>float</em>型に変換する<em>float()</em>を使ってもキャストと同じことができます。次のプログラムは上のプログラムを<em>int()</em>を使って書き換えたものです。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch15/sketch15.pde' target='_blank'>Chapter4/sketch15.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">float</span> rate = <span class="hljs-number">0.08</span>;
 <span class="hljs-built_in">int</span> price1 = <span class="hljs-number">1000</span>;
 <span class="hljs-built_in">int</span> price2;
@@ -473,17 +289,17 @@ price2 = price1 + <span class="hljs-built_in">int</span>(price1 * rate);
 <span class="hljs-comment">// price2 = price1 + price1 * int(rate);</span>
 </code></pre>
 <h2>定数</h2><p>定数と呼ばれるものについて解説します。今すぐに必要となる知識ではありませんが、知ってるに越したことはないので一応目を通しておいてください。</p>
-<p>ラジアンを文字であらわすPI、HALF_PI、ellipseMode()のパラメータのRADIUS、strokeCap()のパラメータのSQUAREなど、今まで大文字で書いてProcessingエディターで薄い緑色になる単語は全て定数と呼ばれます。定数は、値の変更をできなくして読み出し専用にした変数です。定数の初期化は</p>
-<p><code class='code-fragment'>final データ型 変数名(大文字) = 値;
+<p>ラジアンを文字であらわす<em>PI</em>、<em>HALF_PI</em>、<em>ellipseMode()</em>のパラメータの<em>RADIUS</em>、<em>strokeCap()</em>のパラメータの<em>SQUARE</em>など、今まで大文字で書いてProcessingエディターで薄い緑色になる単語は全て定数と呼ばれます。定数は、値の変更をできなくして読み出し専用にした変数です。定数の初期化は</p>
+<p><code class='codeFragment'>final データ型 変数名(大文字) = 値;
 (例) final int SIZE = 80;</code></p>
-<p>とします。変数の前には修飾子と呼ばれるものを書くことができて、その変数の性質を変えることができます。finalも修飾子の一つで、finalの付いた変数は値を変更することができなくなります。次のプログラムを実行すると「final変数のSIZEは値を変更できません」という意味のエラーが出ます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch16/sketch16.pde' target='_blank'>Chapter4/sketch16.pde</a></p>
+<p>とします。変数の前には修飾子と呼ばれるものを書くことができて、その変数の性質を変えることができます。<em>final</em>も修飾子の一つで、<em>final</em>の付いた変数は値を変更することができなくなります。次のプログラムを実行すると「final変数のSIZEは値を変更できません」という意味のエラーが出ます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch16/sketch16.pde' target='_blank'>Chapter4/sketch16.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">final</span> <span class="hljs-built_in">int</span> SIZE = <span class="hljs-number">80</span>;
 SIZE = <span class="hljs-number">150</span>; <span class="hljs-comment">// エラー</span>
 </code></pre>
-<p>守ることが推奨されている命名規則の１つとして、final修飾子を付けた変数の変数名は全て大文字にするというものがあります。普通の変数と区別するためです。</p>
-<p>実は、私たちが作るProcessingプログラムには土台となるプログラムがあります。その土台のプログラムのおかげでline()と書くだけで線を描けたり、色々面倒な処理をこちら側で書かなくて済んだりするわけです。PIやRADIUSなどの定数はその土台のプログラムの中で初期化されています。試しにprintln()で定数の中身を確認すると次のようになっています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch17/sketch17.pde' target='_blank'>Chapter4/sketch17.pde</a></p>
+<p>守ることが推奨されている命名規則の１つとして、<em>final</em>修飾子を付けた変数の変数名は全て大文字にするというものがあります。普通の変数と区別するためです。</p>
+<p>実は、私たちが作るProcessingプログラムには土台となるプログラムがあります。その土台のプログラムのおかげで<em>line()</em>と書くだけで線を描けたり、色々面倒な処理をこちら側で書かなくて済んだりするわけです。<em>PI</em>や<em>RADIUS</em>などの定数はその土台のプログラムの中で初期化されています。試しに<em>println()</em>で定数の中身を確認すると次のようになっています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch17/sketch17.pde' target='_blank'>Chapter4/sketch17.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">println</span>(<span class="hljs-literal">PI</span>);      <span class="hljs-comment">// 3.1415927</span>
 <span class="hljs-built_in">println</span>(SQUARE);  <span class="hljs-comment">// 1</span>
 <span class="hljs-built_in">println</span>(PROJECT); <span class="hljs-comment">// 4</span>
@@ -491,26 +307,28 @@ SIZE = <span class="hljs-number">150</span>; <span class="hljs-comment">// エ�
 <span class="hljs-built_in">println</span>(RGB);     <span class="hljs-comment">// 1</span>
 <span class="hljs-built_in">println</span>(HSB);     <span class="hljs-comment">// 3</span>
 </code></pre>
-<p>このことからHSBなどの定数は</p>
-<p><code class='code-fragment'>final int HSB = 3;</code></p>
-<p>などのように初期化されていることが想像できますし、実際そうなってます。次の例ではcolorMode()の１つ目のパラメータをHSBとせずに３としていますが、ちゃんと実行されます。</p>
-<p><img src="/images/Chapter4/sketch18.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter4/sketch18/sketch18.pde' target='_blank'>Chapter4/sketch18.pde</a></p>
+<p>このことから<em>HSB</em>などの定数は</p>
+<p><code class='codeFragment'>final int HSB = 3;</code></p>
+<p>などのように初期化されていることが想像できますし、実際そうなってます。次の例では<em>colorMode()</em>の１つ目のパラメータを<em>HSB</em>とせずに３としていますが、ちゃんと実行されます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter4/sketch18/sketch18.pde' target='_blank'>Chapter4/sketch18.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>);
 <span class="hljs-built_in">colorMode</span>(<span class="hljs-number">3</span>, <span class="hljs-number">360</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
 <span class="hljs-built_in">background</span>(<span class="hljs-number">180</span>, <span class="hljs-number">80</span>, <span class="hljs-number">60</span>);
 </code></pre>
-<p>定数が無くても数値をそのままパラメータにすればいいのですが、いちいち私たちユーザー側がモードに対応する数値を覚えることになり厄介です。そのためにProcessingの開発者側が土台のプログラムに定数を用意してくれていて、ユーザーは数値を覚えなくても、HSBカラーモードにしたければcolorMode(HSB)と書けばいいようになっています。Processing開発者側が定数にfinal修飾子を付けて値の変更をできなくするのは、私たちユーザー側が勝手に定数の中身を書き換えてしまわないためです。</p>
+<p>定数が無くても数値をそのままパラメータにすればいいのですが、いちいち私たちユーザー側がモードに対応する数値を覚えることになり厄介です。そのためProcessingの開発者側が土台のプログラムに定数を用意してくれていて、ユーザーは数値を覚えなくても、HSBカラーモードにしたければ<em>colorMode(HSB)</em>と書けばいいようになっています。Processing開発者側が定数に<em>final</em>修飾子を付けて値の変更をできなくするのは、私たちユーザー側が勝手に定数の中身を書き換えてしまわないためです。</p>
 <p>お疲れさまでした。退屈な内容ではありましたがこの先避けて通れない内容なのでしっかり習得しておいてください。</p>
 
 </main>
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

@@ -4,748 +4,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>P5 Code School Chapter13「3D図形とカメラとライト」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
+  
+  <title>P5 Code School Chapter13「クラス基礎 Part1」</title>
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
-  <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
-  <h1>3D図形とカメラとライト</h1><p>3D空間に描くことができる図形と、カメラとライトの扱い方を解説します。今まではProcessingプログラムの動作をWeb上でも確認できるようにしていましたが、使っているp5.jsの3D対応が完全ではないのでこのChapterでは代わりに画像を使うことにします。</p>
-<h2>3D図形</h2><p>3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第３パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは４種類あるのですが、3D空間を扱うにはP3Dを指定します。</p>
-<p><code class='code-fragment'>size(750, 350, P3D);</code></p>
-<p>これで3D図形が描画できるようになりました。3D空間の座標について確認しておきます。3D空間の座標は(x, y, z)という形で表現します。原点(0, 0, 0)は2Dの場合と変わらずウィンドウの左上の角になります。z軸のプラス方向は、私たちがPC画面の真正面に座っているとして、画面から私たちの方向に向いています。逆にマイナス方向はPC画面の奥に向かっています。x軸方向の描画範囲は0～width、y軸方向の描画範囲は0~heightと決まっていますが、z軸方向の描画範囲は決まっていません。PC画面の手前と奥に無限に広がっていると考えます。</p>
-<p>Processingで扱える3D図形は次の2つです。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/box_.html' target='_blank'>box(size) || box(w, h, d)</a></dt>
-    <dd>・１辺がsizeの箱を描画する<br>・幅w、高さh、奥行きdの箱を描画する</dd>
-    <dt><a href='https://www.processing.org/reference/sphere_.html' target='_blank'>sphere(r)</a></dt>
-    <dd>半径rの球体を描画する</dd>
-</dl>
-
-<p>3D図形として用意されているのは箱と球体だけなんです。自由な形の3D図形を自作できる方法があるのですが、それはまた別のChapterで解説します。</p>
-<p>ところで、box()とsphere()には座標が指定できません。「は？」ってなると思いますが、まぁそうなんです。box()とsphere()は原点にしか描画できないんです。なので、ウィンドウ内の任意の場所にbox()とsphere()を描画したい場合はtranslate()でその場所まで原点を移す必要があります。面倒臭いですが仕方ありません。次のプログラムでは２つの箱を描画しています。</p>
-<p><img src="/images/Chapter13/sketch01.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch01/sketch01.pde' target='_blank'>Chapter13/sketch01.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-comment">// レンダラをP3Dに</span>
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noLoop</span>();
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">220</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-comment">// 座標(width/2-100, height/2, 100)にboxを描く</span>
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-100</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">128</span>);
-  <span class="hljs-comment">// 幅、高さ、奥行きが100pxの箱</span>
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-comment">// 座標(width/2+100, height/2, -100)にboxを描く</span>
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">100</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">-100</span>);
-  <span class="hljs-built_in">noFill</span>();
-  <span class="hljs-comment">// 幅100px、高さ50px、奥行き200pxの箱</span>
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">100</span>, <span class="hljs-number">50</span>, <span class="hljs-number">200</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<p>sphere()も描画してみましょう。</p>
-<p><img src="/images/Chapter13/sketch02.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch02/sketch02.pde' target='_blank'>Chapter13/sketch02.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noLoop</span>();
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-100</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">noStroke</span>();
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">128</span>);
-  <span class="hljs-comment">// 半径100の球体</span>
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">100</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">128</span>);
-  <span class="hljs-built_in">noFill</span>();
-  <span class="hljs-comment">// 半径100の球体</span>
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<p>左の球体に立体感が無いのがわかるかと思います。立体感が無いのはライトの設定をしていないからです。ライトの設定は後で詳しく解説します。</p>
-<p>球体は小さな面の集まりでできています。sphereDetail()を使うと、球体をいくつの面で分割するかを変えることができます。sphereDetail(30)とした場合、球体の水平方向と垂直方向に面が30個できます。水平方向は１周360度なので12(360÷30)度間隔で面が作られ、垂直方向は上から下まで180度なので6(180÷30)度間隔で面が作られます。sphereDetail()を指定しなかった場合のデフォルト値は30です。パラメータを２つ与えると水平方向と垂直方向の面の数を別々に指定できます。次のプログラムを実行してみてください。マウスが左端に近いほど水平方向の面の数が増え、下端に近いほど垂直方向の面の数が増えます。</p>
-<p><img src="/images/Chapter13/sketch03.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch03/sketch03.pde' target='_blank'>Chapter13/sketch03.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>);
-  <span class="hljs-built_in">noFill</span>();
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
-
-  <span class="hljs-comment">// 水平方向の解像度(resolution)</span>
-  <span class="hljs-built_in">int</span> uRes = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-number">3</span>, <span class="hljs-number">30</span>);
-  <span class="hljs-comment">// 垂直方向の解像度(resolution)</span>
-  <span class="hljs-built_in">int</span> vRes = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseY</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">height</span>, <span class="hljs-number">2</span>, <span class="hljs-number">30</span>);
-
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-comment">// 面の細かさを設定</span>
-  <span class="hljs-built_in">sphereDetail</span>(uRes, vRes);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">100</span>);
-}
-</code></pre>
-<p>マウスの座標をmap()で面の数に変換しています。水平方向は最低でも３面で分割しないと平面になってしまうので、hResの最小値は3にしています。</p>
-<h2>3D座標の回転</h2><p>今までの２Ｄ空間でのrotate()による回転はz軸中心の回転でした。３Ｄ空間ではx軸中心の回転とy軸中心の回転が使えるようになります。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/rotateX_.html' target='_blank'>rotateX(angle)</a></dt>
-    <dd>x軸を中心にして回転する</dd>
-    <dt><a href='https://www.processing.org/reference/rotateY_.html' target='_blank'>rotateY(angle)</a></dt>
-    <dd>y軸を中心にして回転する</dd>
-    <dt><a href='https://www.processing.org/reference/rotateZ_.html' target='_blank'>rotateZ(angle)</a></dt>
-    <dd>z軸を中心にして回転する</dd>
-    <dt><a href='https://www.processing.org/reference/rotate_.html' target='_blank'>rotate(angle)</a></dt>
-    <dd>z軸を中心にして回転する</dd>
-</dl>
-
-<p>rotate()とrotateZ()の違いは名前だけです。</p>
-<p>次のプログラムでは赤緑青の箱をrotateX()、rotateY()、rotateZ()で回しています。</p>
-<p><img src="/images/Chapter13/sketch04.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch04/sketch04.pde' target='_blank'>Chapter13/sketch04.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">2</span>);
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-
-  <span class="hljs-comment">// x軸中心に回転する赤色の箱</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span><span class="hljs-number">-100</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateX</span>(<span class="hljs-built_in">frameCount</span>*<span class="hljs-number">0.03</span>);
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">50</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-comment">// y軸中心に回転する緑色の箱</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateY</span>(<span class="hljs-built_in">frameCount</span>*<span class="hljs-number">0.03</span>);
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">50</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-comment">// z軸中心に回転する青色の箱</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>+<span class="hljs-number">100</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateZ</span>(<span class="hljs-built_in">frameCount</span>*<span class="hljs-number">0.03</span>); <span class="hljs-comment">// rotate()でも可</span>
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">50</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<p>次のプログラムのほうが軸で回転しているのがわかりやすいです。実行してマウスを動かしてみてください。マウスの上下の動きがx軸中心の回転角度、左右の動きがy軸中心の回転角度になっています。このプログラムで６つのパラメータを持つline()を使っています。解説は後ほど。</p>
-<p><img src="/images/Chapter13/sketch05.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch05/sketch05.pde' target='_blank'>Chapter13/sketch05.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-  <span class="hljs-comment">// 原点を画面中心に移動</span>
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-
-  <span class="hljs-comment">// マウスの座標を回転角度に変換</span>
-  <span class="hljs-built_in">float</span> rotationX = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseY</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">height</span>, -<span class="hljs-literal">PI</span>, <span class="hljs-literal">PI</span>);
-  <span class="hljs-built_in">float</span> rotationY = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, -<span class="hljs-literal">PI</span>, <span class="hljs-literal">PI</span>);
-  <span class="hljs-comment">// x軸中心の回転</span>
-  <span class="hljs-built_in">rotateX</span>(rotationX);
-  <span class="hljs-comment">// y軸中心の回転</span>
-  <span class="hljs-built_in">rotateY</span>(rotationY);
-
-  <span class="hljs-comment">// 画面中心の箱</span>
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">220</span>);
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">50</span>);
-
-  <span class="hljs-comment">// x軸を示す赤色の線</span>
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-comment">// y軸を示す緑色の線</span>
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-comment">// x軸を示す青色の線</span>
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>);
-}
-</code></pre>
-<h2>3D空間内の2D図形</h2><p>point()とline()は3D空間内で使うこともできます。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/point_.html' target='_blank'>point(x, y, z)</a></dt>
-    <dd>座標(x, y, z)に点を描画</dd>
-    <dt><a href='https://www.processing.org/reference/line_.html' target='_blank'>line(x1, y1, z1, x2, y2, z2)</a></dt>
-    <dd>座標(x1, y1, z1)と座標(x2, y2, z2)をつなぐ線を描画</dd>
-</dl>
-
-<p><img src="/images/Chapter13/sketch06.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch06/sketch06.pde' target='_blank'>Chapter13/sketch06.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noLoop</span>();
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">15</span>);
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-
-  <span class="hljs-comment">// 縦横に５つの点を表示</span>
-  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> x = <span class="hljs-number">-2</span>; x &lt;= <span class="hljs-number">2</span>; x++) {
-    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> y = <span class="hljs-number">-2</span>; y &lt;= <span class="hljs-number">2</span>; y++) {
-      <span class="hljs-built_in">float</span> pointX = x * <span class="hljs-number">50</span>;
-      <span class="hljs-built_in">float</span> pointY = y * <span class="hljs-number">50</span>;
-      <span class="hljs-built_in">float</span> pointZ = -x * <span class="hljs-number">50</span>;
-      <span class="hljs-built_in">point</span>(pointX, pointY, pointZ);
-    }
-  }
-}
-</code></pre>
-<p>z座標用のパラメータが用意されている２Ｄ図形はpoint()とline()だけですが、translate()を使えば他の２Ｄ図形も３Ｄ空間内に描画できます。次のプログラムでは３Ｄ空間にellipse()を使って円を描画しています。</p>
-<p><img src="/images/Chapter13/sketch07.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch07/sketch07.pde' target='_blank'>Chapter13/sketch07.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">3</span>);
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">128</span>);
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-
-  <span class="hljs-built_in">float</span> rotationX = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseY</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">height</span>, -<span class="hljs-literal">PI</span>, <span class="hljs-literal">PI</span>);
-  <span class="hljs-built_in">float</span> rotationY = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, -<span class="hljs-literal">PI</span>, <span class="hljs-literal">PI</span>);
-  <span class="hljs-built_in">rotateX</span>(rotationX);
-  <span class="hljs-built_in">rotateY</span>(rotationY);
-
-  <span class="hljs-comment">/* 画面中心に原点を移動してから
-   さらにx、y、z軸方向に100、-100移動したところに円を描画する */</span>
-
-  <span class="hljs-comment">/* 元々の原点(左上角)から見て
-   (width/2+100, height/2, 0)にある円 */</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-comment">// 画面中心に円が向くように90度回転させる</span>
-  <span class="hljs-built_in">rotateY</span>(<span class="hljs-literal">HALF_PI</span>);
-  <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-comment">/* 元々の原点(左上角)から見て
-   (width/2-100, height/2, 0)にある円 */</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-number">-100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateY</span>(<span class="hljs-literal">HALF_PI</span>);
-  <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateX</span>(<span class="hljs-literal">HALF_PI</span>);
-  <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-number">0</span>, <span class="hljs-number">-100</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateX</span>(<span class="hljs-literal">HALF_PI</span>);
-  <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-100</span>);
-  <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<h2>カメラ</h2><p>２Ｄ空間の場合はカメラという存在は必要ありません。ピクセルで指定した位置や大きさがそのままディスプレイに映るだけだからです。ですが３Ｄ空間では、最終的にディスプレイに描かれるものはカメラによって切り取られたものです。なので、カメラによってどの位置からどこを見ているのかということを設定しないといけません。カメラの設定をしなかった場合勝手にいい感じに設定してくれますが、camera()を使って自分で設定できます。camera()は９つのパラメータを持ちます。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/camera_.html' target='_blank'>camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)</a></dt>
-    <dd>カメラの座標、カメラが注視する座標、カメラの上方向を設定</dd>
-</dl>
-
-<p>最初の３つのパラメータ(eyeX, eyeY, eyeZ)はカメラの位置、次の３つのパラメータ(centerX, centerY, centerZ)はカメラが注視する座標、最後の３つのパラメータ(upX, upY, upZ)はカメラの上方向の向きを表します。最後の３つのパラメータについて補足します。３Ｄの場合、ディスプレイに描画されるのはカメラによって切り取られた空間です。このカメラは次の画像のようになっています(画像はProcessingとは違う座標系で表現されています)。</p>
-<p><img src="/images/Chapter13/camera1.jpg" alt=""></p>
-<p><img src="/images/Chapter13/camera2.jpg" alt=""></p>
-<p><a href='http://www.glprogramming.com/red/chapter03.html' target='_blank'>OpenGL Programming Guide</a>より引用</p>
-<p>カメラによって切り取られた空間がディスプレイに描画されるので、カメラが傾いているとディスプレイに描画される画像も傾きます。なので、camera()の最後の３つのパラメータにはカメラの上方向の向きを指定します。カメラが傾いていない状態は(0, 1, 0)になるので、特に変わったことをしない場合は最後の３つのパラメータは(0, 1, 0)にします。</p>
-<p>次のプログラムではカメラの座標を(camX, camY, 200)、カメラの注視点を原点(0, 0, 0)にしています。camXとcamYはキーボードの矢印キーで操作できるようにしています。</p>
-<p><img src="/images/Chapter13/sketch08.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch08/sketch08.pde' target='_blank'>Chapter13/sketch08.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-comment">// カメラのx座標とy座標</span>
-<span class="hljs-built_in">float</span> camX = <span class="hljs-number">0</span>, camY = <span class="hljs-number">0</span>;
-<span class="hljs-comment">// カメラが動くスピード</span>
-<span class="hljs-built_in">float</span> speed = <span class="hljs-number">12</span>;
+<main class="mainContents">
+  <h1>クラス基礎 Part1</h1><p>クラスはプログラムを作りやすくする便利な機能なのですが、このChapterではクラスというものを作る理由を説明します。今はピンとこないかもしれませんが、そういうものなのかなーくらいに思っていてください。</p>
+<h2>クラスを作る理由</h2><p>プログラムを作っていると、あるものについての情報をまとめて扱いたいといった状況に頻繁に出くわします。例えばブロック崩しゲームの場合、ゲーム内には最低でもブロック、ボール、ラケット(ボールを跳ね返す板)があります。それぞれが持つであろう情報は例えば以下のようなものです。<br>
+ブロック<br>
+・位置、大きさ、色、ボールによって潰されたかどうか<br>
+ボール<br>
+・位置、速度、大きさ、色<br>
+ラケット<br>
+・位置、速度、大きさ、色<br>
+ここで前回のChapterで作った画面内をボールが飛び回るプログラムを思い出してみると、ボールが持つ情報を表すだけでも６つの変数(x, y, vx, vy, radius, c)が必要だったことがわかります。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter12/sketch07/sketch07.pde' target='_blank'>Chapter12/sketch07.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">100</span>; <span class="hljs-comment">// ボールの数</span>
+<span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
+<span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
+<span class="hljs-built_in">float</span>[] vx = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// x軸方向の速度の配列</span>
+<span class="hljs-built_in">float</span>[] vy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// y軸方向の速度の配列</span>
+<span class="hljs-built_in">int</span>[] radius = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numBalls]; <span class="hljs-comment">// 半径の配列</span>
+<span class="hljs-built_in">color</span>[] c = <span class="hljs-keyword">new</span> <span class="hljs-built_in">color</span>[numBalls];  <span class="hljs-comment">// 色の配列</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 初期値を設定</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    radius[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">width</span>-radius[i]);
+    y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
+    vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
 
-  <span class="hljs-comment">// カメラを動かす</span>
-  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyPressed</span>) {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == LEFT) camX -= speed;
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == RIGHT) camX += speed;
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == UP) camY -= speed;
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == DOWN) camY += speed;
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    <span class="hljs-comment">// ボールの位置を更新</span>
+    x[i] += vx[i];
+    y[i] += vy[i];
+    <span class="hljs-comment">// 左右の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (x[i]-radius[i] &lt;= <span class="hljs-number">0</span> || x[i]+radius[i] &gt;= <span class="hljs-built_in">width</span>) {
+      vx[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// 上下の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (y[i]-radius[i] &lt;= <span class="hljs-number">0</span> || y[i]+radius[i] &gt;= <span class="hljs-built_in">height</span>) {
+      vy[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// ボールを描画</span>
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c[i]);
+    <span class="hljs-built_in">ellipse</span>(x[i], y[i], <span class="hljs-number">2</span>*radius[i], <span class="hljs-number">2</span>*radius[i]);
   }
-  <span class="hljs-comment">// カメラの設定</span>
-  <span class="hljs-built_in">camera</span>(camX, camY, <span class="hljs-number">200</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
-
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
-  <span class="hljs-built_in">fill</span>(<span class="hljs-number">220</span>);
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">50</span>);
-
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>);
-  <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">500</span>);
 }
 </code></pre>
-<h2>ライト</h2><p>3D空間でのライトの扱いを解説します。Processingで扱えるライトは以下の４種類です。</p>
-<dl class="func-list">
-    <dt><a href='https://www.processing.org/reference/ambientLight_.html' target='_blank'>ambientLight(r, g, b)</a></dt>
-    <dd>環境光を3D空間に追加する</dd>
-    <dt><a href='https://www.processing.org/reference/directionalLight_.html' target='_blank'>directionalLight(r, g, b, nx, ny, nz)</a></dt>
-    <dd>平行光源を3D空間に追加する</dd>
-    <dt><a href='https://www.processing.org/reference/pointLight_.html' target='_blank'>pointLight(r, g, b, x, y, z)</a></dt>
-    <dd>点光源を3D空間に追加する</dd>
-    <dt><a href='https://www.processing.org/reference/spotLight_.html' target='_blank'>spotLight(r, g, b, x, y, z, nx, ny, nz, angle, concentration)</a></dt>
-    <dd>スポットライトを3D空間に追加する</dd>
-</dl>
+<p>このプログラムにラケットを加えてみました。ラケットを描画するための変数を用意しているだけなので、ラケットに当たってもボールは跳ね返りません。</p>
+<p><img src="/images/Chapter13/sketch01.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter13/sketch01/sketch01.pde' target='_blank'>Chapter13/sketch01.pde</a></p>
+<pre><code class="lang-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">5</span>; <span class="hljs-comment">// ボールの数</span>
+<span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
+<span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
+<span class="hljs-built_in">float</span>[] vx = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// x軸方向の速度の配列</span>
+<span class="hljs-built_in">float</span>[] vy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// y軸方向の速度の配列</span>
+<span class="hljs-built_in">int</span>[] radius = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numBalls]; <span class="hljs-comment">// 半径の配列</span>
+<span class="hljs-built_in">color</span>[] c = <span class="hljs-keyword">new</span> <span class="hljs-built_in">color</span>[numBalls];  <span class="hljs-comment">// 色の配列</span>
 
-<p>まずは、平行光源と呼ばれる光を3D空間に追加してみます。平行光源は太陽光をシミュレーションするのに最適で、directionalLight()によって作ることができます。directionalLight()には光の色と光の射す方向を表す長さ１のベクトルを指定します。光が右から左に射す場合は４、５、６つ目のパラメータを(-1, 0, 0)とし、上から下に射す場合は(0, 1, 0)とします。次のプログラムでは、キーボードの矢印キーを押している間その矢印の方向に平行光源を置くことができます。</p>
-<p><img src="/images/Chapter13/sketch09.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch09/sketch09.pde' target='_blank'>Chapter13/sketch09.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noStroke</span>();
+<span class="hljs-comment">// ラケットの情報</span>
+<span class="hljs-built_in">int</span> racketX, racketY; <span class="hljs-comment">// 位置</span>
+<span class="hljs-built_in">int</span> racketVx;         <span class="hljs-comment">// 速度</span>
+<span class="hljs-built_in">int</span> racketW, racketH; <span class="hljs-comment">// 横幅と高さ</span>
+<span class="hljs-built_in">color</span> racketC;        <span class="hljs-comment">// 色</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// ボール初期値を設定</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    radius[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">width</span>-radius[i]);
+    y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
+    vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+  <span class="hljs-comment">// ラケットの初期値を設定</span>
+  racketX = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
+  racketY = <span class="hljs-built_in">height</span><span class="hljs-number">-50</span>;
+  racketVx = <span class="hljs-number">5</span>;
+  racketW = <span class="hljs-number">120</span>;
+  racketH = <span class="hljs-number">25</span>;
+  racketC = <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 
-  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyPressed</span>) {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == RIGHT) {
-      <span class="hljs-comment">// 白色の平行光源を右に置く(光は右から左に射す)</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    <span class="hljs-comment">// ボールの位置を更新</span>
+    x[i] += vx[i];
+    y[i] += vy[i];
+    <span class="hljs-comment">// 左右の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (x[i]-radius[i] &lt;= <span class="hljs-number">0</span> || x[i]+radius[i] &gt;= <span class="hljs-built_in">width</span>) {
+      vx[i] *= <span class="hljs-number">-1</span>;
     }
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == LEFT) {
-      <span class="hljs-comment">// 白色の平行光源を左に置く(光は左から右に射す)</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// 上下の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (y[i]-radius[i] &lt;= <span class="hljs-number">0</span> || y[i]+radius[i] &gt;= <span class="hljs-built_in">height</span>) {
+      vy[i] *= <span class="hljs-number">-1</span>;
     }
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == UP) {
-      <span class="hljs-comment">// 白色の平行光源を上に置く(光は上から下に射す)</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
-    }
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == DOWN) {
-      <span class="hljs-comment">// 白色の平行光源を下に置く(光は下から上に射す)</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
-    }
-  }
-
-  <span class="hljs-comment">// 左の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 真ん中の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 右の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<p>矢印キーを何も押していないと白色の平面のような球体しか描画されません。これは、ライトが有効になっていなくてsphere()がデフォルトの白色で塗られているからです。directionalLight()や、これから解説する他のライトも、ライトを有効にするにはdraw()の中でずっと実行されなければいけません。</p>
-<p>次は環境光を3D空間に追加してみます。環境光は3D空間のベースとなる光で、光の向きや光源の位置というものはありません。上のdirectinalLight()を使ったプログラムでは、球体の光が当たった部分のみ色がついて光の当たらない部分は完全に見えなくなっていました。次のプログラムでは色が(30, 30, 30)の環境光を置くことで、球体の光の当たらない部分が(30, 30, 30)で塗られています。</p>
-<p><img src="/images/Chapter13/sketch10.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch10/sketch10.pde' target='_blank'>Chapter13/sketch10.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noStroke</span>();
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
-
-  <span class="hljs-comment">// 環境光を置く</span>
-  <span class="hljs-built_in">ambientLight</span>(<span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
-
-  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyPressed</span>) {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == LEFT) {
-      <span class="hljs-comment">// 白色の平行光源を右に置く</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-    }
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == RIGHT) {
-      <span class="hljs-comment">// 白色の平行光源を左に置く</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-    }
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == UP) {
-      <span class="hljs-comment">// 白色の平行光源を上に置く</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
-    }
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">keyCode</span> == DOWN) {
-      <span class="hljs-comment">// 白色の平行光源を下に置く</span>
-      <span class="hljs-built_in">directionalLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
-    }
+    <span class="hljs-comment">// ボールを描画</span>
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c[i]);
+    <span class="hljs-built_in">ellipse</span>(x[i], y[i], <span class="hljs-number">2</span>*radius[i], <span class="hljs-number">2</span>*radius[i]);
   }
 
-  <span class="hljs-comment">// 左の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 真ん中の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 右の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
+  <span class="hljs-comment">// ラケットを描画</span>
+  <span class="hljs-built_in">fill</span>(racketC);
+  <span class="hljs-built_in">rectMode</span>(CENTER);
+  <span class="hljs-built_in">rect</span>(racketX, racketY, racketW, racketH);
 }
 </code></pre>
-<p>点光源は豆電球のようなもので、全方向に光を放つライトです。点光源はpointLight()で作ることができ、パラメータには色と光源の座標を指定します。 次のプログラムではマウスの位置に点光源を置いています。</p>
-<p><img src="/images/Chapter13/sketch11.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch11/sketch11.pde' target='_blank'>Chapter13/sketch11.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noStroke</span>();
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
-
-  <span class="hljs-comment">// 座標(mouseX, mouseY, 100)に白色のライトを設置</span>
-  <span class="hljs-built_in">pointLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-number">100</span>);
-
-  <span class="hljs-comment">// 左の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 真ん中の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 右の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<p>スポットライトはspotLight()で作ることができ、１１個のパラメータを持ちます。最初の３つのパラメータが光の色、次の３つのパラメータが光源の座標、その次の３つのパラメータが光の射す方向(directionalLightの４，５，６つ目のパラメータと同じ)です。１０個目のパラメータはスポットライトの開き具合を角度(ラジアン)で指定します。スポットライトが大きく開いているほど照らされる範囲が広くなります。１１個目のパラメータには、スポットライトの周辺の光の強さがどれだけ減衰するかを指定します。0を指定すると、スポットライトから出た光は、どれだけ真中からそれていても減衰しません。0より大きい値を指定すると、スポットライトの真ん中から周辺に向かってそれるほど、指定した値に従って光の強さが減衰していきます。次のプログラムでは、白色のスポットライトを座標(width/2, 0, 0)に置いて下向きに光が射すようにしています。マウスが左端にあるほどスポットライトが開く角度が大きくなり、下端にあるほどスポットライトの真ん中から周辺にそれた光の強さが減衰します。</p>
-<p><img src="/images/Chapter13/sketch12.jpg" alt=""></p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter13/sketch12/sketch12.pde' target='_blank'>Chapter13/sketch12.pde</a></p>
-<pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>, <span class="hljs-literal">P3D</span>);
-  <span class="hljs-built_in">noStroke</span>();
-}
-
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
-  <span class="hljs-built_in">background</span>(<span class="hljs-number">0</span>);
-
-  <span class="hljs-comment">// マウスのx座標をスポットライトが開く角度に変換</span>
-  <span class="hljs-built_in">float</span> angle = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-literal">PI</span>/<span class="hljs-number">8</span>, <span class="hljs-literal">PI</span>/<span class="hljs-number">2</span>);
-  <span class="hljs-comment">// マウスのy座標を光の集まり度合いに変換</span>
-  <span class="hljs-built_in">float</span> concentration = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseY</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">height</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>);
-
-  <span class="hljs-comment">// 環境光を追加</span>
-  <span class="hljs-built_in">ambientLight</span>(<span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
-  <span class="hljs-comment">// スポットライトを追加</span>
-  <span class="hljs-built_in">spotLight</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>,         <span class="hljs-comment">// 色</span>
-            <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,         <span class="hljs-comment">// 光源の座標</span>
-            <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>,               <span class="hljs-comment">// 光が射す方向</span>
-            angle, concentration); <span class="hljs-comment">// 角度と集まり度合い</span>
-
-  <span class="hljs-comment">// 左の箱</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span><span class="hljs-number">-200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateZ</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">30</span>));
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">150</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 真ん中の球体</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">sphere</span>(<span class="hljs-number">60</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-  <span class="hljs-comment">// 右の箱</span>
-  <span class="hljs-built_in">pushMatrix</span>();
-  <span class="hljs-built_in">translate</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+<span class="hljs-number">200</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
-  <span class="hljs-built_in">rotateZ</span>(<span class="hljs-built_in">radians</span>(<span class="hljs-number">-30</span>));
-  <span class="hljs-built_in">box</span>(<span class="hljs-number">150</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
-  <span class="hljs-built_in">popMatrix</span>();
-}
-</code></pre>
-<p>お疲れさまでした。Chapter13はこれで終了です。</p>
+<p>ここからさらにブロックを足そうとすると、ブロックは複数あるものなので変数を配列で管理しなければいけません。プログラム中に配列が大量に記述されることになり非常にプログラムが見づらくなり、書くのも面倒になります。クラスには情報をまとめておく機能があるので、変数ごとに配列を作成する必要がなくなりプログラムの見通しがよくなります。クラスの機能やクラスを使う利点は他にも色々あります。では次のChapterでクラスの作り方を解説していきます。</p>
 
 </main>
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

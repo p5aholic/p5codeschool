@@ -1,0 +1,14 @@
+.footer {
+  background-color: $main-gray;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius: 40px 40px 0 0;
+  .inner {
+    max-width: $articleWidth;
+    margin: 0 auto;
+    padding: 15px $sidePadding;
+  }
+  .copyright {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+}

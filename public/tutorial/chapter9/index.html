@@ -4,233 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  
   <title>P5 Code School Chapter9「インタラクション」</title>
-
-  <meta name="keywords" content="Processing,クリエイティブコーディング">
   <meta name="description" content="ゼロから学べるProcessing入門サイト">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="/js/libs/p5.js"></script>
-  <script src="/js/libs/p5.dom.js"></script>
-  <script src="/js/main.js"></script>
 </head>
 
-
-<body class="top">
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
 
 <header class="header">
-  <h1 class="header--site-title">
-    <a href="/">p5 code school</a>
-  </h1>
-</header>
-
-<nav class="main-navigation">
   <div class="inner">
-    <a class="view-all" href="/tutorial/">View All</a>
-    <ul>
-      
-      
-      <li>
-        <a href="/tutorial/chapter0/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">0</span>
-        </a>
+    <h1 class="header__siteTitle">
+      <a href="/">p5 code school</a>
+    </h1>
+    
+    <ul class="mainNavigation">
+      <li class="mainNavigation__item">
+        <a href="/tutorial/">Tutorials</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter1/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">1</span>
-        </a>
+      <li class="mainNavigation__item">
+        <a href="/examples/">Examples</a>
       </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter2/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">2</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter3/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">3</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter4/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">4</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter5/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">5</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter6/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">6</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter7/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">7</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter8/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">8</span>
-        </a>
-      </li>
-      
-      
-      
-      <li class="current">
-        <a href="/tutorial/chapter9/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">9</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter10/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">10</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter11/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">11</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter12/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">12</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter13/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">13</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter14/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">14</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter15/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">15</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter16/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">16</span>
-        </a>
-      </li>
-      
-      
-      
-      <li>
-        <a href="/tutorial/chapter17/">
-          <div class="border border-inner"></div>
-          <div class="border border-outer"></div>
-          <span class="number">17</span>
-        </a>
-      </li>
-      
-      
     </ul>
   </div>
-</nav>
-
-<div class="navi-btn" id="naviBtn">
-  <div class="line line1"></div>
-  <div class="line line2"></div>
-  <div class="line line3"></div>
-</div>
+</header>
 
 
-<main class="main-article">
+<main class="mainContents">
   <h1>インタラクション</h1><p>インタラクションは相互作用という意味です。Processingプログラムにおけるインタラクションはマウスやキーボードからプログラムに動きを加えることを意味します。今までに見てきたmouseX、mouseYを使ったプログラムもインタラクション性のあるプログラムです。この章ではマウスやキーボードから情報を受け取りプログラムに変化を加える方法を解説していきます。</p>
 <h2>mousePressed、mouseButton</h2><p>変数mousePressedはboolean型の変数で、マウスのいずれかのボタンが押されているときtrueになるので、マウスのボタンが押されているかどうかを判定することができます。次のプログラムではマウスのボタンが押されているとき円をランダムな位置に表示して、押されていないときは中央に表示しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch01/sketch01.pde' target='_blank'>Chapter9/sketch01.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch01/sketch01.pde' target='_blank'>Chapter9/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
@@ -239,21 +51,17 @@
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
   <span class="hljs-comment">// マウスが押されているとき</span>
   <span class="hljs-keyword">if</span> (<span class="hljs-built_in">mousePressed</span>) {
-    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">random</span>(<span class="hljs-built_in">width</span>), <span class="hljs-built_in">random</span>(<span class="hljs-built_in">height</span>), <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
-  }
-  <span class="hljs-comment">// 押されてないとき</span>
-  <span class="hljs-keyword">else</span> {
-    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>);
+    <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>));
   }
 }
 </code></pre>
 <p>変数mouseButtonには押されているマウスのボタンを示す定数LEFT、RIGHT、CENTERのいずれかが入っています。次のプログラムでは左ボタンが押されているとき縦棒を動かし、右ボタンが押されているとき横棒を動かし、真ん中のボタンが押されているとき縦棒と横棒の位置をリセットしています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch02/sketch02.pde' target='_blank'>Chapter9/sketch02.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch02/sketch02.pde' target='_blank'>Chapter9/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x = <span class="hljs-number">0</span>; <span class="hljs-comment">// 縦棒のx座標</span>
 <span class="hljs-built_in">int</span> y = <span class="hljs-number">0</span>; <span class="hljs-comment">// 横棒のy座標</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
   <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
 }
@@ -270,11 +78,6 @@
     <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mouseButton == RIGHT) {
       y += <span class="hljs-number">2</span>;
     }
-    <span class="hljs-comment">// 真ん中のボタンが押されているとき</span>
-    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mouseButton == CENTER) {
-      x = <span class="hljs-number">0</span>;
-      y = <span class="hljs-number">0</span>;
-    }
   }
   <span class="hljs-comment">// 縦棒</span>
   <span class="hljs-built_in">line</span>(x, <span class="hljs-number">0</span>, x, <span class="hljs-built_in">height</span>);
@@ -283,7 +86,7 @@
 }
 </code></pre>
 <h2>keyPressed、key、keyCode</h2><p>キーボードが押されているかどうかは変数keyPressedで判別でき、押されたキーの情報はkeyとkeyCodeに入っています。ここで一つ新しいデータ型のchar型を紹介します。char型は１文字を扱えるデータ型で「文字」という意味の英語characterが名前の由来です。読みは「チャー」「キャラ」などが一般的です。char型の変数に文字を代入するときは、それが文字であることを示すためにシングルクオーテーションで囲みます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch03/sketch03.pde' target='_blank'>Chapter9/sketch03.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch03/sketch03.pde' target='_blank'>Chapter9/sketch03.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">char</span> a = <span class="hljs-string">'a'</span>;
 <span class="hljs-built_in">char</span> z = <span class="hljs-string">'z'</span>;
 <span class="hljs-built_in">char</span> nine = <span class="hljs-string">'9'</span>;
@@ -292,9 +95,9 @@
 <span class="hljs-built_in">println</span>(nine); <span class="hljs-comment">// 出力 : 9</span>
 </code></pre>
 <p>次のプログラムではｃキーを押しているときは水色、ｍキーを押しているときは紫色、ｙキーを押しているときは黄色の円を画面中心に表示しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch04/sketch04.pde' target='_blank'>Chapter9/sketch04.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch04/sketch04.pde' target='_blank'>Chapter9/sketch04.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 
@@ -320,11 +123,11 @@
 }
 </code></pre>
 <p>押されたキーが矢印キーやALT、SHIFTなどの特別なキーの場合はkeyCodeに代入されています。次のプログラムでは押された矢印キーの方向に円を動かしています。 矢印キーはUP、DOWN、LEFT、RIGHTで判別できます。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch05/sketch05.pde' target='_blank'>Chapter9/sketch05.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch05/sketch05.pde' target='_blank'>Chapter9/sketch05.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> x, y; <span class="hljs-comment">// 円の座標</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
   x = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
@@ -356,16 +159,16 @@
 }
 </code></pre>
 <h2>mousePressed()、keyPressed()</h2><p>mousePressed関数、keyPressed関数を使えばマウスやキーボードが押された時の処理をdraw関数と切り離すことができます。mousePressed関数、keyPressed関数は値を返さない関数で、setup関数やdraw関数のようにProcessingに標準で備わっている関数ですが、中身の処理が決められていません。 ですので中身を含めて私たちユーザー側が中身の処理を書き込んで再定義します。関数の再定義を書く場所どこでもいいですが、普通はdraw関数の下に書きます。</p>
-<p><code class='code-fragment'>void mousePressed() {
+<p><code class='codeFragment'>void mousePressed() {
   // 中身の処理
 }
 void keyPressed() {
   // 中身の処理
 }</code></p>
 <p>mousePressed関数はマウスが押されるたびに一回だけ実行されます。押している間ずっと実行されるわけではないことに注意してください。次のプログラムでは、マウスの位置に半透明な黒色の円を表示し続け、マウスが押されたときのみ背景を白で初期化しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch06/sketch06.pde' target='_blank'>Chapter9/sketch06.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch06/sketch06.pde' target='_blank'>Chapter9/sketch06.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
@@ -381,9 +184,9 @@ void keyPressed() {
 }
 </code></pre>
 <p>もちろんmousePressed関数の中でも変数mouseButtonは使えます。次のプログラムでは左クリックで円を、右クリックで正方形をマウスの位置に描画しています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch07/sketch07.pde' target='_blank'>Chapter9/sketch07.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch07/sketch07.pde' target='_blank'>Chapter9/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
   <span class="hljs-built_in">noStroke</span>();
   <span class="hljs-built_in">rectMode</span>(CENTER);
@@ -405,9 +208,9 @@ void keyPressed() {
 </code></pre>
 <p>draw関数には何も書きませんが、mousePressed関数を機能させるために必要です。mousePressed関数やこの後解説するkeyPressed関数などはマウスやキーが押されたときに呼び出される関数です。当たり前ですが呼び出されるのはプログラム実行中のみで、プログラムが終了したあとにマウスやキーを押しても何も起こりません。draw関数はプログラムを動かし続けるために必要というわけです。</p>
 <p>keyPressed関数もキーが押されたときに実行される関数です。ひとつ注意が必要なのは、使っているOSによってキーが押し続けられた時の挙動が異なることです。 mousePressed関数はマウスのボタンを押したままでも１度しか実行されませんが、keyPressed関数はキーを押し続けている間何度も実行されることがあります。次のプログラムを動かしてみて自分の環境でどうなるか確かめてみてください。キーを押し続けたとき画面の色が変わり続けたら何度も実行されていることになります。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch08/sketch08.pde' target='_blank'>Chapter9/sketch08.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch08/sketch08.pde' target='_blank'>Chapter9/sketch08.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -418,9 +221,9 @@ void keyPressed() {
 }
 </code></pre>
 <h2>マウスカーソル</h2><p>cursor関数とnoCursor関数をここで解説しておきます。cursor関数はマウスカーソルの見た目を変更する関数で、ARROW、CROSS、HAND、MOVE、TEXT、WAITのいずれかを指定できます。noCursor関数はカーソルを非表示にする関数です。次のプログラムではkeyPressed関数内でswitch文を使って、押されたキーごとにカーソルの見た目を変えています。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch09/sketch09.pde' target='_blank'>Chapter9/sketch09.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch09/sketch09.pde' target='_blank'>Chapter9/sketch09.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">750</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
 }
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
@@ -441,11 +244,11 @@ void keyPressed() {
 </code></pre>
 <p>Chapter6でswitch文を解説したときに、switch文の条件式に使えるのは整数値のみだと言いました。このプログラムでswitch文の条件式にchar型の値が使えているのはchar型がプログラムの内部では整数値として扱われているからです。</p>
 <h2>ループの切り替え</h2><p>loop関数とnoLoop関数も解説しておきます。noLoop()を実行するとdraw関数のループが止まります。loop()を実行することでdraw関数のループを再開できます。次のプログラムでは徐々に円を大きくして、ウィンドウの高さいっぱいになったときnoLoop()を実行してdraw関数のループを止めています。マウスをクリックすると円の大きさが0に戻りループが再開します。</p>
-<p><a href='https://github.com/p5aholic/p5codeschool/blob/master/samples/Chapter9/sketch10/sketch10.pde' target='_blank'>Chapter9/sketch10.pde</a></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch10/sketch10.pde' target='_blank'>Chapter9/sketch10.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span> diameter = <span class="hljs-number">0</span>; <span class="hljs-comment">// 円の直径</span>
 
 <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
-  <span class="hljs-built_in">size</span>(<span class="hljs-number">700</span>, <span class="hljs-number">350</span>);
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
   <span class="hljs-built_in">noStroke</span>();
 }
 
@@ -473,10 +276,13 @@ void keyPressed() {
 
 <footer class="footer">
   <div class="inner">
-    <p>&copy P5 Code School 2015</p>
+    <p class="copyright">&copy P5 Code School 2017</p>
   </div>
 </footer>
 
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 </body>
 </html>

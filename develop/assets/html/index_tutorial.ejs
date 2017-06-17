@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<% include common/_head %>
+<body>
+<div id="BgCanvasContainer"></div>
+<div class="pageContainer">
+
+<% include common/_header %>
+
+<main class="mainContents">
+  <h1>Processing チュートリアル</h1>
+  <p>
+    このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
+    サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
+    <a href="https://github.com/p5aholic/p5codeschool/blob/master/samples/" target="_blank">サンプルプログラム</a>
+  </p>
+
+  <h2>Processing 基礎</h2>
+  <ul class="chapterList clearfix">
+    <% for (var i = 0; i < data.tutorials.length; i++) { %>
+    <li class="chapterList__item">
+      <h3 class="chapterList__title">
+        <a href="chapter<%= data.tutorials[i].number %>">Chapter <%= data.tutorials[i].number %></a>
+      </h3>
+      <p class="chapterList__subTitle"><%= data.tutorials[i].subTitle %></p>
+      <p class="chapterList__description"><%= data.tutorials[i].description %></p>
+    </li>
+    <% } %>
+  </ul>
+</main>
+
+<% include common/_footer %>
+
+</div>
+<% include common/_scripts %>
+</body>
+</html>
