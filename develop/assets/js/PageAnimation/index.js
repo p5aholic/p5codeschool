@@ -16,8 +16,9 @@ const FadeInOutTransition = Barba.BaseTransition.extend({
   fadeOut: function() {
     const deferred = Barba.Utils.deferred();
 
-    TweenLite.to('.barba-container', 1.0, {
+    TweenLite.to(this.oldContainer, 0.2, {
       opacity: 0,
+      x: -60,
       onComplete: () => {
         deferred.resolve();
       }
@@ -28,13 +29,16 @@ const FadeInOutTransition = Barba.BaseTransition.extend({
 
   fadeIn: function() {
     this.done();
-    // init();
-    TweenLite.fromTo('.barba-container', 1.0,
+
+    TweenLite.fromTo(this.newContainer, 0.2,
       {
-        opacity: 0
+        opacity: 0,
+        x: 60
       },
       {
         opacity: 1,
+        x: 0,
+        delay: 0.4
       }
     );
   }

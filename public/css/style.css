@@ -978,3 +978,51 @@ pre code.lang-processing {
     padding: 0 5px;
   }
 }
+
+.chapter-link {
+  position: fixed;
+  top: 50vh;
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.chapter-link:hover {
+  text-decoration: none;
+  border: none;
+}
+
+.chapter-link:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.chapter-link-prev {
+  left: 60px;
+}
+
+.chapter-link-prev:after {
+  right: 0;
+  border-top: 5px solid #161616;
+  border-left: 5px solid #161616;
+  border-radius: 2px 4px 0 4px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.chapter-link-next {
+  right: 60px;
+}
+
+.chapter-link-next:after {
+  left: 0;
+  border-top: 5px solid #161616;
+  border-right: 5px solid #161616;
+  border-radius: 4px 2px 4px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}

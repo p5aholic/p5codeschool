@@ -1,0 +1,40 @@
+.chapter-link {
+  position: fixed;
+  top: 50vh;
+  display: block;
+  width: 60px;
+  height: 60px;
+  // background-color: #f00;
+  &:hover {
+    text-decoration: none;
+    border: none;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+  }
+}
+.chapter-link-prev {
+  left: 60px;
+  &:after {
+    right: 0;
+    border-top: 5px solid $main-gray;
+    border-left: 5px solid $main-gray;
+    border-radius: 2px 4px 0 4px;
+    transform: rotate(-45deg);
+  }
+}
+.chapter-link-next {
+  right: 60px;
+  &:after {
+    left: 0;
+    border-top: 5px solid $main-gray;
+    border-right: 5px solid $main-gray;
+    border-radius: 4px 2px 4px 0;
+    transform: rotate(45deg);
+  }
+}

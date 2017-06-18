@@ -12,10 +12,10 @@
   <div class="barba-container">
     <% if (chapterNum) { %>
       <% if (data.tutorials[chapterNum].number-1 >= 0) { %>
-      <a href="../chapter<%= data.tutorials[chapterNum].number-1 %>/" data-chapter="a">Prev</a>
+      <a href="/tutorial/chapter<%= data.tutorials[chapterNum].number-1 %>/" class="chapter-link chapter-link-prev" data-type="prev"></a>
       <% } %>
       <% if (data.tutorials[chapterNum].number+1 <= 15) { %>
-      <a href="../chapter<%= data.tutorials[chapterNum].number+1 %>/" data-chapter="a">Next</a>
+      <a href="/tutorial/chapter<%= data.tutorials[chapterNum].number+1 %>/" class="chapter-link chapter-link-next" data-type="next"></a>
       <% } %>
     <% } %>
     <hr>

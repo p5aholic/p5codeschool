@@ -1990,8 +1990,9 @@ var FadeInOutTransition = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.BaseT
   fadeOut: function fadeOut() {
     var deferred = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Utils.deferred();
 
-    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.to('.barba-container', 1.0, {
+    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.to(this.oldContainer, 0.2, {
       opacity: 0,
+      x: -60,
       onComplete: function onComplete() {
         deferred.resolve();
       }
@@ -2002,11 +2003,14 @@ var FadeInOutTransition = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.BaseT
 
   fadeIn: function fadeIn() {
     this.done();
-    // init();
-    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.fromTo('.barba-container', 1.0, {
-      opacity: 0
+
+    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.fromTo(this.newContainer, 0.2, {
+      opacity: 0,
+      x: 60
     }, {
-      opacity: 1
+      opacity: 1,
+      x: 0,
+      delay: 0.4
     });
   }
 });
