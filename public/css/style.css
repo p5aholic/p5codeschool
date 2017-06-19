@@ -729,6 +729,7 @@ canvas {
 }
 
 .mainContents {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
   padding: 120px 15px 60px;
@@ -765,10 +766,17 @@ canvas {
   margin: 0 auto;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
   .mainContents {
-    padding: 100px 15px 20px;
+    padding: 100px 15px 80px;
   }
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
   .mainContents h1 {
     font-size: 2.4rem;
     margin-bottom: 15px;
@@ -881,7 +889,7 @@ pre code.lang-processing {
 
 @media (max-width: 640px) {
   .chapterList__item {
-    width: calc(50% - 8px);
+    width: calc(50% - 9px);
     margin-right: 16px;
   }
   .chapterList__item:nth-child(3n) {
@@ -1009,7 +1017,7 @@ pre code.lang-processing {
 }
 
 .chapter-link-prev {
-  left: 60px;
+  left: calc(50% - 560px);
 }
 
 .chapter-link-prev:after {
@@ -1022,7 +1030,7 @@ pre code.lang-processing {
 }
 
 .chapter-link-next {
-  right: 60px;
+  right: calc(50% - 560px);
 }
 
 .chapter-link-next:after {
@@ -1032,4 +1040,18 @@ pre code.lang-processing {
   border-radius: 4px 2px 4px 0;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+
+@media (max-width: 960px) {
+  .chapter-link {
+    position: absolute;
+    top: auto;
+    bottom: 22px;
+  }
+  .chapter-link-prev {
+    left: 10px;
+  }
+  .chapter-link-next {
+    right: 10px;
+  }
 }

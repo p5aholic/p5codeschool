@@ -1,4 +1,5 @@
 .mainContents {
+  position: relative;
   max-width: $articleWidth;
   margin: 0 auto;
   padding: 120px $sidePadding 60px;
@@ -30,9 +31,18 @@
   }
 }
 
+@include lt-960 {
+  .mainContents {
+    padding: 100px $sidePadding 80px;
+  }
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+
 @include lt-640 {
   .mainContents {
-    padding: 100px $sidePadding 20px;
     h1 {
       font-size: 2.4rem;
       margin-bottom: 15px;

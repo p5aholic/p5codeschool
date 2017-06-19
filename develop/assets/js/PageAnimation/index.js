@@ -29,6 +29,7 @@ const FadeInOutTransition = Barba.BaseTransition.extend({
       x: -40 * this.direction,
       ease: Power1.easeIn,
       onComplete: () => {
+        window.scroll(0, 0);
         deferred.resolve();
       }
     });

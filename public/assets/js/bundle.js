@@ -2003,6 +2003,7 @@ var FadeInOutTransition = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.BaseT
       x: -40 * this.direction,
       ease: Power1.easeIn,
       onComplete: function onComplete() {
+        window.scroll(0, 0);
         deferred.resolve();
       }
     });

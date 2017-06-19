@@ -23,7 +23,7 @@
   }
 }
 .chapter-link-prev {
-  left: 60px;
+  left: calc(50% - 560px);
   &:after {
     right: 0;
     border-top: 5px solid $main-gray;
@@ -33,12 +33,26 @@
   }
 }
 .chapter-link-next {
-  right: 60px;
+  right: calc(50% - 560px);
   &:after {
     left: 0;
     border-top: 5px solid $main-gray;
     border-right: 5px solid $main-gray;
     border-radius: 4px 2px 4px 0;
     transform: rotate(45deg);
+  }
+}
+
+@include lt-960 {
+  .chapter-link {
+    position: absolute;
+    top: auto;
+    bottom: 22px;
+  }
+  .chapter-link-prev {
+    left: 10px;
+  }
+  .chapter-link-next {
+    right: 10px;
   }
 }

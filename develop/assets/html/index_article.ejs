@@ -20,13 +20,13 @@
     }
   }
   %>
+  <div class="article-container" data-prev="<%= prevChap %>" data-next="<%= nextChap %>">
+    <%- htmlData %>
+  </div>
   <% if (chapterNum) { %>
     <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
     <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
   <% } %>
-  <div class="article-container" data-prev="<%= prevChap %>" data-next="<%= nextChap %>">
-    <%- htmlData %>
-  </div>
 </main>
 
 <% include common/_footer %>
