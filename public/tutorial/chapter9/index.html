@@ -22,13 +22,13 @@
 <header class="header">
   <div class="inner">
     <h1 class="header__siteTitle">
-      <a href="/">p5 code school</a>
+      <a href="/" class="no-transition">p5 code school</a>
     </h1>
     
     <nav>
       <ul class="mainNavigation">
         <li>
-          <a href="/tutorial/">Tutorials</a>
+          <a href="/tutorial/" class="no-transition">Tutorials</a>
         </li>
       </ul>
     </nav>
@@ -36,17 +36,13 @@
 </header>
 
 
-<main class="mainContents" id="barba-wrapper">
-  <div class="barba-container">
-    
-      
-      <a href="/tutorial/chapter8/" class="chapter-link chapter-link-prev" data-type="prev"></a>
-      
-      
-      <a href="/tutorial/chapter10/" class="chapter-link chapter-link-next" data-type="next"></a>
-      
-    
-    <hr>
+<main class="mainContents" id="contentsWrapper">
+  
+  
+    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
+    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
+  
+  <div class="article-container" data-prev="8" data-next="10">
     <h1>インタラクション</h1><p>インタラクションは相互作用という意味です。Processingプログラムにおけるインタラクションはマウスやキーボードからプログラムに動きを加えることを意味します。今までに見てきたmouseX、mouseYを使ったプログラムもインタラクション性のあるプログラムです。この章ではマウスやキーボードから情報を受け取りプログラムに変化を加える方法を解説していきます。</p>
 <h2>mousePressed、mouseButton</h2><p>変数mousePressedはboolean型の変数で、マウスのいずれかのボタンが押されているときtrueになるので、マウスのボタンが押されているかどうかを判定することができます。次のプログラムではマウスのボタンが押されているとき円をランダムな位置に表示して、押されていないときは中央に表示しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter9/sketch01/sketch01.pde' target='_blank'>Chapter9/sketch01.pde</a></p>

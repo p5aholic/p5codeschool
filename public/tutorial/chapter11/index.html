@@ -22,13 +22,13 @@
 <header class="header">
   <div class="inner">
     <h1 class="header__siteTitle">
-      <a href="/">p5 code school</a>
+      <a href="/" class="no-transition">p5 code school</a>
     </h1>
     
     <nav>
       <ul class="mainNavigation">
         <li>
-          <a href="/tutorial/">Tutorials</a>
+          <a href="/tutorial/" class="no-transition">Tutorials</a>
         </li>
       </ul>
     </nav>
@@ -36,17 +36,13 @@
 </header>
 
 
-<main class="mainContents" id="barba-wrapper">
-  <div class="barba-container">
-    
-      
-      <a href="/tutorial/chapter10/" class="chapter-link chapter-link-prev" data-type="prev"></a>
-      
-      
-      <a href="/tutorial/chapter12/" class="chapter-link chapter-link-next" data-type="next"></a>
-      
-    
-    <hr>
+<main class="mainContents" id="contentsWrapper">
+  
+  
+    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
+    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
+  
+  <div class="article-container" data-prev="10" data-next="12">
     <h1>3D図形とカメラ</h1><p>3D空間に描くことができる図形とカメラの扱い方を解説します。</p>
 <h2>3D図形</h2><p>3D図形を描くには、まず3D空間を扱えるレンダリングエンジンに切り替える必要があります。Processingではsize関数の第3パラメータにレンダリングエンジンを指定することができます。Processingで使えるレンダリングエンジンは4種類あるのですが、3D空間を扱うにはP3Dを指定します。</p>
 <p><code class='codeFragment'>size(960, 540, P3D);</code></p>

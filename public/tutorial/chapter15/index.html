@@ -22,13 +22,13 @@
 <header class="header">
   <div class="inner">
     <h1 class="header__siteTitle">
-      <a href="/">p5 code school</a>
+      <a href="/" class="no-transition">p5 code school</a>
     </h1>
     
     <nav>
       <ul class="mainNavigation">
         <li>
-          <a href="/tutorial/">Tutorials</a>
+          <a href="/tutorial/" class="no-transition">Tutorials</a>
         </li>
       </ul>
     </nav>
@@ -36,15 +36,13 @@
 </header>
 
 
-<main class="mainContents" id="barba-wrapper">
-  <div class="barba-container">
-    
-      
-      <a href="/tutorial/chapter14/" class="chapter-link chapter-link-prev" data-type="prev"></a>
-      
-      
-    
-    <hr>
+<main class="mainContents" id="contentsWrapper">
+  
+  
+    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
+    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
+  
+  <div class="article-container" data-prev="14" data-next="-1">
     <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
 <p><code class='codeFragment'>int[] data = new int[100];</code></p>
 <p>dataのような配列変数も参照型変数です。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>

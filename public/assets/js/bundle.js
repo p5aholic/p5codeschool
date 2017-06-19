@@ -1974,25 +1974,34 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_TweenLite___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_TweenLite__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_gsap_plugins_CSSPlugin_js__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_gsap_plugins_CSSPlugin_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_gsap_plugins_CSSPlugin_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main_js__ = __webpack_require__(6);
 
 
 
-// import { init } from '../common.js';
 
+
+__WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Pjax.Dom.wrapperId = 'contentsWrapper';
+__WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Pjax.Dom.containerClass = 'article-container';
+__WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Pjax.ignoreClassLink = 'no-transition';
 __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Pjax.init();
 __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Prefetch.init();
 
 var FadeInOutTransition = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.BaseTransition.extend({
+  direction: 1,
+
   start: function start() {
+    this.setDirection();
+
     Promise.all([this.newContainerLoading, this.fadeOut()]).then(this.fadeIn.bind(this));
   },
 
   fadeOut: function fadeOut() {
     var deferred = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Utils.deferred();
 
-    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.to(this.oldContainer, 0.2, {
+    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.to(this.oldContainer, 0.3, {
       opacity: 0,
-      x: -60,
+      x: -40 * this.direction,
+      ease: Power1.easeIn,
       onComplete: function onComplete() {
         deferred.resolve();
       }
@@ -2003,21 +2012,26 @@ var FadeInOutTransition = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.BaseT
 
   fadeIn: function fadeIn() {
     this.done();
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__main_js__["setChapterLink"])();
 
-    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.fromTo(this.newContainer, 0.2, {
+    __WEBPACK_IMPORTED_MODULE_1_TweenLite___default.a.fromTo(this.newContainer, 0.3, {
       opacity: 0,
-      x: 60
+      x: 40 * this.direction
     }, {
       opacity: 1,
       x: 0,
-      delay: 0.4
+      ease: Power1.easeOut
     });
+  },
+
+  setDirection: function setDirection() {
+    var oldChap = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.HistoryManager.prevStatus().url.split('/').slice(-2, -1)[0].replace('chapter', '');
+    var newChap = __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.HistoryManager.currentStatus().url.split('/').slice(-2, -1)[0].replace('chapter', '');
+    this.direction = newChap - oldChap;
   }
 });
 
 __WEBPACK_IMPORTED_MODULE_0_barba_js___default.a.Pjax.getTransition = function () {
-  // console.log(Barba.HistoryManager.prevStatus());
-  // console.log(Barba.HistoryManager.currentStatus());
   return FadeInOutTransition;
 };
 
@@ -2158,12 +2172,27 @@ var Device = function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (immutable) */ __webpack_exports__["setChapterLink"] = setChapterLink;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_Device__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PageAnimation___ = __webpack_require__(3);
 
 
 
 
+
+$(function () {
+  setChapterLink();
+});
+
+function setChapterLink() {
+  var prevChap = parseInt($('.article-container').attr('data-prev'));
+  var nextChap = parseInt($('.article-container').attr('data-next'));
+
+  if (prevChap === -1) $('.chapter-link-prev').addClass('off');else $('.chapter-link-prev').removeClass('off').attr('href', '/tutorial/chapter' + prevChap + '/');
+
+  if (nextChap === -1) $('.chapter-link-next').addClass('off');else $('.chapter-link-next').removeClass('off').attr('href', '/tutorial/chapter' + nextChap + '/');
+}
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(5)))
 
 /***/ }),
 /* 7 */

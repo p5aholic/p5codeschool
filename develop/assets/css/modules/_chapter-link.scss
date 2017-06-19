@@ -4,7 +4,7 @@
   display: block;
   width: 60px;
   height: 60px;
-  // background-color: #f00;
+  transition: opacity 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
   &:hover {
     text-decoration: none;
     border: none;
@@ -16,6 +16,10 @@
     top: 15px;
     width: 30px;
     height: 30px;
+  }
+  &.off {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 .chapter-link-prev {

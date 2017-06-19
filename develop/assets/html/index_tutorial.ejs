@@ -8,8 +8,8 @@
 
 <% include common/_header %>
 
-<main class="mainContents" id="barba-wrapper">
-  <div class="barba-container">
+<main class="mainContents">
+  <div class="article-container">
     <h1>Processing チュートリアル</h1>
     <p>
       このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
@@ -22,7 +22,7 @@
       <% for (var i = 0; i < data.tutorials.length; i++) { %>
       <li class="chapterList__item">
         <h3 class="chapterList__title">
-          <a href="chapter<%= data.tutorials[i].number %>">Chapter <%= data.tutorials[i].number %></a>
+          <a href="chapter<%= data.tutorials[i].number %>" class="no-transition">Chapter <%= data.tutorials[i].number %></a>
         </h3>
         <p class="chapterList__subTitle"><%= data.tutorials[i].subTitle %></p>
         <p class="chapterList__description"><%= data.tutorials[i].description %></p>

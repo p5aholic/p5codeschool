@@ -985,6 +985,8 @@ pre code.lang-processing {
   display: block;
   width: 60px;
   height: 60px;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition: opacity 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 .chapter-link:hover {
@@ -999,6 +1001,11 @@ pre code.lang-processing {
   top: 15px;
   width: 30px;
   height: 30px;
+}
+
+.chapter-link.off {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .chapter-link-prev {
