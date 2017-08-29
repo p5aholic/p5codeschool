@@ -16,5 +16,5 @@ gulp.task('css', () => {
   .pipe(autoprefixer({
     browsers: ['last 2 versions', 'Android >= 4', 'ios_saf >= 9']
   }))
-  .pipe(gulp.dest(global.Config.DEST_DIR + 'css/'));
+  .pipe(gulp.dest(global.Config.DEST_DIR + 'assets/css/'));
 });
