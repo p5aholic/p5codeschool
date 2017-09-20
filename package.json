@@ -30,8 +30,8 @@
     "marked": "^0.3.6",
     "node-sass": "^4.5.3",
     "require-dir": "^0.3.2",
-    "run-sequence": "^2.1.0",
-    "webpack": "^3.5.5"
+    "run-sequence": "^2.2.0",
+    "webpack": "^3.6.0"
   },
   "dependencies": {
     "barba.js": "^1.0.0",
