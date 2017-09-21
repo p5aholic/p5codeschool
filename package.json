@@ -2,19 +2,18 @@
   "name": "p5codeschool",
   "version": "1.0.0",
   "description": "ゼロから学べるProcessing入門サイト",
-  "main": "index.js",
   "scripts": {
     "start": "npm run server & npm run watch",
     "server": "browser-sync start -c ./config/bs.config.js",
     "build": "npm run build:html && npm run build:css && npm run build:js",
-    "watch": "npm run watch:css && npm run watch:js",
+    "watch": "npm run watch:css & npm run watch:js",
     "build:html": "cd develop && node build-html.js",
     "build:css": "postcss ./develop/assets/css/style.pcss -c ./config/postcss.config.js -o ./public/assets/css/style.css",
     "watch:css": "postcss ./develop/assets/css/style.pcss -c ./config/postcss.config.js -o ./public/assets/css/style.css -w",
     "build:js": "webpack --config ./config/webpack.config.js",
     "watch:js": "webpack --config ./config/webpack.config.js -w"
   },
-  "author": "",
+  "author": "@P5Aholic",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
