@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>P5 Code School Chapter10「座標変換」</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="9" data-next="11">
-    <h1>座標変換</h1><p>このChapterでは座標の移動、回転、拡大縮小を行う関数を紹介していきます。</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P5 Code School Chapter10「座標変換」</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="9" data-next="11"><h1>座標変換</h1><p>このChapterでは座標の移動、回転、拡大縮小を行う関数を紹介していきます。</p>
 <h2>原点の移動</h2><p>Processingでは、原点(0, 0)はウィンドウの左上の角にありましたが、translate関数を使うと原点をウィンドウの好きな位置に変えることができます。次のプログラムでは原点を画面中心に移動させたあと、３つの円を描画しています。</p>
 <p><img src="/images/Chapter10/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter10/sketch01/sketch01.pde' target='_blank'>Chapter10/sketch01.pde</a></p>
@@ -193,9 +179,9 @@
 </code></pre>
 <p>注意が必要なのは、rotate()は座標全体、いわば図形が描画される世界全体を回転させます。上のプログラムでは、傾いた世界に平行な線を描画しています。平行な世界に傾いた線を描画しているわけではないです。translate()やrotate()とこれから解説するscale()は、個々の図形を移動させたり回転させたり拡大縮小させたりする関数ではありません。translate()は世界の原点を移動させ、rotate()は世界全体を回転させ、scale()は世界全体を拡大縮小させます。ただ、pushMatrix()とpopMatrix()を上手く使うと、個々の図形が回転や拡大縮小をしているように見せることはできます。方法はscale()を紹介したあとに解説します。</p>
 <h2>拡大縮小</h2><p>scale()を使うと座標全体を拡大縮小することができます。scale()のパラーメータには何倍するかを表す数値をfloat型で指定します。2.5倍したい場合は</p>
-<p><code class='codeFragment'>scale(2.5);</code></p>
+<p><code class='code-fragment'>scale(2.5);</code></p>
 <p>とします。パラメータを２つ与えた場合は、１つ目がx軸方向に何倍するかを表し、２つ目がy軸方向に何倍するかを表します。</p>
-<p><code class='codeFragment'>scale(4.0, 0.5);</code></p>
+<p><code class='code-fragment'>scale(4.0, 0.5);</code></p>
 <p><img src="/images/Chapter10/sketch07.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter10/sketch07/sketch07.pde' target='_blank'>Chapter10/sketch07.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
@@ -361,24 +347,15 @@
 <p>rotate()のパラメータにframeCountを使いました。回転するアニメーションを作る場合はrotate()に指定する角度を少しずつ増加させなければいけません。frameCountはdraw()ごとに+1ずつされていくので、回転するアニメーションなどに使うと便利です。frameCountに掛ける値を増加させると回転速度が上がります。</p>
 <p>これで、本来個々の図形を回転させたり拡大縮小させるものではないrotate()とscale()を、pushMatrix()、translate()、popMatrix()を使って個々の図形が回転したり拡大縮小したりしてるように見せる方法がわかったかと思います。</p>
 <p>お疲れさまでした。Chapter10はこれで終了です。</p>
-
-  </div>
-  
-    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
-    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
-</div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>

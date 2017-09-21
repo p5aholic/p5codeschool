@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>P5 Code School Chapter2「図形の描画」</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="1" data-next="3">
-    <h1>図形の描画</h1><p>このChapterではProcessingで描くことのできる基本的な図形の描画方法を解説していきます。</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P5 Code School Chapter2「図形の描画」</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="1" data-next="3"><h1>図形の描画</h1><p>このChapterではProcessingで描くことのできる基本的な図形の描画方法を解説していきます。</p>
 <h2>図形を描く</h2><p>Processingで描くことのできる基本図形は以下の7つです。</p>
-<dl class="p5Functions">
+<dl class="p5-functions">
   <dt><a href='https://www.processing.org/reference/point_.html' target='_blank'>point(x, y)</a></dt>
   <dd>座標(x, y)に点を描く</dd>
 
@@ -125,7 +111,7 @@
 <span class="hljs-built_in">rect</span>(<span class="hljs-number">520</span>, <span class="hljs-number">170</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>);
 </code></pre>
 <h2>図形に色を塗る</h2><p>図形に色を指定する方法を見ていきましょう。色の表現方法はChapter3で詳しく解説します。ここでは黒～白の色に限定して話していきます。図形には枠線の色と内側の塗りつぶしの色を指定することができます。以下の４つの関数で色の指定ができます。<em>fill()</em>と<em>stroke()</em>のパラメータには<em>background()</em>と同じく0～255の数値を与えます。<em>noFill()</em>と<em>noStroke()</em>はパラメータを持たない関数です。</p>
-<dl class="p5Functions">
+<dl class="p5-functions">
   <dt><a href='https://www.processing.org/reference/fill_.html' target='_blank'>fill()</a></dt>
   <dd>図形の内側の色を指定する</dd>
 
@@ -167,7 +153,7 @@
 <p><em>noFill()</em>が指定された図形の内側の色は背景色と同じになります。また、図形が重なった場合は後から描かれた図形が前に描かれた図形の上に描かれます。</p>
 <p><em>fill()</em>、<em>stroke()</em>、<em>noFill()</em>、<em>noStroke()</em>や、後述する<em>strokeWeight()</em>、<em>strokeCap()</em>、<em>strokeJoin()</em>、<em>ellipseMode()</em>、<em>rectMode()</em>などは 一度指定するとそれ以降の図形にも適用されます。図形ごとにスタイルを切り替えたい場合は、今何が適用されているかに注意しましょう。</p>
 <h2>枠線の見た目を変える</h2><p>枠線の見た目を変える３種類の関数を見ていきましょう。</p>
-<dl class="p5Functions">
+<dl class="p5-functions">
   <dt><a href='https://www.processing.org/reference/strokeWeight_.html' target='_blank'>strokeWeight()</a></dt>
   <dd>枠線の太さを変える</dd>
 
@@ -296,24 +282,15 @@ ROUNDがデフォルトなので
 <span class="hljs-built_in">rect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">250</span>, <span class="hljs-number">150</span>);     <span class="hljs-comment">// 灰色の円</span>
 </code></pre>
 <p>お疲れさまでした。Chapter2はこれで終了です。</p>
-
-  </div>
-  
-    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
-    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
-</div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>

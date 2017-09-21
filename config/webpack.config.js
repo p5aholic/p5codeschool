@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 const DEVELOP_PATH = path.resolve(__dirname, "../develop");
-const PUBLIC_PATH = path.resolve(__dirname, "../public");
+const PUBLIC_PATH  = path.resolve(__dirname, "../public");
 const MODULES_PARH = path.resolve(__dirname, "../node_modules");
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
 
   resolve: {
     modules: [
-      DEVELOP_PATH + "/assets/js/libs/",
+      DEVELOP_PATH + "/assets/js/_libs/",
       MODULES_PARH
     ],
     alias: {

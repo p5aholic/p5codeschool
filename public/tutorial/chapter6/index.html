@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>P5 Code School Chapter6「条件分岐」</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="5" data-next="7">
-    <h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立てて、ボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P5 Code School Chapter6「条件分岐」</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="5" data-next="7"><h1>条件分岐</h1><p>条件分岐を使うとプログラムの流れを変えたり、ある処理を特定の条件の時にだけ実行させることができます。例えばellipse()で描く円をボールに見立てて、ボールがウィンドウの端で跳ね返るプログラムを作るなら、ボールがウィンドウの端にあるかどうかを判定して端にある時だけボールの進行方向を反転させます。</p>
 <h2>真偽値と比較演算子</h2><p>Chapter4でint、float、colorの３つのデータ型を紹介しました。ここではもう一つboolean(ブーリアン)型というデータ型を紹介します。boolean型は真偽値と呼ばれる値を扱うデータ型で、boolean型が扱える値はtrue(真)かfalse(偽)の２つのみです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter6/sketch01/sketch01.pde' target='_blank'>Chapter6/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">boolean</span> b1 = <span class="hljs-keyword">true</span>;
@@ -49,7 +35,7 @@
 </code></pre>
 <p>boolean型変数が真ならコッチ、偽ならアッチという風にプログラムの流れを変える場合に使ったりします。</p>
 <p>２つの値を比較してtrueかfalseを返す比較演算子と呼ばれるものを紹介します。</p>
-<dl class="p5Functions">
+<dl class="p5-functions">
   <dt>&lt;</dt>
   <dd>より小さい</dd>
   <dt>&lt;=</dt>
@@ -83,15 +69,15 @@
 <span class="hljs-built_in">println</span>(b2); <span class="hljs-comment">// false</span>
 </code></pre>
 <h2>条件分岐</h2><p>これらの比較演算を使ってプログラム内に条件分岐を作っていきます。条件分岐はif()文を使って作ることができます。</p>
-<p><code class='codeFragment'>if (真偽値) {
+<p><code class='code-fragment'>if (真偽値) {
   // 処理
 }</code></p>
 <p>ifと書いた後に真偽値を()で囲みます。{}で囲まれた中の処理は真偽値がtrueのときのみ実行されます。もちろん()の中に比較演算子を用いた条件式を書くこともできます。</p>
-<p><code class='codeFragment'>if (条件式) {
+<p><code class='code-fragment'>if (条件式) {
   // 処理
 }</code></p>
 <p>処理内容が１行だけで書ける場合は{}で囲まなくても大丈夫です。</p>
-<p><code class='codeFragment'>if (条件式) // 処理</code></p>
+<p><code class='code-fragment'>if (条件式) // 処理</code></p>
 <p>ただ、見やすさのために１行だけでも{}で囲むことはよくあります。</p>
 <p>ウィンドウの端でボールが跳ね返るプログラムを作ってみました。今までと比べてかなり本格的なプログラムですが、詳しく解説していくので安心してください。</p>
 <p><img src="/images/Chapter6/sketch04.jpg" alt=""></p>
@@ -160,9 +146,9 @@ x += vx;
 y += vy;
 </code></pre>
 <p>ウィンドウの端にボールが来た時に速度に-1をかけることでボールを跳ね返えらせます。ボールの位置x、yはボールの中心座標を表しています。ウィンドウの左端にぶつかるのはボールの左端(x-ballSize/2)なので左端にぶつかった時を表すif文の条件式を</p>
-<p><code class='codeFragment'>x-ballSize/2 &lt;= 0</code></p>
+<p><code class='code-fragment'>x-ballSize/2 &lt;= 0</code></p>
 <p>としています。ウィンドウの右端にぶつかるのはボールの右端(x+ballSize/2)なので右端にぶつかった時を表すif文の条件式を</p>
-<p><code class='codeFragment'>x+ballSize/2 &gt;= width</code></p>
+<p><code class='code-fragment'>x+ballSize/2 &gt;= width</code></p>
 <p>としています。ウィンドウの上端と下端も同様です。</p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 左の壁にぶつかったら</span>
 <span class="hljs-keyword">if</span> (x-ballSize/<span class="hljs-number">2</span> &lt;= <span class="hljs-number">0</span>) {
@@ -183,7 +169,7 @@ y += vy;
 </code></pre>
 <p>これら４つのif文の{}で囲まれた中の処理はそれぞれのif文の条件式がtrueを返したときのみ実行されます。それぞれの条件式で使う比較演算子に &lt;= と &gt;= を使って、ボールの端がウィンドウの端と等しい場合だけでなく、超えた場合についても対応しています。vxとvyの値によってはボールの端とウィンドウの端が完全に一致せずに超えてしまうこともあるからです。</p>
 <h2>論理演算子</h2><p>上の４つのif文は論理演算子というものを使うと２つのif文にまとめることができます。論理演算子には以下の３つがあります。</p>
-<dl class="p5Functions">
+<dl class="p5-functions">
   <dt>||</dt>
   <dd>または(論理和)、OR</dd>
   <dt>&amp;&amp;</dt>
@@ -225,7 +211,7 @@ y += vy;
 }
 </code></pre>
 <h2>if else文</h2><p>if文ではある条件に当てはまった場合のみの制御しかできませんでした。if else文を使うと、条件に当てはまらなかった場合の制御ができるようになります。</p>
-<p><code class='codeFragment'>if (条件式) {
+<p><code class='code-fragment'>if (条件式) {
   // 真の場合の処理
 } else {
   // 偽の場合の処理
@@ -269,7 +255,7 @@ y += vy;
 </code></pre>
 <p>でも、マウスがウィンドウの左半分にあり、かつ右半分にもあるということはありえません。このif文ではマウスがウィンドウの右半分にないとわかっていても、右半分にあるかを確かめることになります。左半分にあるならば右半分にないことはわかりきっています。こういう場合はif else文を使うのが適切です。</p>
 <h2>else if文</h2><p>if else文で２つの分岐を作ることができました。分岐をさらに増やすにはelse if文を使います。else if文は通常のif文の後に書いて分岐を増やすために使います。else if文はいくらでも書けます。else if文をずらーーっと書いた最後にelse文を書くと、全ての条件式に当てはまらなかった場合の処理が書けます。 最後のelse文は無くてもいいです。必要に応じて書くものです。</p>
-<p><code class='codeFragment'>if (条件式1) {
+<p><code class='code-fragment'>if (条件式1) {
   // 条件式1が真の場合の処理
 } else if (条件式2) {
   // 条件式1が偽かつ条件式2が真の場合の処理
@@ -382,7 +368,7 @@ y += vy;
 }
 </code></pre>
 <h2>switch文</h2><p>if文ともうひとつ、switch文でも条件分岐を行えます。switch文は次のように使います。</p>
-<p><code class='codeFragment'>switch (条件式) {
+<p><code class='code-fragment'>switch (条件式) {
   case 数値:
     実行分;
     break;
@@ -420,7 +406,7 @@ y += vy;
 <p>caseの最後にbreakを書くのを忘れないようにしてください。breakが無いとswitchのブロックを抜けずに次のcaseの実行文に移ってしまいます。</p>
 <p>switch文の条件式に使うことができるのは整数値のみです。if文のように値を比較したりすることができません。なので、条件分岐の能力はif文に比べると劣るのですが、整数値による分岐をしたい場合はif文で書くよりもコンパクトに書くことができます。今はあまり使い時がわからないかもしれませんが、頭の片隅に置いておいてください。</p>
 <p>switch文ではdefaultを使うとどの値にも当てはまらなかった場合の分岐ができます。if文でいうとelseに当たります。</p>
-<p><code class='codeFragment'>switch (値) {
+<p><code class='code-fragment'>switch (値) {
   case 値:
     実行分;
     break;
@@ -456,24 +442,15 @@ y += vy;
 }
 </code></pre>
 <p>お疲れさまでした。Chapter6はこれで終了です。</p>
-
-  </div>
-  
-    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
-    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
-</div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>

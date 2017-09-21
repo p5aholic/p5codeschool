@@ -1,0 +1,26 @@
+doctype html
+html(lang="ja")
+  include ./common/head.pug
+  body
+    .page-container
+
+      include ./common/header.pug
+      
+      main.main-contents#contentsWrapper
+        .article-container
+          h1 Processing チュートリアル
+          p
+            |このチュートリアルで用いるサンプルプログラムは全て以下からダウンロードできます。
+            |サンプルプログラムは現在の最新VersionのProcessingに対応しています。<br>
+            a(href="https://github.com/p5aholic/p5codeschool-samples" target="_blank") サンプルプログラム
+
+          h2 Processing 基礎
+          ul.chapter-list.clearfix
+            - for (var i = 0; i < data.tutorials.length; i++)
+              li.item
+                h3.title
+                  a.no-transition(href="chapter" + data.tutorials[i].number + "/") Chapter #{data.tutorials[i].number}
+                p.sub-title #{data.tutorials[i].subTitle}
+                p.description #{data.tutorials[i].description}
+      include ./common/footer.pug
+    include ./common/script.pug

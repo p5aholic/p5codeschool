@@ -1,46 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>P5 Code School Chapter15「クラス基礎 Part3」</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="14" data-next="-1">
-    <h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
-<p><code class='codeFragment'>int[] data = new int[100];</code></p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P5 Code School Chapter15「クラス基礎 Part3」</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="14" data-next="-1"><h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
+<p><code class='code-fragment'>int[] data = new int[100];</code></p>
 <p>dataのような配列変数も参照型変数です。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch01/sketch01.pde' target='_blank'>Chapter15/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">50</span>];  <span class="hljs-comment">// 配列の宣言と代入</span>
@@ -52,7 +38,7 @@
 <span class="hljs-built_in">println</span>(data);
 </code></pre>
 <p>dataはint型の要素を持つint型配列ですが、次のようにしてクラスのインスタンスを持つクラス型配列というものを作ることができます。</p>
-<p><code class='codeFragment'>クラス名[] 配列変数名 = new クラス名[要素数];</code></p>
+<p><code class='code-fragment'>クラス名[] 配列変数名 = new クラス名[要素数];</code></p>
 <p>次のプログラムでは、100個のBallクラスのインスタンスを持つ配列を作って画面内に100個のボールを描画しています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch02/sketch02.pde' target='_blank'>Chapter15/sketch02.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// 要素数１００個のBallクラス型配列ballsを生成</span>
@@ -114,9 +100,9 @@ class Ball {
 }
 </code></pre>
 <p>次のように書いてBallクラスのインスタンスを要素とするBallクラス型配列を要素数100個で生成しています。</p>
-<p><code class='codeFragment'>Ball[] balls = new Ball[100];</code></p>
+<p><code class='code-fragment'>Ball[] balls = new Ball[100];</code></p>
 <p>注意が必要なのは、この時点ではBallクラス型配列を生成しただけで、個々の要素となるBallクラスのインスタンスは生成していないということです。配列ballsの個々の要素となるインスタンスは次のようにして生成します。</p>
-<p><code class='codeFragment'>for (int i = 0; i &lt; balls.length; i++) {
+<p><code class='code-fragment'>for (int i = 0; i &lt; balls.length; i++) {
   balls[i] = new Ball();
 }</code></p>
 <p>クラスを使わない場合のプログラムと比較してみると、setup関数とdraw関数の中がスッキリして非常に見やすいプログラムになっていることがわかると思います。</p>
@@ -276,11 +262,11 @@ class Ball {
 }
 </code></pre>
 <p>this参照について詳しく解説します。上のプログラムで</p>
-<p><code class='codeFragment'>this.x</code></p>
+<p><code class='code-fragment'>this.x</code></p>
 <p>という表現をしています。この表現は</p>
-<p><code class='codeFragment'>参照型変数.フィールド</code></p>
+<p><code class='code-fragment'>参照型変数.フィールド</code></p>
 <p>の形になっているので、thisは参照型変数であることがわかります。そして、コンストラクタ内でthisを使った場合、thisには生成中のインスタンスへの参照が代入されます。</p>
-<p><code class='codeFragment'>b1 = new Ball(200, height/2, 60, color(0, 0, 180));</code></p>
+<p><code class='code-fragment'>b1 = new Ball(200, height/2, 60, color(0, 0, 180));</code></p>
 <p>を実行すると、まず、new Ball()によってBallクラスのインスタンスが生成されます。次にBall()コンストラクタの実行に移るのですが、その際、thisにnew Ball()によって生成されたインスタンスへの参照が代入されます。すると、this.xは生成されたインスタンスが持つフィールドxを表し、ただのxは仮引数のxのことになります。こうすることで、コンストラクタの仮引数にフィールドと同じ変数名を使っても区別することができるのです。</p>
 <p>このthis参照は、コンストラクタだけでなくメソッドでも有効です。次のプログラムでは、座標をセットするsetPositionメソッドの仮引数にフィールドと同じ名前の変数名を使いthis参照により、フィールドと仮引数の区別をしています。</p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch05/sketch05.pde' target='_blank'>Chapter15/sketch05.pde</a></p>
@@ -369,24 +355,15 @@ class Ball {
 }
 </code></pre>
 <p>お疲れさまでした。これで今の段階で必要なクラスの知識は一通り解説しました。クラスにはまだまだ色んな機能があるのですが、それは追々解説します。</p>
-
-  </div>
-  
-    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
-    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
-</div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>

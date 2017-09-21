@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>ゼロから学べるProcessing入門サイト : P5 Code School</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="-1" data-next="-1">
-    <h1>P5 Code Schoolについて</h1><p>P5 Code Schoolはプログラミング未経験者がゼロからProcessingを学ぶことができるWebサイトです。</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ゼロから学べるProcessing入門サイト : P5 Code School</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="-1" data-next="-1"><h1>P5 Code Schoolについて</h1><p>P5 Code Schoolはプログラミング未経験者がゼロからProcessingを学ぶことができるWebサイトです。</p>
 <h2>Processingとは？</h2><p>ProcessingはJavaというプログラミング言語のグラフィックス処理機能を扱いやすくした、コンピュータアートのためのプログラミング言語です。操作が容易な専用の開発環境でプログラムが書けて、アイデアがすぐに視覚的なフィードバックとして得られるためプログラミング入門者にも適ています。</p>
 <p>余談ですが、ProcessingはよくP5という略称で呼ばれます。Processingという単語は色んな分野で使われているので、プログラミング言語としてのProcessingをProce55ingと書くことにしよう、という流れがありました。「Processing」で検索してもプログラミング言語としてのProcessing以外の情報が多数ヒットしてしまうので、これを防ぐ目的もあります。今はあまりProce55ingという表記は見かけませんが、その略称であるP5は今も使われています。</p>
-<h2>Processingの記述例</h2><p>“マウスの位置に色と大きさがランダムな円を描く”というプログラムを書いてみましょう。記述は以下の9行で済みます。</p>
+<h2>Processingの記述例</h2><p>&quot;マウスの位置に色と大きさがランダムな円を描く&quot;というプログラムを書いてみましょう。記述は以下の9行で済みます。</p>
 <p><img src="/images/AboutP5/aboutp5.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/AboutP5/AboutP5.pde' target='_blank'>AboutP5.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-comment">// プログラム開始時に一度だけ実行される処理</span>
@@ -62,21 +48,15 @@
 }
 </code></pre>
 <p>このように、Processingで書かれたプログラムはアイデアとは関係のない記述を限界まで省くことができます。</p>
-
-  </div>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
 </div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>

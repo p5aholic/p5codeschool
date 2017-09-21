@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>P5 Code School Chapter5「setup()とdraw()」</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="4" data-next="6">
-    <h1>setup()とdraw()</h1><p>このChapterからちょっとずつ楽しいことができるようになってきます。今回はアニメーション作成の基本となる<em>setup</em>関数と<em>draw</em>関数について解説していきます。</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P5 Code School Chapter5「setup()とdraw()」</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="4" data-next="6"><h1>setup()とdraw()</h1><p>このChapterからちょっとずつ楽しいことができるようになってきます。今回はアニメーション作成の基本となる<em>setup</em>関数と<em>draw</em>関数について解説していきます。</p>
 <h2>setup()、draw()の役割</h2><p>とりあえず以下のプログラムを動かしてみてください。まだ理解できなくても大丈夫です。マウスの位置に半透明の円が連続して描画されることを確認してください。</p>
 <p><img src="/images/Chapter5/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter5/sketch01/sketch01.pde' target='_blank'>Chapter5/sketch01.pde</a></p>
@@ -58,7 +44,7 @@
 }
 </code></pre>
 <p><em>setup()</em>と<em>draw()</em>がどんな関数でどんな役割があるのかを解説します。<em>setup()</em>と<em>draw()</em>もこれまでに使ってきた<em>size()</em>や<em>fill()</em>などと同じで、 Processing側が元々用意してくれている関数です。<em>setup()</em>と<em>draw()</em>が他の関数と違うのは、中身の処理が具体的に定義されていないというところです。 なので<em>setup()</em>と<em>draw()</em>を使う場合はこちら側が中身の処理を書いて<em>setup()</em>と<em>draw()</em>を定義しなおします。</p>
-<p><code class='codeFragment'>void setup() {
+<p><code class='code-fragment'>void setup() {
   // 中身の処理
 } void draw() {
   // 中身の処理
@@ -151,7 +137,7 @@
 </code></pre>
 <p>HSBカラーモードにして、<em>setup</em>関数の上で<em>int</em>型変数の<em>hue</em>を初期化しています。<em>draw</em>関数内で<em>hue</em>の値を1ずつ足していき、0から360間で値を循環させています。このように<em>draw</em>関数内で継続的に値を更新したりする変数は<em>setup</em>関数と<em>draw</em>関数の外側で宣言する必要があります。変数<em>hue</em>を<em>setup</em>関数内で宣言しても<em>draw</em>関数では使えませんし、<em>draw</em>関数内で宣言すると<em>draw</em>関数が実行される度に値がリセットされてしまうので継続的に値を更新することができません。</p>
 <h2>乱数</h2><p>プログラムで乱数(ランダムな値)を作る<em>random</em>関数を紹介します。使い方は次の2通りです。</p>
-<dl class="p5Functions">
+<dl class="p5-functions">
   <dt><a href='https://www.processing.org/reference/random_.html' target='_blank'>random(high)</a></dt>
   <dd>0以上high未満のランダムな値を作る</dd>
   <dt><a href='https://www.processing.org/reference/random_.html' target='_blank'>random(row, high)</a></dt>
@@ -176,24 +162,15 @@
 </code></pre>
 <p><em>random()</em>を使うとこういう予測不可能な表現が簡単に作れます。色々な値をランダムにして遊んでみてください。</p>
 <p>お疲れさまでした。Chapter5はこれで終了です。</p>
-
-  </div>
-  
-    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
-    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
-</div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>

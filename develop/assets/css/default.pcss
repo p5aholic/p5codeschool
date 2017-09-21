@@ -1,0 +1,31 @@
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.05em;
+  color: $main-gray;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin: 0;
+  @media (--sp) {
+    font-size: 1.4rem;
+  }
+}
+
+a {
+  color: $main-pink;
+  text-decoration: none;
+  &:hover {
+    color: $main-pink;
+    border-bottom: 1px solid $main-pink;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

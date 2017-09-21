@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  
-  <title>P5 Code School Chapter7「繰り返し」</title>
-  <meta name="description" content="ゼロから学べるProcessing入門サイト">
-
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
-<body>
-<div id="BgCanvasContainer"></div>
-<div class="pageContainer">
-
-<header class="header">
-  <div class="inner">
-    <h1 class="header__siteTitle">
-      <a href="/" class="no-transition">p5 code school</a>
-    </h1>
-    
-    <nav>
-      <ul class="mainNavigation">
-        <li>
-          <a href="/tutorial/" class="no-transition">Tutorials</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<main class="mainContents" id="contentsWrapper">
-  
-  <div class="article-container" data-prev="6" data-next="8">
-    <h1>繰り返し</h1><h2>whileループ</h2><p>とりあえず次のプログラムを実行してみてください。</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>P5 Code School Chapter7「繰り返し」</title>
+    <meta name="description" content="ゼロから学べるProcessing入門サイト">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <div class="inner">
+          <h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1>
+          <nav>
+            <ul class="site-navigation">
+              <li><a class="no-transition" href="/tutorial/">Tutorials</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main-contents" id="contentsWrapper">
+        <div class="article-container" data-prev="6" data-next="8"><h1>繰り返し</h1><h2>whileループ</h2><p>とりあえず次のプログラムを実行してみてください。</p>
 <p><img src="/images/Chapter7/sketch01.jpg" alt=""></p>
 <p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter7/sketch01/sketch01.pde' target='_blank'>Chapter7/sketch01.pde</a></p>
 <pre><code class="lang-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
@@ -59,14 +45,14 @@
 </code></pre>
 <p>全部で51本の線が描画されていますが、プログラム内にline()関数は１つしか書いていません。繰り返し文を使うとこのように何度も繰り返したい文を簡単に書くことができます。</p>
 <p>繰り返し文にはwhileループとforループがあります。while文による繰り返しは次のようにして書くことができます。</p>
-<p><code class='codeFragment'>while (条件式) {
+<p><code class='code-fragment'>while (条件式) {
   // 繰り返したい処理
 }</code></p>
 <p>if文とかなり似ていますが、while文は条件式が真の間ブロック{}で囲んだ中の処理が繰り返し実行されます。条件式が偽になるとループを抜けます。 whileループによるプログラムの実行過程を図示すると次のようになります。</p>
 <p><img src="/images/Chapter7/WhileLoop.jpg" alt=""></p>
 <p>上のプログラムでは、まずループ回数のカウント用変数iを宣言しています。 while文の条件式にi &lt;= 50、while文のブロック内でi++としているので、一回のループごとにiが1ずつ足されていき、iが51になるまでブロック内の処理が繰り返されます。i = 0からi = 50までのループなので、総ループ数は51回になります。iはline()の１つ目のパラメータにも使います。i * (width / 50)とすることで横幅を50等分した間隔で線を描画できます。</p>
 <h2>forループ</h2><p>for文による繰り返し文の書き方を解説していきます。for文は以下のように書きます。</p>
-<p><code class='codeFragment'>for (初期化; 条件式; 更新) {
+<p><code class='code-fragment'>for (初期化; 条件式; 更新) {
   // 繰り返したい処理
 }</code></p>
 <p>for文の()内に書く初期化は、for文の実行時に1度だけ実行されます。ループの度に実行されるわけではありません。次の条件式はwhile文と同じで、この条件式が真の間ループが続きます。最後の更新は1ループが終わるごとに実行されます。forループによるプログラムの実行過程を図示すると次のようになります。</p>
@@ -281,24 +267,15 @@
 </code></pre>
 <p>長方形の角の座標は、左上の角(x*boxW, y*boxH)、右下の角(x*boxW+boxW, y*boxH+boxH) のように表せるので、この範囲にマウスがあるかどうかをif文で判定しています。</p>
 <p>お疲れさまでした。Chapter7はこれで終了です。</p>
-
-  </div>
-  
-    <a href="" class="chapter-link chapter-link-prev" data-type="prev"></a>
-    <a href="" class="chapter-link chapter-link-next" data-type="next"></a>
-  
-</main>
-
-<footer class="footer">
-  <div class="inner">
-    <p class="copyright">&copy P5 Code School 2017</p>
-  </div>
-</footer>
-
-
-</div>
-<script src="/assets/js/vendor.js"></script>
-<script src="/assets/js/bundle.js"></script>
-
-</body>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a>
+      </main>
+      <footer class="footer">
+        <div class="inner">
+          <p class="copyright">&copy; P5 Code School 2017</p>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/bundle.js"></script>
+  </body>
 </html>
