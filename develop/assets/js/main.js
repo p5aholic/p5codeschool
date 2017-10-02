@@ -1,6 +1,6 @@
 'use strict';
 
-import Device from 'Device';
+import UserEnv from 'UserEnv';
 import PageAnimation from './PageAnimation/';
 
 $(function() {

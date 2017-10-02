@@ -4,7 +4,7 @@ import UAParser from 'ua-parser-js';
 
 let instance = null;
 
-export default class Device {
+export default class UserEnv {
   constructor() {
     if (!instance) instance = this;
 
@@ -19,27 +19,27 @@ export default class Device {
   }
 
   static getInstance() {
-    if (!instance) instance = new Device();
+    if (!instance) instance = new UserEnv();
     return instance;
   }
 
   static get isPC() {
-    return Device.getInstance().isPC;
+    return UserEnv.getInstance().isPC;
   }
   static get isTablet() {
-    return Device.getInstance().isTablet;
+    return UserEnv.getInstance().isTablet;
   }
   static get isSP() {
-    return Device.getInstance().isSP;
+    return UserEnv.getInstance().isSP;
   }
   static get isIos() {
-    return Device.getInstance().isIos;
+    return UserEnv.getInstance().isIos;
   }
   static get isAndroid() {
-    return Device.getInstance().isAndroid;
+    return UserEnv.getInstance().isAndroid;
   }
   static get isIE() {
-    return Device.getInstance().isIE;
+    return UserEnv.getInstance().isIE;
   }
 
   get isPC() {
