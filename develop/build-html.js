@@ -43,6 +43,40 @@ renderer.codespan = function(text) {
 };
 
 
+// watch
+if (process.argv[2] && process.argv[2] === '-w') {
+  console.log('**************************');
+  console.log('***** watching files *****');
+  console.log('**************************');
+  fs.watch('./docs', (eventType, filename) => {
+    if (filename) {
+      logChangedFile(filename);
+      mdToHTML(filename);
+    }
+  });
+
+  fs.watch('./html_template/index_article.pug', (eventType, filename) => {
+    if (filename) {
+      logChangedFile(filename);
+      generateArticle();
+    }
+  });
+
+  fs.watch('./html_template/index_tutorial.pug', (eventType, filename) => {
+    if (filename) {
+      logChangedFile(filename);
+      generateTutorial();
+    }
+  });
+}
+
+function logChangedFile(filename) {
+  console.log('-------------------------------');
+  console.log(`Change : ${filename}`);
+  console.log('-------------------------------');
+}
+
+
 // generate html
 generateArticle();
 generateTutorial();
@@ -50,8 +84,8 @@ generateTutorial();
 function generateArticle() {
   const files = fs.readdirSync('./docs');
   for (let i = 0; i < files.length; i++) {
-    const fileName = files[i];
-    mdToHTML(fileName);
+    const filename = files[i];
+    mdToHTML(filename);
   }
 }
 
@@ -62,7 +96,7 @@ function generateTutorial() {
     pretty: true
   });
   fs.writeFileSync(`../public/tutorial/index.html`, html);
-  console.log(`generate : ../public/tutorial/index.html`);
+  console.log(`Generate : public/tutorial/index.html`);
 }
 
 function mdToHTML(fileName) {
@@ -94,5 +128,5 @@ function mdToHTML(fileName) {
     pretty: true
   });
   fs.writeFileSync(`../public${dir}/index.html`, html);
-  console.log(`generate : ../public${dir}/index.html`);
+  console.log(`Generate : public${dir}/index.html`);
 }
