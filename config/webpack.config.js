@@ -7,7 +7,6 @@ const MODULES_PARH = path.resolve(__dirname, "../node_modules");
 
 module.exports = {
   entry: {
-    vendor: ["jquery"],
     main: DEVELOP_PATH + "/assets/js/main.js"
   },
 
@@ -40,14 +39,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      filename: "vendor.js"
-    }),
-    // new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin()
   ]
 };

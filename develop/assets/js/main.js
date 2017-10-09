@@ -3,17 +3,31 @@
 import UserEnv from 'UserEnv';
 import PageAnimation from './PageAnimation/';
 
-$(function() {
+document.addEventListener('DOMContentLoaded', ()=> {
   setChapterLink();
 });
 
 export function setChapterLink() {
-  const prevChap = parseInt($('.article-container').attr('data-prev'));
-  const nextChap = parseInt($('.article-container').attr('data-next'));
+  const container = document.querySelector('.article-container');
+  const prevLink = document.querySelector('.chapter-link-prev');
+  const nextLink = document.querySelector('.chapter-link-next');
 
-  if (prevChap === -1) $('.chapter-link-prev').addClass('off');
-  else $('.chapter-link-prev').removeClass('off').attr('href', `/tutorial/chapter${prevChap}/`);
+  if (!prevLink || !nextLink) return;
 
-  if (nextChap === -1) $('.chapter-link-next').addClass('off');
-  else $('.chapter-link-next').removeClass('off').attr('href', `/tutorial/chapter${nextChap}/`)
+  const prevChap = parseInt( container.getAttribute('data-prev') );
+  const nextChap = parseInt( container.getAttribute('data-next') );
+
+  if (prevChap === -1) {
+    prevLink.classList.add('off');
+  } else {
+    prevLink.classList.remove('off');
+    prevLink.setAttribute('href', `/tutorial/chapter${prevChap}/`);
+  }
+
+  if (nextChap === -1) {
+    nextLink.classList.add('off');
+  } else {
+    nextLink.classList.remove('off');
+    nextLink.setAttribute('href', `/tutorial/chapter${nextChap}/`);
+  }
 }
