@@ -34,12 +34,12 @@
     "postcss-simple-vars": "^4.1.0",
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",
-    "webpack": "^3.6.0"
+    "webpack": "^3.8.1"
   },
   "dependencies": {
     "barba.js": "^1.0.0",
     "gsap": "^1.20.3",
     "normalize.css": "^7.0.0",
-    "ua-parser-js": "^0.7.14"
+    "ua-parser-js": "^0.7.17"
   }
 }
