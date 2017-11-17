@@ -93,7 +93,7 @@ function generateTutorial() {
   const html = pug.renderFile('./html_template/index_tutorial.pug', {
     title: 'チュートリアル一覧 : P5 Code School',
     data: jsonData,
-    pretty: true
+    pretty: false
   });
   fs.writeFileSync(`../public/tutorial/index.html`, html);
   console.log(`Generate : public/tutorial/index.html`);
@@ -125,7 +125,7 @@ function mdToHTML(fileName) {
     article: article,
     data: jsonData,
     chapterNum: chapterNum,
-    pretty: true
+    pretty: false
   });
   fs.writeFileSync(`../public${dir}/index.html`, html);
   console.log(`Generate : public${dir}/index.html`);
