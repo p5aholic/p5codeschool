@@ -17,29 +17,29 @@
   "author": "@P5Aholic",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
-    "browser-sync": "^2.18.13",
-    "csswring": "^6.0.2",
+    "browser-sync": "^2.23.6",
+    "csswring": "^6.0.3",
     "highlight.js": "^9.12.0",
     "jstransformer-markdown-it": "^2.0.0",
-    "marked": "^0.3.7",
-    "postcss-cli": "^4.1.1",
+    "marked": "^0.3.14",
+    "postcss-cli": "^5.0.0",
     "postcss-custom-media": "^6.0.0",
-    "postcss-import": "^11.0.0",
+    "postcss-import": "^11.1.0",
     "postcss-media-minmax": "^3.0.0",
-    "postcss-nested": "^2.1.2",
+    "postcss-nested": "^3.0.0",
     "postcss-simple-vars": "^4.1.0",
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",
-    "webpack": "^3.10.0"
+    "webpack": "^3.11.0"
   },
   "dependencies": {
     "barba.js": "^1.0.0",
-    "gsap": "^1.20.3",
-    "normalize.css": "^7.0.0",
+    "gsap": "^1.20.4",
+    "normalize.css": "^8.0.0",
     "ua-parser-js": "^0.7.17"
   }
 }
