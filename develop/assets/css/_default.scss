@@ -25,9 +25,3 @@ a {
     border-bottom: 1px solid $main-pink;
   }
 }
-
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-}

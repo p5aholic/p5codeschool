@@ -1,24 +1,15 @@
 .chapter-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 20px;
-  font-size: 0;
   .item {
-    display: inline-block;
-    vertical-align: top;
-    width: calc(33.3333% - 21px);
-    margin-right: 30px;
+    display: block;
+    width: 30%;
     margin-bottom: 30px;
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
     @include mq-small {
-      width: calc(50% - 9px);
-      margin-right: 16px;
-      &:nth-child(3n) {
-        margin-right: 16px;
-      }
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
+      width: 46%;
+      margin-bottom: 10px;
     }
   }
   .title {
