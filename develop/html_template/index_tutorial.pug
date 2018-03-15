@@ -18,8 +18,9 @@ html(lang="ja")
           ul.chapter-list
             - for (var i = 0; i < data.tutorials.length; i++)
               li.item
-                h3.title
-                  a.no-transition(href="chapter" + data.tutorials[i].number + "/") Chapter #{data.tutorials[i].number}
+                h3.heading
+                  a.no-transition(href="chapter" + data.tutorials[i].number + "/")
+                    span.text Chapter #{data.tutorials[i].number}
                 p.sub-title #{data.tutorials[i].subTitle}
                 p.description #{data.tutorials[i].description}
       include ./common/footer.pug
