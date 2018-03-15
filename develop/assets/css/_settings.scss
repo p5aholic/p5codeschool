@@ -1,0 +1,24 @@
+$articleWidth: 900px;
+$sidePadding: 15px;
+
+$main-gray: #161616;
+$main-blue: #287bcd;
+$main-pink: #cd0055;
+
+@mixin mq-large {
+  @media (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin mq-medium {
+  @media (min-width: 640px) and (max-width: 959px) {
+    @content;
+  }
+}
+
+@mixin mq-small {
+  @media (max-width: 639px) {
+    @content;
+  }
+}

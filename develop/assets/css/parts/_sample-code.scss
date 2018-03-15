@@ -12,7 +12,7 @@ pre {
   }
 }
 
-@media (--sp) {
+@include mq-small {
 
 pre {
   code.lang-processing {

@@ -43,7 +43,7 @@
   }
 }
 
-@media (--sp) {
+@include mq-small {
 
 .chapter-link {
   position: absolute;

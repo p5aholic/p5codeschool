@@ -31,7 +31,7 @@
   }
 }
 
-@media (--sp) {
+@include mq-small {
 
 .header {
   .inner {

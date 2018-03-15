@@ -8,7 +8,7 @@
   white-space: pre-wrap;
 }
 
-@media (--sp) {
+@include mq-small {
 
 .code-fragment {
   font-size: 1.4rem;

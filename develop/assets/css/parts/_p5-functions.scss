@@ -30,7 +30,7 @@
   }
 }
 
-@media (--sp) {
+@include mq-small {
 
 .p5-functions {
   dt {

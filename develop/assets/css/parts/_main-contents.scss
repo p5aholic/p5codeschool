@@ -31,7 +31,7 @@
   }
 }
 
-@media (--pc) {
+@include mq-large {
 
 .main-contents {
   padding: 100px $sidePadding 80px;
@@ -43,7 +43,7 @@ img {
 
 }
 
-@media (--sp) {
+@include mq-small {
 
 .main-contents {
   h1 {

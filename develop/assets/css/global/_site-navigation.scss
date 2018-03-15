@@ -20,7 +20,7 @@
   }
 }
 
-@media (--sp) {
+@include mq-small {
 
 .site-navigation {
   justify-content: center;

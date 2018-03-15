@@ -1,6 +1,8 @@
 body {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "palt" 1;
   letter-spacing: 0.05em;
   color: $main-gray;
@@ -10,7 +12,7 @@ p {
   font-size: 1.6rem;
   line-height: 1.8;
   margin: 0;
-  @media (--sp) {
+  @include mq-small {
     font-size: 1.4rem;
   }
 }

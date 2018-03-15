@@ -10,7 +10,7 @@
     &:nth-child(3n) {
       margin-right: 0;
     }
-    @include lt-640 {
+    @include mq-small {
       width: calc(50% - 9px);
       margin-right: 16px;
       &:nth-child(3n) {
@@ -41,7 +41,7 @@
         text-decoration: none;
         border: none;
       }
-      @include lt-640 {
+      @include mq-small {
         font-size: 1.8rem;
       }
     }
@@ -57,7 +57,7 @@
       border-right: 2px solid #fff;
       transform: rotateZ(45deg);
       transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-      @include lt-640 {
+      @include mq-small {
         top: 10px;
         right: 20px;
         border-top: 1px solid #fff;
@@ -73,14 +73,14 @@
     line-height: 1.4;
     padding: 0 10px;
     margin-bottom: 8px;
-    @include lt-640 {
+    @include mq-small {
       padding: 0 5px;
     }
   }
   .description {
     line-height: 1.4;
     padding: 0 10px;
-    @include lt-640 {
+    @include mq-small {
       padding: 0 5px;
     }
   }
