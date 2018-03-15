@@ -12,7 +12,7 @@ const dstFile = path.resolve(__dirname, '../../public/assets/css/style.css');
 const renderCss = () => {
   sass.render({
     file: srcFile,
-    outputStyle: 'expanded',
+    outputStyle: process.argv[2] === '-prd' ? 'compressed' : 'expanded',
     outFile: dstFile,
     includePaths: [path.resolve(__dirname, '../assets/css'), path.resolve(__dirname, '../../node_modules/normalize.css')]
   }, (error, result) => {

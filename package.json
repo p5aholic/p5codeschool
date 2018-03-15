@@ -6,13 +6,16 @@
     "start": "npm run server & npm run watch",
     "server": "browser-sync start -c ./config/bs.config.js",
     "build": "npm run build:html && npm run build:css && npm run build:js",
+    "build:prd": "npm run build:html && npm run build:css:prd && npm run build:js:prd",
     "watch": "npm run watch:html & npm run watch:css & npm run watch:js",
     "build:html": "cd develop && node ./scripts/build-html.js",
     "watch:html": "cd develop && node ./scripts/build-html.js -w",
     "build:css": "node ./develop/scripts/build-css.js",
+    "build:css:prd": "node ./develop/scripts/build-css.js -prd",
     "watch:css": "node ./develop/scripts/build-css.js -w",
-    "build:js": "webpack --config ./config/webpack.config.js",
-    "watch:js": "webpack --config ./config/webpack.config.js -w"
+    "build:js": "webpack --mode development --config ./config/webpack.config.js",
+    "build:js:prd": "webpack --mode production --config ./config/webpack.config.js",
+    "watch:js": "webpack --mode development --config ./config/webpack.config.js -w"
   },
   "author": "@P5Aholic",
   "license": "ISC",
@@ -34,7 +37,8 @@
     "postcss": "^6.0.19",
     "pug": "^2.0.1",
     "pug-cli": "^1.0.0-alpha6",
-    "webpack": "^3.11.0"
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
   },
   "dependencies": {
     "barba.js": "^1.0.0",
