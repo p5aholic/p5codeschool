@@ -20,9 +20,13 @@
   "author": "@P5Aholic",
   "license": "ISC",
   "browserslist": [
-    "last 2 versions",
-    "Android >= 5",
-    "iOS >= 10"
+    "last 2 Chrome version",
+    "last 2 Firefox version",
+    "last 2 Safari version",
+    "last 2 Edge version",
+    "last 2 ChromeAndroid version",
+    "last 2 iOS version",
+    ">= 5%"
   ],
   "devDependencies": {
     "autoprefixer": "^8.3.0",
