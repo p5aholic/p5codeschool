@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>P5 Code School Chapter8「関数」</title><meta name="description" content="ゼロから学べるProcessing入門サイト"><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,700" rel="stylesheet"><link href="/assets/css/style.css" rel="stylesheet"></head><body><div class="page-container"><header class="header"><div class="inner"><h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1><nav><ul class="site-navigation"><li><a class="no-transition" href="/tutorial/">Tutorials</a></li></ul></nav></div></header><main class="main-contents" id="contentsWrapper"><div class="article-container" data-prev="7" data-next="9"><h1>関数</h1><p>このChapterではProcessingに標準で備わっている便利な関数を紹介し、関数の自作方法も解説します。</p>
+<h2>計算関数</h2><p>Processingに標準で備わっている様々な計算をしてくれる関数を紹介します。</p>
+<dl class="p5-functions">
+  <dt>[abs(n)](p5ref:abs_.html)</dt>
+  <dd>nの絶対値を返す</dd>
+
+  <dt>[round(n)](p5ref:round_.html)</dt>
+  <dd>nの小数点以下を四捨五入した整数を返す</dd>
+
+  <dt>[ceil(n)](p5ref:ceil_.html)</dt>
+  <dd>nの小数点以下を切り上げた整数を返す</dd>
+
+  <dt>[floor(n)](p5ref:floor_.html)</dt>
+  <dd>nの小数点以下を切り下げた整数を返す</dd>
+
+  <dt>[min(a, b, [c])](p5ref:min_.html)</dt>
+  <dd>与えられた引数の最小値を返す</dd>
+
+  <dt>[max(a, b, [c])](p5ref:max_.html)</dt>
+  <dd>与えられた引数の最大値を返す</dd>
+
+  <dt>[constrain(value, low, high)](p5ref:constrain_.html)</dt>
+  <dd>valueの値をlow～highに制限した値を返す</dd>
+
+  <dt>[map(value, start1, stop1, start2, stop2)](p5ref:map_.html)</dt>
+  <dd>start1～stop1の範囲にあるvalueをstart2～stop2の範囲にある数値にしたものを返す</dd>
+
+  <dt>[norm(value, start, stop)](p5ref:norm_.html)</dt>
+  <dd>start～stopの範囲にあるvalueを0～1の範囲にある数値にしたものを返す</dd>
+
+  <dt>[lerp(start, stop, amt)](p5ref:lerp_.html)</dt>
+  <dd>startからstopまでをamt(0～1)で線形補間した値を返す</dd>
+
+  <dt>[mag(x, y, [z])](p5ref:mag_.html)</dt>
+  <dd>原点から座標(x, y, [z])までの長さを返す</dd>
+
+  <dt>[dist(x1, y1, [z1], x2, y2, [z2])](p5ref:dist_.html)</dt>
+  <dd>２点間の距離を返す</dd>
+
+  <dt>[pow(n, e)](p5ref:pow_.html)</dt>
+  <dd>nのe乗を返す</dd>
+
+  <dt>[sq(n)](p5ref:sq_.html)</dt>
+  <dd>nの2乗を返す</dd>
+
+  <dt>[sqrt(n)](p5ref:sqrt_.html)</dt>
+  <dd>nの平方根(ルート)を返す</dd>
+
+  <dt>[exp(n)](p5ref:exp_.html)</dt>
+  <dd>自然対数の低eのn乗を返す</dd>
+
+  <dt>[log(n)](p5ref:log_.html)</dt>
+  <dd>nの自然対数を返す</dd>
+</dl>
+
+<p>上記の関数の中からこれからよく使うであろうconstrain関数とdist関数、map関数を使ったプログラムを紹介します。</p>
+<p>constrain関数は変数の取りうる値の範囲を制限することができます。1つ目のパラメータに制限の対象となる変数を、2つ目と3つ目のパラメータに変数を制限する範囲の最小値と最大値を与えます。constrain関数は、変数が最小値未満なら最小値を、最大値より大きいなら最大値を、最小値～最大値の間にあれば変数の値をそのまま返します。つまり変数が最小値～最大値の間で収まるように制限しているわけです。次のプログラムでは変数aを0～100の間に制限しています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch01/sketch01.pde' target='_blank'>Chapter8/sketch01.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-built_in">int</span> a;
+a = <span class="hljs-number">50</span>;
+a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// aに50を代入</span>
+<span class="hljs-built_in">println</span>(a);
+a = <span class="hljs-number">-10</span>;
+a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// aに0を代入</span>
+<span class="hljs-built_in">println</span>(a);
+a = <span class="hljs-number">200</span>;
+a = <span class="hljs-built_in">constrain</span>(a, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// aに100を代入</span>
+<span class="hljs-built_in">println</span>(a);</code></pre>
+<p>関数には結果の値を返す関数と返さない関数があります。fill()やstrokeWeight()などは値を返さない関数で、constrain関数は結果として値を返す関数です。 Chapter2で</p>
+<p><code class='code-fragment'>arc(88, 175, 100, 100, radians(45), radians(315));</code></p>
+<p>のようにarc関数の5つ目と6つ目のパラメータにradians関数を使っていたのを思い出してください。radians関数も結果としてラジアンを返す関数です。arc関数の5つ目と6つ目のパラメータにはradians関数によって返された値を指定していたわけです。上のプログラムでは</p>
+<p><code class='code-fragment'>a = constrain(a, 0, 100);</code></p>
+<p>と代入文を書くことで変数aにconstrain関数が返した値を代入しています。</p>
+<p><code class='code-fragment'>constrain(a, 0, 100);</code></p>
+<p>と書いただけでは変数aの値が変わらないことに注意してください。</p>
+<p>次のプログラムはマウスの位置にrect関数で箱を表示していますが、箱の座標をconstrain関数で制限することで檻の外に出られないようにしています。</p>
+<p><img src="/images/Chapter8/sketch02.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch02/sketch02.pde' target='_blank'>Chapter8/sketch02.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-built_in">int</span> x, y, <span class="hljs-built_in">size</span>; <span class="hljs-comment">// 箱の座標と大きさ</span>
+<span class="hljs-built_in">int</span> cageSize;   <span class="hljs-comment">// 檻の大きさ</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">rectMode</span>(CENTER);
+  x = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
+  y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>;
+  <span class="hljs-built_in">size</span> = <span class="hljs-number">60</span>;
+  cageSize = <span class="hljs-number">200</span>;
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">128</span>);
+
+  <span class="hljs-comment">// 檻を描画</span>
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-built_in">noFill</span>();
+  <span class="hljs-built_in">rect</span>(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, cageSize, cageSize);
+
+  <span class="hljs-comment">// マウスの座標を檻の中の範囲に制限した値を箱の座標とする</span>
+  x = <span class="hljs-built_in">constrain</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>-cageSize/<span class="hljs-number">2</span>+<span class="hljs-built_in">size</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>+cageSize/<span class="hljs-number">2</span>-<span class="hljs-built_in">size</span>/<span class="hljs-number">2</span>);
+  y = <span class="hljs-built_in">constrain</span>(<span class="hljs-built_in">mouseY</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>-cageSize/<span class="hljs-number">2</span>+<span class="hljs-built_in">size</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>+cageSize/<span class="hljs-number">2</span>-<span class="hljs-built_in">size</span>/<span class="hljs-number">2</span>);
+
+  <span class="hljs-comment">// 箱を描画</span>
+  <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">rect</span>(x, y, <span class="hljs-built_in">size</span>, <span class="hljs-built_in">size</span>);
+}</code></pre>
+<p>dist関数の使い方を解説していきます。dist関数は2点間の距離を計算して返す関数です。dist関数が返す値の型はfloatなのでfloat型の変数に代入しなければいけません。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch03/sketch03.pde' target='_blank'>Chapter8/sketch03.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-comment">// 座標(0, 0)と座標(3, 4)の距離を計算</span>
+<span class="hljs-built_in">float</span> d1 = <span class="hljs-built_in">dist</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>);
+<span class="hljs-built_in">println</span>(d1); <span class="hljs-comment">// 出力 : 5.0</span>
+
+<span class="hljs-comment">// 座標(20, 40)と座標(80, 120)の距離を計算</span>
+<span class="hljs-built_in">float</span> d2 = <span class="hljs-built_in">dist</span>(<span class="hljs-number">20</span>, <span class="hljs-number">40</span>, <span class="hljs-number">80</span>, <span class="hljs-number">120</span>);
+<span class="hljs-built_in">println</span>(d2); <span class="hljs-comment">// 出力 : 100.0</span></code></pre>
+<p>dist関数を使うと円とマウスの接触判定ができるようになります。円の中心からマウスまでの距離がd、円の半径がrとするとd &lt;= rのときマウスは円内にあります。</p>
+<p><img src="/images/Chapter8/sketch04.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch04/sketch04.pde' target='_blank'>Chapter8/sketch04.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-built_in">int</span> x, y, diameter; <span class="hljs-comment">// 円の座標と直径</span>
+<span class="hljs-built_in">color</span> c1, c2;       <span class="hljs-comment">// 円の色と線の色</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  x = <span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>;
+  y = <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>;
+  diameter = <span class="hljs-number">150</span>;
+  c1 = <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>);
+  c2 = <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">128</span>);
+
+  <span class="hljs-comment">// 円の中心座標とマウス座標の距離を計算</span>
+  <span class="hljs-built_in">float</span> d = <span class="hljs-built_in">dist</span>(x, y, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-comment">// マウスが円内にあるとき</span>
+  <span class="hljs-keyword">if</span> (d &lt;= diameter/<span class="hljs-number">2</span>) {
+    c1 = <span class="hljs-built_in">color</span>(<span class="hljs-number">255</span>);
+    c2 = <span class="hljs-built_in">color</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  } <span class="hljs-keyword">else</span> {
+    c1 = <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>);
+    c2 = <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>);
+  }
+
+  <span class="hljs-comment">// 円</span>
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-built_in">fill</span>(c1);
+  <span class="hljs-built_in">ellipse</span>(x, y, diameter, diameter);
+  <span class="hljs-comment">// 線</span>
+  <span class="hljs-built_in">stroke</span>(c2);
+  <span class="hljs-built_in">line</span>(x, y, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+}</code></pre>
+<p>map関数はある範囲にある値から別の範囲の数値を作りたいときに便利です。言葉で説明してもわかりにくいので次のプログラムを見てください。マウスがウィンドウの右端にあるほど縦線の太さが太く、下端にあるほど横線の太さが太くなります。</p>
+<p><img src="/images/Chapter8/sketch05.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch06/sketch05.pde' target='_blank'>Chapter8/sketch05.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-comment">// マウスのx座標を縦線の太さに変換</span>
+  <span class="hljs-built_in">int</span> xWeight = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-number">1</span>, <span class="hljs-number">50</span>);
+  <span class="hljs-comment">// マウスのy座標を横線の太さに変換</span>
+  <span class="hljs-built_in">int</span> yWeight = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">map</span>(<span class="hljs-built_in">mouseY</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">height</span>, <span class="hljs-number">1</span>, <span class="hljs-number">50</span>);
+
+  <span class="hljs-built_in">strokeWeight</span>(xWeight);
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-built_in">width</span>; x += <span class="hljs-number">50</span>) {
+    <span class="hljs-built_in">line</span>(x, <span class="hljs-number">0</span>, x, <span class="hljs-built_in">height</span>);
+  }
+  <span class="hljs-built_in">strokeWeight</span>(yWeight);
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> y = <span class="hljs-number">0</span>; y &lt;= <span class="hljs-built_in">height</span>; y += <span class="hljs-number">50</span>) {
+    <span class="hljs-built_in">line</span>(<span class="hljs-number">0</span>, y, <span class="hljs-built_in">width</span>, y);
+  }
+}</code></pre>
+<p>map関数の1つ目のパラメータには変換の対象となる変数、2つ目と3つ目のパラメータにはその変数の最小値と最大値、4つ目と5つ目のパラメータには変換後の値の最小値と最大値を指定します。上のプログラムでは次のようにしてマウスの座標から線の太さの値を作っています。</p>
+<p><code class='code-fragment'>int xWeight = (int)map(mouseX, 0, width, 1, 50);</code></p>
+<p>こうすると、mouseXが0のときはmap()は1を返し、mouseXがwidthのときは50を返してくれます。map()はfloat型を返すのでint型変数に代入するときは(int)もしくはint()で型変換をします。</p>
+<h2>関数を作る理由</h2><p>関数は一部の機能をまとめたパーツのようなものです。パーツ(関数)を色々組み合わせて使うことでプログラムが出来上がります。今まで使ってきたline()やfill()、radians()などはProcessingの土台のプログラムで定義されている関数です。今まで当然のようにline()と書くだけで線を描くことができましたが、 実はプログラムでコンピュータのディスプレイ上に線を描いたり色を指定したりするのは簡単なことではありません。多くの煩雑な処理をしないとディスプレイに図形を描画することはできないんです。Processingの土台のプログラム側がそういった煩雑な処理を担ってくれているので、私たちユーザー側はline()と１行書くだけで線を描画できるわけです。もしProcessing側にline関数が定義されていなければ、私たちユーザー側は線を書くたびにとても煩雑な処理をプログラムする必要がありますし、radians関数が定義されていなければ、度数をラジアンに変換するたびに自分で変換計算式を書かなければいけません。とても面倒です。これはProcessing開発者側が関数を作る理由です。プログラミングに慣れてきて色々なコードを書くようになると、私たちユーザー側も関数を作る必要性が出てきます。</p>
+<h2>関数の作り方</h2><p>関数は以下のようにして作ることができます。</p>
+<p><code class='code-fragment'>データ型 関数名() {
+  // 中身の処理
+  return 値;
+}
+データ型 関数名(仮引数1, 仮引数2, ...) {
+  // 中身の処理
+  return 値;
+}</code></p>
+<p>関数名の前にはその関数が結果として返す値のデータ型(int、float、color...)を書きます。その後、関数名に続いて丸カッコ、丸カッコのあとに波カッコでブロックを作り、ブロック内にその関数の中身の処理を書きます。関数から結果を返すにはreturnと書いたあとに返す値を書きます。これをreturn文と呼びます。丸カッコの中にはその関数のパラメータを好きなだけ書くことができます。パラメータの１つ１つは仮引数(かりひきすう)と呼ばれます。例えばline関数は４つの仮引数を持つように定義されています。仮引数は無くてもいいです。noFill()やnoStroke()は仮引数を持たない関数です。</p>
+<p>Processingの土台のプログラムで定義されているconstrain関数を自作してみました。名前はmyConstrainにしています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch06/sketch06.pde' target='_blank'>Chapter8/sketch06.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-comment">// 関数は定義した行より前でも使える</span>
+  <span class="hljs-built_in">int</span> a = myConstrain(<span class="hljs-number">-10</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+  <span class="hljs-built_in">println</span>(a); <span class="hljs-comment">// 0</span>
+  a = myConstrain(<span class="hljs-number">50</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+  <span class="hljs-built_in">println</span>(a); <span class="hljs-comment">// 50</span>
+  a = myConstrain(<span class="hljs-number">300</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>);
+  <span class="hljs-built_in">println</span>(a); <span class="hljs-comment">// 100;</span>
+}
+
+<span class="hljs-comment">// ここから</span>
+<span class="hljs-built_in">int</span> myConstrain(<span class="hljs-built_in">int</span> value, <span class="hljs-built_in">int</span> low, <span class="hljs-built_in">int</span> high) {
+  <span class="hljs-comment">// low未満ならlowを返す</span>
+  <span class="hljs-keyword">if</span> (value &lt; low) {
+    <span class="hljs-keyword">return</span> low;
+  }
+  <span class="hljs-comment">// highより大きいならhighを返す</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &gt; high) {
+    <span class="hljs-keyword">return</span> high;
+  }
+  <span class="hljs-comment">// 間ならvalueをそのまま返す</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> value;
+}
+<span class="hljs-comment">// ここまでが関数定義</span></code></pre>
+<p>myConstrain関数はint型の値を返すので関数名の前にintを、丸カッコ内には3つの仮引数value, low, highを書きます。仮引数に用いる変数は通常の変数の宣言と同じように書き、複数ある場合はコンマで区切ります。関数の中身ではif文を使ってvalueがどの範囲にあるのかを調べてそれぞれの分岐先でreturn文で結果を返しています。このようにreturn文は関数内にいくつでも書けます。</p>
+<p>ここまでが関数定義です。関数を定義する位置はどこでも大丈夫です。setup()の下側で定義しても上側で定義してもいいです。書いたプログラムは基本的に上から下に実行されますが、関数定義をした行より前の行でもその関数を使えます。</p>
+<p>setup関数内でmyConstrain関数を使った時のプログラムの実行過程を追ってみます。関数定義に書く丸カッコ内の変数のことを仮引数と呼びます。対して、関数を使う時に丸カッコ内に書くパラメータのことは実引数と言います。</p>
+<p><code class='code-fragment'>int a = myConstrain(-10, 0, 100);</code></p>
+<p>上でいうと-10や0、100が実引数です。関数を呼び出すとプログラムの処理がsetup関数内からmyConstrain関数内に移ります。</p>
+<p><code class='code-fragment'>int a = myConstrain(-10, 0, 100);</code></p>
+<p>と書いた場合は仮引数のvalueに-10が、lowに0が、highに100がセットされmyConstrain関数が実行されます。その結果myConstrain関数はreturn文でlowを結果として返します。関数内でreturn文が実行されるとプログラムの処理が呼び出し側のsetup関数内に戻り変数aにmyConstrain関数が返したlowが代入されます。</p>
+<p>さらに具体例を紹介していきます。円を2つ配置して、マウスが円内にある時は円の色をランダムに切り替えています。マウスが円内にあるかどうかを確かめる処理をmouseOver関数にまとめました。mouseOver関数には円の座標と半径をパラメータとして渡します。mouseOver関数はboolean型を返すので、if(mouseOver())と書くことで場合わけができます。</p>
+<p><img src="/images/Chapter8/sketch07.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch07/sketch07.pde' target='_blank'>Chapter8/sketch07.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-built_in">int</span> x1, y1, radius1; <span class="hljs-comment">// 左の円の座標と半径</span>
+<span class="hljs-built_in">int</span> x2, y2, radius2; <span class="hljs-comment">// 右の円の座標と半径</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-comment">// 左の円の座標と半径を設定</span>
+  x1 = <span class="hljs-number">150</span>;
+  y1 = <span class="hljs-number">100</span>;
+  radius1 = <span class="hljs-number">100</span>;
+  <span class="hljs-comment">// 右の円の座標と半径を設定</span>
+  x2 = <span class="hljs-number">450</span>;
+  y2 = <span class="hljs-number">200</span>;
+  radius2 = <span class="hljs-number">50</span>;
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-comment">// マウスと左の円が重なっているとき</span>
+  <span class="hljs-keyword">if</span> (mouseOver(x1, y1, radius1)) {
+    <span class="hljs-built_in">fill</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+  <span class="hljs-comment">// 重なっていないとき</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">ellipse</span>(x1, y1, radius1*<span class="hljs-number">2</span>, radius1*<span class="hljs-number">2</span>);
+
+  <span class="hljs-comment">// マウスと右の円が重なっているとき</span>
+  <span class="hljs-keyword">if</span> (mouseOver(x2, y2, radius2)) {
+    <span class="hljs-built_in">fill</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+  <span class="hljs-comment">// 重なっていないとき</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">ellipse</span>(x2, y2, radius2*<span class="hljs-number">2</span>, radius2*<span class="hljs-number">2</span>);
+}
+
+<span class="hljs-comment">// マウスと円が重なっているか調べる関数</span>
+<span class="hljs-built_in">boolean</span> mouseOver(<span class="hljs-built_in">int</span> x, <span class="hljs-built_in">int</span> y, <span class="hljs-built_in">int</span> radius) {
+  <span class="hljs-comment">// 距離を計算</span>
+  <span class="hljs-built_in">float</span> <span class="hljs-built_in">dist</span> = <span class="hljs-built_in">dist</span>(x, y, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-comment">// 重なっていればtrueを返す</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">dist</span> &lt;= radius) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  }
+  <span class="hljs-comment">// 重なっていなければfalseを返す</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}</code></pre>
+<p>mouseOver関数は次のように書くこともできます。</p>
+<pre><code class="language-processing"><span class="hljs-built_in">boolean</span> mouseOver(<span class="hljs-built_in">int</span> x, <span class="hljs-built_in">int</span> y, <span class="hljs-built_in">int</span> radius) {
+  <span class="hljs-built_in">float</span> <span class="hljs-built_in">dist</span> = <span class="hljs-built_in">dist</span>(x, y, <span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>);
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">dist</span> &lt;= radius) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}</code></pre>
+<p>else文を省いて直接</p>
+<p><code class='code-fragment'>return false;</code></p>
+<p>としています。myConstrain関数の説明の時も言ったように、関数内でreturn文が実行されるとその時点で関数内での処理が終了し、関数の呼び出し側に処理が移ります。mouseOver関数でreturn trueが実行されたらその時点でmouseOver関数の処理が終了するわけです。if文でマウスが円内にあると判定されなければ当然return falseが実行されるので、else文があるときと全く同じ動きになります。</p>
+<p>関数には値を返す関数と返さない関数があると言いました。値を返さない関数は次のようにして作ることができます。</p>
+<p><code class='code-fragment'>void 関数名() {
+  // 中身の処理
+}
+void 関数名(仮引数1, 仮引数2, ...) {
+  // 中身の処理
+}</code></p>
+<p>値を返す関数は関数名の前に返す値のデータ型を書きますが、値を返さない関数はvoidと書きます。ちなみにvoidは「空の～」とか「空虚な～」なんて意味の英語です。値を返さない関数には当たり前ですがreturn文は必要ありません。</p>
+<p>値を返さない関数の例として顔を描くface関数を作ってみました。 face関数には顔を描く座標と顔の大きさをパラメータとして渡します。</p>
+<p><img src="/images/Chapter8/sketch08.jpg" alt=""></p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch08/sketch08.pde' target='_blank'>Chapter8/sketch08.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+  <span class="hljs-comment">// 1秒間に1回実行</span>
+  <span class="hljs-built_in">frameRate</span>(<span class="hljs-number">1</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-comment">// 顔を描く</span>
+  face((<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-built_in">width</span>), (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-built_in">height</span>), (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>, <span class="hljs-number">100</span>));
+}
+
+<span class="hljs-comment">// 顔を描く関数</span>
+<span class="hljs-keyword">void</span> face(<span class="hljs-built_in">int</span> x, <span class="hljs-built_in">int</span> y, <span class="hljs-built_in">int</span> <span class="hljs-built_in">size</span>) {
+  <span class="hljs-built_in">strokeWeight</span>(<span class="hljs-number">2</span>);
+  <span class="hljs-built_in">stroke</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-built_in">noFill</span>();
+  <span class="hljs-comment">// 輪郭</span>
+  <span class="hljs-built_in">ellipse</span>(x, y, <span class="hljs-built_in">size</span>, <span class="hljs-built_in">size</span>);
+  <span class="hljs-comment">// 左目</span>
+  <span class="hljs-built_in">ellipse</span>(x-<span class="hljs-built_in">size</span>/<span class="hljs-number">4</span>, y-<span class="hljs-built_in">size</span>/<span class="hljs-number">4</span>, <span class="hljs-built_in">size</span>/<span class="hljs-number">5</span>, <span class="hljs-built_in">size</span>/<span class="hljs-number">5</span>);
+  <span class="hljs-comment">// 右目</span>
+  <span class="hljs-built_in">ellipse</span>(x+<span class="hljs-built_in">size</span>/<span class="hljs-number">4</span>, y-<span class="hljs-built_in">size</span>/<span class="hljs-number">4</span>, <span class="hljs-built_in">size</span>/<span class="hljs-number">5</span>, <span class="hljs-built_in">size</span>/<span class="hljs-number">5</span>);
+  <span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);
+  <span class="hljs-comment">// 口</span>
+  <span class="hljs-built_in">ellipse</span>(x, y+<span class="hljs-built_in">size</span>/<span class="hljs-number">4</span>, <span class="hljs-built_in">size</span>/<span class="hljs-number">3</span>, <span class="hljs-built_in">size</span>/<span class="hljs-number">3</span>);
+}</code></pre>
+<p>関数定義で関数名の前にintやfloatなどのデータ型を書いた関数は値を返す関数になりますが、値を返す関数は必ず何かしらの値を返さなければいけません。関数内で条件分岐によって返す値を場合わけするときには注意が必要です。次のプログラムのtest1関数は変数rが1未満の場合のみtrueを返すようになっていますが、このプログラムを実行すると、「この関数はboolean型の値を返さなければいけません」という意味のエラーが出ます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch09/sketch09.pde' target='_blank'>Chapter8/sketch09.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">boolean</span> b = test1();
+  <span class="hljs-built_in">println</span>(b);
+}
+
+<span class="hljs-built_in">boolean</span> test1() {
+  <span class="hljs-built_in">int</span> r = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-keyword">if</span> (r &lt; <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  }
+}</code></pre>
+<p>このエラーはもっとわかりやすく言うと「この関数は値を返さない場合があります」ということになります。値を返す関数は必ず何かしらの値を返す必要があります。test1関数はif文に当てはまった場合のみしかreturn文を実行しないので、当てはまらなかった場合は何も返しません。エラーはこれのせいで出ています。test1関数を次のようにしても、同じエラーが出ます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch10/sketch10.pde' target='_blank'>Chapter8/sketch10.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">boolean</span> b = test2();
+  <span class="hljs-built_in">println</span>(b);
+}
+
+<span class="hljs-built_in">boolean</span> test2() {
+  <span class="hljs-built_in">int</span> r = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-keyword">if</span> (r &lt; <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (r &gt;= <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+  }
+}</code></pre>
+<p>else if文を追加して、rが1以上のときはfalseを返すようにしましたが、これでもエラーが出ます。「rは1未満か1以上のどちらかなんだから絶対にtrueかfalseを返すじゃん？」と思うかもしれませんが、エラーを発見してくれるプログラムはそこまで賢くなくて、if文の中身までは見てくれません。test2関数の場合if文にもelse if文にもあてはまらずに何も値を返さない可能性があるとみなされてしまいエラーが出ます。エラーが出ないようにするには次のようにします。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter8/sketch11/sketch11.pde' target='_blank'>Chapter8/sketch11.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">boolean</span> b = test3();
+  <span class="hljs-built_in">println</span>(b);
+}
+
+<span class="hljs-built_in">boolean</span> test3() {
+  <span class="hljs-built_in">int</span> r = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">5</span>);
+  <span class="hljs-keyword">if</span> (r &lt; <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+}</code></pre>
+<p>この場合if文に当てはまらなければ必ずelse文でfalseが返されるのでエラーは出ません。</p>
+<p>お疲れさまでした。Chapter8はこれで終了です。</p>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a></main><footer class="footer"><div class="inner"><p class="copyright">&copy; P5 Code School 2017</p></div></footer></div><script src="/assets/js/bundle.js"></script></body></html>

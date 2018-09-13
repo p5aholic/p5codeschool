@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>P5 Code School Chapter15「クラス基礎 Part3」</title><meta name="description" content="ゼロから学べるProcessing入門サイト"><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,700" rel="stylesheet"><link href="/assets/css/style.css" rel="stylesheet"></head><body><div class="page-container"><header class="header"><div class="inner"><h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1><nav><ul class="site-navigation"><li><a class="no-transition" href="/tutorial/">Tutorials</a></li></ul></nav></div></header><main class="main-contents" id="contentsWrapper"><div class="article-container" data-prev="14" data-next="-1"><h1>クラス基礎 Part3</h1><h2>クラス型配列</h2><p>配列のことを思い出してみます。要素数100個のint型配列dataを作るには次のようにしていました。</p>
+<p><code class='code-fragment'>int[] data = new int[100];</code></p>
+<p>dataのような配列変数も参照型変数です。言語仕様として配列を表す仮想的なクラスがあり、new データ型[要素数]と書くことでその仮想的な配列クラスのインスタンスが生成され、dataのような変数にはそのインスタンスへの参照が代入されます。配列を表す仮想的なクラスがあることと、dataが参照型変数であることの証明として、配列の要素数を表すフィールド、lengthがあります。lengthは配列の仮想クラスに定義されているフィールドです。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch01/sketch01.pde' target='_blank'>Chapter15/sketch01.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-built_in">int</span>[] data = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-number">50</span>];  <span class="hljs-comment">// 配列の宣言と代入</span>
+<span class="hljs-built_in">println</span>(data.length);      <span class="hljs-comment">// dataの要素数を出力</span>
+<span class="hljs-comment">// dataの要素に値を入れる</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; data.length; i++) {
+  data[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-built_in">height</span>);
+}
+<span class="hljs-built_in">println</span>(data);</code></pre>
+<p>dataはint型の要素を持つint型配列ですが、次のようにしてクラスのインスタンスを持つクラス型配列というものを作ることができます。</p>
+<p><code class='code-fragment'>クラス名[] 配列変数名 = new クラス名[要素数];</code></p>
+<p>次のプログラムでは、100個のBallクラスのインスタンスを持つ配列を作って画面内に100個のボールを描画しています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch02/sketch02.pde' target='_blank'>Chapter15/sketch02.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-comment">// 要素数１００個のBallクラス型配列ballsを生成</span>
+Ball[] balls = <span class="hljs-keyword">new</span> Ball[<span class="hljs-number">100</span>];
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+
+  <span class="hljs-comment">// ballsの要素のBallクラス型オブジェクトを生成</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; balls.length; i++) {
+    balls[i] = <span class="hljs-keyword">new</span> Ball();
+  }
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-comment">// ballsの要素全てに対してupdateメソッドとdisplayメソッドを実行</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; balls.length; i++) {
+    balls[i].update();
+    balls[i].display();
+  }
+}
+
+class Ball {
+  <span class="hljs-comment">// フィールド</span>
+  <span class="hljs-built_in">float</span> x, y;
+  <span class="hljs-built_in">float</span> vx, vy;
+  <span class="hljs-built_in">int</span> radius;
+  <span class="hljs-built_in">color</span> c;
+
+  <span class="hljs-comment">// コンストラクタ</span>
+  Ball() {
+    radius = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x = <span class="hljs-built_in">random</span>(radius, <span class="hljs-built_in">width</span>-radius);
+    y = <span class="hljs-built_in">random</span>(radius, <span class="hljs-built_in">height</span>-radius);
+    vx = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+
+  <span class="hljs-comment">// メソッド</span>
+  <span class="hljs-keyword">void</span> update() {
+    x += vx;
+    y += vy;
+    <span class="hljs-keyword">if</span> (x-radius &lt;= <span class="hljs-number">0</span> || x+radius &gt;= <span class="hljs-built_in">width</span>) {
+      vx *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-keyword">if</span> (y-radius &lt;= <span class="hljs-number">0</span> || y+radius &gt;= <span class="hljs-built_in">height</span>) {
+      vy *= <span class="hljs-number">-1</span>;
+    }
+  }
+
+  <span class="hljs-keyword">void</span> display() {
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c);
+    <span class="hljs-built_in">ellipse</span>(x, y, <span class="hljs-number">2</span>*radius, <span class="hljs-number">2</span>*radius);
+  }
+}</code></pre>
+<p>次のように書いてBallクラスのインスタンスを要素とするBallクラス型配列を要素数100個で生成しています。</p>
+<p><code class='code-fragment'>Ball[] balls = new Ball[100];</code></p>
+<p>注意が必要なのは、この時点ではBallクラス型配列を生成しただけで、個々の要素となるBallクラスのインスタンスは生成していないということです。配列ballsの個々の要素となるインスタンスは次のようにして生成します。</p>
+<p><code class='code-fragment'>for (int i = 0; i &lt; balls.length; i++) {
+  balls[i] = new Ball();
+}</code></p>
+<p>クラスを使わない場合のプログラムと比較してみると、setup関数とdraw関数の中がスッキリして非常に見やすいプログラムになっていることがわかると思います。</p>
+<pre><code class="language-processing"><span class="hljs-built_in">int</span> numBalls = <span class="hljs-number">100</span>; <span class="hljs-comment">// ボールの数</span>
+<span class="hljs-built_in">float</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// x座標の配列</span>
+<span class="hljs-built_in">float</span>[] y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls];  <span class="hljs-comment">// y座標の配列</span>
+<span class="hljs-built_in">float</span>[] vx = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// x軸方向の速度の配列</span>
+<span class="hljs-built_in">float</span>[] vy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">float</span>[numBalls]; <span class="hljs-comment">// y軸方向の速度の配列</span>
+<span class="hljs-built_in">int</span>[] radius = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[numBalls]; <span class="hljs-comment">// 半径の配列</span>
+<span class="hljs-built_in">color</span>[] c = <span class="hljs-keyword">new</span> <span class="hljs-built_in">color</span>[numBalls];  <span class="hljs-comment">// 色の配列</span>
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 初期値を設定</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    radius[i] = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    x[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">width</span>-radius[i]);
+    y[i] = <span class="hljs-built_in">random</span>(radius[i], <span class="hljs-built_in">height</span>-radius[i]);
+    vx[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    vy[i] = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    c[i] = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; numBalls; i++) {
+    <span class="hljs-comment">// ボールの位置を更新</span>
+    x[i] += vx[i];
+    y[i] += vy[i];
+    <span class="hljs-comment">// 左右の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (x[i]-radius[i] &lt;= <span class="hljs-number">0</span> || x[i]+radius[i] &gt;= <span class="hljs-built_in">width</span>) {
+      vx[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// 上下の壁との当たり判定</span>
+    <span class="hljs-keyword">if</span> (y[i]-radius[i] &lt;= <span class="hljs-number">0</span> || y[i]+radius[i] &gt;= <span class="hljs-built_in">height</span>) {
+      vy[i] *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-comment">// ボールを描画</span>
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c[i]);
+    <span class="hljs-built_in">ellipse</span>(x[i], y[i], <span class="hljs-number">2</span>*radius[i], <span class="hljs-number">2</span>*radius[i]);
+  }
+}</code></pre>
+<h2>this参照</h2><p>仮引数を持つコンストラクタによるフィールドの代入処理を思い出してください。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter16/sketch07/sketch07.pde' target='_blank'>Chapter14/sketch07.pde</a></p>
+<pre><code class="language-processing">Ball b1, b2, b3;
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 実引数ありのコンストラクタを呼び出す</span>
+  <span class="hljs-comment">// 赤</span>
+  b1 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">280</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
+  <span class="hljs-comment">// 青</span>
+  b2 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">480</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>));
+  <span class="hljs-comment">// 緑</span>
+  b3 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">680</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>));
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-comment">// b1を描画</span>
+  <span class="hljs-built_in">fill</span>(b1.c);
+  <span class="hljs-built_in">ellipse</span>(b1.x, b1.y, b1.radius*<span class="hljs-number">2</span>, b1.radius*<span class="hljs-number">2</span>);
+  <span class="hljs-comment">// b2を描画</span>
+  <span class="hljs-built_in">fill</span>(b2.c);
+  <span class="hljs-built_in">ellipse</span>(b2.x, b2.y, b2.radius*<span class="hljs-number">2</span>, b2.radius*<span class="hljs-number">2</span>);
+  <span class="hljs-comment">// b3を描画</span>
+  <span class="hljs-built_in">fill</span>(b3.c);
+  <span class="hljs-built_in">ellipse</span>(b3.x, b3.y, b3.radius*<span class="hljs-number">2</span>, b3.radius*<span class="hljs-number">2</span>);
+}
+
+class Ball {
+  <span class="hljs-comment">// フィールド</span>
+  <span class="hljs-built_in">float</span> x, y;
+  <span class="hljs-built_in">int</span> radius;
+  <span class="hljs-built_in">color</span> c;
+
+  <span class="hljs-comment">// 仮引数を持つコンストラクタ</span>
+  Ball(<span class="hljs-built_in">float</span> bx, <span class="hljs-built_in">float</span> by, <span class="hljs-built_in">int</span> rad, <span class="hljs-built_in">color</span> bc) {
+    <span class="hljs-comment">// 仮引数に対応するフィールドに代入を行う</span>
+    x = bx;
+    y = by;
+    radius = rad;
+    c = bc;
+  }
+}</code></pre>
+<p>フィールドxには仮引数bx、フィールドcには仮引数bcのように対応付けて代入をしていました。bxやbcのbはballのbのつもりです。実は、仮引数の変数名をフィールドと同じ変数名にする方法があります。ここで一つルールを紹介します。次のプログラムを実行してみてください。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch03/sketch03.pde' target='_blank'>Chapter15/sketch03.pde</a></p>
+<pre><code class="language-processing">Ball b1;
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  b1 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">40</span>, <span class="hljs-number">50</span>);
+}
+
+class Ball {
+  <span class="hljs-built_in">float</span> x = <span class="hljs-number">10</span>, y = <span class="hljs-number">20</span>;
+
+  Ball(<span class="hljs-built_in">float</span> x, <span class="hljs-built_in">float</span> y) {
+    <span class="hljs-comment">// xを出力</span>
+    <span class="hljs-built_in">println</span>(x);
+    <span class="hljs-comment">// yを出力</span>
+    <span class="hljs-built_in">println</span>(y);
+  }
+}</code></pre>
+<p>コンストラクタ内でxとyの値を出力していますが、このとき40と50が出力されます。つまり、クラス内に書かれたフィールドx、yよりも、コンストラクタの仮引数であるx、yが出力されていることになります。コンストラクタの仮引数がフィールドと同名の変数だった場合、フィールドよりもそれらが優先されるというルールがあるからです。このルールがわかったところで、次のプログラムを見てください。コンストラクタの仮引数にフィールドと同じ名前の変数名を使っていますが、this参照と呼ばれるものを使ってフィールドと仮引数の区別をしています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch04/sketch04.pde' target='_blank'>Chapter15/sketch04.pde</a></p>
+<pre><code class="language-processing">Ball b1, b2, b3;
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 実引数ありのコンストラクタを呼び出す</span>
+  <span class="hljs-comment">// 赤</span>
+  b1 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">280</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>));
+  <span class="hljs-comment">// 青</span>
+  b2 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">480</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>));
+  <span class="hljs-comment">// 緑</span>
+  b3 = <span class="hljs-keyword">new</span> Ball(<span class="hljs-number">680</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">color</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>));
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-comment">// b1を描画</span>
+  <span class="hljs-built_in">fill</span>(b1.c);
+  <span class="hljs-built_in">ellipse</span>(b1.x, b1.y, b1.radius*<span class="hljs-number">2</span>, b1.radius*<span class="hljs-number">2</span>);
+  <span class="hljs-comment">// b2を描画</span>
+  <span class="hljs-built_in">fill</span>(b2.c);
+  <span class="hljs-built_in">ellipse</span>(b2.x, b2.y, b2.radius*<span class="hljs-number">2</span>, b2.radius*<span class="hljs-number">2</span>);
+  <span class="hljs-comment">// b3を描画</span>
+  <span class="hljs-built_in">fill</span>(b3.c);
+  <span class="hljs-built_in">ellipse</span>(b3.x, b3.y, b3.radius*<span class="hljs-number">2</span>, b3.radius*<span class="hljs-number">2</span>);
+}
+
+class Ball {
+  <span class="hljs-comment">// フィールド</span>
+  <span class="hljs-built_in">float</span> x, y;
+  <span class="hljs-built_in">int</span> radius;
+  <span class="hljs-built_in">color</span> c;
+
+  <span class="hljs-comment">// コンストラクタ</span>
+  Ball(<span class="hljs-built_in">float</span> x, <span class="hljs-built_in">float</span> y, <span class="hljs-built_in">int</span> radius, <span class="hljs-built_in">color</span> c) {
+    <span class="hljs-comment">// this参照を明示的に使う</span>
+    <span class="hljs-keyword">this</span>.x = x;
+    <span class="hljs-keyword">this</span>.y = y;
+    <span class="hljs-keyword">this</span>.radius = radius;
+    <span class="hljs-keyword">this</span>.c = c;
+  }
+}</code></pre>
+<p>this参照について詳しく解説します。上のプログラムで</p>
+<p><code class='code-fragment'>this.x</code></p>
+<p>という表現をしています。この表現は</p>
+<p><code class='code-fragment'>参照型変数.フィールド</code></p>
+<p>の形になっているので、thisは参照型変数であることがわかります。そして、コンストラクタ内でthisを使った場合、thisには生成中のインスタンスへの参照が代入されます。</p>
+<p><code class='code-fragment'>b1 = new Ball(200, height/2, 60, color(0, 0, 180));</code></p>
+<p>を実行すると、まず、new Ball()によってBallクラスのインスタンスが生成されます。次にBall()コンストラクタの実行に移るのですが、その際、thisにnew Ball()によって生成されたインスタンスへの参照が代入されます。すると、this.xは生成されたインスタンスが持つフィールドxを表し、ただのxは仮引数のxのことになります。こうすることで、コンストラクタの仮引数にフィールドと同じ変数名を使っても区別することができるのです。</p>
+<p>このthis参照は、コンストラクタだけでなくメソッドでも有効です。次のプログラムでは、座標をセットするsetPositionメソッドの仮引数にフィールドと同じ名前の変数名を使いthis参照により、フィールドと仮引数の区別をしています。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch05/sketch05.pde' target='_blank'>Chapter15/sketch05.pde</a></p>
+<pre><code class="language-processing">Ball b1 = <span class="hljs-keyword">new</span> Ball();
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+  <span class="hljs-comment">// 座標をセット</span>
+  b1.setPosition(<span class="hljs-built_in">width</span>/<span class="hljs-number">2</span>, <span class="hljs-built_in">height</span>/<span class="hljs-number">2</span>);
+}
+
+class Ball {
+  <span class="hljs-built_in">float</span> x, y;
+  <span class="hljs-built_in">int</span> radius;
+  <span class="hljs-built_in">color</span> c;
+
+  Ball() {
+  }
+
+  <span class="hljs-comment">// 座標をセットするメソッド</span>
+  <span class="hljs-keyword">void</span> setPosition(<span class="hljs-built_in">float</span> x, <span class="hljs-built_in">float</span> y) {
+    <span class="hljs-keyword">this</span>.x = x;
+    <span class="hljs-keyword">this</span>.y = y;
+  }
+}</code></pre>
+<p>コンストラクタ内でthis参照を使った場合は生成したインスタンスへの参照がthisに代入されていましたが、メソッド内でthis参照を使った場合は、呼び出した参照型変数に代入されている参照がthisに代入されて実行されます。例えばb1.setPosition()を実行するとsetPosition()内のthisにはb1の参照が代入されます。</p>
+<p>実は、コンストラクタやメソッドの仮引数にフィールドと同じ変数名を使わなかった場合、コンストラクタ内やメソッド内で使われるフィールドの前には暗黙的にthis.が付けられていると解釈されて実行されます。そしてそのthisには、コンストラクタなら生成したインスタンスへの参照が、メソッドなら呼び出した参照型変数に代入されている参照が代入されて実行されていたわけです。コンストラクタやメソッドの仮引数にフィールドと同じ変数名を使わない場合はthis.は省略可能なので今まで書きませんでしたが、以下のように明示的に書くこともできます。</p>
+<p><a href='https://github.com/p5aholic/p5codeschool-samples/tree/master/Chapter15/sketch06/sketch06.pde' target='_blank'>Chapter15/sketch06.pde</a></p>
+<pre><code class="language-processing"><span class="hljs-comment">// 要素数１００個のBallクラス型配列ballsを生成</span>
+Ball[] balls = <span class="hljs-keyword">new</span> Ball[<span class="hljs-number">100</span>];
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);
+
+  <span class="hljs-comment">// ballsの要素のBallクラス型オブジェクトを生成</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; balls.length; i++) {
+    balls[i] = <span class="hljs-keyword">new</span> Ball();
+  }
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+
+  <span class="hljs-comment">// ballsの要素全てに対してupdateメソッドとdisplayメソッドを実行</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; balls.length; i++) {
+    balls[i].update();
+    balls[i].display();
+  }
+}
+
+class Ball {
+  <span class="hljs-comment">// フィールド</span>
+  <span class="hljs-built_in">float</span> x, y;
+  <span class="hljs-built_in">float</span> vx, vy;
+  <span class="hljs-built_in">int</span> radius;
+  <span class="hljs-built_in">color</span> c;
+
+  <span class="hljs-comment">// コンストラクタ</span>
+  Ball() {
+    <span class="hljs-keyword">this</span>.radius = (<span class="hljs-built_in">int</span>)<span class="hljs-built_in">random</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+    <span class="hljs-keyword">this</span>.x = <span class="hljs-built_in">random</span>(<span class="hljs-keyword">this</span>.radius, <span class="hljs-built_in">width</span>-<span class="hljs-keyword">this</span>.radius);
+    <span class="hljs-keyword">this</span>.y = <span class="hljs-built_in">random</span>(<span class="hljs-keyword">this</span>.radius, <span class="hljs-built_in">height</span>-<span class="hljs-keyword">this</span>.radius);
+    <span class="hljs-keyword">this</span>.vx = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    <span class="hljs-keyword">this</span>.vy = <span class="hljs-built_in">random</span>(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>);
+    <span class="hljs-keyword">this</span>.c = <span class="hljs-built_in">color</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  }
+
+  <span class="hljs-comment">// メソッド</span>
+  <span class="hljs-keyword">void</span> update() {
+    <span class="hljs-keyword">this</span>.x += <span class="hljs-keyword">this</span>.vx;
+    <span class="hljs-keyword">this</span>.y += <span class="hljs-keyword">this</span>.vy;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.x-<span class="hljs-keyword">this</span>.radius &lt;= <span class="hljs-number">0</span> || <span class="hljs-keyword">this</span>.x+<span class="hljs-keyword">this</span>.radius &gt;= <span class="hljs-built_in">width</span>) {
+      <span class="hljs-keyword">this</span>.vx *= <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.y-radius &lt;= <span class="hljs-number">0</span> || <span class="hljs-keyword">this</span>.y+<span class="hljs-keyword">this</span>.radius &gt;= <span class="hljs-built_in">height</span>) {
+      <span class="hljs-keyword">this</span>.vy *= <span class="hljs-number">-1</span>;
+    }
+  }
+
+  <span class="hljs-keyword">void</span> display() {
+    <span class="hljs-built_in">noStroke</span>();
+    <span class="hljs-built_in">fill</span>(c);
+    <span class="hljs-built_in">ellipse</span>(x, y, <span class="hljs-number">2</span>*radius, <span class="hljs-number">2</span>*radius);
+  }
+}</code></pre>
+<p>お疲れさまでした。これで今の段階で必要なクラスの知識は一通り解説しました。クラスにはまだまだ色んな機能があるのですが、それは追々解説します。</p>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a></main><footer class="footer"><div class="inner"><p class="copyright">&copy; P5 Code School 2017</p></div></footer></div><script src="/assets/js/bundle.js"></script></body></html>

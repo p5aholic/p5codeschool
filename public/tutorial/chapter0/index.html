@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>P5 Code School Chapter0「開発環境の設定」</title><meta name="description" content="ゼロから学べるProcessing入門サイト"><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,700" rel="stylesheet"><link href="/assets/css/style.css" rel="stylesheet"></head><body><div class="page-container"><header class="header"><div class="inner"><h1 class="site-title"><a class="no-transition" href="/">p5 code school</a></h1><nav><ul class="site-navigation"><li><a class="no-transition" href="/tutorial/">Tutorials</a></li></ul></nav></div></header><main class="main-contents" id="contentsWrapper"><div class="article-container" data-prev="-1" data-next="1"><h1>開発環境の設定</h1><p>Processingに限らず、何かのプログラミング言語を学習するにはその言語の開発環境を整える必要があります。中にはかなり面倒くさい手順を踏む必要のある言語もありますが、Processingはとても簡単です。まずは下記ページからProcessingをダウンロードしてください。</p>
+<p><a href='https://www.processing.org/download/' target='_blank'>Processing公式 - ダウンロード</a></p>
+<p>最初に寄付するかどうか選択肢があるので&quot;No Donation&quot;を選んで&quot;Download&quot;に進み、自分のOSに合った最新バージョンのProcessingをダウンロードしてください。</p>
+<p>・Windows<br/>
+ダウンロードしたzipファイルを解凍すると&quot;processing-####(####はバージョンを表す数字)&quot;というフォルダができます。その中の&quot;processing.exe&quot;がProcessingの実行ファイルになります。&quot;processing-####&quot;フォルダは基本的にどこにあっても構いません。好きな場所に保存しておいてください。実行ファイルを開くとProcessingがスタートします。</p>
+<p>・Mac<br/>
+ダウンロードした&quot;Processing.app&quot;をアプリケーションフォルダに移動させます。ProcessingアイコンをダブルクリックするとProcessingがスタートします。</p>
+<p>起動させたProcessingに下のソースコードをコピペしてください。</p>
+<pre><code class="language-processing"><span class="hljs-comment">// プログラム開始時に一度だけ実行される処理</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-number">960</span>, <span class="hljs-number">540</span>);  <span class="hljs-comment">// 画面サイズを設定</span>
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>); <span class="hljs-comment">// 背景色を設定</span>
+}
+
+<span class="hljs-comment">// setup()実行後に繰り返し実行される処理</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>() {
+  <span class="hljs-comment">// 図形の輪郭線を消す</span>
+  <span class="hljs-built_in">noStroke</span>();
+  <span class="hljs-comment">// 白黒のランダムな色を設定</span>
+  <span class="hljs-built_in">fill</span>(<span class="hljs-built_in">random</span>(<span class="hljs-number">255</span>));
+  <span class="hljs-comment">// マウスの位置にランダムな大きさの楕円を描く</span>
+  <span class="hljs-built_in">ellipse</span>(<span class="hljs-built_in">mouseX</span>, <span class="hljs-built_in">mouseY</span>, <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>), <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>));
+}</code></pre>
+<p>右向き三角形のボタンがプログラム実行ボタンです。実行してみてください。マウスの位置に白黒の楕円が次々と表示されはずです。プログラムを終了する場合は、実行した時に出てきたウィンドウのXボタンか、実行ボタンの右隣の停止ボタンで終了させます。</p>
+<p>これがProcessingの開発環境(PDE：Processing Development Environment)になります。真ん中の白い画面にプログラムを打ち込んで、実行ボタンでプログラムを動かします。</p>
+<p>PDEを新規に立ち上げると、sketch_####(####は英数字)という仮の名前が割り振られます。保存する時に任意の名前が付けられます。ProcessingでったプログラムはPC上のどこにでも保存可能です。</p>
+<p>エディターで使用する言語を日本語に変える場合は[File]-[Preferences]の上から２番目の&quot;Language&quot;から日本語を選択してください。</p>
+<p>以上で開発環境の設定は終了です。まだ触れていないPDEの機能や設定がありますが、この先必要に応じて解説します。</p>
+</div><a class="chapter-link chapter-link-prev" href="" data-type="prev"></a><a class="chapter-link chapter-link-next" href="" data-type="next"></a></main><footer class="footer"><div class="inner"><p class="copyright">&copy; P5 Code School 2017</p></div></footer></div><script src="/assets/js/bundle.js"></script></body></html>
