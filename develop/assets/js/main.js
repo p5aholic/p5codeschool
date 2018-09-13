@@ -1,6 +1,5 @@
 'use strict';
 
-import UserEnv from 'UserEnv';
 import PageAnimation from './PageAnimation/';
 
 document.addEventListener('DOMContentLoaded', ()=> {

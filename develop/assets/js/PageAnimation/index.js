@@ -1,7 +1,8 @@
 import Barba from 'barba.js';
-import TweenLite from 'TweenLite';
-import CSSPlugin from 'gsap.plugins/CSSPlugin.js';
+import { TweenMax, Power2, CSSPlugin } from 'gsap/TweenMax';
 import { setChapterLink } from '../main.js';
+
+const plugings = [ CSSPlugin ];
 
 Barba.Pjax.Dom.wrapperId = 'contentsWrapper';
 Barba.Pjax.Dom.containerClass = 'article-container';
@@ -24,10 +25,10 @@ const FadeInOutTransition = Barba.BaseTransition.extend({
   fadeOut: function() {
     const deferred = Barba.Utils.deferred();
 
-    TweenLite.to(this.oldContainer, 0.3, {
+    TweenMax.to(this.oldContainer, 0.3, {
       opacity: 0,
       x: -40 * this.direction,
-      ease: Power1.easeIn,
+      ease: Power2.easeIn,
       onComplete: () => {
         window.scroll(0, 0);
         deferred.resolve();
@@ -41,7 +42,7 @@ const FadeInOutTransition = Barba.BaseTransition.extend({
     this.done();
     setChapterLink();
 
-    TweenLite.fromTo(this.newContainer, 0.3,
+    TweenMax.fromTo(this.newContainer, 0.3,
       {
         opacity: 0,
         x: 40 * this.direction
@@ -49,7 +50,7 @@ const FadeInOutTransition = Barba.BaseTransition.extend({
       {
         opacity: 1,
         x: 0,
-        ease: Power1.easeOut,
+        ease: Power2.easeOut,
       }
     );
   },

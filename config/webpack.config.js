@@ -19,13 +19,7 @@ module.exports = {
     modules: [
       DEVELOP_PATH + '/assets/js/_libs/',
       MODULES_PARH
-    ],
-    alias: {
-      'TweenLite': 'gsap/src/uncompressed/TweenLite.js',
-      'TweenMax': 'gsap/src/uncompressed/TweenMax.js',
-      'gsap.easing': 'gsap/src/uncompressed/EasePack.js',
-      'gsap.plugins': 'gsap/src/uncompressed/plugins/'
-    }
+    ]
   },
 
   module: {
