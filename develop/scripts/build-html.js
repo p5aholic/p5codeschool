@@ -1,10 +1,11 @@
 'use strict';
 
-const fs     = require('fs');
-const path   = require('path');
-const pug    = require('pug');
-const marked = require('marked');
-const hljs   = require('highlight.js');
+const fs      = require('fs');
+const path    = require('path');
+const pug     = require('pug');
+const marked  = require('marked');
+const makeDir = require('make-dir');
+const hljs    = require('highlight.js');
 
 const jsonData = JSON.parse(fs.readFileSync('./data.json'));
 const renderer = new marked.Renderer();
@@ -89,17 +90,20 @@ function generateArticle() {
   }
 }
 
-function generateTutorial() {
+async function generateTutorial() {
   const html = pug.renderFile('./html_template/index_tutorial.pug', {
     title: 'チュートリアル一覧 : P5 Code School',
     data: jsonData,
     pretty: false
   });
+
+  await makeDir('../public/tutorial');
+
   fs.writeFileSync(`../public/tutorial/index.html`, html);
   console.log(`Generate : public/tutorial/index.html`);
 }
 
-function mdToHTML(fileName) {
+async function mdToHTML(fileName) {
   // get markdown
   const md = fs.readFileSync('./docs/' + fileName, 'utf8');
   // get html
@@ -127,6 +131,9 @@ function mdToHTML(fileName) {
     chapterNum: chapterNum,
     pretty: false
   });
+
+  await makeDir(`../public${dir}`);
+
   fs.writeFileSync(`../public${dir}/index.html`, html);
   console.log(`Generate : public${dir}/index.html`);
 }
